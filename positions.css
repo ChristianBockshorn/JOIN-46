@@ -18,13 +18,10 @@
     justify-content: space-between;
 }
 
-.ai-center{
-    align-items: center;
-}
-
-.form-lines {
+.form-lines{
     display: flex;
-    gap: 20px;
+    width: 422px;
+    gap: 32px;
 }
 
 .ta-center {
@@ -38,4 +35,8 @@
     align-items: center;
     text-align: center;
     min-height: 100vh;
-}
+  }
+
+  .d-none{
+    display: none;
+  }

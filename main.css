@@ -3,6 +3,7 @@ body{
     background-color: #F6F7F8;
     font-family: Inter;
     box-sizing: border-box;
+    font-size: 16px;
 }
 
 h1{
@@ -11,11 +12,19 @@ h1{
     margin-bottom: 16px;
 }
 
+.f-size-20{
+    font-size: 20px;
+}
+
 /* Button */
 
 button{
     font-weight: 700;
     font-size: 21px;
+}
+
+.f-size-16{
+    font-size: 16px;
 }
 
 .li-buttons{
@@ -35,8 +44,12 @@ button{
     border-radius: 8px;
 }
 
-.btn-pad{
-    padding: 15px 24px 15px 24px;
+.btn-pad-big{
+    padding: 15px 24px;
+}
+
+.btn-pad-small{
+    padding: 15px 16px;
 }
 
 /* ##################### */
@@ -62,6 +75,7 @@ button{
     width: 652px;
     background-color: #FFFFFF;
     border-radius: 30px;
+    gap: 32px;
     box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
 }
 
@@ -78,11 +92,15 @@ button{
 /* Form Box */
 
 .remember-box{
-    padding: 0 241px 0 39px;
     display: flex;
     align-items: center;
     gap: 10px;
+    padding-left: 49px;
+    /* flex-grow: 1; */
+    /* flex-shrink: 1; */
+
     font-weight: 400;
+    /* width: 100%; */
 }
 
 .max-width{
@@ -91,16 +109,20 @@ button{
 
 input{
     height: 48px;
-    padding: 12px 21px;
+    /* padding: 12px 21px; */
     border: 1px solid #d1d1d1;
     border-radius: 10px;
+    width: 100%;
 }
 
 input[type="checkbox"]{
-    border-radius: 3px;
-    border: 2px solid #2A3647;
+    /* display: flex; */
+    /* border-radius: 3px !important; */
+    /* border: 2px solid #2A3647 !important; */
     margin: 4px;
-
+    height: 24px !important;
+    width: 24px;
+    /* justify-content: flex-end; */
 }
 
 /* input#mail-placeholder {
@@ -136,7 +158,6 @@ input#pass-placeholder:focus{
 form{
     display: flex;
     flex-direction: column;
-    margin: auto;
     gap: 35px;
 }
 

@@ -17,25 +17,32 @@
         <img src="./assets/images/logo.svg" alt="Das Logo der Seite">
     </div>
     <div class="sign-up">
-        <span>Not a Join user?</span>
-        <button class="colored-btn btn-pad" id="sign-up">Sign up</button>
+        <span class="f-size-20">Not a Join user?</span>
+        <button class="colored-btn btn-pad-small f-size-16" id="sign-up">Sign up</button>
     </div>
     <div class="center-screen">
         <section id="loginBox" class="loginBox fd-column">
-            <h1 class="center">Log in</h1>
-            <div class="underline"></div>
+            <div>
+                <h1 class="center">Log in</h1>
+                <div class="underline"></div>
+            </div>
             <form class="center">
                 <div class="center fd-column form-lines">
-                    <img src="./assets/images/mail.svg" alt="kleiner Briefumschlag" id="mail-placeholder-img">
-                    <input required autocomplete="email" type="email" id="mail-placeholder" class="remember-box">
-                    <input required autocomplete="current-password" type="password" id="pass-placeholder" class="remember-box">
-                    <div class="remember-box">
-                        <input type="checkbox">Remember me
+                    <input required autocomplete="email" type="email" id="mail-placeholder" class="">
+                    <img src="./assets/images/mail.svg" alt="kleiner Briefumschlag" id="mail-placeholder-img" hidden>
+
+                    <input required autocomplete="current-password" type="password" id="pass-placeholder">
+                    <img src="./assets/images/lock.svg" alt="kleines Schloss" id="pass-placeholder-img" hidden>
+                    <div>
+                        <div class="remember-box">
+                            <input type="checkbox">
+                            <span>Remember me</span>
+                        </div>
                     </div>
                 </div>
                 <div class="li-buttons">
-                    <button class="colored-btn  btn-pad">Log in</button>
-                    <button class="normal-btn  btn-pad">Guest Log in</button>
+                    <button class="colored-btn  btn-pad-big">Log in</button>
+                    <button class="normal-btn  btn-pad-big">Guest Log in</button>
                 </div>
             </form>
         </section>
