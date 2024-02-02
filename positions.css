@@ -18,6 +18,10 @@
     justify-content: space-between;
 }
 
+.ai-center{
+    align-items: center;
+}
+
 .form-lines {
     display: flex;
     gap: 20px;
