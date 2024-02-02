@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="en" class="html-scroll-hidden">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="board.css" />
+
+   
+    <title>Board</title>
+  </head>
+  <body class="board-body">
+    <div class="container-board disp-flex">
+      <div class="left-side-section disp-flex">
+        <div class="section-1">
+          <img class="logo-board" src="assets/images/joinLogo.svg" alt="Logo" />
+        </div>
+        <div class="section-2">
+          <div class="sub-menu-container disp-flex bg-summary" ">
+            <img class="icons-left-side-section cursor-ptr" src="assets/images/summary_white.svg" alt="Summary" />
+            <p class="gray-text clr-white cursor-ptr">Summary</p>
+          </div>
+
+          <div class="sub-menu-container disp-flex">
+            <img class="cursor-ptr" src="assets/images/addTask-white.svg" alt="Task" />
+            <p class="gray-text ft-sz-400 cursor-ptr">Add Task</p>
+          </div>
+
+          <div class="sub-menu-container disp-flex">
+            <img class="icons-left-side-section cursor-ptr" src="assets/images/board.svg" alt="Board" />
+            <p class="gray-text ft-sz-400 cursor-ptr">Board</p>
+          </div>
+
+          <div class="sub-menu-container disp-flex">
+            <img class="icons-left-side-section cursor-ptr" src="assets/images/contact.svg" alt="Contacts" />
+            <p class="gray-text ft-sz-400 cursor-ptr">Contacts</p>
+          </div>
+        </div>
+        <div class="section-3">
+          <a class="gray-text links">Privacy Policy</a>
+          <a class="gray-text links">Legal Notice</a>
+           </div>
+      </div>
+      <div class="right-side-section">
+        <header class="menu disp-flex">
+          <img class="mobile-logo" src="assets/images/logo_blue.svg" alt="Logo" />
+          <div>Kanban Project Management Tool</div>
+          <div>
+            <img class="help" src="assets/images/help.svg" alt="Help">
+            <button class="login"></button>
+          </div>
+        </header>
+        <div class="submenu-user d-none">
+          <a class="list-item ft-sz-400" >Legal Notice</a>
+          <a class="list-item ft-sz-400">Privacy Policy</a>
+        </div>
+        <div class="headerBoard">
+          <h1>Board</h1>
+          <div class="headerFlex">
+              <div class="input-container">
+                  <div class="input-wrapper">
+                      <input placeholder="Find Task" type="text">
+                      <div class="border-left"></div>
+                      <img class="input-icon" id="searchImg" src="" alt="">
+                  </div>
+              </div>
+              <button onclick="openModal('todo')" class="addTaskBtn createBtn">
+                  <span>Add task</span>
+                  <img src="" alt="">
+              </button>
+          </div>
+      </div>
+      <div class="status">
+
+          <div class="dynamicDisplayFlex">
+              <div class="d-flex">
+                  <div class="test2">
+                      <p class="status-text">To do</p>
+                      <div>
+                         
+                      </div>
+                  </div>
+                  <div class="test">
+                      <div>
+                          <p>No Task To do</p>
+                      </div>
+                  </div>
+                  
+              </div>
+
+              <div class="d-flex">
+                  <div class="test2">
+                      <p class="status-text">In progress</p>
+                      
+                  </div>
+                  <div class="test">
+                      <div id="noProgress" class="no-to-do">
+                          <p>No Task To do</p>
+                      </div>
+                  </div>
+                  <div draggable="true" id="inProgress" class="newTask" ondrop="moveTo('inProgress')"
+                      ondragover="allowDrop(event)"></div>
+              </div>
+          </div>
+
+          <div">
+              <div">
+                  <div>
+                      <p>Await feedback</p>
+                      <div class="popup-container">
+                      </div>
+                  </div>
+                  <div>
+                      <div>
+                          <p>No Task To do</p>
+                      </div>
+                  </div>
+                
+              </div>
+
+              <div>
+                  <div>
+                      <p>Done</p>
+                  </div>
+                  
+                      <div>
+                          <p>No Task To do</p>
+                      </div>
+                  
+                  
+              </div>
+          </div>
+
+      </div>
+      
+  </section>
+              
+    
+
+  </body>
+</html>
