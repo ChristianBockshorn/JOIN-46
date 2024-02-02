@@ -1,0 +1,51 @@
+.navbar {
+    height: 100vh;
+    width: 232px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #2b3647;
+    overflow-x: hidden;
+    padding-top: 64px;
+}
+
+a {
+    text-decoration: none;
+    font-weight: 400;
+    display: block;
+}
+
+.nav-main{
+    margin-bottom: 136px;
+    gap: 32px;
+}
+
+.nav-main a {
+    color: #CDCDCD;
+    font-size: 18px;
+}
+
+.navbar a:hover {
+    color: #f1f1f1;
+}
+
+.nav-footer {
+    margin-bottom: 100px;
+    gap: 22px;
+}
+
+.nav-footer a {
+    color: #A8A8A8;
+}
+
+
+@media screen and (max-height: 450px) {
+    .navbar {
+        padding-top: 15px;
+    }
+
+    .navbar a {
+        font-size: 18px;
+    }
+}
