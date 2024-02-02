@@ -1,0 +1,33 @@
+/* Positionierung */
+
+
+.fd-column{
+    flex-direction: column;
+}
+
+.center{
+    align-items: center;
+    justify-content: center;
+}
+
+.d-flex{
+    display: flex;
+}
+
+.form-lines{
+    display: flex;
+    gap: 20px;
+}
+
+.ta-center{
+    text-align: center;
+}
+
+.center-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+  }

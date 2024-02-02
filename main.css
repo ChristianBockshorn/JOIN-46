@@ -1,0 +1,142 @@
+body{
+    margin: 0;
+    background-color: #F6F7F8;
+    font-family: Inter;
+    box-sizing: border-box;
+}
+
+h1{
+    font-size: 61px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+/* Button */
+
+button{
+    font-weight: 700;
+    font-size: 21px;
+}
+
+.li-buttons{
+    display: flex;
+    gap: 35px;
+}
+
+.colored-btn{
+    background-color: #2A3647 !important;
+    color: white;
+    border-radius: 8px;
+}
+
+.normal-btn{
+    color: #2A3647;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+}
+
+.btn-pad{
+    padding: 15px 24px 15px 24px;
+}
+
+/* ##################### */
+
+.start-logo{
+    position: absolute;
+    top: 80px;
+    left: 77px;
+}
+
+.sign-up{
+    display: flex;
+    position: absolute;
+    align-items: center;
+    top: 67px;
+    left: 1039px;
+    gap: 35px;
+}
+
+.loginBox{
+    display: flex;
+    height: 493px;
+    width: 652px;
+    background-color: #FFFFFF;
+    border-radius: 30px;
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+}
+
+.underline{
+    background-color: #29ABE2;
+    width: 150px;
+    height: 3px;
+    margin-top: 0;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: auto;
+}
+
+/* Form Box */
+
+.remember-box{
+    padding: 0 241px 0 39px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 400;
+}
+
+.max-width{
+    max-width: 100%;
+}
+
+input{
+    height: 48px;
+    padding: 12px 21px;
+    border: 1px solid #d1d1d1;
+    border-radius: 10px;
+}
+
+input[type="checkbox"]{
+    border-radius: 3px;
+    border: 2px solid #2A3647;
+    margin: 4px;
+
+}
+
+/* input#mail-placeholder {
+    background-image: url("/images/mail.svg");
+    background-repeat: no-repeat;
+    text-indent: 5px;
+}
+
+input#mail-placeholder:focus{
+    background-image:none;
+   }
+
+input#pass-placeholder {
+    background-image: url("/images/lock.svg");
+    background-repeat: no-repeat;
+    text-indent: 5px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+input#pass-placeholder:focus{
+    background-image:none;
+    border: 1px solid blue;
+   } */
+
+#mail-placeholder-img{
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    z-index: 1;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    gap: 35px;
+}
+
