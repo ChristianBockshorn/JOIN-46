@@ -102,11 +102,7 @@ button {
     align-items: center;
     gap: 10px;
     padding-left: 49px;
-    /* flex-grow: 1; */
-    /* flex-shrink: 1; */
-
     font-weight: 400;
-    /* width: 100%; */
 }
 
 #remember{
@@ -115,49 +111,46 @@ button {
     width: 16px;
 }
 
-.max-width {
-    width: 100%;
-}
-
-input {
-    height: 48px;
-    border: 1px solid #d1d1d1;
-    border-radius: 10px;
-    width: 100%;
-}
-
-/* input#mail-placeholder {
-    background-image: url("/images/mail.svg");
-    background-repeat: no-repeat;
-    text-indent: 5px;
-}
-
-input#mail-placeholder:focus{
-    background-image:none;
-   }
-
-input#pass-placeholder {
-    background-image: url("/images/lock.svg");
-    background-repeat: no-repeat;
-    text-indent: 5px;
-    display: flex;
-    justify-content: flex-end;
-}
-
-input#pass-placeholder:focus{
-    background-image:none;
-    border: 1px solid blue;
-   } */
-
-#mail-placeholder-img {
-    position: absolute;
-    right: 8px;
-    top: 8px;
-    z-index: 1;
-}
-
 form {
     display: flex;
     flex-direction: column;
     gap: 35px;
 }
+
+.placeholder-img{
+    position: absolute;
+    height: 24px;
+    width: 24px;
+    padding: 14px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+::placeholder {
+    color: #d1d1d1;
+    opacity: 1; /* Firefox */
+  }
+
+/* input#mail-placeholder {
+    background-image: url("/images/mail.svg");
+    background-repeat: no-repeat;
+    text-indent: 5px;
+} */
+
+/* input#pass-placeholder {
+    background-image: url("/images/lock.svg");
+    background-repeat: no-repeat;
+    text-indent: 5px;
+    display: flex;
+    justify-content: flex-end;
+} */
+
+
+/* #mail-placeholder-img {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    z-index: 1;
+} */
+

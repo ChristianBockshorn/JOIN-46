@@ -28,11 +28,14 @@
             </div>
             <form class="center">
                 <div class="center fd-column d-flex login-lines">
-                    <input required autocomplete="email" type="email" id="mail-placeholder" class="pad-l-16">
-                    <img src="./assets/images/mail.svg" alt="kleiner Briefumschlag" id="mail-placeholder-img" hidden>
-
-                    <input required autocomplete="current-password" type="password" id="pass-placeholder" class="pad-l-16">
-                    <img src="./assets/images/lock.svg" alt="kleines Schloss" id="pass-placeholder-img" hidden>
+                    <div class="pos-rel max-width">
+                        <img src="./assets/images/mail.svg" alt="kleiner Briefumschlag" id="mail-placeholder-img" class="placeholder-img">
+                        <input required autocomplete="email" placeholder="Email" type="email" id="mail-placeholder" class="pad-0 pad-l-16 f-weight-400 f-size-20">
+                    </div>
+                    <div class="pos-rel max-width">
+                        <img src="./assets/images/lock.svg" alt="kleines Schloss" id="pass-placeholder-img" class="placeholder-img">
+                        <input required autocomplete="current-password" placeholder="Password" type="password" id="pass-placeholder" class="pad-0 pad-l-16 f-weight-400 f-size-20">
+                    </div>
                     <div class="max-width">
                         <div class="remember-box">
                             <input type="checkbox" id="remember" name="remember" value="remember">
