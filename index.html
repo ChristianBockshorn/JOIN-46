@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JOIN</title>
-    <link rel="icon" type="image/x-icon" href="./assests/images/logo.svg">
+    <title>JOIN - Log in</title>
+    <link rel="icon" type="image/svg" href="assets/images/logo.svg">
     <script src="script.js"></script>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="positions.css">
@@ -13,49 +13,51 @@
 </head>
 
 <body>
-    <div class="start-logo">
-        <img src="./assets/images/logo.svg" alt="Das Logo der Seite">
-    </div>
-    <div class="sign-up">
-        <span class="f-size-20">Not a Join user?</span>
-        <button class="colored-btn btn-pad-small f-size-16" id="sign-up">Sign up</button>
-    </div>
-    <div class="center-screen min-vh-100">
-        <section id="loginBox" class="loginBox fd-column">
-            <div>
-                <h1 class="center">Log in</h1>
-                <div class="underline"></div>
-            </div>
-            <form class="center">
-                <div class="center fd-column d-flex login-lines">
-                    <div class="pos-rel max-width">
-                        <img src="./assets/images/mail.svg" alt="kleiner Briefumschlag" id="mail-placeholder-img" class="placeholder-img">
-                        <input required autocomplete="email" placeholder="Email" type="email" id="mail-placeholder" class="pad-0 pad-l-16 f-weight-400 f-size-20">
-                    </div>
-                    <div class="pos-rel max-width">
-                        <img src="./assets/images/lock.svg" alt="kleines Schloss" id="pass-placeholder-img" class="placeholder-img">
-                        <input required autocomplete="current-password" placeholder="Password" type="password" id="pass-placeholder" class="pad-0 pad-l-16 f-weight-400 f-size-20">
-                    </div>
-                    <div class="max-width">
-                        <div class="remember-box">
-                            <input type="checkbox" id="remember" name="remember" value="remember">
-                            <span>Remember me</span>
+    <!-- <div class=""> -->
+       <img src="./assets/images/logo.svg" class="moveToLeft" alt="Das Logo der Seite">
+    <!-- </div> -->
+    <div class="hide">
+        <div class="sign-up">
+            <span class="f-size-20">Not a Join user?</span>
+            <a href="./signup.html"><button class="colored-btn btn-pad-small f-size-16" id="sign-up">Sign up</button></a>
+        </div>
+        <div class="center-screen min-vh-100">
+            <section id="loginBox" class="loginBox fd-column">
+                <div>
+                    <h1 class="center">Log in</h1>
+                    <div class="underline"></div>
+                </div>
+                <form class="center" autocomplete="on">
+                    <div class="center fd-column d-flex login-lines">
+                        <div class="pos-rel max-width">
+                            <img src="./assets/images/mail.svg" alt="kleiner Briefumschlag" id="mail-placeholder-img" class="placeholder-img"/>
+                            <input required autocomplete="email" placeholder="Email" type="email" id="mail-placeholder" class="pad-0 pad-l-16 f-weight-400 f-size-20"/>
+                        </div>
+                        <div class="pos-rel max-width">
+                            <img src="./assets/images/lock.svg" alt="kleines Schloss" id="pass-placeholder-img" class="placeholder-img"/>
+                            <input required placeholder="Password" type="password" autocomplete="current-password" id="pass-placeholder" class="pad-0 pad-l-16 f-weight-400 f-size-20"/>
+                        </div>
+                        <div class="max-width">
+                            <div class="remember-box">
+                                <input type="checkbox" id="remember" name="remember" value="remember">
+                                <span>Remember me</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="li-buttons">
-                    <button class="colored-btn btn-pad-big">Log in</button>
-                    <button class="normal-btn btn-pad-big">Guest Log in</button>
-                </div>
-            </form>
-        </section>
-    </div>
-    <footer class="pos-footer max-width">
-        <div class="d-flex gap-16 center">
-            <a href="privacypolicy.html">Privacy Policy</a>
-            <a href="legalnotice.html">Legal Notice</a>
+                    <div class="li-buttons">
+                        <button class="colored-btn btn-pad-big">Log in</button>
+                        <button class="normal-btn btn-pad-big">Guest Log in</button>
+                    </div>
+                </form>
+            </section>
         </div>
-    </footer>
+        <footer class="pos-footer max-width">
+            <div class="d-flex gap-16 center">
+                <a href="privacypolicy.html">Privacy Policy</a>
+                <a href="legalnotice.html">Legal Notice</a>
+            </div>
+        </footer>
+    </div>
 </body>
 
 </html>
