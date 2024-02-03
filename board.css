@@ -11,6 +11,9 @@ input {
   cursor: pointer;
 }
 
+.addPlus {
+  height: 24px;
+}
 
 .headerFlex {
   display: flex;
