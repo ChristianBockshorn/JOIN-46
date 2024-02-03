@@ -64,6 +64,69 @@ button {
     position: absolute;
     top: 80px;
     left: 77px;
+    width: 100px;
+    height: 121px;
+}
+
+.hide{
+    animation: fadeIn 1000ms;
+    animation-timing-function: cubic-bezier(1,0.0,1,1);
+    /* cubic-bezier(1,0.0,1,1) */
+}
+
+@keyframes fadeIn {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+
+.moveToLeft{
+    animation: moveToLefter 1s cubic-bezier(1,0.0,1,1);
+    position: absolute;
+    top: 80px;
+    left: 77px;
+    z-index: 1;
+}
+
+@keyframes moveToLefter{
+    0%{
+        top: 50vh;
+        left: 50vw;
+        width: 274px;
+        height: 334px;
+        transform: translate(-50%, -50%);
+    }
+    40%{
+        top: 50vh;
+        left: 50vw;
+        width: 274px;
+        height: 334px;
+        transform: translate(-50%, -50%);
+    }
+    100%{
+         width: 100px;
+        height: 334px;
+        transform: translate(-50%, -50%);
+    }
+}
+
+
+.transition {
+    width: 274px;
+    height: 334px;
+    transition: width 2s, height 2s;
+}
+
+.transition::after {
+    width: 100px;
+    height: 121px;
 }
 
 .sign-up {
@@ -83,6 +146,22 @@ button {
     border-radius: 30px;
     gap: 32px;
     box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+}
+
+.signUpBox {
+    display: flex;
+    height: 630px;
+    width: 598px;
+    background-color: #FFFFFF;
+    border-radius: 30px;
+    gap: 32px;
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+}
+
+#bluelink{
+    text-decoration: none;
+    color: #6CC5EB;
+    cursor: pointer;
 }
 
 .underline {
@@ -105,7 +184,20 @@ button {
     font-weight: 400;
 }
 
-#remember{
+.app-box{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 400;
+}
+
+#remember {
+    margin: 4px;
+    height: 16px !important;
+    width: 16px;
+}
+
+#app {
     margin: 4px;
     height: 16px !important;
     width: 16px;
@@ -117,11 +209,11 @@ form {
     gap: 35px;
 }
 
-.placeholder-img{
+.placeholder-img {
     position: absolute;
     height: 24px;
     width: 24px;
-    padding: 14px;
+    padding: 12px;
     top: 0;
     right: 0;
     bottom: 0;
@@ -129,28 +221,6 @@ form {
 
 ::placeholder {
     color: #d1d1d1;
-    opacity: 1; /* Firefox */
-  }
-
-/* input#mail-placeholder {
-    background-image: url("/images/mail.svg");
-    background-repeat: no-repeat;
-    text-indent: 5px;
-} */
-
-/* input#pass-placeholder {
-    background-image: url("/images/lock.svg");
-    background-repeat: no-repeat;
-    text-indent: 5px;
-    display: flex;
-    justify-content: flex-end;
-} */
-
-
-/* #mail-placeholder-img {
-    position: absolute;
-    right: 8px;
-    top: 8px;
-    z-index: 1;
-} */
-
+    opacity: 1;
+    /* Firefox */
+}

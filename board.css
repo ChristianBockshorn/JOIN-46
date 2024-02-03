@@ -1,3 +1,18 @@
+.BoardSection {
+  padding-left: 250px;
+}
+
+.headerBoard {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  padding-top: 80px;
+}
+
+h1 {
+  padding-left: 250px;
+}
+
 input {
   font-size: 20px;
   font-family: 'Inter';
@@ -11,6 +26,9 @@ input {
   cursor: pointer;
 }
 
+.addPlus {
+  height: 24px;
+}
 
 .headerFlex {
   display: flex;
@@ -28,6 +46,8 @@ button {
 .status {
   display: flex;
   gap: 32px;
+  padding-left: 250px;
+
 }
 
 .standardImg {
@@ -76,4 +96,18 @@ button {
   background-color: #2A3647;
   color: white;
   font-weight: 600;
+}
+
+.borderBoard {
+  
+  display: flex;
+  background-color: #ffff;
+  border-radius: 24px;
+  padding: 16px;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 16px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  border: solid 1.5px #DBDBDB;
 }

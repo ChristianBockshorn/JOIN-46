@@ -20,7 +20,7 @@
 
 .login-lines {
     width: 404px;
-    gap: 32px;
+    gap: 24px;
 }
 
 .ta-center {
@@ -85,7 +85,7 @@
 /*Für alle Inputfelder wird ein blauer rahmen genutzt wenn man in das Feld klickt*/
 
 input {
-    height: 48px;
+    height: 46px;
     border: 1px solid #d1d1d1;
     border-radius: 10px;
     width: 100%;
@@ -95,6 +95,5 @@ input {
 }
 
 input:focus{
-    background-image:none;
     border: 1px solid #29ABE2;
    }
