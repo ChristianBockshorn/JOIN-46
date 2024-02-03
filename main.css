@@ -1,4 +1,4 @@
-body{
+body {
     margin: 0;
     background-color: #F6F7F8;
     font-family: Inter;
@@ -6,61 +6,66 @@ body{
     font-size: 16px;
 }
 
-h1{
+h1 {
     font-size: 61px;
     font-weight: 700;
     margin-bottom: 16px;
 }
 
-.f-size-20{
-    font-size: 20px;
+
+footer a {
+    text-decoration: none;
+    color: #A8A8A8;
+    padding: 8px;
 }
+
+.pos-footer {
+    position: absolute;
+    top: 949px;
+}
+
 
 /* Button */
 
-button{
+button {
     font-weight: 700;
     font-size: 21px;
 }
 
-.f-size-16{
-    font-size: 16px;
-}
-
-.li-buttons{
+.li-buttons {
     display: flex;
     gap: 35px;
 }
 
-.colored-btn{
+.colored-btn {
     background-color: #2A3647 !important;
     color: white;
     border-radius: 8px;
 }
 
-.normal-btn{
+.normal-btn {
     color: #2A3647;
     background-color: #FFFFFF;
     border-radius: 8px;
 }
 
-.btn-pad-big{
+.btn-pad-big {
     padding: 15px 24px;
 }
 
-.btn-pad-small{
+.btn-pad-small {
     padding: 15px 16px;
 }
 
 /* ##################### */
 
-.start-logo{
+.start-logo {
     position: absolute;
     top: 80px;
     left: 77px;
 }
 
-.sign-up{
+.sign-up {
     display: flex;
     position: absolute;
     align-items: center;
@@ -69,7 +74,7 @@ button{
     gap: 35px;
 }
 
-.loginBox{
+.loginBox {
     display: flex;
     height: 493px;
     width: 652px;
@@ -79,7 +84,7 @@ button{
     box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
 }
 
-.underline{
+.underline {
     background-color: #29ABE2;
     width: 150px;
     height: 3px;
@@ -91,7 +96,7 @@ button{
 
 /* Form Box */
 
-.remember-box{
+.remember-box {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -103,11 +108,11 @@ button{
     /* width: 100%; */
 }
 
-.max-width{
-    max-width: 100%;
+.max-width {
+    width: 100%;
 }
 
-input{
+input {
     height: 48px;
     /* padding: 12px 21px; */
     border: 1px solid #d1d1d1;
@@ -115,7 +120,7 @@ input{
     width: 100%;
 }
 
-input[type="checkbox"]{
+input[type="checkbox"] {
     /* display: flex; */
     /* border-radius: 3px !important; */
     /* border: 2px solid #2A3647 !important; */
@@ -148,16 +153,15 @@ input#pass-placeholder:focus{
     border: 1px solid blue;
    } */
 
-#mail-placeholder-img{
+#mail-placeholder-img {
     position: absolute;
     right: 8px;
     top: 8px;
     z-index: 1;
 }
 
-form{
+form {
     display: flex;
     flex-direction: column;
     gap: 35px;
 }
-

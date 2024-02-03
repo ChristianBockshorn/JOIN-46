@@ -20,14 +20,14 @@
         <span class="f-size-20">Not a Join user?</span>
         <button class="colored-btn btn-pad-small f-size-16" id="sign-up">Sign up</button>
     </div>
-    <div class="center-screen">
+    <div class="center-screen min-vh-100">
         <section id="loginBox" class="loginBox fd-column">
             <div>
                 <h1 class="center">Log in</h1>
                 <div class="underline"></div>
             </div>
             <form class="center">
-                <div class="center fd-column form-lines">
+                <div class="center fd-column d-flex login-lines">
                     <input required autocomplete="email" type="email" id="mail-placeholder" class="">
                     <img src="./assets/images/mail.svg" alt="kleiner Briefumschlag" id="mail-placeholder-img" hidden>
 
@@ -41,12 +41,18 @@
                     </div>
                 </div>
                 <div class="li-buttons">
-                    <button class="colored-btn  btn-pad-big">Log in</button>
-                    <button class="normal-btn  btn-pad-big">Guest Log in</button>
+                    <button class="colored-btn btn-pad-big">Log in</button>
+                    <button class="normal-btn btn-pad-big">Guest Log in</button>
                 </div>
             </form>
         </section>
     </div>
+    <footer class="pos-footer max-width">
+        <div class="d-flex gap-16 center">
+            <a href="">Privacy Policy</a>
+            <a href="">Legal Notice</a>
+        </div>
+    </footer>
 </body>
 
 </html>

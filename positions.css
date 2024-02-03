@@ -18,8 +18,7 @@
     justify-content: space-between;
 }
 
-.form-lines{
-    display: flex;
+.login-lines {
     width: 422px;
     gap: 32px;
 }
@@ -35,8 +34,28 @@
     align-items: center;
     text-align: center;
     min-height: 100vh;
-  }
+}
 
-  .d-none{
+.d-none {
     display: none;
-  }
+}
+
+.pad-8 {
+    padding: 8px;
+}
+
+.gap-16 {
+    gap: 16px;
+}
+
+
+/* Schriftänderugen */
+
+
+.f-size-16 {
+    font-size: 16px;
+}
+
+.f-size-20 {
+    font-size: 20px;
+}
