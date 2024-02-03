@@ -13,6 +13,7 @@ h1 {
 }
 
 
+
 footer a {
     text-decoration: none;
     color: #A8A8A8;
@@ -108,26 +109,21 @@ button {
     /* width: 100%; */
 }
 
+#remember{
+    margin: 4px;
+    height: 16px !important;
+    width: 16px;
+}
+
 .max-width {
     width: 100%;
 }
 
 input {
     height: 48px;
-    /* padding: 12px 21px; */
     border: 1px solid #d1d1d1;
     border-radius: 10px;
     width: 100%;
-}
-
-input[type="checkbox"] {
-    /* display: flex; */
-    /* border-radius: 3px !important; */
-    /* border: 2px solid #2A3647 !important; */
-    margin: 4px;
-    height: 24px !important;
-    width: 24px;
-    /* justify-content: flex-end; */
 }
 
 /* input#mail-placeholder {
