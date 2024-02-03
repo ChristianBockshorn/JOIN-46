@@ -26,6 +26,33 @@ input {
   cursor: pointer;
 }
 
+.input-icon {
+  color: lightgrey;
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  height: 30px;
+}
+.input-container {
+  display: inline-block;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.border-left {
+  position: absolute;
+  top: 8px;
+  right: 64px;
+  height: 31px;
+  width: 1px;
+  background: #d1d1d1;
+  pointer-events: none;
+}
+
 .addPlus {
   height: 24px;
 }
@@ -37,9 +64,11 @@ input {
   gap: 32px;
 }
 
-.headerFlex input,
-button {
-  height: 48px;
+.headerFlex {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 32px;
 }
 
 
@@ -48,6 +77,11 @@ button {
   gap: 32px;
   padding-left: 250px;
 
+}
+
+.dynamicDisplayFlex {
+  display: flex;
+  gap: 32px;
 }
 
 .standardImg {
@@ -99,7 +133,7 @@ button {
 }
 
 .borderBoard {
-  
+
   display: flex;
   background-color: #ffff;
   border-radius: 24px;
