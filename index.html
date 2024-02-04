@@ -27,7 +27,7 @@
                     <h1 class="center">Log in</h1>
                     <div class="underline"></div>
                 </div>
-                <form class="center" autocomplete="on">
+                <form class="center" autocomplete="on" onsubmit="checkForAccess(); return false;">
                     <div class="center fd-column d-flex login-lines">
                         <div class="pos-rel max-width">
                             <img src="./assets/images/mail.svg" alt="kleiner Briefumschlag" id="mail-placeholder-img" class="placeholder-img"/>
@@ -44,9 +44,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="li-buttons">
-                        <button class="colored-btn btn-pad-big">Log in</button>
-                        <button class="normal-btn btn-pad-big">Guest Log in</button>
+                    <div class="pos-li-buttons">
+                        <button class="colored-btn btn-pad-big" value="login">Log in</button>
+                        <button class="normal-btn btn-pad-big" value="guest">Guest Log in</button>
                     </div>
                 </form>
             </section>
