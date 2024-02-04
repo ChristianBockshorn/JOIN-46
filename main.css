@@ -4,6 +4,7 @@ body {
     font-family: Inter;
     box-sizing: border-box;
     font-size: 16px;
+    min-height: 1024px;
 }
 
 h1 {
@@ -31,6 +32,7 @@ footer a {
 button {
     font-weight: 700;
     font-size: 21px;
+    cursor: pointer;
 }
 
 .li-buttons {
@@ -118,23 +120,14 @@ button {
 }
 
 
-.transition {
-    width: 274px;
-    height: 334px;
-    transition: width 2s, height 2s;
-}
-
-.transition::after {
-    width: 100px;
-    height: 121px;
-}
-
 .sign-up {
     display: flex;
     position: absolute;
     align-items: center;
+    /* width: 379px; */
+    justify-content: flex-end;
     top: 67px;
-    left: 1039px;
+    right: 122px;
     gap: 35px;
 }
 
