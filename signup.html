@@ -11,47 +11,47 @@
     <link rel="stylesheet" href="positions.css">
     <link rel="stylesheet" href="inter-font.css">
 </head>
-
-
-    <!-- <div class=""> -->
+    <body>
+        <!-- <div class=""> -->
         <img src="./assets/images/logo.svg" class="start-logo" alt="Das Logo der Seite">
         <!-- </div> -->
-            <div class="center-screen min-vh-100">
-                <section id="signUpBox" class="signUpBox fd-column">
-                    <div>
-                        <h1 class="center">Sign up</h1>
-                        <div class="underline"></div>
+        <div class="center-screen">
+            <section id="signUpBox" class="signUpBox fd-column">
+                <div class="pos-rel">
+                    <img src="./assets/images/back-arrow.svg" alt="Back Arrow" class="back-arrow" id="back-arrow">
+                    <h1 class="center">Sign up</h1>
+                    <div class="underline"></div>
+                </div>
+                <form class="center" autocomplete="on" onsubmit="checkForaPp(); return false;">
+                    <div class="center fd-column d-flex login-lines">
+                        <div class="pos-rel max-width">
+                            <img src="./assets/images/person.svg" alt="Büste einer Person" id="pass-placeholder-img" class="placeholder-img" />
+                            <input required placeholder="Name" type="first-name" autocomplete="first-name" id="first-name" class="pad-0 pad-l-16 f-weight-400 f-size-20" />
+                        </div>
+                        <div class="pos-rel max-width">
+                            <img src="./assets/images/mail.svg" alt="kleiner Briefumschlag" id="mail-placeholder-img" class="placeholder-img" />
+                            <input required autocomplete="email" placeholder="Email" type="email" id="mail-placeholder" class="pad-0 pad-l-16 f-weight-400 f-size-20" />
+                        </div>
+                        <div class="pos-rel max-width">
+                            <img src="./assets/images/lock.svg" alt="kleines Schloss" id="new-password" class="placeholder-img" />
+                            <input required placeholder="Password" type="password" autocomplete="new-password" id="pass-placeholder" class="pad-0 pad-l-16 f-weight-400 f-size-20" />
+                        </div>
+                        <div class="pos-rel max-width">
+                            <img src="./assets/images/lock.svg" alt="kleines Schloss" id="new-password-confirm" class="placeholder-img" />
+                            <input required placeholder="Confirm Password" type="password" autocomplete="new-password" id="pass-placeholder-confirm" class="pad-0 pad-l-16 f-weight-400 f-size-20" />
+                        </div>
+                        <div class="max-width">
+                            <div class="app-box center">
+                                <input required type="checkbox" id="app" name="app" value="yes" oninvalid="this.setCustomValidity('Please agree Privacy policy')">
+                                <span>I accept the <a id="bluelink" href="privacypolicy.html">Privacy policy</a></span>
+                            </div>
+                        </div>
                     </div>
-                    <form class="center" autocomplete="on" onsubmit="checkForaPp(); return false;">
-                        <div class="center fd-column d-flex login-lines">
-                            <div class="pos-rel max-width">
-                                <img src="./assets/images/person.svg" alt="Büste einer Person" id="pass-placeholder-img" class="placeholder-img"/>
-                                <input required placeholder="Name" type="first-name" autocomplete="first-name" id="first-name" class="pad-0 pad-l-16 f-weight-400 f-size-20"/>
-                            </div>
-                            <div class="pos-rel max-width">
-                                <img src="./assets/images/mail.svg" alt="kleiner Briefumschlag" id="mail-placeholder-img" class="placeholder-img"/>
-                                <input required autocomplete="email" placeholder="Email" type="email" id="mail-placeholder" class="pad-0 pad-l-16 f-weight-400 f-size-20"/>
-                            </div>
-                            <div class="pos-rel max-width">
-                                <img src="./assets/images/lock.svg" alt="kleines Schloss" id="new-password" class="placeholder-img"/>
-                                <input required placeholder="Password" type="password" autocomplete="new-password" id="pass-placeholder" class="pad-0 pad-l-16 f-weight-400 f-size-20"/>
-                            </div>
-                            <div class="pos-rel max-width">
-                                <img src="./assets/images/lock.svg" alt="kleines Schloss" id="new-password" class="placeholder-img"/>
-                                <input required placeholder="Confirm Password" type="password" autocomplete="new-password" id="pass-placeholder-confirm" class="pad-0 pad-l-16 f-weight-400 f-size-20"/>
-                            </div>
-                            <div class="max-width">
-                                <div class="app-box center">
-                                    <input required type="checkbox" id="app" name="app" value="yes">
-                                    <span>I accept the <a id="bluelink" href="privacypolicy.html">Privacy policy</a></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="li-buttons">
-                            <button class="colored-btn btn-pad-big" id="signUpButton">Sign up</button>
-                        </div>
-                    </form>
-                </section>
+                    <div class="li-buttons">
+                        <button class="colored-btn btn-pad-big" id="signUpButton">Sign up</button>
+                    </div>
+                </form>
+            </section>
             <footer class="pos-footer max-width">
                 <div class="d-flex gap-16 center">
                     <a href="privacypolicy.html">Privacy Policy</a>
@@ -60,5 +60,4 @@
             </footer>
         </div>
     </body>
-
 </html>

@@ -4,7 +4,6 @@ body {
     font-family: Inter;
     box-sizing: border-box;
     font-size: 16px;
-    /* height: 1024px; */
 }
 
 h1 {
@@ -23,7 +22,7 @@ footer a {
 
 .pos-footer {
     position: absolute;
-    bottom: 20px;
+    bottom: 39px;
 }
 
 
@@ -155,6 +154,14 @@ button {
     text-decoration: none;
     color: #6CC5EB;
     cursor: pointer;
+}
+
+.back-arrow{
+    position: absolute;
+    top: 68px;
+    left: 50px;
+    width: 32px;
+    height: 32px;
 }
 
 .underline {
