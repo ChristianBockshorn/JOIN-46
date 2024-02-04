@@ -2,141 +2,119 @@
 <html lang="en" class="html-scroll-hidden">
 
 <head>
-<<<<<<< HEAD
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="board.css" />
-  <iframe src="assets/templates/navbar_template.html" frameborder="0"></iframe>
-  <iframe src="assets/templates/header_template.html" frameborder="0"></iframe>
-  <link rel="stylesheet" href="/assets/templates/navbar_template.css">
-  <script src="add_Task.js"></script>
-  <title>Board</title>
-=======
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="board.css" />
     <script src="add_Task.js"></script>
 
     <title>Board</title>
->>>>>>> 68ebb179c872b9dc7a739400965270c35e0cb89d
 </head>
 
-<body onload="includeHTML()">
-    <div w3-include-html="/assets/templates/navbar_template.html"></div>
-<<<<<<< HEAD
-  <div class="headerBoard">
-    <h1>Board</h1>
-    <div class="headerFlex">
-        <div class="input-container">
-            <div class="input-wrapper">
-                <input placeholder="Find Task" type="text">
-                <div class="border-left"></div>
-=======
-    <div w3-include-html="/assets/templates/header_template.html"></div>
-    <div class="headerBoard">
-        <h1>Board</h1>
-        <div class="headerFlex">
-            <div class="input-container">
-                <div class="input-wrapper">
-                    <input id="searchInput" placeholder="Find Task" type="text">
-                    <div class="border-left"></div>
-                    <img class="input-icon" id="searchImg" src="assets/images/search.svg" alt="">
-                </div>
->>>>>>> 68ebb179c872b9dc7a739400965270c35e0cb89d
-            </div>
-            <button class="addTaskBtn">
-                <span>Add task</span>
-                <img class="addPlus" src="assets/images/add_task_plus.svg" alt="">
-            </button>
-        </div>
-    </div>
-    <div class="status">
-
-        <div class="dynamicDisplayFlex">
-            <div class="d-flex">
-                <div class="test2">
-                    <p class="status-text">To do</p>
-                    <div>
-                        <div onclick="openModal('todo')" class="popup-container">
-                            <img class="standardImg" src="assets/images/plus_button.svg" alt="">
-                            
+<body onload="includeHTML()"> <div w3-include-html="/assets/templates/navbar_template.html"></div>
+                    <div w3-include-html="/assets/templates/header_template.html"></div>
+                    <div class="headerBoard">
+                        <h1>Board</h1>
+                        <div class="headerFlex">
+                            <div class="input-container">
+                                <div class="input-wrapper">
+                                    <input id="searchInput" placeholder="Find Task" type="text">
+                                    <div class="border-left"></div>
+                                    <img class="input-icon" id="searchImg" src="assets/images/search.svg" alt="">
+                                </div> >>>>>>
+                            </div>
+                            <button class="addTaskBtn">
+                                <span>Add task</span>
+                                <img class="addPlus" src="assets/images/add_task_plus.svg" alt="">
+                            </button>
                         </div>
                     </div>
-                </div>
-                <div class="test">
-                    <div class="no-to-do">
-                        <p>No Task To do</p>
-                    </div>
-                    <div class="borderBoard"></div>
-                </div>
-                <div class="newTask"></div>
-            </div>
+                    <div class="status">
 
-            <div class="d-flex">
-                <div class="test2">
-                    <p class="status-text">In progress</p>
-                    <div class="popup-container">
-                        <img class="standardImg" src="assets/images/plus_button.svg" alt="">
-                        
-                    </div>
-                </div>
-                <div class="test">
-                    <div class="no-to-do">
-                        <p>No Task To do</p>
-                    </div>
-                    <div class="borderBoard"></div>
-                </div>
-                <div class="newTask"></div>
-            </div>
-        </div>
+                        <div class="dynamicDisplayFlex">
+                            <div class="d-flex">
+                                <div class="test2">
+                                    <p class="status-text">To do</p>
+                                    <div>
+                                        <div onclick="openModal('todo')" class="popup-container">
+                                            <img class="standardImg" src="assets/images/plus_button.svg" alt="">
 
-        <div class="dynamicDisplayFlex">
-            <div class="d-flex">
-                <div class="test2">
-                    <p class="status-text">Await feedback</p>
-                    <div class="popup-container">
-                        <img class="standardImg" src="assets/images/plus_button.svg" alt="">
-                        
-                    </div>
-                </div>
-                <div class="test">
-                    <div class="no-to-do">
-                        <p>No Task To do</p>
-                    </div>
-                    <div class="borderBoard"></div>
-                </div>
-                <div class="newTask"></div>
-            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="test">
+                                    <div class="no-to-do">
+                                        <p>No Task To do</p>
+                                    </div>
+                                    <div class="borderBoard"></div>
+                                </div>
+                                <div class="newTask"></div>
+                            </div>
 
-            <div class="d-flex">
-                <div class="test2">
-                    <p class="status-text">Done</p>
-                    <div class="popup-container">
-                        <img class="standardImg" src="assets/images/plus_button.svg" alt="">
-                        
-                    </div>
-                </div>
-                <div class="test">
-                    <div class="no-to-do">
-                        <p>No Task To do</p>
-                    </div>
-                    <div class="borderBoard"></div>
-                </div>
-                <div class="newTask"></div>
-            </div>
-        </div>
+                            <div class="d-flex">
+                                <div class="test2">
+                                    <p class="status-text">In progress</p>
+                                    <div class="popup-container">
+                                        <img class="standardImg" src="assets/images/plus_button.svg" alt="">
 
-    </div>
-    <div class="modal">
-        <div class="modal-content">
-            <div class="add-task-board">
-            </div>
-        </div>
-    </div>
+                                    </div>
+                                </div>
+                                <div class="test">
+                                    <div class="no-to-do">
+                                        <p>No Task To do</p>
+                                    </div>
+                                    <div class="borderBoard"></div>
+                                </div>
+                                <div class="newTask"></div>
+                            </div>
+                        </div>
 
-    <div class="task">
-    </div>
-    </section>
+                        <div class="dynamicDisplayFlex">
+                            <div class="d-flex">
+                                <div class="test2">
+                                    <p class="status-text">Await feedback</p>
+                                    <div class="popup-container">
+                                        <img class="standardImg" src="assets/images/plus_button.svg" alt="">
+
+                                    </div>
+                                </div>
+                                <div class="test">
+                                    <div class="no-to-do">
+                                        <p>No Task To do</p>
+                                    </div>
+                                    <div class="borderBoard"></div>
+                                </div>
+                                <div class="newTask"></div>
+                            </div>
+
+                            <div class="d-flex">
+                                <div class="test2">
+                                    <p class="status-text">Done</p>
+                                    <div class="popup-container">
+                                        <img class="standardImg" src="assets/images/plus_button.svg" alt="">
+
+                                    </div>
+                                </div>
+                                <div class="test">
+                                    <div class="no-to-do">
+                                        <p>No Task To do</p>
+                                    </div>
+                                    <div class="borderBoard"></div>
+                                </div>
+                                <div class="newTask"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal">
+                        <div class="modal-content">
+                            <div class="add-task-board">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="task">
+                    </div>
+                    </section>
 </body>
 
 </html>
