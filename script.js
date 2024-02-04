@@ -8,3 +8,8 @@ function checkForaPp(){
         alert('Please confirm the Privacy policy.');
     }
 }
+
+
+function checkForAccess(){
+    document.getElementById('')
+}
