@@ -19,8 +19,8 @@
 }
 
 .login-lines {
-    width: 422px;
-    gap: 32px;
+    width: 404px;
+    gap: 24px;
 }
 
 .ta-center {
@@ -38,6 +38,10 @@
 
 .d-none {
     display: none;
+}
+
+.pad-0{
+    padding: 0;
 }
 
 .pad-8 {
@@ -63,3 +67,33 @@
 .f-size-20 {
     font-size: 20px;
 }
+
+.f-weight-400{
+    font-weight: 400;
+}
+
+.max-width {
+    width: 100%;
+}
+
+.pos-rel{
+    position: relative;
+    width: 100%;
+}
+
+
+/*Für alle Inputfelder wird ein blauer rahmen genutzt wenn man in das Feld klickt*/
+
+input {
+    height: 46px;
+    border: 1px solid #d1d1d1;
+    border-radius: 10px;
+    width: 100%;
+    transition: 0.5s;
+    outline: none;
+    color: #3F3F3F;
+}
+
+input:focus{
+    border: 1px solid #29ABE2;
+   }
