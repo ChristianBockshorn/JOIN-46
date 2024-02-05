@@ -22,13 +22,16 @@ a {
 
 .nav-main{
     margin-bottom: 136px;
-    margin-left: 36px;
     gap: 32px;
 }
 
 .nav-main a {
     color: #CDCDCD;
     font-size: 18px;
+}
+
+.nav-main img {
+    height: 30px;
 }
 
 .navbar a:hover {
@@ -42,7 +45,6 @@ a {
 
 .nav-footer a {
     color: #A8A8A8;
-    margin-left: 36px;
 }
 
 
