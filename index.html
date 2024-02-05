@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JOIN - Log in</title>
     <link rel="icon" type="image/svg" href="assets/images/logo.svg">
-    <script src="script.js"></script>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="positions.css">
     <link rel="stylesheet" href="inter-font.css">
@@ -27,15 +26,15 @@
                     <h1 class="center">Log in</h1>
                     <div class="underline"></div>
                 </div>
-                <form class="center" autocomplete="on" onsubmit="checkForAccess(); return false;">
+                <form id="formid" class="center" autocomplete="on" onsubmit="return false;" >
                     <div class="center fd-column d-flex login-lines">
                         <div class="pos-rel max-width">
                             <img src="./assets/images/mail.svg" alt="kleiner Briefumschlag" id="mail-placeholder-img" class="placeholder-img"/>
-                            <input required autocomplete="email" placeholder="Email" type="email" id="mail-placeholder" class="pad-0 pad-l-16 f-weight-400 f-size-20"/>
+                            <input required autocomplete="email" placeholder="Email" type="email" id="mail" class="pad-0 pad-l-16 f-weight-400 f-size-20"/>
                         </div>
                         <div class="pos-rel max-width">
                             <img src="./assets/images/lock.svg" alt="kleines Schloss" id="pass-placeholder-img" class="placeholder-img"/>
-                            <input required placeholder="Password" type="password" autocomplete="current-password" id="pass-placeholder" class="pad-0 pad-l-16 f-weight-400 f-size-20"/>
+                            <input required placeholder="Password" type="password" autocomplete="current-password" id="pass" class="pad-0 pad-l-16 f-weight-400 f-size-20"/>
                         </div>
                         <div class="max-width">
                             <div class="remember-box">
@@ -45,8 +44,8 @@
                         </div>
                     </div>
                     <div class="pos-li-buttons">
-                        <button class="colored-btn btn-pad-big" value="login">Log in</button>
-                        <button class="normal-btn btn-pad-big" value="guest">Guest Log in</button>
+                        <button class="colored-btn btn-pad-big" id="user">Log in</button>
+                        <button class="normal-btn btn-pad-big" id="guest">Guest Log in</button>
                     </div>
                 </form>
             </section>
@@ -58,6 +57,9 @@
             </div>
         </footer>
     </div>
+
+    <script src="script.js"></script>
+    <script src="loginnavigater.js"></script>
 </body>
 
 </html>
