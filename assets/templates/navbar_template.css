@@ -20,6 +20,10 @@ a {
     justify-content: center;
 }
 
+.nav-logo img{
+    height: 120px;
+}
+
 .nav-main{
     margin-bottom: 136px;
     gap: 32px;
