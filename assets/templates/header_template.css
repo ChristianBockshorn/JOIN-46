@@ -3,10 +3,10 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    
+
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     height: 80px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
 }
@@ -15,7 +15,116 @@ img {
     height: 70px;
 }
 
-p{
+p {
     font-family: Inter;
-    font-size: 18px; 
+    font-size: 18px;
+}
+
+.header-description {
+    margin-left: 64px;
+}
+
+.header-questionProfile {
+    display: flex;
+    gap: 10px;
+}
+
+.header-questionProfile {
+    display: flex;
+    align-items: center;
+}
+
+.questionMark img {
+    height: 30px;
+}
+
+.profile img {
+    height: 50px;
+}
+
+
+
+
+/* The icon */
+/* .help-tip {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+} */
+
+.help-tip:before {
+    content: url('/assets/images/profile.svg');
+}
+
+.help-tip:hover div {
+    display: flex;
+    margin-top: 4px;
+    border-radius: 20px;
+    border-top-right-radius: 0;
+    transform-origin: 100% 0%;
+    -webkit-animation: fadeIn 0.3s ease;
+    animation: fadeIn 0.3s ease;
+
+}
+
+.help-cont {
+    display: block;
+}
+
+/* The tooltip */
+.help-tip div {
+    display: none;
+    font-family: Inter;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+    flex-direction: column;
+    padding: 10px;
+    width: 150px;
+    gap: 35px;
+    height: 158px;
+    position: absolute;
+    transform: translate(-50%, 5%);
+    z-index: 99;
+    background-color: #081931;
+}
+
+.help-tip div a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.help-tip div a:hover {}
+
+
+/* Prevents the tooltip from being hidden */
+.help-tip div:after {
+    width: 10px;
+    height: 40px;
+    content: '';
+    position: absolute;
+    top: -40px;
+    left: 0;
+}
+
+/* CSS animation */
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 100%;
+    }
 }
