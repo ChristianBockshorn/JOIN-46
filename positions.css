@@ -123,6 +123,7 @@ button {
 
 .colored-btn:disabled{
     background-color: #2A3647 !important;
+    border-color: #2A3647;
     cursor: no-drop;
 }
 
