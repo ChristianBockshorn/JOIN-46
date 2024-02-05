@@ -95,8 +95,6 @@ p {
     font-size: 16px;
 }
 
-.help-tip div a:hover {}
-
 
 /* Prevents the tooltip from being hidden */
 .help-tip div:after {
