@@ -1,18 +1,27 @@
-document.getElementById('signUpButton').addEventListener("click",goSignUp);
+document.getElementById('app').addEventListener("click",enableButton);
+// document.getElementById('signUpButton').addEventListener("click",goSignUp);
 
 
-function checkForaPp(){
-    let appbox = document.querySelector('#app');
-    if (appbox.checked){
+function enableButton(event){
+    if (event.target.checked) {
+        // console.log("der code geht");
         document.getElementById('signUpButton').disabled = false;
     }
     else{
-        console.log('Please confirm the Privacy policy.');
-        alert('Please confirm the Privacy policy.');
+        document.getElementById('signUpButton').disabled = true;
     }
 }
 
 
 function goSignUp(){
+    let name = document.getElementById('first-name');
+    let mail = document.getElementById('mail');
+    let pass = document.getElementById('pass');
+    let passconfirm = document.getElementById('pass-confirm');
+    console.log(name.value);
+    console.log(mail.value);
+    console.log(pass.value);
+    console.log(passconfirm.value);
+    alert("Erfolgreich angemeldet");
     window.location.href = './index.html';
 }
