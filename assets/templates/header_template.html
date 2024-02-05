@@ -7,9 +7,32 @@
 </head>
 
 <body>
+    <script>
+        function myFunction() {
+            var popup = document.getElementById("myPopup");
+            popup.classList.toggle("show");
+        }
+    </script>
     <header>
         <img src="/assets/images/logo.svg" alt="logo">
-        <p>Kanban Project Management Tool</p>
-        <img src="/assets/images/questionMark.svg" alt="help-icon">
+
+        <div class="header-description">
+            <p>Kanban Project Management Tool</p>
+        </div>
+
+        <div class="header-questionProfile">
+            <div class="questionMark">
+                <a href="/help.html"><img src="/assets/images/questionMark.svg" alt="help-icon"></a>
+            </div>
+            <div class="help-tip">
+                <div class="help-cont">
+                    <a href="/privacypolicy.html">Privacy Policy</a>
+                    <a href="/legalnotice.html">Legal Notice</a>
+                    <a href="/logout">Log out</a>
+                </div>
+            </div>
+
+        </div>
+        
     </header>
 </body>
