@@ -50,7 +50,7 @@ p {
     cursor: pointer;
 }
 
-a {
+.popup-links {
     color: #FFFFFF;
     text-decoration: none;
     font-size: 16px;
@@ -59,7 +59,7 @@ a {
     ;
 }
 
-a:hover {
+.popup-links:hover {
     color: #29ABE2;
 }
 
