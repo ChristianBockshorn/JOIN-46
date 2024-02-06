@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help</title>
+
+    <link rel="stylesheet" href="/assets/templates/navbar_template.css">
+    <link rel="icon" type="image/x-icon" href="/assets/images/logo.svg">
+    <link rel="stylesheet" href="/assets/templates/add_Task_template.css">
+</head>
+
+<body onload="includeHTML()">
+    <div w3-include-html="/assets/templates/navbar_template.html"></div>
+    <div w3-include-html="/assets/templates/header_template.html"></div>
+
+    <div class="main">
+        <h1>Add Task</h1>
+        <div class="main-content">
+            <div class="left-column">
+                <label for="Title">Title</label>
+                <input type="text" placeholder="Enter a title">
+
+                <label for="Title">Description</label>
+                <input type="text" placeholder="Enter a description">
+
+                <label for="Title">Assigned to</label>
+                <input type="text" placeholder="Enter a title">
+            </div>
+            <div class="middle-seperator"></div>
+            <div class="right-column">
+                <label for="Title">Due date</label>
+                <input type="text" placeholder="tt.mm.jjjj">
+
+                <label for="Title">Prio</label>
+
+                <label for="Title">Category</label>
+
+                <label for="Title">Subtasks</label>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
