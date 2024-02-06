@@ -42,87 +42,76 @@ p {
     height: 50px;
 }
 
-
-
-
-/* The icon */
-/* .help-tip {
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-} */
-
-.help-tip:before {
-    content: url('/assets/images/profile.svg');
-}
-
-.help-tip:hover div {
-    display: flex;
-    margin-top: 4px;
-    border-radius: 20px;
-    border-top-right-radius: 0;
-    transform-origin: 100% 0%;
-    -webkit-animation: fadeIn 0.3s ease;
-    animation: fadeIn 0.3s ease;
-
-}
-
-.help-cont {
-    display: block;
-}
-
-/* The tooltip */
-.help-tip div {
-    display: none;
-    font-family: Inter;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    text-align: center;
-    flex-direction: column;
+/* Popup container */
+.popup {
+    position: relative;
+    display: inline-block;
     padding: 10px;
-    width: 150px;
-    gap: 35px;
-    height: 158px;
-    position: absolute;
-    transform: translate(-50%, 5%);
-    z-index: 99;
-    background-color: #081931;
 }
 
-.help-tip div a {
+a {
     color: #FFFFFF;
     text-decoration: none;
     font-size: 16px;
+    cursor: pointer;
+    font-family: Inter;
+    ;
 }
 
+a:hover {
+    color: #29ABE2;
+}
 
-/* Prevents the tooltip from being hidden */
-.help-tip div:after {
-    width: 10px;
-    height: 40px;
-    content: '';
+/* The actual popup (appears on top) */
+.popup .popuptext {
+    visibility: hidden;
+    margin-top: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 10px;
+    background-color: #081931;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
     position: absolute;
-    top: -40px;
-    left: 0;
+    z-index: 1;
+    width: 120px;
+    height: 100px;
+    top: 100%;
+    left: 50%;
+    margin-left: -104px;
+    /* Use half of the width (120/2 = 60), to center the tooltip */
+    border-radius: 20px;
+    border-top-right-radius: 0;
+    padding: 10px;
 }
 
-/* CSS animation */
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
 @-webkit-keyframes fadeIn {
-    0% {
+    from {
         opacity: 0;
     }
 
-    100% {
-        opacity: 100%;
+    to {
+        opacity: 1;
     }
 }
 
 @keyframes fadeIn {
-    0% {
+    from {
         opacity: 0;
     }
 
-    100% {
-        opacity: 100%;
+    to {
+        opacity: 1;
     }
 }
