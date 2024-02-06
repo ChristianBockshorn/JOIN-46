@@ -8,6 +8,7 @@
 
 <body>
     <script>
+        // When the user clicks on <div>, open the popup
         function myFunction() {
             var popup = document.getElementById("myPopup");
             popup.classList.toggle("show");
@@ -24,15 +25,18 @@
             <div class="questionMark">
                 <a href="/help.html"><img src="/assets/images/questionMark.svg" alt="help-icon"></a>
             </div>
-            <div class="help-tip">
-                <div class="help-cont">
+
+
+            <div class="popup">
+                <img src="/assets/images/profile.svg" onclick="myFunction()">
+                <span class="popuptext" id="myPopup">
                     <a href="/privacypolicy.html">Privacy Policy</a>
                     <a href="/legalnotice.html">Legal Notice</a>
-                    <a href="/logout">Log out</a>
-                </div>
+                    <a href="/logout">Logout</a>
+                </span>
             </div>
 
         </div>
-        
+
     </header>
 </body>
