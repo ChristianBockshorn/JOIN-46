@@ -26,41 +26,6 @@ footer a {
 }
 
 
-/* Button */
-
-button {
-    font-weight: 700;
-    font-size: 21px;
-    cursor: pointer;
-}
-
-.li-buttons {
-    display: flex;
-    gap: 35px;
-}
-
-.colored-btn {
-    background-color: #2A3647 !important;
-    color: white;
-    border-radius: 8px;
-}
-
-.normal-btn {
-    color: #2A3647;
-    background-color: #FFFFFF;
-    border-radius: 8px;
-}
-
-.btn-pad-big {
-    padding: 15px 24px;
-}
-
-.btn-pad-small {
-    padding: 15px 16px;
-}
-
-/* ##################### */
-
 .start-logo {
     position: absolute;
     top: 80px;

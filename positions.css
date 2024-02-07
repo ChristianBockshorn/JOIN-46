@@ -18,6 +18,10 @@
     justify-content: space-between;
 }
 
+.ai-center{
+    align-items: center;
+}
+
 .login-lines {
     width: 404px;
     gap: 24px;
@@ -40,7 +44,7 @@
     display: none;
 }
 
-.pad-0{
+.pad-0 {
     padding: 0;
 }
 
@@ -48,12 +52,34 @@
     padding: 8px;
 }
 
+.gap-8 {
+    gap: 8px;
+}
+
 .gap-16 {
     gap: 16px;
 }
 
-.pad-l-16{
+.gap-24 {
+    gap: 24px;
+}
+
+.gap-350 {
+    gap: 350px;
+}
+
+.pad-l-16 {
     padding-left: 16px;
+}
+
+/* Höhe */
+
+.height-24{
+    height: 24px;
+}
+
+.marg-top {
+    margin-top: 60px;
 }
 
 
@@ -68,7 +94,11 @@
     font-size: 20px;
 }
 
-.f-weight-400{
+.f-size-32 {
+    font-size: 32px;
+}
+
+.f-weight-400 {
     font-weight: 400;
 }
 
@@ -76,10 +106,73 @@
     width: 100%;
 }
 
-.pos-rel{
+.pos-rel {
     position: relative;
     width: 100%;
 }
+
+/* ##################### */
+/* Button */
+
+button {
+    font-weight: 700;
+    font-size: 21px;
+    cursor: pointer;
+}
+
+.pos-li-buttons {
+    display: flex;
+    gap: 35px;
+}
+
+.colored-btn {
+    background-color: #091931;
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border-color: #091931;
+}
+
+.colored-btn:hover{
+    background-color: #29ABE2;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border-color: #29ABE2;
+}
+
+.colored-btn:disabled{
+    background-color: #2A3647 !important;
+    border-color: #2A3647;
+    cursor: no-drop;
+}
+
+.normal-btn {
+    color: #2A3647;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    border: 1px solid rgba(9, 25, 49, 1);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.normal-btn:hover{
+    color: rgba(41, 171, 226, 1);
+    border: 2px solid rgba(41, 171, 226, 1);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+}
+
+.normal-btn:disabled{
+    border: 1px solid rgba(42, 54, 71, 1) !important;
+    cursor: no-drop;
+}
+
+.btn-pad-big {
+    padding: 15px 24px;
+}
+
+.btn-pad-small {
+    padding: 15px 16px;
+}
+
 
 
 /*Für alle Inputfelder wird ein blauer rahmen genutzt wenn man in das Feld klickt*/
@@ -94,6 +187,18 @@ input {
     color: #3F3F3F;
 }
 
-input:focus{
+input:focus {
     border: 1px solid #29ABE2;
-   }
+}
+
+select {
+    height: 46px;
+    border: 1px solid #d1d1d1;
+    border-radius: 10px;
+    width: 100%;
+    transition: 0.5s;
+    outline: none;
+    color: #3F3F3F;
+    font-size: 20px;
+    padding: 10px;
+}

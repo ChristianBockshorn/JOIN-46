@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help</title>
+
+    <link rel="stylesheet" href="/assets/templates/navbar_template.css">
+    <link rel="icon" type="image/x-icon" href="/assets/images/logo.svg">
+    <link rel="stylesheet" href="/assets/templates/add_Task_template.css">
+    <link rel="stylesheet" href="/positions.css">
+</head>
+
+<body onload="includeHTML()">
+    <div w3-include-html="/assets/templates/navbar_template.html"></div>
+    <div w3-include-html="/assets/templates/header_template.html"></div>
+
+    <div class="main">
+        <h1>Add Task</h1>
+        <div class="d-flex gap-16">
+            <div class="left-column">
+                <label class="title" for="Title">Title</label>
+                <input class="f-size-20" type="text" placeholder="Enter a title">
+
+                <label for="Title">Description</label>
+                <textarea class="f-size-20" name="" id="" cols="30" rows="10"
+                    placeholder="Enter a description"></textarea>
+
+                <label class="assigned" for="Title">Assigned to</label>
+                <input class="f-size-20" type="text" placeholder="Enter a title">
+            </div>
+            <div class="middle-seperator"></div>
+            <div class="right-column">
+                <label class="date" for="Title">Due date</label>
+                <input class="f-size-20" type="text" placeholder="tt.mm.jjjj">
+
+                <label class="prio" for="Title">Prio</label>
+                <div class="prioCategoryCont">
+                    <button class="prioCategory">Urgent <img src="assets/images/urgent_symbol.svg"></button>
+                    <button class="prioCategory">Medium <img src="assets/images/medium_symbol.svg"></button>
+                    <button class="prioCategory">Low <img src="assets/images/low_symbol.svg"></button>
+                </div>
+
+                <label class="category" for="Title">Category</label>
+                <select type="text" placeholder="Select task category">
+                    <option value>Select Category</option>
+                    <option value="technical_task">Technical Task</option>
+                    <option value="user_story">User Story</option>
+                </select>
+
+                <div class="formSection">
+                    <label for="Title">Subtasks</label>
+                    <input class="f-size-20" type="text" placeholder="Add new subtask">
+                    <img class="subtaskPlusSymbol inputSymbol height-24" src="assets/images/add_task_plus_black.svg">
+                </div>
+
+            </div>
+        </div>
+
+        <footer class="d-flex ai-center gap-350 marg-top">
+            <span class="f-size-16">This field is required</span>
+            <div class="pos-li-buttons ">
+                <button class="d-flex center normal-btn btn-pad-big ">Clear<img class="height-24"
+                        src="assets/images/cancel.svg" alt="check"></button>
+                <button class="d-flex center gap-8 colored-btn btn-pad-big">Create Task<img class="height-24"
+                        src="assets/images/check_add_task.svg" alt="check"></button>
+            </div>
+        </footer>
+
+    </div>
+</body>
+
+</html>

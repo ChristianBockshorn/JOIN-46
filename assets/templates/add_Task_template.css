@@ -1,0 +1,121 @@
+.main {
+    margin-left: 328px;
+    margin-top: 206px;
+    margin-right: 328px;
+    font-size: 20px;
+}
+
+b {
+    color: #29ABE2;
+}
+
+.left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    margin-top: 60px;
+    width: 440px;
+    height: 420px;
+}
+
+textarea:focus {
+    border-color: #29ABE2;
+}
+
+textarea {
+    resize: none;
+    transition: 0.5s;
+    outline: none;
+    color: #3F3F3F;
+    border: solid 1px #DBDBDB;
+    border-radius: 10px;
+    
+}
+
+textarea::placeholder {
+    padding: 8px 16px;
+}
+
+
+
+input::placeholder {
+    padding: 8px;
+}
+
+.middle-seperator {
+    border-left: 1px solid #D1D1D1;
+    margin-top: 60px;
+
+}
+
+.right-column {
+    margin-top: 60px;
+    width: 440px;
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.formSection {
+    display: flex;
+    flex-direction: column;
+   
+    position: relative;
+}
+
+.prioCategoryCont{
+    display: flex;
+    gap: 20px;
+}
+
+.prioCategoryCont img {
+    height: 15px;
+}
+
+.prioCategory{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background-color: white;
+    border: solid 1px #EAEBEC;
+    border-radius: 8px;
+    gap: 8px;
+    width: 136px;
+    color: black;
+    font-size: 20px;
+}
+
+.prioCategory:hover {
+    box-shadow: 0px 5px 4px 0px #BCBDBE;
+    cursor: pointer;
+}
+
+.subtaskPlusSymbol{
+    right: 0px;
+    top: 35px;
+    padding: 4px;
+}
+
+.inputSymbol {
+    position: absolute;
+    cursor: pointer;
+    overflow: visible;
+    border-radius: 50%;
+}
+
+.category::after,
+.prio::after,
+.date::after,
+.assigned::after,
+.title::after {
+    content: "*";
+    color: #FF8190;
+}
+
+footer span::before {
+    content: "*";
+    color: #FF8190;
+}
