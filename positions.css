@@ -52,6 +52,10 @@
     padding: 8px;
 }
 
+.gap-8 {
+    gap: 8px;
+}
+
 .gap-16 {
     gap: 16px;
 }
@@ -60,8 +64,22 @@
     gap: 24px;
 }
 
+.gap-350 {
+    gap: 350px;
+}
+
 .pad-l-16 {
     padding-left: 16px;
+}
+
+/* Höhe */
+
+.height-24{
+    height: 24px;
+}
+
+.marg-top {
+    margin-top: 60px;
 }
 
 
