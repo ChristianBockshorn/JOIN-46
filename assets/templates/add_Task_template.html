@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/assets/templates/navbar_template.css">
     <link rel="icon" type="image/x-icon" href="/assets/images/logo.svg">
     <link rel="stylesheet" href="/assets/templates/add_Task_template.css">
+    <link rel="stylesheet" href="/positions.css">
 </head>
 
 <body onload="includeHTML()">
@@ -17,29 +18,39 @@
 
     <div class="main">
         <h1>Add Task</h1>
-        <div class="main-content">
+        <div class="d-flex gap-16">
             <div class="left-column">
-                <label for="Title">Title</label>
-                <input type="text" placeholder="Enter a title">
+                <label class="title" for="Title">Title</label>
+                <input class="f-size-20" type="text" placeholder="Enter a title">
 
                 <label for="Title">Description</label>
-                <input type="text" placeholder="Enter a description">
+                <textarea class="f-size-20" name="" id="" cols="30" rows="10" placeholder="Enter a description"></textarea>
 
-                <label for="Title">Assigned to</label>
-                <input type="text" placeholder="Enter a title">
+                <label class="assigned" for="Title">Assigned to</label>
+                <input class="f-size-20" type="text" placeholder="Enter a title">
             </div>
             <div class="middle-seperator"></div>
             <div class="right-column">
-                <label for="Title">Due date</label>
+                <label class="date f-size-20" for="Title">Due date</label>
                 <input type="text" placeholder="tt.mm.jjjj">
 
-                <label for="Title">Prio</label>
+                <label class="prio" for="Title">Prio</label>
 
-                <label for="Title">Category</label>
+                <label class="category" for="Title">Category</label>
 
                 <label for="Title">Subtasks</label>
             </div>
         </div>
+
+        <footer class="d-flex ai-center gap-350 marg-top">
+            <span class="f-size-16">This field is required</span>
+            <div class="pos-li-buttons ">
+                <button class="d-flex center normal-btn btn-pad-big ">Clear<img class="height-24"
+                        src="assets/images/cancel.svg" alt="check"></button>
+                <button class="d-flex center gap-8 colored-btn btn-pad-big">Create Task<img class="height-24"
+                        src="assets/images/check_add_task.svg" alt="check"></button>
+            </div>
+        </footer>
 
     </div>
 </body>
