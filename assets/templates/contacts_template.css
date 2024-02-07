@@ -1,0 +1,41 @@
+.main {
+    margin-left: 328px;
+    margin-top: 206px;
+    margin-right: 328px;
+    font-size: 20px;
+}
+
+
+b {
+    color: #29ABE2;
+}
+
+.main-content{
+    display: flex;
+    gap: 16px;
+}
+
+.left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+    margin-top: 60px;
+    width: 440px;
+    height: 376px;
+}
+
+.middle-seperator{
+    border-left: 1px solid #D1D1D1;
+    margin-top: 60px;
+    
+}
+
+.right-column {
+    margin-top: 60px;
+    width: 440px;
+    height: 376px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
