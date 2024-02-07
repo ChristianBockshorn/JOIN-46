@@ -165,6 +165,10 @@ button {
     cursor: no-drop;
 }
 
+.btn-width{
+    width: 352px;
+}
+
 .btn-pad-big {
     padding: 15px 24px;
 }
@@ -173,6 +177,9 @@ button {
     padding: 15px 16px;
 }
 
+.btn-pad-newcontact{
+    padding: 12px 0;
+}
 
 
 /*Für alle Inputfelder wird ein blauer rahmen genutzt wenn man in das Feld klickt*/
