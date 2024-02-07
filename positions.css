@@ -190,3 +190,15 @@ input {
 input:focus {
     border: 1px solid #29ABE2;
 }
+
+select {
+    height: 46px;
+    border: 1px solid #d1d1d1;
+    border-radius: 10px;
+    width: 100%;
+    transition: 0.5s;
+    outline: none;
+    color: #3F3F3F;
+    font-size: 20px;
+    padding: 10px;
+}

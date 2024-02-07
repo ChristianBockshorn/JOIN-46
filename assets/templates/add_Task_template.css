@@ -16,7 +16,7 @@ b {
 
     margin-top: 60px;
     width: 440px;
-    height: 376px;
+    height: 420px;
 }
 
 textarea:focus {
@@ -52,10 +52,17 @@ input::placeholder {
 .right-column {
     margin-top: 60px;
     width: 440px;
-    height: 376px;
+    height: 420px;
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+.formSection {
+    display: flex;
+    flex-direction: column;
+   
+    position: relative;
 }
 
 .prioCategoryCont{
@@ -84,6 +91,19 @@ input::placeholder {
 .prioCategory:hover {
     box-shadow: 0px 5px 4px 0px #BCBDBE;
     cursor: pointer;
+}
+
+.subtaskPlusSymbol{
+    right: 0px;
+    top: 35px;
+    padding: 4px;
+}
+
+.inputSymbol {
+    position: absolute;
+    cursor: pointer;
+    overflow: visible;
+    border-radius: 50%;
 }
 
 .category::after,
