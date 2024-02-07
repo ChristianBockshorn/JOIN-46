@@ -1,4 +1,6 @@
-
+body {
+  padding-top: 80px
+}
 
 .summaryContent {
     margin-left: 296px;
@@ -62,7 +64,7 @@
     transform: scale(1.1);
   }
   
-  .summaryBox:hover .summaryBoxTopIcon {
+  .summaryBox:hover .summaryBoxIcon {
     background-color: white;
   }
   
@@ -92,7 +94,7 @@
     justify-content: space-between;
   }
   
-  .summaryBoxTop {
+  .summaryBox {
     padding: 38px 58px;
     height: 168px;
     width: 264px;
@@ -117,7 +119,7 @@
   }
   
   .summaryBoxBottom {
-    padding: 25px 0;
+    padding: 35px;
     height: 168px;
     width: 168px;
   
@@ -128,8 +130,8 @@
   
   .summaryBoxTopIcon {
     border-radius: 50%;
-    width: 64px;
-    height: 64px;
+    width: 70px;
+    height: 70px;
     background-color: #2a3647;
     display: flex;
     justify-content: center;
@@ -158,12 +160,13 @@
   .urgentIconCount {
     display: flex;
     align-items: center;
+    height: 48px;
   }
   
   .summaryBoxMidIcon {
     border-radius: 50%;
-    width: 64px;
-    height: 64px;
+    width: 70px;
+    height: 70px;
     background-color: #ee3d04;
     display: flex;
     justify-content: center;
