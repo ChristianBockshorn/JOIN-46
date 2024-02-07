@@ -5,11 +5,6 @@
     font-size: 20px;
 }
 
-img {
-    height: 25px;
-    width: 25px;
-}
-
 b {
     color: #29ABE2;
 }
@@ -75,7 +70,9 @@ input::placeholder {
     gap: 20px;
 }
 
-
+.prioCategoryCont img {
+    height: 15px;
+}
 
 .prioCategory{
     display: flex;
