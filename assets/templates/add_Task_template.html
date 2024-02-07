@@ -32,8 +32,8 @@
             </div>
             <div class="middle-seperator"></div>
             <div class="right-column">
-                <label class="date f-size-20" for="Title">Due date</label>
-                <input type="text" placeholder="tt.mm.jjjj">
+                <label class="date" for="Title">Due date</label>
+                <input class="f-size-20" type="text" placeholder="tt.mm.jjjj">
 
                 <label class="prio" for="Title">Prio</label>
                 <div class="prioCategoryCont">
@@ -43,8 +43,18 @@
                 </div>
 
                 <label class="category" for="Title">Category</label>
+                <select type="text" placeholder="Select task category">
+                    <option value>Select Category</option>
+                    <option value="technical_task">Technical Task</option>
+                    <option value="user_story">User Story</option>
+                </select>
 
-                <label for="Title">Subtasks</label>
+                <div class="formSection">
+                    <label for="Title">Subtasks</label>
+                    <input class="f-size-20" type="text" placeholder="Add new subtask">
+                    <img class="subtaskPlusSymbol inputSymbol height-24" src="assets/images/add_task_plus_black.svg">
+                </div>
+
             </div>
         </div>
 
