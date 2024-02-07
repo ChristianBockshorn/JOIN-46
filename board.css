@@ -93,7 +93,7 @@ input {
   cursor: pointer;
 }
 
-.d-flex {
+.flex {
   display: flex;
   flex-direction: column;
   width: 252px;
