@@ -1,0 +1,209 @@
+
+
+.summaryContent {
+    margin-left: 296px;
+    margin-top: 80px;
+    margin-bottom: 48px;
+    width: calc(100% - 328px);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .summaryHead {
+    display: flex;
+    align-items: center;
+   
+  }
+  
+  .summaryHead h1 {
+    font-weight: 700;
+    margin-block: unset;
+    font-size: 3.5rem;
+  }
+  
+  .sumHeadDevider {
+    width: 3px;
+    height: 59px;
+    background-color: #29abe2;
+    margin: 0 30px;
+  }
+  
+  .sumHeadSlogan {
+    font-size: 27px;
+    font-weight: 400;
+    color: #2a3647;
+  }
+  .summaryMainContent {
+    display: flex;
+    align-items: center;
+    margin-top: 56px;
+  }
+  
+  .summaryBoxes {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 560px;
+    height: 562px;
+  }
+  
+  .summaryBox {
+    background-color: white;
+    border-radius: 30px;
+    transition: all ease-in-out 100ms;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .summaryBox:hover {
+    cursor: pointer;
+    background-color: #2a3647;
+    color: white;
+  
+    transform: scale(1.1);
+  }
+  
+  .summaryBox:hover .summaryBoxTopIcon {
+    background-color: white;
+  }
+  
+  .summaryBox:hover .summaryBoxesTopIcons {
+    filter: brightness(0) saturate(100%) invert(14%) sepia(3%) saturate(6188%)
+      hue-rotate(177deg) brightness(105%) contrast(84%);
+  }
+  .summaryBox:hover .summaryCountText {
+    color: white;
+  }
+  
+  .summaryBox:hover .nextUrgentDate {
+    color: white;
+  }
+  
+  .summaryBox:hover .nextUrgentDateText {
+    color: white;
+  }
+  
+  .summaryBoxesTop {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .summaryBoxesBottom {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .summaryBoxTop {
+    padding: 38px 58px;
+    height: 168px;
+    width: 264px;
+    display: flex;
+    align-items: center;
+  
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  .summaryBoxMid {
+    padding: 28px 48px;
+    height: 168px;
+    width: 560px;
+    display: flex;
+    align-items: center;
+  
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  .summaryBoxBottom {
+    padding: 25px 0;
+    height: 168px;
+    width: 168px;
+  
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  .summaryBoxTopIcon {
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    background-color: #2a3647;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 18px;
+  }
+  
+  .summaryCountContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .summaryCountNum {
+    font-size: 64px;
+    font-weight: 600;
+  }
+  
+  .summaryCountText {
+    font-size: 20px;
+    font-weight: 400;
+    color: #2a3647;
+    text-align: center;
+  }
+  
+  .urgentIconCount {
+    display: flex;
+    align-items: center;
+  }
+  
+  .summaryBoxMidIcon {
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    background-color: #ee3d04;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 18px;
+  }
+  
+  .sumUrgentDevider {
+    width: 2px;
+    height: 102px;
+    background-color: #d1d1d1;
+    margin: 0 61px;
+  }
+  
+  .nextUrgentDate {
+    font-size: 21px;
+    font-weight: 700;
+    color: #2a3647;
+    margin-bottom: 13px;
+  }
+  
+  .nextUrgentDateText {
+    font-size: 16px;
+    font-weight: 400;
+    color: #2a3647;
+  }
+  
+  .userGreet {
+    margin-left: 80px;
+  }
+  
+  #timedGreeting {
+    font-size: 47px;
+    font-weight: 500;
+    color: #2a3647;
+    margin-bottom: 3px;
+  }
+  
+  #logedinUser {
+    font-size: 64px;
+    font-weight: 700;
+    color: #29abe2;
+  }

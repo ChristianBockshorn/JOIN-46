@@ -1,12 +1,18 @@
 .BoardSection {
-  padding-left: 250px;
+  padding: 50px;
 }
 
 .headerBoard {
   display: flex;
   justify-content: space-between;
   margin: 10px;
+  height: 232px;
   padding-top: 80px;
+}
+
+h1 {
+  padding-left: 250px;
+  padding-top: 30px;
 }
 
 input {
@@ -54,23 +60,30 @@ input {
 }
 
 .headerFlex {
+  display: flex;
   justify-content: end;
   align-items: center;
   gap: 32px;
 }
 
-.headerFlex input,
-button {
-  height: 48px;
+.headerFlex {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 32px;
 }
 
 
 .status {
   display: flex;
   gap: 32px;
+  padding-left: 250px;
+
+}
+
+.dynamicDisplayFlex {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  gap: 32px;
 }
 
 .standardImg {
@@ -119,4 +132,18 @@ button {
   background-color: #2A3647;
   color: white;
   font-weight: 600;
+}
+
+.borderBoard {
+
+  display: flex;
+  background-color: #ffff;
+  border-radius: 24px;
+  padding: 16px;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 16px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  border: solid 1.5px #DBDBDB;
 }
