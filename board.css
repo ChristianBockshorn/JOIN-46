@@ -37,6 +37,7 @@ input {
   cursor: pointer;
   height: 30px;
 }
+
 .input-container {
   display: inline-block;
 }
@@ -147,3 +148,86 @@ input {
   cursor: pointer;
   border: solid 1.5px #DBDBDB;
 }
+
+@media(max-width:1500px) {
+  .status {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .BoardSection {
+    padding-bottom: 80px;
+  }
+}
+
+@media(min-width:1330px) {
+  .subtaskContainer {
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 200px;
+    width: auto;
+  }
+
+ 
+
+}
+
+
+@media(max-width:1024px) {
+  .sidebar {
+    bottom: 0;
+    left: 0;
+    min-height: auto;
+    height: auto;
+    width: 100%;
+  }
+
+  .board {
+    padding: 0 24px 104px 24px;
+  }
+
+  .headerBoard {
+    flex-direction: column;
+  }
+
+  .headerFlex {
+    flex-direction: row;
+    margin-top: -64px;
+  }
+
+  .test2 {
+    font-size: 32px;
+  }
+
+  .input-container {
+    width: 30%;
+  }
+}
+
+
+@media (min-width: 320px) and (max-width: 700px) {
+
+  .headerBoard {
+    flex-direction: column;
+    flex-direction: column-reverse;
+    margin-top: -85px;
+  }
+
+  .dynamicDisplayFlex {
+    display: flex;
+    flex-direction: column;
+  }
+
+  h1 {
+    display: flex;
+    justify-content: center;
+  }
+
+  .headerBoard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+  }
+}
+
