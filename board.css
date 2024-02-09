@@ -149,6 +149,43 @@ input {
   border: solid 1.5px #DBDBDB;
 }
 
+.dialog-bg {
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialog {
+  height: 80vh;
+  width: 80%;
+  background-color: white;
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  padding: 24px;
+}
+
+.d-none {
+  display: none;
+}
+
+.addTask-Board {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.taskInput !important{
+  width: 10px;
+
+}
+
+
 @media(max-width:1500px) {
   .status {
     flex-direction: column;
@@ -224,7 +261,6 @@ input {
   }
 
   .headerBoard{
-    display: flex;
     flex-direction: column;
     align-items: center;
     

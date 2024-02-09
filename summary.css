@@ -188,67 +188,7 @@ body {
     margin-bottom: 13px;
   }
   
-  .nextUrgentDateText {
-    font-size: 16px;
-    font-weight: 400;
-    color: #2a3647;
-  }
-  
-  .userGreet {
-    margin-left: 80px;
-  }
-  
-  #timedGreeting {
-    font-size: 47px;
-    font-weight: 500;
-    color: #2a3647;
-    margin-bottom: 3px;
-  }
-  
-  #logedinUser {
-    font-size: 64px;
-    font-weight: 700;
-    color: #29abe2;
-  }
 
-    
-  .sumHeadDeviderMobile {
-    display: none;
-    width: 90px;
-    height: 2px;
-    background-color: #29abe2;
-    border-radius: 1px;
-    margin-top: 12px;
-  }
-  
-  #mobileGreet {
-    position: absolute;
-    top: 80px;
-    bottom: 80px;
-    left: 0;
-    right: 0;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    background-color: #f6f7f8;
-    flex-direction: column;
-    opacity: 1;
-    transition: opacity 1s ease-in-out;
-  }
-  
-  #mobileTimedGreeting {
-    font-size: 36px;
-    font-weight: 400;
-    color: #2a3647;
-    text-align: center;
-  }
-  
-  #mobileLogedinUser {
-    font-size: 47px;
-    font-weight: 700;
-    color: #29abe2;
-    text-align: center;
-  }
   
   @media (max-width: 1399.98px) {
     .userGreet {
