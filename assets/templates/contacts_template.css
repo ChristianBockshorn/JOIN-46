@@ -7,24 +7,73 @@
     margin-top: 96px;
     margin-left: 232px;
     width: 456px;
-    max-height: 100vh;
 }
 
 .contacts-bar img{
-    width: 32px;
-    height: 32px;
+    width: 42px;
+    height: 42px;
+}
+
+.fixed{
+    position: fixed;
+    top: 96px;
+    margin-top: 26px;
 }
 
 .contacts-detail {
-    /* margin-left: 800px; */
+    margin-left: 800px;
     margin-top: 206px;
     /* margin-right: 328px; */
     font-size: 20px;
+}
+
+.contacts-detail h1{
+    margin: 0;
+}
+
+.blueline{
+    height: 59px;
+    width: 1px;
+    background-color: rgba(41,171,226,1);
 }
 
 .contacts-bar{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 22.5px 52px 0 52px;
+    padding: 22.5px 52px 8px 52px;
+}
+
+.letter-container{
+    padding: 15px 24px 15px 24px;
+}
+
+.content-container{
+    padding: 15px 24px 15px 24px;
+}
+
+.content-container:hover{
+    cursor: pointer;
+}
+
+.content-container a{
+    color: rgba(0,124,238,1);
+    font-weight: 400;
+}
+
+.frame{
+    height: 48px;
+}
+
+.letter{
+    font-size: 20px;
+    font-weight: 400;
+    padding-left: 15px;
+}
+
+.grayline{
+    margin: 8px 0 8px 0;
+    height: 1px;
+    background-color: rgba(209,209,209,1);
+    width: 352px;
 }

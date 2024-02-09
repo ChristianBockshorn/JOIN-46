@@ -12,7 +12,10 @@ h1 {
     margin-bottom: 16px;
 }
 
-
+h4{
+    font-weight: 400;
+    font-size: 27px;
+}
 
 footer a {
     text-decoration: none;
