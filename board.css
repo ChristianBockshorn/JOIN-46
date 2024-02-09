@@ -180,11 +180,6 @@ input {
   flex-wrap: wrap;
 }
 
-.taskInput !important{
-  width: 10px;
-
-}
-
 
 @media(max-width:1500px) {
   .status {
