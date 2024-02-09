@@ -6,3 +6,7 @@ function openDialog(text) {
 function closeDialog() { 
     document.getElementById('dialog').classList.add('d-none');
 }
+
+function doNotClose(event) {
+    event.stopPropagation();
+}
