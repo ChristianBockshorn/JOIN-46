@@ -96,6 +96,10 @@
     padding-left: 16px;
 }
 
+.pad-l-50{
+    padding-left: 50px;
+}
+
 /* Höhe */
 
 .height-24{
@@ -150,22 +154,22 @@ button {
 }
 
 .colored-btn {
-    background-color: #091931;
+    background-color: rgba(9, 25, 49, 1);
     color: white;
     border-radius: 8px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    border-color: #091931;
+    border-color: rgba(9, 25, 49, 1);
 }
 
 .colored-btn:hover{
-    background-color: #29ABE2;
+    background-color: rgba(41, 171, 226, 1);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    border-color: #29ABE2;
+    border-color: rgba(41, 171, 226, 1);
 }
 
 .colored-btn:disabled{
-    background-color: #2A3647 !important;
-    border-color: #2A3647;
+    background-color: rgba(42, 54, 71, 1) !important;
+    border-color: rgba(42, 54, 71, 1);
     cursor: no-drop;
 }
 
