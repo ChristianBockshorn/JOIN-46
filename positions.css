@@ -68,12 +68,28 @@
     gap: 8px;
 }
 
+.gap-12{
+    gap: 12px;
+}
+
 .gap-13{
     gap: 13px;
 }
 
+.gap-15{
+    gap: 15px;
+}
+
 .gap-16 {
     gap: 16px;
+}
+
+.gap-21{
+    gap: 21px;
+}
+
+.gap-22{
+    gap: 22px;
 }
 
 .gap-24 {
@@ -88,6 +104,10 @@
     gap: 35px;
 }
 
+.gap-54{
+    gap: 54px;
+}
+
 .gap-350 {
     gap: 350px;
 }
@@ -98,6 +118,10 @@
 
 .pad-l-50{
     padding-left: 50px;
+}
+
+.pad-bot-30{
+    padding-bottom: 30px;
 }
 
 /* Höhe */
@@ -130,8 +154,16 @@
     font-weight: 400;
 }
 
+.f-weight-700{
+    font-weight: 700;
+}
+
 .max-width {
     width: 100%;
+}
+
+.height-74{
+    height: 74px;
 }
 
 .pos-rel {
