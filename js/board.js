@@ -1,6 +1,7 @@
 function openDialog(text) {
     document.getElementById('dialog').classList.remove('d-none');
-    document.getElementById('dialog-message').innerHTML = '';
+    document.getElementById('dialog').classList.remove('main');
+
 }
 
 function closeDialog() { 
@@ -10,3 +11,6 @@ function closeDialog() {
 function doNotClose(event) {
     event.stopPropagation();
 }
+
+
+
