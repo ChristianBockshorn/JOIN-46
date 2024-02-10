@@ -50,8 +50,8 @@
 }
 
 .contacts-detail {
-    position: absolute;
-    margin-left: 743px;
+    /* position: absolute; */
+    /* margin-left: 743px; */
     margin-top: 206px;
     /* margin-right: 328px; */
     font-size: 20px;
@@ -60,6 +60,16 @@
 
 .contacts-detail h1{
     margin: 0;
+}
+
+.main-content img{
+    width: 120px;
+    height: 120px;
+}
+
+.options img{
+    width: 24px;
+    height: 24px;
 }
 
 .blueline{
@@ -96,7 +106,7 @@
 .letter{
     font-size: 20px;
     font-weight: 400;
-    padding-left: 15px;
+    padding-left: 28px;
 }
 
 .grayline{
