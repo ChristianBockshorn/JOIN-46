@@ -1,9 +1,11 @@
 header {
-    position: absolute;
+    /* position: absolute; geändert zu fixed wegen scrollbar*/
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
-
+    z-index: 1;/*eingefügt über dem content zu liegen*/
+    background-color: white; /*Hintergrundfarbe eingefügt*/
     display: flex;
     align-items: center;
     justify-content: space-evenly;
