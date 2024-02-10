@@ -18,6 +18,12 @@ h4{
     margin: 0;
 }
 
+h5{
+   font-weight: 500; 
+   font-size: 47px;
+   margin: 0;
+}
+
 footer a {
     text-decoration: none;
     color: #A8A8A8;
