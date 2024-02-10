@@ -3,361 +3,369 @@ body {
 }
 
 .summaryContent {
-    margin-left: 296px;
-    margin-top: 80px;
-    margin-bottom: 48px;
-    width: calc(100% - 328px);
-    display: flex;
-    flex-direction: column;
+  margin-left: 296px;
+  margin-top: 80px;
+  margin-bottom: 48px;
+  width: calc(100% - 328px);
+  display: flex;
+  flex-direction: column;
+}
+
+.summaryHead {
+  display: flex;
+  align-items: center;
+
+}
+
+.summaryHead h1 {
+  font-weight: 700;
+  margin-block: unset;
+  font-size: 3.5rem;
+}
+
+.sumHeadDevider {
+  width: 3px;
+  height: 59px;
+  background-color: #29abe2;
+  margin: 0 30px;
+}
+
+.sumHeadSlogan {
+  font-size: 27px;
+  font-weight: 400;
+  color: #2a3647;
+}
+
+.summaryMainContent {
+  display: flex;
+  align-items: center;
+  margin-top: 56px;
+}
+
+.summaryBoxes {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 560px;
+  height: 562px;
+}
+
+.summaryBox {
+  background-color: white;
+  border-radius: 30px;
+  transition: all ease-in-out 100ms;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.summaryBox:hover {
+  cursor: pointer;
+  background-color: #2a3647;
+  color: white;
+
+  transform: scale(1.1);
+}
+
+.summaryBox:hover .summaryBoxIcon {
+  background-color: white;
+}
+
+.summaryBox:hover .summaryBoxesTopIcons {
+  filter: brightness(0) saturate(100%) invert(14%) sepia(3%) saturate(6188%) hue-rotate(177deg) brightness(105%) contrast(84%);
+}
+
+.summaryBox:hover .summaryCountText {
+  color: white;
+}
+
+.summaryBox:hover .nextUrgentDate {
+  color: white;
+}
+
+.summaryBox:hover .nextUrgentDateText {
+  color: white;
+}
+
+.summaryBoxesTop {
+  display: flex;
+  justify-content: space-between;
+}
+
+.summaryBoxesBottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.summaryBox {
+  padding: 38px 58px;
+  height: 168px;
+  width: 264px;
+  display: flex;
+  align-items: center;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.summaryBoxMid {
+  padding: 28px 48px;
+  height: 168px;
+  width: 560px;
+  display: flex;
+  align-items: center;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.summaryBoxBottom {
+  padding: 35px;
+  height: 168px;
+  width: 168px;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.summaryBoxTopIcon {
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  background-color: #2a3647;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 18px;
+}
+
+.summaryCountContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.summaryCountNum {
+  font-size: 64px;
+  font-weight: 600;
+}
+
+.summaryCountText {
+  font-size: 20px;
+  font-weight: 400;
+  color: #2a3647;
+  text-align: center;
+}
+
+.urgentIconCount {
+  display: flex;
+  align-items: center;
+  height: 48px;
+}
+
+.summaryBoxMidIcon {
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  background-color: #ee3d04;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 18px;
+}
+
+.sumUrgentDevider {
+  width: 2px;
+  height: 102px;
+  background-color: #d1d1d1;
+  margin: 0 61px;
+}
+
+.nextUrgentDate {
+  font-size: 21px;
+  font-weight: 700;
+  color: #2a3647;
+  margin-bottom: 13px;
+}
+
+.summaryBoxesIcons {
+  height: 32px;
+}
+
+
+
+@media (max-width: 1399.98px) {
+  .userGreet {
+    margin-left: 48px;
   }
-  
-  .summaryHead {
-    display: flex;
-    align-items: center;
-   
+
+  #logedinUser {
+    font-size: 56px;
   }
-  
-  .summaryHead h1 {
-    font-weight: 700;
-    margin-block: unset;
-    font-size: 3.5rem;
+}
+
+@media (max-width: 1199.98px) {
+  .summaryContent {
+    margin-top: 48px;
   }
-  
-  .sumHeadDevider {
-    width: 3px;
-    height: 59px;
-    background-color: #29abe2;
-    margin: 0 30px;
-  }
-  
-  .sumHeadSlogan {
-    font-size: 27px;
-    font-weight: 400;
-    color: #2a3647;
-  }
+
   .summaryMainContent {
-    display: flex;
-    align-items: center;
-    margin-top: 56px;
-  }
-  
-  .summaryBoxes {
-    display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    width: 560px;
-    height: 562px;
+    margin-top: 48px;
   }
-  
-  .summaryBox {
-    background-color: white;
-    border-radius: 30px;
-    transition: all ease-in-out 100ms;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
-  }
-  
-  .summaryBox:hover {
-    cursor: pointer;
-    background-color: #2a3647;
-    color: white;
-  
-    transform: scale(1.1);
-  }
-  
-  .summaryBox:hover .summaryBoxIcon {
-    background-color: white;
-  }
-  
-  .summaryBox:hover .summaryBoxesTopIcons {
-    filter: brightness(0) saturate(100%) invert(14%) sepia(3%) saturate(6188%)
-      hue-rotate(177deg) brightness(105%) contrast(84%);
-  }
-  .summaryBox:hover .summaryCountText {
-    color: white;
-  }
-  
-  .summaryBox:hover .nextUrgentDate {
-    color: white;
-  }
-  
-  .summaryBox:hover .nextUrgentDateText {
-    color: white;
-  }
-  
-  .summaryBoxesTop {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .summaryBoxesBottom {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .summaryBox {
-    padding: 38px 58px;
-    height: 168px;
-    width: 264px;
-    display: flex;
-    align-items: center;
-  
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-  
-  .summaryBoxMid {
-    padding: 28px 48px;
-    height: 168px;
-    width: 560px;
-    display: flex;
-    align-items: center;
-  
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-  
-  .summaryBoxBottom {
-    padding: 35px;
-    height: 168px;
-    width: 168px;
-  
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-  
-  .summaryBoxTopIcon {
-    border-radius: 50%;
-    width: 70px;
-    height: 70px;
-    background-color: #2a3647;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 18px;
-  }
-  
-  .summaryCountContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .summaryCountNum {
-    font-size: 64px;
-    font-weight: 600;
-  }
-  
-  .summaryCountText {
-    font-size: 20px;
-    font-weight: 400;
-    color: #2a3647;
+
+  .userGreet {
+    margin-left: 0;
     text-align: center;
+    margin-top: 24px;
   }
-  
-  .urgentIconCount {
-    display: flex;
+}
+
+@media (max-width: 991.98px) {
+  .summaryContent {
+    margin-left: 280px;
+  }
+
+  .summaryContent {
+    margin-top: 32px;
+  }
+
+  .summaryMainContent {
+    margin-top: 32px;
+  }
+
+  .summaryHead h1 {
+    font-size: 48px;
+  }
+
+  .sumHeadSlogan {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 850px) {
+  .summaryContent {
+    margin-left: 32px;
+    width: calc(100% - 64px);
     align-items: center;
+    margin-bottom: 112px;
+    margin-top: 0;
+  }
+
+  .summaryHead {
+    margin-top: 112px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .userGreet {
+    display: none;
+  }
+
+  #mobileGreet.show {
+    display: flex;
+    opacity: 1;
+  }
+
+  #mobileGreet.hidden {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .summaryHead {
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: flex-start;
+  }
+
+  .sumHeadDevider {
+    display: none;
+  }
+
+  .sumHeadSlogan {
+    margin-top: 8px;
+  }
+
+  .summaryContent {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 4vw;
+    width: 92vw;
+  }
+
+  .summaryMainContent {
+    margin-top: 16px;
+  }
+
+  .summaryBoxes {
+    width: 92vw;
+    height: 92vw;
+  }
+
+  .summaryBoxTop {
+    width: 44vw;
+    padding: 24px 24px;
+    height: 28vw;
+  }
+
+  .summaryBoxTopIcon {
+    width: 48px;
     height: 48px;
   }
-  
-  .summaryBoxMidIcon {
-    border-radius: 50%;
-    width: 70px;
-    height: 70px;
-    background-color: #ee3d04;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 18px;
-  }
-  
-  .sumUrgentDevider {
-    width: 2px;
-    height: 102px;
-    background-color: #d1d1d1;
-    margin: 0 61px;
-  }
-  
-  .nextUrgentDate {
-    font-size: 21px;
-    font-weight: 700;
-    color: #2a3647;
-    margin-bottom: 13px;
-  }
-  
 
-  
-  @media (max-width: 1399.98px) {
-    .userGreet {
-      margin-left: 48px;
-    }
-  
-    #logedinUser {
-      font-size: 56px;
-    }
+  .summaryBoxesTopIcons {
+    width: 24px;
+    height: 24px;
   }
-  
-  @media (max-width: 1199.98px) {
-    .summaryContent {
-      margin-top: 48px;
-    }
-    .summaryMainContent {
-      flex-direction: column;
-      margin-top: 48px;
-    }
-  
-    .userGreet {
-      margin-left: 0;
-      text-align: center;
-      margin-top: 24px;
-    }
+
+  .summaryBoxMid {
+    width: 92vw;
+    padding: 20px 16px;
+    height: 28vw;
   }
-  
-  @media (max-width: 991.98px) {
-    .summaryContent {
-      margin-left: 280px;
-    }
-    .summaryContent {
-      margin-top: 32px;
-    }
-    .summaryMainContent {
-      margin-top: 32px;
-    }
-  
-    .summaryHead h1 {
-      font-size: 48px;
-    }
-  
-    .sumHeadSlogan {
-      font-size: 20px;
-    }
+
+  .sumUrgentDevider {
+    height: 24vw;
+    margin: 0 16px;
   }
-  
-  @media (max-width: 850px) {
-    .summaryContent {
-      margin-left: 32px;
-      width: calc(100% - 64px);
-      align-items: center;
-      margin-bottom: 112px;
-      margin-top: 0;
-    }
-  
-    .summaryHead {
-      margin-top: 112px;
-    }
+
+  .summaryBoxMidIcon {
+    width: 48px;
+    height: 48px;
   }
-  
-  @media (max-width: 767.98px) {
-    .userGreet {
-      display: none;
-    }
-  
-    #mobileGreet.show {
-      display: flex;
-      opacity: 1;
-    }
-  
-    #mobileGreet.hidden {
-      opacity: 0;
-    }
+
+  .summaryBoxMidIcon img {
+    width: 24px;
+    height: 24px;
   }
-  
-  @media (max-width: 575.98px) {
-    .summaryHead {
-      flex-direction: column;
-      align-items: flex-start;
-      align-self: flex-start;
-    }
-  
-    .sumHeadDevider {
-      display: none;
-    }
-  
-    .sumHeadSlogan {
-      margin-top: 8px;
-    }
-  
-    .summaryContent {
-      margin-top: 0;
-      margin-bottom: 0;
-      margin-left: 4vw;
-      width: 92vw;
-    }
-  
-    .summaryMainContent {
-      margin-top: 16px;
-    }
-  
-    .summaryBoxes {
-      width: 92vw;
-      height: 92vw;
-    }
-  
-    .summaryBoxTop {
-      width: 44vw;
-      padding: 24px 24px;
-      height: 28vw;
-    }
-  
-    .summaryBoxTopIcon {
-      width: 48px;
-      height: 48px;
-    }
-  
-    .summaryBoxesTopIcons {
-      width: 24px;
-      height: 24px;
-    }
-  
-    .summaryBoxMid {
-      width: 92vw;
-      padding: 20px 16px;
-      height: 28vw;
-    }
-  
-    .sumUrgentDevider {
-      height: 24vw;
-      margin: 0 16px;
-    }
-  
-    .summaryBoxMidIcon {
-      width: 48px;
-      height: 48px;
-    }
-  
-    .summaryBoxMidIcon img {
-      width: 24px;
-      height: 24px;
-    }
-  
-    .nextUrgentDate {
-      font-size: 16px;
-      margin-bottom: 8px;
-    }
-  
-    .summaryBoxBottom {
-      width: 28vw;
-      height: 28vw;
-      padding: 12px 0;
-    }
-  
-    .summaryCountNum {
-      font-size: 40px;
-    }
-  
-    .summaryCountText {
-      font-size: 14px;
-      white-space: nowrap;
-    }
-  
-    .summaryBox:hover {
-      transform: scale(1.05);
-    }
-  
-    .sumHeadDeviderMobile {
-      display: block;
-    }
+
+  .nextUrgentDate {
+    font-size: 16px;
+    margin-bottom: 8px;
   }
+
+  .summaryBoxBottom {
+    width: 28vw;
+    height: 28vw;
+    padding: 12px 0;
+  }
+
+  .summaryCountNum {
+    font-size: 40px;
+  }
+
+  .summaryCountText {
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .summaryBox:hover {
+    transform: scale(1.05);
+  }
+
+  .sumHeadDeviderMobile {
+    display: block;
+  }
+}
