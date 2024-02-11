@@ -200,8 +200,30 @@ input {
     width: auto;
   }
 
-}
 
+  /* width */
+ /* ::-webkit-scrollbar {
+    width: 20px;
+  }
+
+  /* Track */
+  /* ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+  }
+
+  /* Handle */
+  /* ::-webkit-scrollbar-thumb {
+    background: red;
+    border-radius: 10px;
+  }
+
+  /* Handle on hover */
+   ::-webkit-scrollbar-thumb:hover {
+    background: #292525;
+  }
+
+} 
 
 @media(max-width:1024px) {
   .sidebar {
@@ -253,10 +275,9 @@ input {
     justify-content: center;
   }
 
-  .headerBoard{
+  .headerBoard {
     flex-direction: column;
     align-items: center;
-    
+
   }
 }
-
