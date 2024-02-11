@@ -2,6 +2,7 @@
   padding: 50px;
 }
 
+
 .headerBoard {
   display: flex;
   justify-content: space-between;
@@ -163,12 +164,12 @@ input {
 }
 
 .dialog {
-  height: 80vh;
-  width: 80%;
+  height: 70vh;
+  width: 50%;
   background-color: white;
   border: 1px solid lightgrey;
-  border-radius: 10px;
-  padding: 24px;
+  border-radius: 20px;
+  padding: 54px;
 }
 
 .d-none {
