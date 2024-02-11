@@ -2,7 +2,6 @@
   padding: 50px;
 }
 
-
 .headerBoard {
   display: flex;
   justify-content: space-between;
@@ -200,8 +199,6 @@ input {
     max-height: 200px;
     width: auto;
   }
-
- 
 
 }
 
