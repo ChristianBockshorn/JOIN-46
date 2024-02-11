@@ -129,6 +129,10 @@ body {
   box-sizing: border-box;
 }
 
+.summaryBoxTopIcon:hover {
+  background-color:white;
+}
+
 .summaryBoxTopIcon {
   border-radius: 50%;
   width: 70px;
@@ -191,6 +195,14 @@ body {
 
 .summaryBoxesIcons {
   height: 32px;
+}
+
+.summaryBoxTopIcon:hover {
+  background-color: white;
+}
+
+icon:hover {
+color: #2a3647;
 }
 
 
