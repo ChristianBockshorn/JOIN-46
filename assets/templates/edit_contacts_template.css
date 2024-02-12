@@ -1,0 +1,32 @@
+.front-window-bg {
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 5;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .window-content {
+    height: 592px;
+    width: 1212px;
+    background-color: white;
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+    padding: 24px;
+  }
+  
+  .edit-contacts{
+    height: 594px;
+    width: 453px;
+}
+
+.window-content mg{
+    width: 1212px;
+    height: 592;
+    border-radius: ;
+}
