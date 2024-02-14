@@ -83,20 +83,24 @@
 }
 
 .content-container{
-    width: 352px;
+    width: 304px;
     padding: 15px 24px 15px 24px;
 }
 
 .content-container:hover{
     cursor: pointer;
-    color: white;
-    background-color: rgba(42, 54, 71, 1);
+    background: linear-gradient(#f9f9f9, #f0f0f0);
     border-radius: 10px;
 }
 
 .content-container a{
     color: rgba(0,124,238,1);
     font-weight: 400;
+}
+
+.content-container img{
+    width: 42px;
+    height: 42px;
 }
 
 .frame{
@@ -106,7 +110,7 @@
 .letter{
     font-size: 20px;
     font-weight: 400;
-    padding-left: 28px;
+    padding-left: 74px;
 }
 
 .grayline{
@@ -114,4 +118,7 @@
     height: 1px;
     background-color: rgba(209,209,209,1);
     width: 352px;
+    display: flex;
+    align-items: center !important;
 }
+
