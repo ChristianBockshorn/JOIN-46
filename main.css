@@ -185,10 +185,10 @@ form {
 }
 
 .placeholder-img {
-    position: absolute;
-    height: 24px;
-    width: 24px;
-    padding: 12px;
+    position: absolute !important;
+    height: 24px !important;
+    width: 24px !important;
+    padding: 12px !important;
     top: 0;
     right: 0;
     bottom: 0;

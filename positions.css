@@ -96,8 +96,16 @@
     gap: 24px;
 }
 
+.gap-25 {
+    gap: 25px;
+}
+
 .gap-30{
     gap: 30px;
+}
+
+.gap-32{
+    gap: 32px;
 }
 
 .gap-35 {
