@@ -15,14 +15,14 @@
 <body onload="includeHTML()">
     <div w3-include-html="/assets/templates/navbar_template.html"></div>
     <div w3-include-html="/assets/templates/header_template.html"></div>
-    <!-- <div w3-include-html="/assets/templates/contacts_template.html"></div> -->
+    <div w3-include-html="/assets/templates/edit_contacts_template.html"></div>
     <section class="container-pos">
         <div class="contact-tbl">
             <div class="contacts-btn-box fd-column fixed">
-                <button class="colored-btn btn-pad-newcontact d-flex gap-16 btn-width center">Add new contact<img src="/assets/images/person_add.svg" alt="Pictogramm einer Bueste"></button>
+                <button onclick="openDialog()" class="colored-btn btn-pad-newcontact d-flex gap-16 btn-width center">Add new contact<img src="/assets/images/person_add.svg" alt="Pictogramm einer Bueste"></button>
             </div>
             <div class="scrollbar">
-                <div class="contact-content d-flex fd-column center" id="contact-content"></div>
+                <div class="contact-content d-flex fd-column ai-center" id="contact-content"></div>
             </div>
         </div>
         <div class="contacts-detail">
@@ -37,6 +37,7 @@
     </section>
     <script src="/js/storage.js"></script>
     <script src="/js/contacts.js"></script>
+    <script src="/js/contact_popup.js"></script>
 </body>
 
 </html>
