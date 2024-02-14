@@ -1,16 +1,44 @@
 <head>
     <link rel="stylesheet" href="/assets/templates/edit_contacts_template.css">
+    <!-- <link rel="stylesheet" href="/positions.css"> -->
+    <!-- <link rel="stylesheet" href="/main.css"> -->
     <!-- <link rel="stylesheet" href="/board.css"> -->
 </head>
-<body class="edit-contacts">
 
-
-    <div id="front-window" class="front-window-bg" onclick="closeDialog()">
-        <div class="window-content" onclick="doNotClose(event)">
-            <img src="/assets/images/Frame 194.svg" alt="Dunkelfarbiges Logo von Join">
-            <div>
-                <div onload="includeHTML()" ></div>
-                <div w3-include-html="/assets/templates/add_Task_template.html"></div>
+<body>
+    <div id="front-window" class="front-window-bg center d-flex d-none" onclick="closeDialog()">
+        <div class="window-content d-flex" onclick="doNotClose(event)">
+            <img id="window-content-img" src="/assets/images/Frame 194.svg" alt="Dunkelfarbiges Logo von Join">
+            <div class="d-flex center">
+                <img id="contacticon" src="/assets/contacticons/Anton.svg" alt="">
+                <form onsubmit="return false;">
+                    <div class="d-flex fd-column gap-32">
+                        <div class="pos-rel max-width">
+                            <img src="./assets/images/person.svg" alt="Büste einer Person" id="pass-placeholder-img"
+                                class="placeholder-img" />
+                            <input required placeholder="Name" type="name"
+                                id="name" class="pad-0 pad-l-16 f-weight-400 f-size-20" />
+                        </div>
+                        <div class="pos-rel max-width">
+                            <img src="./assets/images/mail.svg" alt="kleiner Briefumschlag" id="mail-placeholder-img"
+                                class="placeholder-img" />
+                            <input required placeholder="Email" type="email" id="mail"
+                                class="pad-0 pad-l-16 f-weight-400 f-size-20" />
+                        </div>
+                        <div class="pos-rel max-width">
+                            <img src="./assets/images/call.svg" alt="Telefonhöhrer" id="phone-placeholder-img"
+                                class="placeholder-img" />
+                            <input required placeholder="Phone" type="tel" id="phone"
+                                class="pad-0 pad-l-16 f-weight-400 f-size-20" />
+                        </div>
+                        <div class="d-flex gap-25">
+                            <button class="normal-btn btn-pad-big">Delete</button>
+                            <button class="colored-btn btn-pad-big d-flex gap-8">Save<img class="btn-little-img" src="/assets/images/check_little.svg" alt="Hacken"></button>
+                        </div>
+                    </div>
+                </form>
+                <!-- <div onload="includeHTML()" ></div> -->
+                <!-- <div w3-include-html="/assets/templates/add_Task_template.html"></div> -->
             </div>
         </div>
     </div>
