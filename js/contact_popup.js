@@ -3,8 +3,16 @@ function addUserDialog() {
 }
 
 
-function updateUserDialog() {
+function updateUserDialog(i) {
     document.getElementById('update_user_window').classList.remove('d-none');
+    document.getElementById('name').value = contacts[i]['name'];
+    document.getElementById('mail').value = contacts[i]['email'];
+    document.getElementById('phone').value = contacts[i]['telephone'];
+}
+
+
+function deleteUser(i){
+
 }
 
 
