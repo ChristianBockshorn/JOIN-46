@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="/assets/templates/navbar_template.css">
     <link rel="stylesheet" href="/assets/templates/add_Task_template.css">
     <link rel="stylesheet" href="/assets/templates/contacts_template.css">
+    <link rel="stylesheet" href="/assets/templates/edit_contacts_template.css">
+    <link rel="stylesheet" href="/assets/templates/add_contacts_template.css">
     <script src="add_Task.js"></script>
 </head>
 
@@ -16,10 +18,11 @@
     <div w3-include-html="/assets/templates/navbar_template.html"></div>
     <div w3-include-html="/assets/templates/header_template.html"></div>
     <div w3-include-html="/assets/templates/edit_contacts_template.html"></div>
+    <div w3-include-html="/assets/templates/add_contacts_template.html"></div>
     <section class="container-pos">
         <div class="contact-tbl">
             <div class="contacts-btn-box fd-column fixed">
-                <button onclick="openDialog()" class="colored-btn btn-pad-newcontact d-flex gap-16 btn-width center">Add new contact<img src="/assets/images/person_add.svg" alt="Pictogramm einer Bueste"></button>
+                <button onclick="addUserDialog()" class="colored-btn btn-pad-newcontact d-flex gap-16 btn-width center">Add new contact<img src="/assets/images/person_add.svg" alt="Pictogramm einer Bueste"></button>
             </div>
             <div class="scrollbar">
                 <div class="contact-content d-flex fd-column ai-center" id="contact-content"></div>

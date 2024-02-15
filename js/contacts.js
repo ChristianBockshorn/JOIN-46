@@ -96,7 +96,7 @@ return `<div class="d-flex ai-center gap-54">
             <h5>${name}</h5>
             <div class="options d-flex gap-12">
               <div class="d-flex gap-8">
-                <img src="/assets/images/edit_white.svg" alt="">Edit
+                <img onclick="updateUserDialog()" src="/assets/images/edit_white.svg" alt="">Edit
               </div>
               <div class="d-flex gap-8">
                 <img src="/assets/images/delete.svg" alt="">Delete
