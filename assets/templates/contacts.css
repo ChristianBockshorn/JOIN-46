@@ -72,6 +72,14 @@
     height: 24px;
 }
 
+.highlight:hover{
+    font-weight: 700;
+    font-size: 16px;
+    color: rgba(41, 171, 226, 1);
+    cursor: pointer;
+    fill: rgb(41, 171, 226);
+}
+
 .blueline{
     height: 59px;
     width: 1px;
