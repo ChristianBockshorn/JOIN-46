@@ -13,45 +13,52 @@ async function includeHTML() {
             element.innerHTML = 'Page not found';
         }
     }
-
 }
+
 
 function myFunction() {
     var popup = document.getElementById("myPopup");
     popup.classList.toggle("show");
 }
 
+
+function activeBtn(btnId) {
+    // Alle Buttons zurücksetzen (Klasse entfernen)
+    let buttons = document.querySelectorAll('.prioCategory');
+    buttons.forEach(function (button) {
+        button.classList.remove('active-urgent');
+    });
+
+    // Gewählten Button als aktiv markieren
+    document.getElementById(btnId).classList.add('active-urgent');
+
+    console.log("Ausgewählter Button:", btnId);
+}
+
+
 function addTask() {
     let title = document.getElementById('title').value;
     let description = document.getElementById('description').value;
     let assigned = document.getElementById('assigned').value;
     let date = document.getElementById('date').value;
-
-    let urgent = document.getElementById('Priourgent').value;
-    let medium = document.getElementById('Priomedium').value;
-    let low = document.getElementById('Priolow').value;
-
-
+    let selectedPrio = document.querySelector('.active-urgent').value;
+    let selectElement = document.getElementById('categorySelect').value;
 
     let Tasks = {
         "title": title,
         "Description": description,
         "Assigned-to": assigned,
         "Due-date": date,
-        "Prio": urgent,medium,low,
-        "Category": "Technical Task",
-        "Subtasks": {}
+        "Prio": selectedPrio,
+        "Category": selectElement,
+        "Subtasks": [],
+
     };
 
     AllTask.push(Tasks);
 
-    let AllTaskAsString=JSON.stringify(AllTask);
-    localStorage.setItem('AllTask',AllTaskAsString);
-
-
-
-
-
-
-
+    let AllTaskAsString = JSON.stringify(AllTask);
+    localStorage.setItem('AllTask', AllTaskAsString);
 }
+
+
