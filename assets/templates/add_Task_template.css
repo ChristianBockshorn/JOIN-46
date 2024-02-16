@@ -106,6 +106,12 @@ input::placeholder {
     border-radius: 50%;
 }
 
+.active-urgent{
+    color: white;
+    background-color: #29ABE2;
+    border: #29ABE2;
+}
+
 .category::after,
 .prio::after,
 .date::after,
