@@ -42,7 +42,7 @@ function saveUserDetails(){
         name: newname,
         email: newemail,
         telephone: newtelephone,
-        path: "/assets/contacticons/Emmanuel.svg"
+        imgpath: "/assets/contacticons/Emmanuel.svg"
     };
     contacts.push(obj);
     setItem('Contacts',contacts);
