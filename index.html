@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="inter-font.css">
 </head>
 
-<body>
+<body onload="getData()">
     <!-- <div class=""> -->
        <img src="./assets/images/logo.svg" class="moveToLeft" alt="Das Logo der Seite">
     <!-- </div> -->
@@ -30,11 +30,11 @@
                     <div class="center fd-column d-flex login-lines">
                         <div class="pos-rel max-width">
                             <img src="./assets/images/mail.svg" alt="kleiner Briefumschlag" id="mail-placeholder-img" class="placeholder-img"/>
-                            <input required autocomplete="email" placeholder="Email" type="email" id="mail" class="pad-0 pad-l-16 f-weight-400 f-size-20"/>
+                            <input required autocomplete="email" placeholder="Email" type="email" id="mail" class="pad-0 pad-l-16 pad-r-50 f-weight-400 f-size-20"/>
                         </div>
                         <div class="pos-rel max-width">
                             <img src="./assets/images/lock.svg" alt="kleines Schloss" id="pass-placeholder-img" class="placeholder-img"/>
-                            <input required placeholder="Password" type="password" autocomplete="current-password" id="pass" class="pad-0 pad-l-16 f-weight-400 f-size-20"/>
+                            <input required placeholder="Password" type="password" autocomplete="current-password" id="pass" class="pad-0 pad-l-16 pad-r-50 f-weight-400 f-size-20"/>
                         </div>
                         <div class="max-width">
                             <div class="remember-box">
@@ -58,8 +58,8 @@
         </footer>
     </div>
 
-    <script src="script.js"></script>
-    <script src="loginnavigater.js"></script>
+    <script src="/js/storage.js"></script>
+    <script src="/js/loginnavigater.js"></script>
 </body>
 
 </html>
