@@ -11,7 +11,7 @@
             <img id="window-content-img" src="/assets/images/add_user_side_img.svg" alt="Dunkelfarbiges Logo von Join mit Team Schriftzug">
             <div class="d-flex center">
                 <img id="contacticon" src="/assets/images/empty_contact.svg" alt="Bild einer Büste in Grau">
-                <form onsubmit="onclick=saveUserDetails(); return false;">
+                <form onsubmit="onclick=addNewUser(); return false;">
                     <div class="d-flex fd-column gap-32">
                         <div class="pos-rel max-width">
                             <img src="./assets/images/person.svg" alt="Büste einer Person" id="pass-placeholder-img"
@@ -32,8 +32,8 @@
                                 class="pad-0 pad-l-16 f-weight-400 f-size-20" />
                         </div>
                         <div class="d-flex gap-25">
-                            <button onclick="closeDialog()" class="normal-btn btn-pad-big d-flex gap-8">Cancel<img class="btn-little-img" src="/assets/images/cancel_x.svg" alt="kleines Kreuz zum schließen"></button>
-                            <button class="colored-btn btn-pad-big d-flex gap-8">Create contact<img class="btn-little-img" src="/assets/images/check_little.svg" alt="Hacken"></button>
+                            <button onclick="closeDialog()" type="reset" class="normal-btn btn-pad-big d-flex gap-8">Cancel<img class="btn-little-img" src="/assets/images/cancel_x.svg" alt="kleines Kreuz zum schließen"></button>
+                            <button type="submit" class="colored-btn btn-pad-big d-flex gap-8">Create contact<img class="btn-little-img" src="/assets/images/check_little.svg" alt="Hacken"></button>
                         </div>
                     </div>
                 </form>

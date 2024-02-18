@@ -11,7 +11,7 @@
             <img id="window-content-img" src="/assets/images/update_user_side_img.svg" alt="Dunkelfarbiges Logo von Join">
             <div class="d-flex center">
                 <img id="contacticon" src="/assets/contacticons/Anton.svg" alt="">
-                <form onsubmit="return false;">
+                <form onsubmit="onclick=editUser(); return false;">
                     <div class="d-flex fd-column gap-32">
                         <div class="pos-rel max-width">
                             <img src="./assets/images/person.svg" alt="Büste einer Person" id="pass-placeholder-img"
@@ -28,8 +28,8 @@
                             <input placeholder="Phone" type="tel" id="phone" class="pad-0 pad-l-16 f-weight-400 f-size-20" />
                         </div>
                         <div class="d-flex gap-25">
-                            <button onclick="deleteUser()" id="del-btn" class="normal-btn btn-pad-big">Delete</button>
-                            <button class="colored-btn btn-pad-big d-flex gap-8">Save<img class="btn-little-img" src="/assets/images/check_little.svg" alt="Hacken"></button>
+                            <button onclick="deleteUser()" id="del-btn" type="button" class="normal-btn btn-pad-big">Delete</button>
+                            <button id="submit-btn" type="submit" class="colored-btn btn-pad-big d-flex gap-8">Save<img class="btn-little-img" src="/assets/images/check_little.svg" alt="Hacken"></button>
                         </div>
                     </div>
                 </form>
