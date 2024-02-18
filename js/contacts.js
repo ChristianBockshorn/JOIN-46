@@ -1,18 +1,8 @@
-let contacts = [];
-let currentContact;
 
-async function getData() {
-  contacts = [];
-  let all = await getItem('Contacts');
-  contacts = all['data']['value'];
-  // debugger;
-  if (typeof contacts === 'string') {
-    contacts = JSON.parse(contacts);
-  }
-  // contacts = contacts.sort(); /*Sortiefunktion muss überarbeitet werden geht so nicht*/
-  // console.log(contacts);
-  return contacts;
-}
+
+document.addEventListener('DOMContentLoaded', function () {
+  renderContacts();
+});
 
 
 async function renderContacts() {
@@ -55,10 +45,6 @@ function template_letterFrame(letter) {
           `;
 }
 
-
-document.addEventListener('DOMContentLoaded', function () {
-  renderContacts();
-});
 
 function generateDetails(i){
   checkDisplayNone(i);
