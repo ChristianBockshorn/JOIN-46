@@ -9,15 +9,17 @@
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="inter-font.css">
     <link rel="stylesheet" href="style.css">
-    <script src="add_Task.js"></script>
     <script src="js/board.js"></script>
+    <script src="add_Task.js"></script>
+    
 
     <title>Board</title>
 </head>
 
-<body class="BoardSection" onload="includeHTML()">
+<body class="BoardSection" onload="includeHTML(), loadAllTasks()">
     <div w3-include-html="/assets/templates/header_template.html"></div>
     <div w3-include-html="/assets/templates/navbar_template.html"></div>
+    
     <div class="headerBoard">
         <h1>Board</h1>
         <div class="headerFlex">
@@ -59,9 +61,9 @@
                     <div class="no-to-do">
                         <p>No Task To do</p>
                     </div>
-                    <div class="borderBoard"></div>
+                    <div id="borderBoard" class="borderBoard"></div>
                 </div>
-                <div class="newTask"></div>
+                <div id="newTask" class="newTask"></div>
             </div>
 
 
