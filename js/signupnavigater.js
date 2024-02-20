@@ -14,17 +14,18 @@ function enableButton(event) {
 
 
 function check() {
-    if (document.getElementById('pass').value !== document.getElementById('pass-confirm').value) {
+    if (document.getElementById('new-password').value !== document.getElementById('new-password-confirm').value) {
         document.getElementById('textbox').style.color = 'red';
-        document.getElementById('pass-confirm').style.border = '1px solid red';
+        document.getElementById('new-password-confirm').style.border = '1px solid red';
         document.getElementById('textbox').innerHTML = 'Ups! your password don´t match';
     } else {
-        document.getElementById('pass-confirm').style.border = '1px solid #d1d1d1';
+        document.getElementById('new-password-confirm').style.border = '1px solid #d1d1d1';
         document.getElementById('textbox').innerHTML = '';
     }
 }
 
-function iconChanger(selected) {
+
+function iconChangerOnFocus(selected) {
     if (selected == 'passwd') {
         document.getElementById('new-password-img').src = '/assets/images/visibility_off.svg';
     }
@@ -33,31 +34,44 @@ function iconChanger(selected) {
     }
 }
 
+
+// function iconChangerFocusOut(selected) {
+//     if (selected == 'passwd') {
+//         document.getElementById('new-pass-img').src = './assets/images/lock.svg';
+//     }
+//     if (selected == 'confirm') {
+//         document.getElementById('new-pass-confirm-img').src = './assets/images/lock.svg';
+//     }
+// }
+
 function showPasswd(id) {
     let selectedField = document.getElementById(id);
     if (selectedField.type == 'password') {
         selectedField.type = "text";
+        document.getElementById(`${id}-img`).src = '/assets/images/visibility.svg';
     }
     else {
-        console.log('it is password');
         selectedField.type = "password";
+        document.getElementById(`${id}-img`).src = '/assets/images/visibility_off.svg';
     }
 }
 
 
-function clearFields(){
+function clearFields() {
     document.getElementById('first-name').value = "";
     document.getElementById('mail').value = "";
-    document.getElementById('pass').value = "";
-    document.getElementById('pass-confirm').value = "";
+    document.getElementById('new-password').value = "";
+    document.getElementById('new-password-confirm').value = "";
 }
 
 
 async function goSignUp() {
-    // debugger;
+    document.getElementById('slideMsg').classList.remove('d-none');
+    document.getElementById('infoBoxPosition').classList.remove('d-none');
+    document.getElementById('slideMsg').innerHTML = 'You Signed Up successfully'
     let name = document.getElementById('first-name').value;
     let mail = document.getElementById('mail').value;
-    let pass = document.getElementById('pass').value;
+    let pass = document.getElementById('new-password').value;
     let obj = {
         name: name,
         email: mail,
@@ -67,5 +81,9 @@ async function goSignUp() {
     contacts.push(obj);
     await saveData(contacts);
     clearFields();
-    window.location.href = './index.html';
+    let slideMsg = document.getElementById('slideMsg');
+    slideMsg.addEventListener('animationend', function (event) {
+        window.location.href = './index.html?msg=stop';
+    });
 }
+

@@ -44,6 +44,47 @@ footer a {
     height: 121px;
 }
 
+
+.infoBoxPosition{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.slideMsg{
+    position: fixed;
+    bottom: -100px;
+    animation: slideIn 1000ms;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    width: 312px;
+    height: 74px;
+    color: white;
+    background-color: rgba(42, 54, 71, 1);
+    border-radius: 20px;
+    padding: 0 25px;
+}
+
+
+@keyframes slideIn {
+    0%{
+        bottom: -100px;
+    }
+    100%{
+        bottom: 500px;
+    }
+}
+
+
 .hide{
     animation: fadeIn 1000ms;
     animation-timing-function: cubic-bezier(1,0.0,1,1);
@@ -62,6 +103,13 @@ footer a {
     }
 }
 
+
+.leftLogo{
+    position: absolute;
+    top: 80px;
+    left: 77px;
+    z-index: 1;
+}
 
 .moveToLeft{
     animation: moveToLefter 1s cubic-bezier(1,0.0,1,1);

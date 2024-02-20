@@ -12,10 +12,8 @@
 </head>
 
 <body onload="getData()">
-    <!-- <div class=""> -->
-       <img src="./assets/images/logo.svg" class="moveToLeft" alt="Das Logo der Seite">
-    <!-- </div> -->
-    <div class="hide">
+    <img src="./assets/images/logo.svg" id="moveToLeft" class="moveToLeft" alt="Das Logo der Seite">
+    <div id="fadein" class="hide">
         <div class="sign-up">
             <span class="f-size-20">Not a Join user?</span>
             <a href="./signup.html"><button class="colored-btn btn-pad-small f-size-16" id="sign-up">Sign up</button></a>
@@ -26,15 +24,16 @@
                     <h1 class="center">Log in</h1>
                     <div class="underline"></div>
                 </div>
-                <form id="formid" class="center" autocomplete="on" onsubmit="return false;" >
+                <form id="formid" class="center" autocomplete="off" onsubmit="return false;" >
                     <div class="center fd-column d-flex login-lines">
                         <div class="pos-rel max-width">
                             <img src="./assets/images/mail.svg" alt="kleiner Briefumschlag" id="mail-placeholder-img" class="placeholder-img"/>
                             <input required autocomplete="email" placeholder="Email" type="email" id="mail" class="pad-0 pad-l-16 pad-r-50 f-weight-400 f-size-20"/>
                         </div>
                         <div class="pos-rel max-width">
-                            <img src="./assets/images/lock.svg" alt="kleines Schloss" id="pass-placeholder-img" class="placeholder-img"/>
-                            <input required placeholder="Password" type="password" autocomplete="current-password" id="pass" class="pad-0 pad-l-16 pad-r-50 f-weight-400 f-size-20"/>
+                            <img src="./assets/images/lock.svg" alt="kleines Schloss" id="password-img" class="placeholder-img" onclick="showPasswd('password')"/>
+                            <input required autocomplete="current-password" placeholder="Password" type="password" id="password" class="pad-0 pad-l-16 pad-r-50 f-weight-400 f-size-20" onfocus="iconChangerOnFocus('password')"/>
+                            <span id="textbox"></span>
                         </div>
                         <div class="max-width">
                             <div class="remember-box">

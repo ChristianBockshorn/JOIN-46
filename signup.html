@@ -11,7 +11,10 @@
     <link rel="stylesheet" href="inter-font.css">
 </head>
     <body onload="getData()">
-        <div class="success d-flex center ai-center center-promt-position d-none">inhalt</div>
+        <div class="infoBoxPosition d-none" id="infoBoxPosition">
+            <div class="slideMsg d-none" id="slideMsg"></div>
+        </div>
+        <div class="success d-flex center ai-center center-promt-position d-none"></div>
         <img src="./assets/images/logo.svg" class="start-logo" alt="Das Logo der Seite">
         <div class="center-screen">
             <section id="signUpBox" class="signUpBox fd-column">
@@ -20,23 +23,23 @@
                     <h1 class="center">Sign up</h1>
                     <div class="underline"></div>
                 </div>
-                <form class="center" autocomplete="on" onsubmit="goSignUp(); return false;">
+                <form class="center" autocomplete="off" onsubmit="goSignUp(); return false;">
                     <div class="center fd-column d-flex login-lines">
                         <div class="pos-rel max-width">
                             <img src="./assets/images/person.svg" alt="Büste einer Person" id="pass-placeholder-img" class="placeholder-img" />
-                            <input required placeholder="Name" type="first-name" autocomplete="first-name" id="first-name" class="pad-0 pad-l-16 pad-r-50 f-weight-400 f-size-20" />
+                            <input required placeholder="Name" type="first-name" autocomplete="false" id="first-name" class="pad-0 pad-l-16 pad-r-50 f-weight-400 f-size-20" />
                         </div>
                         <div class="pos-rel max-width">
                             <img src="./assets/images/mail.svg" alt="kleiner Briefumschlag" id="mail-placeholder-img" class="placeholder-img" />
                             <input required autocomplete="email" placeholder="Email" type="email" id="mail" class="pad-0 pad-l-16 pad-r-50 f-weight-400 f-size-20" />
                         </div>
                         <div class="pos-rel max-width">
-                            <img src="./assets/images/lock.svg" alt="kleines Schloss" id="new-password-img" class="placeholder-img" onclick="showPasswd('pass')"/>
-                            <input required placeholder="Password" type="password" autocomplete="new-password" id="pass" class="pad-0 pad-l-16 pad-r-50 f-weight-400 f-size-20" onfocus="iconChanger('passwd')"/>
+                            <img src="./assets/images/lock.svg" alt="kleines Schloss" id="new-password-img" class="placeholder-img" value="0" onclick="showPasswd('new-password')"/>
+                            <input required placeholder="Password" type="password" autocomplete="new-password" id="new-password" class="pad-0 pad-l-16 pad-r-50 f-weight-400 f-size-20" onfocus="iconChangerOnFocus('passwd')"/>
                         </div>
                         <div class="pos-rel max-width">
-                            <img src="./assets/images/lock.svg" alt="kleines Schloss" id="new-password-confirm-img" class="placeholder-img" onclick="showPasswd('pass-confirm')"/>
-                            <input required placeholder="Confirm Password" type="password" autocomplete="new-password" id="pass-confirm" class="pad-0 pad-l-16 pad-r-50 f-weight-400 f-size-20" onkeyup="check()" onfocus="iconChanger('confirm')"/>
+                            <img src="./assets/images/lock.svg" alt="kleines Schloss" id="new-password-confirm-img" class="placeholder-img" value="0" onclick="showPasswd('new-password-confirm')"/>
+                            <input required placeholder="Confirm Password" type="password" autocomplete="new-password" id="new-password-confirm" class="pad-0 pad-l-16 pad-r-50 f-weight-400 f-size-20" onkeyup="check()" onfocus="iconChangerOnFocus('confirm')"/>
                             <span id="textbox"></span>
                         </div>
                         <div class="max-width">
