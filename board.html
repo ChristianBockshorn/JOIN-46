@@ -76,7 +76,7 @@
                     <div class="no-to-do">
                         <p>No Task To do</p>
                     </div>
-                    <div class="borderBoard"></div>
+                    <div class="borderBoard" id="open" ondrop="moveTo('open')" ondragleave="removeHighlight('open')" ondragover="allowDrop(event); highlight('open')"></div>
                 </div>
                 <div class="newTask"></div>
             </div>
@@ -141,7 +141,7 @@
 
     <div class="task">
     </div>
-    </section>
+
     <div class="task">
     </div>
     </section>
