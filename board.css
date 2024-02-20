@@ -163,8 +163,6 @@ input {
 }
 
 .dialog {
-  height: 70vh;
-  width: 50%;
   background-color: white;
   border: 1px solid lightgrey;
   border-radius: 20px;
