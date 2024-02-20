@@ -13,43 +13,16 @@ function showUpdateUserDialog(i) {
 }
 
 
-async function saveData(contacts) {
-    await setItem('Contacts', contacts);
-}
-
-
-function deleteUser(i) {
+async function deleteUser(i) {
     let nr = document.getElementById('del-btn').value;
     if (typeof nr === "number") {
         i = nr;
     }
     contacts.splice(i, 1);
-    saveData(contacts);
-    // debugger;
     document.getElementById('main-content').style.display = 'none'
-    saveData(contacts);
+    await saveData(contacts);
+    await renderContacts();
     closeDialog();
-    renderContacts();
-}
-
-
-function checkAddOrEdit(option) {
-    if (option == 'add') {
-
-        return obj;
-    }
-    if (option == 'edit') {
-        let newname = document.getElementById('name').value;
-        let newemail = document.getElementById('mail').value;
-        let newtelephone = document.getElementById('phone').value;
-        let obj = {
-            name: newname,
-            email: newemail,
-            telephone: newtelephone,
-            imgpath: "/assets/contacticons/Emmanuel.svg"
-        };
-        return obj;
-    }
 }
 
 
@@ -72,7 +45,7 @@ async function editUser(){
 }
 
 
-function addNewUser() {
+async function addNewUser() {
     let newname = document.getElementById('newname').value;
     let newemail = document.getElementById('newmail').value;
     let newtelephone = document.getElementById('newphone').value;
@@ -83,8 +56,8 @@ function addNewUser() {
         imgpath: "/assets/contacticons/Emmanuel.svg"
     };
     contacts.push(obj);
-    saveData(contacts);
-    renderContacts();
+    await saveData(contacts);
+    await renderContacts();
     closeDialog();
 }
 

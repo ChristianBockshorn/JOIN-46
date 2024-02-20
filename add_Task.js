@@ -1,6 +1,7 @@
 let AllTask = [];
 
 
+
 async function includeHTML() {
     let includeElements = document.querySelectorAll('[w3-include-html]');
     for (let i = 0; i < includeElements.length; i++) {
@@ -31,8 +32,6 @@ function activeBtn(btnId) {
 
     // Gewählten Button als aktiv markieren
     document.getElementById(btnId).classList.add('active-urgent');
-
-    console.log("Ausgewählter Button:", btnId);
 }
 
 
@@ -47,18 +46,25 @@ function addTask() {
     let Tasks = {
         "title": title,
         "Description": description,
-        "Assigned-to": assigned,
-        "Due-date": date,
+        "Assigned": assigned,
+        "date": date,
         "Prio": selectedPrio,
         "Category": selectElement,
         "Subtasks": [],
-
     };
+    
 
     AllTask.push(Tasks);
 
     let AllTaskAsString = JSON.stringify(AllTask);
     localStorage.setItem('AllTask', AllTaskAsString);
+
+    window.location.href='board.html';
+    
 }
+
+
+
+
 
 

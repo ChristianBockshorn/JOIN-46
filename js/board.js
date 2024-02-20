@@ -4,72 +4,39 @@ function openDialog(text) {
 
 }
 
-function closeDialog() { 
+
+function closeDialog() {
     document.getElementById('dialog').classList.add('d-none');
 }
+
 
 function doNotClose(event) {
     event.stopPropagation();
 }
 
+function loadAllTasks() {
+    let AllTaskAsString = localStorage.getItem('AllTask');
+    AllTask = JSON.parse(AllTaskAsString);
+    console.log('loaded task', AllTask);
 
-let todos = [{
-    'id': 0,
-    'title': 'Putzen',
-    'category': 'open'
-}, {
-    'id': 1,
-    'title': 'Kochen',
-    'category': 'open'
-}, {
-    'id': 2,
-    'title': 'Einkaufen',
-    'category': 'closed'
-}];
-
-let currentDraggedElement;
-
-function updateHTML() {
-    let open = todos.filter(t => t['category'] == 'open');
-
-    document.getElementById('open').innerHTML = '';
-
-    for (let index = 0; index < open.length; index++) {
-        const element = open[index];
-        document.getElementById('open').innerHTML += generateTodoHTML(element);
-    }
-
-    let closed = todos.filter(t => t['category'] == 'closed');
-
-    document.getElementById('closed').innerHTML = '';
-
-    for (let index = 0; index < closed.length; index++) {
-        const element = closed[index];
-        document.getElementById('closed').innerHTML += generateTodoHTML(element);
-    }
+    render();
 }
 
-function startDragging(id) {
-    currentDraggedElement = id;
+function render() {
+    console.log('test')
+    let content = document.getElementById("borderBoard");
+    content.innerHTML = '';
+    content.innerHTML += /* html */`
+    <span class="taskCategory">${AllTask[0].Category}</span>
+    <h3 class="taskTitle">${AllTask[0].title}</h3>
+    <span class="taskDescription">${AllTask[0].Description}</span>
+    <span>Assigned to: ${AllTask[0].Assigned}</span>
+    <span>Date: ${AllTask[0].date}</span>
+    <span>Prio: ${AllTask[0].Prio}</span>
+    
+    Subtasks: [],
+    `;
 }
 
-function generateTodoHTML(element) {
-    return `<div draggable="true" ondragstart="startDragging(${element['id']})" class="todo">${element['title']}</div>`;
-}
 
-function allowDrop(ev) {
-    ev.preventDefault();
-}
 
-function moveTo(category) {
-    todos[currentDraggedElement]['category'] = category;
-    updateHTML();
-}
-
-function highlight(id) {
-    document.getElementById(id).classList.add('drag-area-highlight');
-}
-
-function removeHighlight(id) {
-    document.getElementById(id).classList.remove('drag-area-highlight');
-}

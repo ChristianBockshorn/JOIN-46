@@ -163,6 +163,8 @@ input {
 }
 
 .dialog {
+  height: 70vh;
+  width: 50%;
   background-color: white;
   border: 1px solid lightgrey;
   border-radius: 20px;
@@ -177,6 +179,46 @@ input {
   display: flex;
   flex-wrap: wrap;
 }
+
+/*-------------------------------------------**/
+/*----------------RENDER_TASK----------------**/
+/*↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓**/
+
+.taskCategory {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 16px;
+  font-family: 'Inter';
+  padding: 12px 12px;
+  height: 12px;
+  border-radius: 14px;
+  max-width: 120px;
+  background-color: #0038FF;
+  color: white;
+}
+
+.taskTitle {
+  font-family: 'Inter';
+}
+
+.taskDescription {
+  color: #A8A8A8;
+  font-size: 16px;
+}
+
+
+
+
+
+
+
+
+/*-↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑**/
+/*----------------RENDER_TASK----------------**/
+/*-------------------------------------------**/
+
 
 
 @media(max-width:1500px) {
@@ -199,12 +241,29 @@ input {
   }
 
 
+  /* width */
+  /* ::-webkit-scrollbar {
+    width: 20px;
+  }
 
-   ::-webkit-scrollbar-thumb:hover {
+  /* Track */
+  /* ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+  }
+
+  /* Handle */
+  /* ::-webkit-scrollbar-thumb {
+    background: red;
+    border-radius: 10px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
     background: #292525;
   }
 
-} 
+}
 
 @media(max-width:1024px) {
   .sidebar {
