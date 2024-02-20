@@ -180,6 +180,46 @@ input {
   flex-wrap: wrap;
 }
 
+/*-------------------------------------------**/
+/*----------------RENDER_TASK----------------**/
+/*↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓**/
+
+.taskCategory {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 16px;
+  font-family: 'Inter';
+  padding: 12px 12px;
+  height: 12px;
+  border-radius: 14px;
+  max-width: 120px;
+  background-color: #0038FF;
+  color: white;
+}
+
+.taskTitle {
+  font-family: 'Inter';
+}
+
+.taskDescription {
+  color: #A8A8A8;
+  font-size: 16px;
+}
+
+
+
+
+
+
+
+
+/*-↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑**/
+/*----------------RENDER_TASK----------------**/
+/*-------------------------------------------**/
+
+
 
 @media(max-width:1500px) {
   .status {
@@ -202,7 +242,7 @@ input {
 
 
   /* width */
- /* ::-webkit-scrollbar {
+  /* ::-webkit-scrollbar {
     width: 20px;
   }
 
@@ -219,11 +259,11 @@ input {
   }
 
   /* Handle on hover */
-   ::-webkit-scrollbar-thumb:hover {
+  ::-webkit-scrollbar-thumb:hover {
     background: #292525;
   }
 
-} 
+}
 
 @media(max-width:1024px) {
   .sidebar {
