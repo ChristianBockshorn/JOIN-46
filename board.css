@@ -147,6 +147,7 @@ input {
   margin-bottom: 16px;
   cursor: pointer;
   border: solid 1.5px #DBDBDB;
+  transition: 0.5s ease;
 }
 
 .dialog-bg {
@@ -204,6 +205,11 @@ input {
 .taskDescription {
   color: #A8A8A8;
   font-size: 16px;
+}
+
+.borderBoard:hover {
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+  transform: scale(1.02);
 }
 
 
