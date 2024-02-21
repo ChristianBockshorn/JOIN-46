@@ -15,22 +15,13 @@ function doNotClose(event) {
 }
 
 
-function loadAllTasks() {
-    let AllTaskAsString = localStorage.getItem('AllTask');
-    AllTask = JSON.parse(AllTaskAsString);
-    console.log('loaded task', AllTask);
-
-    render();
-}
-
-
 function render() {
     let content = document.getElementById("borderBoard");
     content.innerHTML = '';
     for (let i = 0; i < AllTask.length; i++) {
         const task = AllTask[i];
-        
-        content.innerHTML += /* html */`
+
+        content.innerHTML += /*html*/`
         <div class="borderBoard">
             <span class="taskCategory">${task.Category}</span>
             <h3 class="taskTitle">${task.title}</h3>
@@ -42,7 +33,10 @@ function render() {
         </div>
         `;
     }
+
 }
+
+
 
 
 
