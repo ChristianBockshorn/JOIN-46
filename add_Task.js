@@ -43,7 +43,7 @@ function addTask() {
     let selectedPrio = document.querySelector('.active-urgent').value;
     let selectElement = document.getElementById('categorySelect').value;
 
-    let Tasks = {
+    let newTasks = {
         "title": title,
         "Description": description,
         "Assigned": assigned,
@@ -54,12 +54,12 @@ function addTask() {
     };
     
 
-    AllTask.push(Tasks);
+    AllTask.push(newTasks);
 
     let AllTaskAsString = JSON.stringify(AllTask);
     localStorage.setItem('AllTask', AllTaskAsString);
 
-    window.location.href='board.html';
+    // window.location.href='board.html';
     
 }
 
