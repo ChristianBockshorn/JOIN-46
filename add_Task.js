@@ -35,6 +35,16 @@ function activeBtn(btnId) {
 }
 
 
+function loadAllTasks() {
+    let AllTaskAsString = localStorage.getItem('AllTask');
+    AllTask = JSON.parse(AllTaskAsString);
+    console.log('loaded task', AllTask);
+
+    render();
+    
+}
+
+
 function addTask() {
     let title = document.getElementById('title').value;
     let description = document.getElementById('description').value;
@@ -55,13 +65,23 @@ function addTask() {
     
 
     AllTask.push(newTasks);
-
+    
     let AllTaskAsString = JSON.stringify(AllTask);
     localStorage.setItem('AllTask', AllTaskAsString);
-
-    window.location.href='board.html';
+    
+    
+    // window.location.href='board.html';
     
 }
+
+function safe(){
+    let AllTaskAsString = JSON.stringify(AllTask);
+    localStorage.setItem('AllTask', AllTaskAsString);
+}
+
+
+
+
 
 
 
