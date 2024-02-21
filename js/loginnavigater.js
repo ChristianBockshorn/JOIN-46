@@ -111,7 +111,7 @@ function setLogedInHook(mail) {
 
     function backToIndexSite(){
         document.getElementById('moveToLeft').classList.remove('moveToLeft');
-        document.getElementById('moveToLeft').classList.add('leftLogo');
+        document.getElementById('moveToLeft').classList.add('start-logo');
         document.getElementById('fadein').classList.remove('hide');
     }
     

@@ -12,16 +12,16 @@ h1 {
     margin-bottom: 16px;
 }
 
-h4{
+h4 {
     font-weight: 400;
     font-size: 27px;
     margin: 0;
 }
 
-h5{
-   font-weight: 500; 
-   font-size: 47px;
-   margin: 0;
+h5 {
+    font-weight: 500;
+    font-size: 47px;
+    margin: 0;
 }
 
 footer a {
@@ -45,7 +45,7 @@ footer a {
 }
 
 
-.infoBoxPosition{
+.infoBoxPosition {
     position: absolute;
     top: 0;
     right: 0;
@@ -58,7 +58,7 @@ footer a {
     background-color: rgba(0, 0, 0, 0.2);
 }
 
-.slideMsg{
+.slideMsg {
     position: fixed;
     bottom: -100px;
     animation: slideIn 1000ms;
@@ -76,66 +76,77 @@ footer a {
 
 
 @keyframes slideIn {
-    0%{
+    0% {
         bottom: -100px;
     }
-    100%{
+
+    100% {
         bottom: 500px;
     }
 }
 
 
-.hide{
+.hide {
     animation: fadeIn 1000ms;
-    animation-timing-function: cubic-bezier(1,0.0,1,1);
+    animation-timing-function: cubic-bezier(1, 0.0, 1, 1);
     /* cubic-bezier(1,0.0,1,1) */
 }
 
 @keyframes fadeIn {
-    0%{
+    0% {
         opacity: 0;
     }
-    50%{
+
+    50% {
         opacity: 0;
     }
-    100%{
+
+    100% {
         opacity: 1;
     }
 }
 
 
-.leftLogo{
+.leftLogo {
     position: absolute;
     top: 80px;
     left: 77px;
     z-index: 1;
 }
 
-.moveToLeft{
-    animation: moveToLefter 1s cubic-bezier(1,0.0,1,1);
+
+.moveToLeftWhite {
+    display: none;
+}
+
+
+.moveToLeft {
+    animation: moveToLefter 1s cubic-bezier(1, 0.0, 1, 1);
     position: absolute;
     top: 80px;
     left: 77px;
     z-index: 1;
 }
 
-@keyframes moveToLefter{
-    0%{
+@keyframes moveToLefter {
+    0% {
         top: 50vh;
         left: 50vw;
         width: 274px;
         height: 334px;
         transform: translate(-50%, -50%);
     }
-    40%{
+
+    40% {
         top: 50vh;
         left: 50vw;
         width: 274px;
         height: 334px;
         transform: translate(-50%, -50%);
     }
-    100%{
-         width: 100px;
+
+    100% {
+        width: 100px;
         height: 334px;
         transform: translate(-50%, -50%);
     }
@@ -173,13 +184,13 @@ footer a {
     box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
 }
 
-#bluelink{
+#bluelink {
     text-decoration: none;
     color: #6CC5EB;
     cursor: pointer;
 }
 
-.back-arrow{
+.back-arrow {
     position: absolute;
     top: 68px;
     left: 50px;
@@ -207,9 +218,8 @@ footer a {
     font-weight: 400;
 }
 
-.app-box{
+.app-box {
     display: flex;
-    align-items: center;
     gap: 10px;
     font-weight: 400;
 }
