@@ -59,7 +59,7 @@ function addTask() {
     let AllTaskAsString = JSON.stringify(AllTask);
     localStorage.setItem('AllTask', AllTaskAsString);
 
-    // window.location.href='board.html';
+    window.location.href='board.html';
     
 }
 
