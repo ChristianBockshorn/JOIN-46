@@ -1,4 +1,9 @@
 @media (max-width: 428px) {
+
+    .navdnone{
+        display: none;
+    }
+
     body {
         background-color: rgba(246, 247, 248, 1);
     }
@@ -162,22 +167,119 @@
         display: none;
     }
     .contacts-btn-box{
-        margin-left: 0;
+        margin: 0;
+        padding: 0;
+        width: auto;
+        top: 758px;
+        left: 356px;
+        box-shadow: none;
+        border-right: none;
+        /* display: block; */
     }
-    .content-container{
-        width: 352px;
+
+    .btn-pad-newcontact{
+        padding: 0 !important;
+    }
+
+    .content-container a{
+        font-size: 16px;
     }
     
     .contact-content{
+        margin: auto;
         width: 400px;
-        margin-left: 0;
-    }
-
-    .contacts-btn-box{
-        display: none;
+        box-shadow: none;
+        /* margin-left: 0; */
     }
 
     .letter{
-        padding-left: 0;
+        height: 24px;
+        display: block !important;
+        padding-left: 0px;
     }
+    .container-pos{
+        display: block !important;
+    }
+
+    .frame{
+        font-size: 20px;
+    }
+
+
+    .scrollbar{
+        height: calc(100vh - 160px);
+        margin-top: 80px;
+        margin-bottom: 80px;
+    }
+
+    .contacts-detail{
+        display: none;
+    }
+
+    .hide-text-on-mobil{
+        display: none;
+    }
+    .btn-newcontact-mobile{
+        padding: 12px 0;
+        border-radius: 46px;
+        height: 56px;
+        width: 56px !important;
+        border-radius: 46px !important;
+    }
+
+
+    /* create User window */
+
+    .window-content{
+        display: block;
+        height: 760px;
+        width: 396px;
+    }
+
+    #window-content-img{
+        display: none;
+    }
+
+    #add-user-show-mobile{
+        display: block;
+        height: 352px;
+        width: 396px;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+    }
+
+    #cancel-btn{
+        display: none;
+    }
+
+    #change-direktion-mobile{
+        flex-direction: column;
+    }
+
+    #contacticon{
+        margin-left: 0;
+        margin-bottom: 35px;
+    }
+
+    .window-content form{
+        margin-left: 0;
+        width: 364px;
+    }
+
+    .gap-15-mobile{
+        gap: 15px !important;
+    }
+
+    .btn-position-mobile{
+        justify-content: center;
+    }
+
+    #close-cross-icon{
+        display: flex;
+        position: absolute;
+        top: 104px;
+        left: 364px;
+        height: 32px;
+        width: 32px;
+      }
 }

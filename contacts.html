@@ -6,23 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/assets/images/logo.svg">
     <title>Contacts</title>
-    <!-- <link rel="stylesheet" href="/assets/templates/navbar_template.css"> -->
+    <link rel="stylesheet" href="/assets/templates/navbar_template.css">
+    <link rel="stylesheet" href="/assets/templates/header_template.css">
     <!-- <link rel="stylesheet" href="/assets/templates/add_Task_template.css"> -->
     <link rel="stylesheet" href="/assets/templates/contacts.css">
     <link rel="stylesheet" href="/assets/templates/contacts_popups.css">
     <link rel="stylesheet" href="/mobile.css">
+    <link rel="stylesheet" href="/main.css">
     <script src="add_Task.js"></script>
 </head>
 
 <body onload="includeHTML()">
-    <div w3-include-html="/assets/templates/navbar_template.html"></div>
-    <div w3-include-html="/assets/templates/header_template.html"></div>
+    <div class="navdnone" w3-include-html="/assets/templates/navbar_template.html"></div>
+    <div class="navdnon" w3-include-html="/assets/templates/header_template.html"></div>
     <div w3-include-html="/assets/templates/edit_contacts_template.html"></div>
     <div w3-include-html="/assets/templates/add_contacts_template.html"></div>
     <section class="container-pos">
         <div class="contact-tbl">
             <div class="contacts-btn-box fd-column fixed">
-                <button onclick="showUserDialog()" class="colored-btn btn-pad-newcontact d-flex gap-16 btn-width center">Add new contact<img src="/assets/images/person_add.svg" alt="Pictogramm einer Bueste"></button>
+                <button onclick="showUserDialog()" class="colored-btn btn-pad-newcontact d-flex gap-16 btn-width center btn-newcontact-mobile"><span class="hide-text-on-mobil">Add new contact</span><img src="/assets/images/person_add.svg" alt="Pictogramm einer Bueste"></button>
             </div>
             <div class="scrollbar">
                 <div class="contact-content d-flex fd-column ai-center" id="contact-content"></div>
