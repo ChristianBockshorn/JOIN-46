@@ -9,6 +9,7 @@
 }
 
 .window-content {
+  display: flex;
   height: 592px;
   width: 1212px;
   background-color: white;
@@ -21,6 +22,10 @@
   height: 592px;
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
+}
+
+#add-user-show-mobile{
+  display: 	none;
 }
 
 .window-content form{
@@ -39,4 +44,8 @@
   align-items: center;
   justify-content: center;
   flex-direction: row;
+}
+
+#close-cross-icon{
+  display: none;
 }

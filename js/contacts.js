@@ -38,10 +38,10 @@ async function renderContacts() {
 
 function template_letterFrame(letter) {
   return `
-          <div class="letter-container d-flex fd-column center gap-8">
-              <div class="letter max-width d-flex ai-start">${letter}</div>
-              <div class="grayline"></div>
-            </div>
+          <div class="letter-container">
+              <div class="letter">${letter}</div>
+          </div>
+          <div class="grayline"></div>
           `;
 }
 

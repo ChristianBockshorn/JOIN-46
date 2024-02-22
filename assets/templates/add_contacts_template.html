@@ -6,13 +6,15 @@
 </head>
 
 <body>
-    <div id="add_user_window" class="front-window-bg center d-flex d-none" onclick="closeDialog()">
-        <div class="window-content d-flex" onclick="doNotClose(event)">
-            <img id="window-content-img" src="/assets/images/add_user_side_img.svg" alt="Dunkelfarbiges Logo von Join mit Team Schriftzug">
-            <div class="d-flex center">
+    <div id="add_user_window" class="front-window-bg center d-flex d-none" onclick="closeDialog()">´
+        <img onclick="closeDialog()" id="close-cross-icon" src="/assets/images/close_cross.svg" alt="schließen Kreuz">
+        <div class="window-content" onclick="doNotClose(event)">
+            <img id="window-content-img" class="add-user-dont-show-mobile" src="/assets/images/add_user_side_img.svg" alt="Dunkelfarbiges Logo von Join mit Team Schriftzug">
+            <img id="add-user-show-mobile" src="/assets/images/add_user_side_img_mobile.svg" alt="Dunkelfarbiges Logo von Join mit Team Schriftzug">
+            <div id="change-direktion-mobile" class="d-flex center">
                 <img id="contacticon" src="/assets/images/empty_contact.svg" alt="Bild einer Büste in Grau">
                 <form onsubmit="onclick=addNewUser(); return false;">
-                    <div class="d-flex fd-column gap-32">
+                    <div class="d-flex fd-column gap-32 gap-15-mobile">
                         <div class="pos-rel max-width">
                             <img src="./assets/images/person.svg" alt="Büste einer Person" id="pass-placeholder-img"
                                 class="placeholder-img" />
@@ -31,8 +33,8 @@
                             <input placeholder="Phone" type="tel" id="newphone"
                                 class="pad-0 pad-l-16 f-weight-400 f-size-20" />
                         </div>
-                        <div class="d-flex gap-25">
-                            <button onclick="closeDialog()" type="reset" class="normal-btn btn-pad-big d-flex gap-8">Cancel<img class="btn-little-img" src="/assets/images/cancel_x.svg" alt="kleines Kreuz zum schließen"></button>
+                        <div class="d-flex gap-25 btn-position-mobile">
+                            <button onclick="closeDialog()" type="reset" class="normal-btn btn-pad-big d-flex gap-8" id="cancel-btn">Cancel<img class="btn-little-img" src="/assets/images/cancel_x.svg" alt="kleines Kreuz zum schließen"></button>
                             <button type="submit" class="colored-btn btn-pad-big d-flex gap-8">Create contact<img class="btn-little-img" src="/assets/images/check_little.svg" alt="Hacken"></button>
                         </div>
                     </div>

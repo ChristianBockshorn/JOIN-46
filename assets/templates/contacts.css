@@ -28,7 +28,7 @@
 
 .scrollbar{
     margin-top: 96px;
-    height: calc(100vh - 105px);
+    height: calc(100vh - 96px);
     overflow-y: auto;
     scrollbar-gutter: auto;
     scrollbar-color: rgba(168,168,168,1) white;
@@ -87,7 +87,9 @@
 }
 
 .letter-container{
-    padding: 15px 24px 15px 24px;
+    box-sizing: border-box;
+    width: 352px;
+    padding: 17px 36px 17px 36px;
 }
 
 .content-container{
@@ -118,7 +120,7 @@
 .letter{
     font-size: 20px;
     font-weight: 400;
-    padding-left: 74px;
+    /* padding-left: 74px; */
 }
 
 .grayline{
