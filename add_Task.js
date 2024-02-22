@@ -41,7 +41,6 @@ function loadAllTasks() {
     console.log('loaded task', AllTask);
 
     render();
-    
 }
 
 
@@ -62,29 +61,22 @@ function addTask() {
         "Category": selectElement,
         "Subtasks": [],
     };
-    
 
-    AllTask.push(newTasks);
-    
-    let AllTaskAsString = JSON.stringify(AllTask);
-    localStorage.setItem('AllTask', AllTaskAsString);
-    
-    
-    // window.location.href='board.html';
-    
+    // Überprüfen, ob bereits Aufgaben im AllTask-Array vorhanden sind
+    let existingTasksAsString = localStorage.getItem('AllTask');
+    let existingTasks = existingTasksAsString ? JSON.parse(existingTasksAsString) : [];
+    // Die neue Aufgabe an das vorhandene Array anhängen oder ein neues Array mit der Aufgabe initialisieren
+    existingTasks.push(newTasks);
+    let updatedTasksAsString = JSON.stringify(existingTasks);
+    localStorage.setItem('AllTask', updatedTasksAsString);
+    // Das AllTask-Array für den sofortigen Gebrauch aktualisieren
+    AllTask = existingTasks;
+
+    window.location.href='board.html';
 }
+
 
 function safe(){
     let AllTaskAsString = JSON.stringify(AllTask);
     localStorage.setItem('AllTask', AllTaskAsString);
 }
-
-
-
-
-
-
-
-
-
-
