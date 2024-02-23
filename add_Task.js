@@ -41,6 +41,7 @@ function loadAllTasks() {
     console.log('loaded task', AllTask);
 
     render();
+    
 }
 
 
