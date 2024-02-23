@@ -205,6 +205,9 @@ input {
 .taskDescription {
   color: #A8A8A8;
   font-size: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .borderBoard:hover {
@@ -227,7 +230,7 @@ input {
 .borderBoardDetailTask {
   display: flex;
   flex-direction: column;
-  width: calc(100%);
+  width: 300px;
 }
 
 .taskTitleDetail {
@@ -245,12 +248,17 @@ input {
   align-items: center;
 }
 
-.closeHeader{
+.closeHeader {
   cursor: pointer;
   height: 32px;
 }
 
-
+.detailDatePrioAssigned {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 30px;
+}
 
 
 
