@@ -77,9 +77,15 @@ function taskContentHtML(i, task) {
         
         <h2 id="taskTitle-${i}" class="taskTitleDetail">${task.title}</h2>
         <span class="taskDescriptionDetail">${task.Description}</span>
-        <span>Date: ${task.date}</span>
-        <span>Prio: ${task.Prio}</span>
-        <span>Assigned to: ${task.Assigned}</span>
+        
+        <div class="detailDatePrioAssigned">
+            <span>Date: ${task.date}</span>
+            <span>Prio: ${task.Prio}</span>
+            <span>Assigned to: ${task.Assigned}</span>
+        </div>
+        
     </div>
     `;
+
+    
 }
