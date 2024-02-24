@@ -3,7 +3,7 @@ const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
 
 
 let currentContact;
-let logedinuser = [];
+let loggedinuser = [];
 
 async function setItem(key, value) {
     const payload = { key, value, token: STORAGE_TOKEN };
@@ -33,3 +33,4 @@ async function getData() {
 async function saveData(contacts) {
     await setItem('Contacts', contacts);
 }
+

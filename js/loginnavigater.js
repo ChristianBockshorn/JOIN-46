@@ -15,12 +15,22 @@ function checkForaPp() {
 
 
 function checkForAccess() {
+    // debugger;
+    let userp = '';
+    let userm = '';
     let mail = document.getElementById('mail').value;
     let pass = document.getElementById('password').value;
-    let userm = contacts.find(c => c.email == mail);
-    let userp = contacts.find(c => c.password == pass);
+
+    if(userm = contacts.find(c => c.email == mail)){
+        console.log('das wurde ausgeführt');
+        if(userp = contacts.find(c => c.password == pass)){};
+    };
+
+    
     if (userm && userp) {
-        setLogedInHook(mail);
+        let arrayPos = contacts.indexOf(userm);
+        let usern = contacts[arrayPos]['name'];
+        setLoggedInHook(mail, usern);
         window.location.href = './summary.html';
     }
     else if (userm && !userp) {
@@ -88,14 +98,15 @@ function showPasswd(id) {
 }
 
 
-function setLogedInHook(mail) {
+function setLoggedInHook(mail, name) {
     user = {
+        "name": name,
         "mail": mail,
         "time": Date.now()
     };
-    logedinuser.push(user);
-    let userToString = JSON.stringify(logedinuser);
-    localStorage.setItem('loged', userToString);
+    loggedinuser.push(user);
+    let userToString = JSON.stringify(loggedinuser);
+    localStorage.setItem('logged', userToString);
 }
 
 
