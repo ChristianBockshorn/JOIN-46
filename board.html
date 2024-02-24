@@ -18,7 +18,7 @@
     <title>Board</title>
 </head>
 
-<body class="BoardSection" onload="includeHTML(), loadAllTasks()">
+<body class="BoardSection" onload="includeHTML(), loadAllTasks(), initBoard('board')">
     <div w3-include-html="/assets/templates/header_template.html"></div>
     <div w3-include-html="/assets/templates/navbar_template.html"></div>
     
@@ -27,8 +27,9 @@
         <div class="headerFlex">
             <div class="input-container">
                 <div class="input-wrapper">
-                    <input placeholder="Find Task" type="text">
+                    <input id="searchInput" placeholder="Find Task" type="text">
                     <div class="border-left"></div>
+                    <img class="input-icon" id="searchImg" src="assets/images/search.svg" alt="">
                 </div>
             </div>
 
@@ -64,6 +65,7 @@
                     <div>
                         <div class="popup-container">
                             <img class="standardImg" src="assets/images/plus_button.svg" alt="">
+                            
                         </div>
                     </div>
                 </div>
