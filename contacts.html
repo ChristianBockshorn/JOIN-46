@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/assets/images/logo.svg">
     <title>Contacts</title>
-    <link rel="stylesheet" href="/assets/templates/navbar_template.css">
-    <link rel="stylesheet" href="/assets/templates/header_template.css">
+    <!-- <link rel="stylesheet" href="/assets/templates/navbar_template.css"> -->
+    <!-- <link rel="stylesheet" href="/assets/templates/header_template.css"> -->
     <!-- <link rel="stylesheet" href="/assets/templates/add_Task_template.css"> -->
     <link rel="stylesheet" href="/assets/templates/contacts.css">
     <link rel="stylesheet" href="/assets/templates/contacts_popups.css">
@@ -24,17 +24,21 @@
     <section class="container-pos">
         <div class="contact-tbl">
             <div class="contacts-btn-box fd-column fixed">
-                <button onclick="showUserDialog()" class="colored-btn btn-pad-newcontact d-flex gap-16 btn-width center btn-newcontact-mobile"><span class="hide-text-on-mobil">Add new contact</span><img src="/assets/images/person_add.svg" alt="Pictogramm einer Bueste"></button>
+                <button onclick="showUserDialog()" class="colored-btn btn-pad-newcontact d-flex gap-16 btn-width center"><span>Add new contact</span><img src="/assets/images/person_add.svg" alt="Pictogramm einer Bueste"></button>
             </div>
+            <button onclick="showUserDialog()" class="colored-btn d-flex center colored-btn-mobile"><img src="/assets/images/person_add.svg" alt="Pictogramm einer Bueste"></button>
             <div class="scrollbar">
                 <div class="contact-content d-flex fd-column ai-center" id="contact-content"></div>
             </div>
         </div>
-        <div class="contacts-detail">
-            <div class="d-flex gap-30 center pad-l-50 pad-bot-30">
+        <div class="contacts-detail" id="contacts-detail">
+            <div class="d-flex gap-30 center pad-l-50 pad-bot-30 contact-details-headline-position-mobile">
+                <img onclick="closeDetails()" src="./assets/images/back-arrow.svg" alt="Back Arrow" class="back-arrow-mobile" id="back-arrow-mobile">
+                <img class="options-btn" onclick="showOptions()" src="/assets/images/menu_options.svg" alt="3 übereinanderstehende Punkte für Details">
                 <h1>Contacts</h1>
                 <div class="blueline"></div>
                 <h4>Better with a team</h4>
+                <div class="blueline-mobile"></div>
             </div>
             <div id="main-content" class="main-content pad-l-50 d-flex fd-column gap-21">
             </div>

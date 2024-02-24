@@ -72,6 +72,6 @@ function doNotClose(event) {
 }
 
 
-
-
-
+function closeDetails(){
+    document.getElementById('contacts-detail').style.display = 'none';
+}

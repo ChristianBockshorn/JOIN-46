@@ -46,7 +46,8 @@ function template_letterFrame(letter) {
 }
 
 
-function generateDetails(i){
+function generateDetails(i) {
+  document.getElementById('contacts-detail').style.display = 'block';
   checkDisplayNone(i);
   let name = contacts[i]['name'];
   let mail = contacts[i]['email'];
@@ -56,12 +57,12 @@ function generateDetails(i){
   detailFrame.innerHTML = template_ContactDetails(i, name, path, mail, phone);
 }
 
-function checkDisplayNone(i){
-  if(currentContact == i){
+function checkDisplayNone(i) {
+  if (currentContact == i) {
     document.getElementById('main-content').style.display = 'none'
     currentContact = '-1';
   }
-  else{
+  else {
     document.getElementById('main-content').style.display = 'flex'
     currentContact = i;
   }
@@ -81,8 +82,8 @@ function template_NameFrame(i, name, mail, path) {
 };
 
 
-function template_ContactDetails(i, name, path, mail, phone){
-return `<div class="d-flex ai-center gap-54">
+function template_ContactDetails(i, name, path, mail, phone) {
+  return `<div class="d-flex ai-center gap-54 mobile-gap-20">
         <img src="${path}" alt="Icon mit Initialen">
           <div class="d-flex fd-column gap-8">
             <h5>${name}</h5>
@@ -111,5 +112,17 @@ return `<div class="d-flex ai-center gap-54">
             <a href="tel:${phone}">${phone}</a>
           </div>
         </div>
+        <div class="show-on-mobile">
+          <div class="f-weight-700 d-flex fd-column gap-22">
+          <div class="d-flex fd-column gap-15">
+            Email
+            <a href="mailto:${mail}">${mail}</a>
+          </div>
+          <div class="d-flex fd-column gap-15">
+            Phone
+            <a href="tel:${phone}">${phone}</a>
+          </div>
+        </div>
+    </div>
       `;
 }
