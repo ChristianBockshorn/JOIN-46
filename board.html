@@ -65,7 +65,6 @@
                     <div>
                         <div class="popup-container">
                             <img class="standardImg" src="assets/images/plus_button.svg" alt="">
-                            
                         </div>
                     </div>
                 </div>
@@ -73,7 +72,8 @@
                     <div class="no-to-do">
                         <p>No Task To do</p>
                     </div>
-                    <div id="borderBoard"></div>
+                    <div  id="borderBoard" draggable="true" id="todo" class="newTask" ondrop="moveTo('todo')"
+                    ondragover="allowDrop(event)"></div>
                 </div>
                 <div id="newTask" class="newTask"></div>
             </div>
