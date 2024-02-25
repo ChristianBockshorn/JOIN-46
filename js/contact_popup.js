@@ -16,7 +16,8 @@ function showUpdateUserDialog(i) {
 
 
 async function deleteUser(i) {
-    let nr = document.getElementById('del-btn').value;
+    debugger;
+    let nr = parseInt(document.getElementById('del-btn').value);
     if (typeof nr === "number") {
         i = nr;
     }
