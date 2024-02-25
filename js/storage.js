@@ -24,8 +24,13 @@ async function getData() {
     if (typeof contacts === 'string') {
         contacts = JSON.parse(contacts);
     }
-    // contacts = contacts.sort(); /*Sortiefunktion muss überarbeitet werden geht so nicht*/
-    // console.log(contacts);
+    contacts.sort(function (a, b) {
+        let x = a.name.toLowerCase();
+        let y = b.name.toLowerCase();
+        if (x < y) { return -1; }
+        if (x > y) { return 1; }
+        return 0;
+    });
     return contacts;
 }
 
