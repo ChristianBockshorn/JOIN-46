@@ -49,13 +49,12 @@ input::placeholder {
     display: none;
     overflow-y: auto;
     overflow-x: hidden;
+    top: -19px;
     height: 336px;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
     flex-direction: column;
     position: absolute;
-    background-color: limegreen;
-    min-width: 16px;
+    background-color: white;
     z-index: 1;
 }
 
@@ -68,8 +67,9 @@ input::placeholder {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 416px;
+    /* width: 423px; */
     height: 56px;
+    padding: 7px 16px;
 }
 
 .dd-line:hover{
@@ -81,12 +81,16 @@ input::placeholder {
     display: flex;
     align-items: center;
     gap: 16px;
-    padding: 7px 16px;
 }
 
 .assigned-cbox{
     width: 24px;
     height: 24px;
+}
+
+.selected-persons img{
+    height: 42px;
+    width: 42px;
 }
 
 /* Ende STYLE FÜR DIE DROPDOWNLISTE */

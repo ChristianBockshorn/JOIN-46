@@ -27,15 +27,16 @@
                 <input required id="title" class="f-size-20" type="text" placeholder="Enter a title">
 
                 <label for="Title">Description</label>
-                <textarea required class="f-size-20" name="" id="description" cols="30" rows="10"
+                <textarea required draggable="true" ondragstart="drag(event)" class="f-size-20" name="" id="description" cols="30" rows="10"
                     placeholder="Enter a description"></textarea>
 
                 <label class="assigned" for="Title">Assigned to</label>
                 <!-- <input onblur="closeDDWithoutFocus()" onclick="renderDropDownList()" class="f-size-20" id="assigned" type="text" placeholder="Enter a title"> -->
-                <input onclick="renderDropDownList()" class="f-size-20" id="assigned" type="text" placeholder="Enter a title">
+                <input onclick="ddListToggle()" class="f-size-20" id="assigned" type="text" placeholder="Enter a title">
                 <div class="pos-rel">
-                    <div id="dd-list-content" class="dd-list-content d-flex center"></div>
+                    <div id="dd-list-content" class="dd-list-content"></div>
                 </div>
+                <div id="selected-persons" class="selected-persons"></div>
             </div>
             <div class="middle-seperator"></div>
             <div class="right-column">
@@ -44,7 +45,7 @@
 
                 <label class="prio" for="Title">Prio</label>
                 <div class="prioCategoryCont">
-                    <button type="button" onclick="activeBtn('Priourgent')" class="prioCategory" id="Priourgent"
+                    <button type="button" draggable="true" ondragstart="drag(event)" onclick="activeBtn('Priourgent')" class="prioCategory" id="Priourgent"
                         value="urgent">Urgent<img src="assets/images/urgent_symbol.svg"></button>
                     <button type="button" onclick="activeBtn('Priomedium')" class="prioCategory" id="Priomedium"
                         value="medium">Medium<img src="assets/images/medium_symbol.svg"></button>

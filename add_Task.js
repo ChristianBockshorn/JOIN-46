@@ -82,13 +82,49 @@ function safe() {
     localStorage.setItem('AllTask', AllTaskAsString);
 }
 
-
+// ############################################################
 // generate dropdown content
+
+
+// Prüfen ob ein klick auserhalb des ddMenüs ist, wenn ja und geöffnet wird es geschlossen
+document.addEventListener('click', function myFunction(event) {
+    let parentClass = event.target.parentNode.className;
+    let targetId = event.target.id;
+    // console.log(targetId);
+    // console.log(parentClass);
+    // console.log(targetId !== 'assigned');
+    // console.log(targetId !== 'dd-line');
+    // console.log(parentClass !== 'dd-line');
+    // console.log(parentClass !== 'dd-line-inline');
+    if (targetId !== 'assigned' && targetId !== 'dd-line' && parentClass !== 'dd-line' && parentClass !== 'dd-line-inline') {
+        closeDDListWithOutsideClick();
+    }
+})
+
+
+// Umschalten zwischen einblenden und ausblenden wenn man in das assigned input feld geklickt hat
+function ddListToggle() {
+    document.getElementById('dd-list-content').classList.toggle('d-flex');
+    if (document.getElementById('dd-list-content').classList.contains('d-flex')) {
+        renderDropDownList();
+    }
+}
+
+// funktions zum ausblenden des ddmenüs
+function closeDDListWithOutsideClick() {
+    document.getElementById('dd-list-content').classList.remove('d-flex');
+}
+
+
+function addToSelectedPersons(circle,i){
+    let selected = document.getElementById('selected-persons');
+    selected.innerHTML += `<img src="${circle}" id="${i}">`;
+    console.log(`<img src="${circle}" id="${i}">`);
+}
+
 
 async function renderDropDownList() {
     await getData();
-    console.log('Text');
-    document.getElementById('dd-list-content').classList.add('d-flex')
     let ddfield = document.getElementById('dd-list-content');
     ddfield.innerHTML = '';
     for (let i = 0; i < contacts.length; i++) {
@@ -97,20 +133,17 @@ async function renderDropDownList() {
         // console.log(circle);
         let name = contacts[i]['name'];
         ddfield.innerHTML += `
-        <div class="dd-line">
+        <div id="dd-line" class="dd-line">
             <div class="dd-line-inline">
                 <img src="${circle}"></img>
                 ${name}
             </div>
-            <input class="assigned-cbox" id="checkbox${i}" type="checkbox"></input>
+            <input onclick="addToSelectedPersons('${circle}','${i}')" class="assigned-cbox" id="checkbox${i}" type="checkbox"></input>
         </div>`;
     }
 }
 
 
-function closeDDWithoutFocus(){
-    document.getElementById('dd-list-content').classList.remove('d-flex')
-}
 
-
-// generate dropdown content
+// ############################################################
+// End generate dropdown content
