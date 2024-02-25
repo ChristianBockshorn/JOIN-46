@@ -39,3 +39,10 @@ async function saveData(contacts) {
     await setItem('Contacts', contacts);
 }
 
+
+// den eingeloggten Benutzer aus dem localStorage holen und via Return übergeben
+function getLoggedInUser() {
+    let loggedin = JSON.parse(localStorage.getItem('logged'));
+    let user = loggedin[0]['name'];
+    return user;
+}
