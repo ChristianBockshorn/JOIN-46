@@ -26,7 +26,7 @@
     height: 32px;
 }
 
-.add-contact-btn{
+.add-contact-btn {
     display: none;
 }
 
@@ -54,6 +54,7 @@
 }
 
 .contacts-detail {
+    display: block;
     margin-top: 206px;
     font-size: 20px;
     background-color: #F6F7F8;
@@ -73,7 +74,7 @@
     height: 24px;
 }
 
-.options-btn{
+.options-btn {
     display: none;
 }
 
@@ -85,7 +86,7 @@
     fill: rgb(41, 171, 226);
 }
 
-.show-on-mobile{
+.show-on-mobile {
     display: none;
 }
 
@@ -107,6 +108,7 @@
 
 .content-container {
     width: 304px;
+    border-radius: 10px;
     padding: 15px 24px 15px 24px;
 }
 
@@ -114,6 +116,16 @@
     cursor: pointer;
     background: linear-gradient(#f9f9f9, #f0f0f0);
     border-radius: 10px;
+}
+
+.contacts-list-highlight {
+    background: rgba(42, 54, 71, 1);
+    color: white;
+}
+
+.contacts-list-highlight:hover {
+    background: rgba(42, 54, 71, 1);
+    color: white;
 }
 
 .content-container a {

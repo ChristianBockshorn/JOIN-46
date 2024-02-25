@@ -11,8 +11,9 @@
     <!-- <link rel="stylesheet" href="/assets/templates/add_Task_template.css"> -->
     <link rel="stylesheet" href="/assets/templates/contacts.css">
     <link rel="stylesheet" href="/assets/templates/contacts_popups.css">
-    <link rel="stylesheet" href="/mobile.css">
     <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/positions.css">
+    <link rel="stylesheet" href="/mobile.css">
     <script src="add_Task.js"></script>
 </head>
 
@@ -21,6 +22,9 @@
     <div class="navdnon" w3-include-html="/assets/templates/header_template.html"></div>
     <div w3-include-html="/assets/templates/edit_contacts_template.html"></div>
     <div w3-include-html="/assets/templates/add_contacts_template.html"></div>
+    <div class="d-none infoBoxPosition" id="infoBoxPosition">
+        <div class="slideMsg d-none" id="slideMsg"></div>
+    </div>
     <section class="container-pos">
         <div class="contact-tbl">
             <div class="contacts-btn-box fd-column fixed">
@@ -40,7 +44,7 @@
                 <h4>Better with a team</h4>
                 <div class="blueline-mobile"></div>
             </div>
-            <div id="main-content" class="main-content pad-l-50 d-flex fd-column gap-21">
+                <div id="main-content" class="main-content pad-l-50 d-flex fd-column gap-21">
             </div>
         </div>
     </section>

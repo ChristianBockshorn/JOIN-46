@@ -4,6 +4,8 @@ function showUserDialog() {
 
 
 function showUpdateUserDialog(i) {
+    document.getElementById('options').classList.remove('options-slidein');
+    document.getElementById('options').classList.remove('show-on-mobile');
     document.getElementById('update_user_window').classList.remove('d-none');
     document.getElementById('name').value = contacts[i]['name'];
     document.getElementById('mail').value = contacts[i]['email'];
@@ -19,7 +21,8 @@ async function deleteUser(i) {
         i = nr;
     }
     contacts.splice(i, 1);
-    document.getElementById('main-content').style.display = 'none'
+    document.getElementById('main-content').style.display = 'none';
+    document.getElementById('contacts-detail').classList.add('contacts-detail');
     await saveData(contacts);
     await renderContacts();
     closeDialog();
@@ -59,6 +62,9 @@ async function addNewUser() {
     await saveData(contacts);
     await renderContacts();
     closeDialog();
+    document.getElementById('slideMsg').classList.remove('d-none');
+    document.getElementById('infoBoxPosition').classList.remove('d-none');
+    document.getElementById('slideMsg').innerHTML = 'Contact succefully created';
 }
 
 
@@ -74,4 +80,10 @@ function doNotClose(event) {
 
 function closeDetails(){
     document.getElementById('contacts-detail').style.display = 'none';
+}
+
+function showOptions(){
+    document.getElementById('options').classList.add('options-slidein');
+    document.getElementById('options').classList.add('show-on-mobile');
+    document.getElementById('options').classList.remove('options');
 }
