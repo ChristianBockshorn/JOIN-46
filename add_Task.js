@@ -41,7 +41,7 @@ function loadAllTasks() {
     console.log('loaded task', AllTask);
 
     render();
-    
+
 }
 
 
@@ -73,11 +73,44 @@ function addTask() {
     // Das AllTask-Array für den sofortigen Gebrauch aktualisieren
     AllTask = existingTasks;
 
-    window.location.href='board.html';
+    window.location.href = 'board.html';
 }
 
 
-function safe(){
+function safe() {
     let AllTaskAsString = JSON.stringify(AllTask);
     localStorage.setItem('AllTask', AllTaskAsString);
 }
+
+
+// generate dropdown content
+
+async function renderDropDownList() {
+    await getData();
+    console.log('Text');
+    document.getElementById('dd-list-content').classList.add('d-flex')
+    let ddfield = document.getElementById('dd-list-content');
+    ddfield.innerHTML = '';
+    for (let i = 0; i < contacts.length; i++) {
+        // console.log('txt');
+        let circle = contacts[i]['imgpath'];
+        // console.log(circle);
+        let name = contacts[i]['name'];
+        ddfield.innerHTML += `
+        <div class="dd-line">
+            <div class="dd-line-inline">
+                <img src="${circle}"></img>
+                ${name}
+            </div>
+            <input class="assigned-cbox" id="checkbox${i}" type="checkbox"></input>
+        </div>`;
+    }
+}
+
+
+function closeDDWithoutFocus(){
+    document.getElementById('dd-list-content').classList.remove('d-flex')
+}
+
+
+// generate dropdown content

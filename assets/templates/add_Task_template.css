@@ -43,6 +43,54 @@ input::placeholder {
     padding: 8px;
 }
 
+/* STYLE FÜR DIE DROPDOWNLISTE */
+
+.dd-list-content{
+    display: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 336px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    background-color: limegreen;
+    min-width: 16px;
+    z-index: 1;
+}
+
+.dd-list-content img{
+    width: 42px;
+    height: 42px;
+}
+
+.dd-line{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 416px;
+    height: 56px;
+}
+
+.dd-line:hover{
+    cursor: pointer;
+    background: linear-gradient(#f9f9f9, #f0f0f0);
+}
+
+.dd-line-inline{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 7px 16px;
+}
+
+.assigned-cbox{
+    width: 24px;
+    height: 24px;
+}
+
+/* Ende STYLE FÜR DIE DROPDOWNLISTE */
+
 .middle-seperator {
     border-left: 1px solid #D1D1D1;
     margin-top: 60px;
