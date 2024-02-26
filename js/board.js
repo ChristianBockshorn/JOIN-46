@@ -63,7 +63,6 @@ function openDetailTask(i) {
     taskContentHtML(i, task);
 }
 
-
 function taskContentHtML(i, task) {
     let taskContent = document.getElementById('addtask-dialog');
     taskContent.innerHTML = '';
