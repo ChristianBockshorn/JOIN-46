@@ -3,7 +3,7 @@ const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
 
 
 let currentContact;
-let logedinuser = [];
+let loggedinuser = [];
 
 async function setItem(key, value) {
     const payload = { key, value, token: STORAGE_TOKEN };
@@ -24,12 +24,25 @@ async function getData() {
     if (typeof contacts === 'string') {
         contacts = JSON.parse(contacts);
     }
-    // contacts = contacts.sort(); /*Sortiefunktion muss überarbeitet werden geht so nicht*/
-    // console.log(contacts);
+    contacts.sort(function (a, b) {
+        let x = a.name.toLowerCase();
+        let y = b.name.toLowerCase();
+        if (x < y) { return -1; }
+        if (x > y) { return 1; }
+        return 0;
+    });
     return contacts;
 }
 
 
 async function saveData(contacts) {
     await setItem('Contacts', contacts);
+}
+
+
+// den eingeloggten Benutzer aus dem localStorage holen und via Return übergeben
+function getLoggedInUser() {
+    let loggedin = JSON.parse(localStorage.getItem('logged'));
+    let user = loggedin[0]['name'];
+    return user;
 }

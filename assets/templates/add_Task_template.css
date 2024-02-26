@@ -43,6 +43,58 @@ input::placeholder {
     padding: 8px;
 }
 
+/* STYLE FÜR DIE DROPDOWNLISTE */
+
+.dd-list-content{
+    display: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+    top: -19px;
+    height: 336px;
+    width: 100%;
+    flex-direction: column;
+    position: absolute;
+    background-color: white;
+    z-index: 1;
+}
+
+.dd-list-content img{
+    width: 42px;
+    height: 42px;
+}
+
+.dd-line{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* width: 423px; */
+    height: 56px;
+    padding: 7px 16px;
+}
+
+.dd-line:hover{
+    cursor: pointer;
+    background: linear-gradient(#f9f9f9, #f0f0f0);
+}
+
+.dd-line-inline{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.assigned-cbox{
+    width: 24px;
+    height: 24px;
+}
+
+.selected-persons img{
+    height: 42px;
+    width: 42px;
+}
+
+/* Ende STYLE FÜR DIE DROPDOWNLISTE */
+
 .middle-seperator {
     border-left: 1px solid #D1D1D1;
     margin-top: 60px;

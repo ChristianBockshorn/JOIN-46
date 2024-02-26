@@ -86,6 +86,6 @@ function taskContentHtML(i, task) {
         
     </div>
     `;
-
-    
 }
+
+

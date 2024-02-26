@@ -4,6 +4,8 @@ function showUserDialog() {
 
 
 function showUpdateUserDialog(i) {
+    document.getElementById('options').classList.remove('options-slidein');
+    document.getElementById('options').classList.remove('show-on-mobile');
     document.getElementById('update_user_window').classList.remove('d-none');
     document.getElementById('name').value = contacts[i]['name'];
     document.getElementById('mail').value = contacts[i]['email'];
@@ -14,19 +16,20 @@ function showUpdateUserDialog(i) {
 
 
 async function deleteUser(i) {
-    let nr = document.getElementById('del-btn').value;
+    let nr = parseInt(document.getElementById('del-btn').value);
     if (typeof nr === "number") {
         i = nr;
     }
     contacts.splice(i, 1);
-    document.getElementById('main-content').style.display = 'none'
+    document.getElementById('main-content').style.display = 'none';
+    document.getElementById('contacts-detail').classList.add('contacts-detail');
     await saveData(contacts);
     await renderContacts();
     closeDialog();
 }
 
 
-async function editUser(){
+async function editUser() {
     let editname = document.getElementById('name').value;
     let editemail = document.getElementById('mail').value;
     let edittelephone = document.getElementById('phone').value;
@@ -45,6 +48,27 @@ async function editUser(){
 }
 
 
+function showSuccessMsg() {
+    document.getElementById('slideMsg').classList.remove('d-none');
+    document.getElementById('infoBoxPosition').classList.remove('d-none');
+    document.getElementById('slideMsg').innerHTML = 'Contact succefully created';
+}
+
+
+function clearForm() {
+    document.getElementById('newname').value = '';
+    document.getElementById('newmail').value = '';
+    document.getElementById('newphone').value = '';
+}
+
+function getNewContactPos(newname) {
+    if (usern = contacts.find(c => c.name == newname)) {
+        let arrayPos = contacts.indexOf(usern);
+        return arrayPos;
+    }
+}
+
+
 async function addNewUser() {
     let newname = document.getElementById('newname').value;
     let newemail = document.getElementById('newmail').value;
@@ -57,8 +81,12 @@ async function addNewUser() {
     };
     contacts.push(obj);
     await saveData(contacts);
-    await renderContacts();
+    let arrayPos = getNewContactPos(newname);
     closeDialog();
+    showSuccessMsg();
+    await renderContacts();
+    generateDetails(arrayPos);
+    clearForm();
 }
 
 
@@ -72,6 +100,12 @@ function doNotClose(event) {
 }
 
 
+function closeDetails() {
+    document.getElementById('contacts-detail').style.display = 'none';
+}
 
-
-
+function showOptions() {
+    document.getElementById('options').classList.add('options-slidein');
+    document.getElementById('options').classList.add('show-on-mobile');
+    document.getElementById('options').classList.remove('options');
+}

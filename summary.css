@@ -1,10 +1,6 @@
-body {
-  padding-top: 80px
-}
-
 .summaryContent {
   margin-left: 296px;
-  margin-top: 80px;
+  margin-top: 130px;
   margin-bottom: 48px;
   width: calc(100% - 328px);
   display: flex;
@@ -14,7 +10,11 @@ body {
 .summaryHead {
   display: flex;
   align-items: center;
+ 
+}
 
+.summaryIcon {
+  height: 24px;
 }
 
 .summaryHead h1 {
@@ -35,7 +35,6 @@ body {
   font-weight: 400;
   color: #2a3647;
 }
-
 .summaryMainContent {
   display: flex;
   align-items: center;
@@ -65,14 +64,14 @@ body {
   transform: scale(1.1);
 }
 
-.summaryBox:hover .summaryBoxIcon {
+.summaryBox:hover .summaryBoxTopIcon {
   background-color: white;
 }
 
 .summaryBox:hover .summaryBoxesTopIcons {
-  filter: brightness(0) saturate(100%) invert(14%) sepia(3%) saturate(6188%) hue-rotate(177deg) brightness(105%) contrast(84%);
+  filter: brightness(0) saturate(100%) invert(14%) sepia(3%) saturate(6188%)
+    hue-rotate(177deg) brightness(105%) contrast(84%);
 }
-
 .summaryBox:hover .summaryCountText {
   color: white;
 }
@@ -95,16 +94,16 @@ body {
   justify-content: space-between;
 }
 
-.summaryBox {
+.summaryBoxTop {
   padding: 38px 58px;
   height: 168px;
   width: 264px;
   display: flex;
   align-items: center;
 
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
 }
 
 .summaryBoxMid {
@@ -114,29 +113,25 @@ body {
   display: flex;
   align-items: center;
 
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
 }
 
 .summaryBoxBottom {
-  padding: 35px;
+  padding: 25px 0;
   height: 168px;
   width: 168px;
 
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.summaryBoxTopIcon:hover {
-  background-color:white;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
 }
 
 .summaryBoxTopIcon {
   border-radius: 50%;
-  width: 70px;
-  height: 70px;
+  width: 64px;
+  height: 64px;
   background-color: #2a3647;
   display: flex;
   justify-content: center;
@@ -165,13 +160,12 @@ body {
 .urgentIconCount {
   display: flex;
   align-items: center;
-  height: 48px;
 }
 
 .summaryBoxMidIcon {
   border-radius: 50%;
-  width: 70px;
-  height: 70px;
+  width: 64px;
+  height: 64px;
   background-color: #ee3d04;
   display: flex;
   justify-content: center;
@@ -193,19 +187,66 @@ body {
   margin-bottom: 13px;
 }
 
-.summaryBoxesIcons {
-  height: 32px;
+.nextUrgentDateText {
+  font-size: 16px;
+  font-weight: 400;
+  color: #2a3647;
 }
 
-.summaryBoxTopIcon:hover {
-  background-color: white;
+.userGreet {
+  margin-left: 80px;
 }
 
-icon:hover {
-color: #2a3647;
+#timedGreeting {
+  font-size: 47px;
+  font-weight: 500;
+  color: #2a3647;
+  margin-bottom: 3px;
 }
 
+#logedinUser {
+  font-size: 64px;
+  font-weight: 700;
+  color: #29abe2;
+}
 
+.sumHeadDeviderMobile {
+  display: none;
+  width: 90px;
+  height: 2px;
+  background-color: #29abe2;
+  border-radius: 1px;
+  margin-top: 12px;
+}
+
+#mobileGreet {
+  position: absolute;
+  top: 80px;
+  bottom: 80px;
+  left: 0;
+  right: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: #f6f7f8;
+  flex-direction: column;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+#mobileTimedGreeting {
+  font-size: 36px;
+  font-weight: 400;
+  color: #2a3647;
+  text-align: center;
+}
+
+#mobileLogedinUser {
+  font-size: 47px;
+  font-weight: 700;
+  color: #29abe2;
+  text-align: center;
+}
 
 @media (max-width: 1399.98px) {
   .userGreet {
@@ -219,9 +260,8 @@ color: #2a3647;
 
 @media (max-width: 1199.98px) {
   .summaryContent {
-    margin-top: 48px;
+    margin-top: 130px;
   }
-
   .summaryMainContent {
     flex-direction: column;
     margin-top: 48px;
@@ -238,11 +278,9 @@ color: #2a3647;
   .summaryContent {
     margin-left: 280px;
   }
-
   .summaryContent {
-    margin-top: 32px;
+    margin-top: 130px;
   }
-
   .summaryMainContent {
     margin-top: 32px;
   }
@@ -276,7 +314,7 @@ color: #2a3647;
   }
 
   #mobileGreet.show {
-    display: flex;
+    display: flex; 
     opacity: 1;
   }
 

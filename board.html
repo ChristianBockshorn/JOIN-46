@@ -18,7 +18,7 @@
     <title>Board</title>
 </head>
 
-<body class="BoardSection" onload="includeHTML(), loadAllTasks()">
+<body class="BoardSection" onload="includeHTML(), loadAllTasks(), initBoard('board')">
     <div w3-include-html="/assets/templates/header_template.html"></div>
     <div w3-include-html="/assets/templates/navbar_template.html"></div>
     
@@ -27,8 +27,9 @@
         <div class="headerFlex">
             <div class="input-container">
                 <div class="input-wrapper">
-                    <input placeholder="Find Task" type="text">
+                    <input id="searchInput" placeholder="Find Task" type="text">
                     <div class="border-left"></div>
+                    <img class="input-icon" id="searchImg" src="assets/images/search.svg" alt="">
                 </div>
             </div>
 
@@ -71,7 +72,8 @@
                     <div class="no-to-do">
                         <p>No Task To do</p>
                     </div>
-                    <div id="borderBoard"></div>
+                    <div  id="borderBoard" draggable="true" id="todo" class="newTask" ondrop="moveTo('todo')"
+                    ondragover="allowDrop(event)"></div>
                 </div>
                 <div id="newTask" class="newTask"></div>
             </div>

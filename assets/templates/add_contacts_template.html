@@ -8,11 +8,12 @@
 <body>
     <div id="add_user_window" class="front-window-bg center d-flex d-none" onclick="closeDialog()">´
         <img onclick="closeDialog()" id="close-cross-icon" src="/assets/images/close_cross.svg" alt="schließen Kreuz">
+        <img onclick="closeDialog()" id="close-cross-dark-icon" src="/assets/images/close_cross_dark.svg" alt="schließen Kreuz">
         <div class="window-content" onclick="doNotClose(event)">
             <img id="window-content-img" class="add-user-dont-show-mobile" src="/assets/images/add_user_side_img.svg" alt="Dunkelfarbiges Logo von Join mit Team Schriftzug">
             <img id="add-user-show-mobile" src="/assets/images/add_user_side_img_mobile.svg" alt="Dunkelfarbiges Logo von Join mit Team Schriftzug">
             <div id="change-direktion-mobile" class="d-flex center">
-                <img id="contacticon" src="/assets/images/empty_contact.svg" alt="Bild einer Büste in Grau">
+                <img class="contacticon" id="contacticon" src="/assets/images/empty_contact.svg" alt="Bild einer Büste in Grau">
                 <form onsubmit="onclick=addNewUser(); return false;">
                     <div class="d-flex fd-column gap-32 gap-15-mobile">
                         <div class="pos-rel max-width">
