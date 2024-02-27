@@ -1,3 +1,6 @@
+let currentDraggedElement;
+
+
 function openDialog() {
     document.getElementById('dialog').classList.remove('d-none');
     document.getElementById('mainContent').classList.remove('main');
@@ -15,8 +18,6 @@ function doNotClose(event) {
 
 
 
-
-
 function render() {
     let content = document.getElementById(`borderBoard`);
     let noToDoDiv = document.querySelector('.no-to-do');
@@ -28,7 +29,7 @@ function render() {
             const task = AllTask[i];
 
             content.innerHTML += /*html*/`
-            <div id="borderBoard(${i})" class="borderBoard" onclick="openTask(${i})">
+            <div id="borderBoard(${i})" class="borderBoard" onclick="openTask(${i})" draggable="true" ondragstart="startDragging(${i})" ondrop="moveTo('todo')" ondragover="allowDrop(event)">
                 <span class="taskCategory">${task.Category}</span>
                 <h3 class="taskTitle">${task.title}</h3>
                 <span class="taskDescription">${task.Description}</span>
@@ -46,6 +47,42 @@ function render() {
     } else {
         noToDoDiv.style.display = 'block';
     }
+}
+
+function updateHTML() {
+    // Annahme: AllTask ist das globale Array, das alle Aufgaben enthält
+    let openTasks = AllTask.filter(task => task['state'] == 'todo');
+    let closedTasks = AllTask.filter(task => task['Category'] == 'closed');
+
+    // Leeren Sie die HTML-Inhalte der Container
+    document.getElementById('open').innerHTML = '';
+    document.getElementById('closed').innerHTML = '';
+
+    // Aktualisieren Sie den 'open'-Container
+    for (let index = 0; index < openTasks.length; index++) {
+        const task = openTasks[index];
+        document.getElementById('open').innerHTML += generateTodoHTML(task);
+    }
+
+    // Aktualisieren Sie den 'closed'-Container
+    for (let index = 0; index < closedTasks.length; index++) {
+        const task = closedTasks[index];
+        document.getElementById('closed').innerHTML += generateTodoHTML(task);
+    }
+}
+
+
+function startDragging(i) {
+    currentDraggedElement = i;
+}
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function moveTo(category) {
+    
+    updateHTML();
 }
 
 function openTask(i) {
@@ -86,5 +123,3 @@ function taskContentHtML(i, task) {
     </div>
     `;
 }
-
-
