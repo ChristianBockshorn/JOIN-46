@@ -50,27 +50,37 @@ function render() {
 }
 
 function updateHTML() {
-    // Annahme: AllTask ist das globale Array, das alle Aufgaben enthält
-    let openTasks = AllTask.filter(task => task['state'] == 'todo');
-    let closedTasks = AllTask.filter(task => task['Category'] == 'closed');
+    let open = AllTask.filter(task => task['state'] == 'todo');
 
-    // Leeren Sie die HTML-Inhalte der Container
-    document.getElementById('open').innerHTML = '';
-    document.getElementById('closed').innerHTML = '';
+    document.getElementById('todo').innerHTML = '';
 
-    // Aktualisieren Sie den 'open'-Container
-    for (let index = 0; index < openTasks.length; index++) {
-        const task = openTasks[index];
-        document.getElementById('open').innerHTML += generateTodoHTML(task);
+    for (let index = 0; index < open.length; index++) {
+        const element = AllTask[index];
+        document.getElementById('todo').innerHTML += generateTodoHTML(element);
     }
 
-    // Aktualisieren Sie den 'closed'-Container
-    for (let index = 0; index < closedTasks.length; index++) {
-        const task = closedTasks[index];
-        document.getElementById('closed').innerHTML += generateTodoHTML(task);
-    }
 }
 
+
+function generateTodoHTML(i) {
+    let content = document.getElementById(`borderBoard`);
+    for (let i = 0; i < AllTask.length; i++) {
+        const task = AllTask[i];
+
+        content.innerHTML += /*html*/`
+        <div id="borderBoard(${i})" class="borderBoard" onclick="openTask(${i})" draggable="true" ondragstart="startDragging(${i})" ondrop="moveTo('todo')" ondragover="allowDrop(event)">
+            <span class="taskCategory">${task.Category}</span>
+            <h3 class="taskTitle">${task.title}</h3>
+            <span class="taskDescription">${task.Description}</span>
+            <span>Assigned to: ${task.Assigned}</span>
+            <span>Date: ${task.date}</span>
+            <span>Prio: ${task.Prio}</span>
+            Subtasks: [],
+        </div>
+        `;
+    }
+    render();
+}
 
 function startDragging(i) {
     currentDraggedElement = i;
@@ -81,7 +91,7 @@ function allowDrop(ev) {
 }
 
 function moveTo(category) {
-    
+    AllTask[currentDraggedElement]['state'] = category;
     updateHTML();
 }
 
