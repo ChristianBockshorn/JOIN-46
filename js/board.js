@@ -1,4 +1,5 @@
 let currentDraggedElement;
+let currentState; 
 
 
 function openDialog() {
@@ -63,22 +64,6 @@ function updateHTML() {
 
 
 function generateTodoHTML(i) {
-    let content = document.getElementById(`borderBoard`);
-    for (let i = 0; i < AllTask.length; i++) {
-        const task = AllTask[i];
-
-        content.innerHTML += /*html*/`
-        <div id="borderBoard(${i})" class="borderBoard" onclick="openTask(${i})" draggable="true" ondragstart="startDragging(${i})" ondrop="moveTo('todo')" ondragover="allowDrop(event)">
-            <span class="taskCategory">${task.Category}</span>
-            <h3 class="taskTitle">${task.title}</h3>
-            <span class="taskDescription">${task.Description}</span>
-            <span>Assigned to: ${task.Assigned}</span>
-            <span>Date: ${task.date}</span>
-            <span>Prio: ${task.Prio}</span>
-            Subtasks: [],
-        </div>
-        `;
-    }
     render();
 }
 
@@ -87,6 +72,7 @@ function startDragging(i) {
 }
 
 function allowDrop(ev) {
+    console.log(event.target.nodeName)
     ev.preventDefault();
 }
 
