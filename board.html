@@ -12,16 +12,16 @@
     <script src="js/storage.js"></script>
     <script src="add_Task.js"></script>
     <script src="js/board.js"></script>
-   
-    
+
+
 
     <title>Board</title>
 </head>
 
-<body class="BoardSection" onload="includeHTML(), loadAllTasks(), initBoard('board')">
+<body class="BoardSection" onload="includeHTML(), loadAllTasks()">
     <div w3-include-html="/assets/templates/header_template.html"></div>
     <div w3-include-html="/assets/templates/navbar_template.html"></div>
-    
+
     <div class="headerBoard">
         <h1>Board</h1>
         <div class="headerFlex">
@@ -51,8 +51,8 @@
 
         <div id="taskDetail" class="dialog-bg d-none" onclick="closeTask()">
             <div class="taskDetail" onclick="doNotClose(event)">
-                <div id="addtask-dialog" class="addtask-dialog" >
-                    
+                <div id="addtask-dialog" class="addtask-dialog">
+
                 </div>
             </div>
         </div>
@@ -72,10 +72,10 @@
                     <div class="no-to-do">
                         <p>No Task To do</p>
                     </div>
-                    <div  id="borderBoard" draggable="true" id="todo" class="newTask" ondrop="moveTo('todo')"
-                    ondragover="allowDrop(event)"></div>
+                    <div id="borderBoard" class="newTask"></div>
                 </div>
-                <div id="newTask" class="newTask"></div>
+                <div id="todo" class="newTask" draggable="true" class="newTask" ondrop="moveTo('todo')"
+                    ondragover="allowDrop(event)"></div>
             </div>
 
 
@@ -90,10 +90,10 @@
                     <div class="no-to-do">
                         <p>No Task To do</p>
                     </div>
-                    <div  class="borderBoard" draggable="true" id="todo" class="newTask" ondrop="moveTo('todo')"
-                    ondragover="allowDrop(event)"></div>
+                    <div class="borderBoard" id="testdrop" ondrop="moveTo('testdrop')" ondragover="allowDrop(event)" ondrop="moveTo('todo')"></div>
                 </div>
-                <div class="newTask"></div>
+                <!-- <div class="newTask" draggable="true" id="todo" class="newTask" ondrop="moveTo('todo')"
+                ondragover="allowDrop(event)"></div> -->
             </div>
         </div>
 
