@@ -59,7 +59,7 @@ function addTask() {
         "Prio": selectedPrio,
         "Category": selectElement,
         "Subtasks": [],
-        'state': 'todo'
+        'state': 'todo',
     };
 
     // Überprüfen, ob bereits Aufgaben im AllTask-Array vorhanden sind
