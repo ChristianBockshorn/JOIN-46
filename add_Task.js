@@ -86,17 +86,64 @@ function safe() {
 // ############################################################
 // generate dropdown content
 
+async function init() {
+    await getData();
+}
+
+
+// erstellen der Dropdownlist mit den aktuell gespeicherten Benutzern
+async function renderDropDownList() {
+    let searchSign = document.getElementById('assigned').value;
+    let ddfield = document.getElementById('dd-list-content');
+    ddfield.innerHTML = '';
+    for (let i = 0; i < contacts.length; i++) {
+        let initialsCircle = contacts[i]['imgpath'];
+        let name = contacts[i]['name'];
+        if (assignedPersons.find(element => element == i) == i) {
+            ddfield.innerHTML += template_InlineFieldChecked(name, initialsCircle, i);
+        }
+        else {
+            ddfield.innerHTML += template_InlineFieldUnChecked(name, initialsCircle, i);
+        }
+    }
+}
+
+
+// Filterfunktion die Just in Time prüft ob es einträge mit den entsprechenden Buchstaben bzw. suchmuster gibt
+function searchPattern() {
+    document.getElementById('dd-list-content').classList.add('d-flex')
+    let searchSign = document.getElementById('assigned').value;
+    let ddfield = document.getElementById('dd-list-content');
+    ddfield.innerHTML = '';
+    let contacts_Temp = contacts.filter(c => c.name.toLowerCase().startsWith(searchSign.toLowerCase()));
+    for (let i = 0; i < contacts_Temp.length; i++) {
+        let initialsCircle = contacts_Temp[i]['imgpath'];
+        let name = contacts_Temp[i]['name'];
+        let contactsIndex = contacts.findIndex(c => c.name == `${name}`);
+        if (assignedPersons.find(element => element == contactsIndex) == contactsIndex) {
+            ddfield.innerHTML += template_InlineFieldChecked(name, initialsCircle, contactsIndex);
+        }
+        else {
+            ddfield.innerHTML += template_InlineFieldUnChecked(name, initialsCircle, contactsIndex);
+        }
+    }
+}
+
+
+// rendern der ausgewählten Personen um sie unter dem assigned inputfeld anzuzeigen
+function renderAssignedPersons() {
+    let selected = document.getElementById('selected-persons');
+    selected.innerHTML = '';
+    for (let j = 0; j < assignedPersons.length; j++) {
+        selected.innerHTML += `<img src="${contacts[assignedPersons[j]]['imgpath']}" id="${assignedPersons[j]}">`;
+    }
+}
+
 
 // Prüfen ob ein klick auserhalb des ddMenüs ist, wenn ja und geöffnet wird es geschlossen
 document.addEventListener('click', function myFunction(event) {
     let parentClass = event.target.parentNode.className;
     let targetId = event.target.id;
-    // console.log(targetId);
-    // console.log(parentClass);
-    // console.log(targetId !== 'assigned');
-    // console.log(targetId !== 'dd-line');
-    // console.log(parentClass !== 'dd-line');
-    // console.log(parentClass !== 'dd-line-inline');
     if (targetId !== 'assigned' && targetId !== 'dd-line' && parentClass !== 'dd-line' && parentClass !== 'dd-line-inline') {
         closeDDListWithOutsideClick();
     }
@@ -108,8 +155,10 @@ function ddListToggle() {
     document.getElementById('dd-list-content').classList.toggle('d-flex');
     if (document.getElementById('dd-list-content').classList.contains('d-flex')) {
         renderDropDownList();
+        // searchPattern();
     }
 }
+
 
 // funktions zum ausblenden des ddmenüs
 function closeDDListWithOutsideClick() {
@@ -117,76 +166,56 @@ function closeDDListWithOutsideClick() {
 }
 
 
-function deleteAssignedPerson(i) {
-    let toPurge =  assignedPersons.indexOf(i);
-    assignedPersons.splice(toPurge, 1);
-}
-
-
+// ausgewählte Person dem Speicher hinzufügen
 function addAssignedPerson(i) {
     assignedPersons.push(i);
 }
 
 
-function addToSelectedPersons(i) {
-    // debugger;
-    // let currentBox = document.getElementById(`checkbox${i}`).checked;
-    // if (currentBox == true) {
-        if (assignedPersons.indexOf(i) == -1) {
-            console.log('ist noch nicht vorhanden');
-            addAssignedPerson(i);
-            console.log(assignedPersons);
-        }
-        else if (assignedPersons.indexOf(i) > -1) {
-            console.log('ist bereits vorhanden');
-            deleteAssignedPerson(i);
-            console.log(assignedPersons);
-        // }
-    }
-
-    // selected persons in eine Variable speichern und dann wieder abfragen um die ausgewählten personen anzuzeigen wenn das assigned feld geschlossen wurde
-
-    let selected = document.getElementById('selected-persons');
-    selected.innerHTML = '';
-    for (let j = 0; j < assignedPersons.length; j++) {
-        selected.innerHTML += `<img src="${contacts[j]['imgpath']}" id="${assignedPersons[j]}">`;
-        console.log(`<img src="${contacts[j]['imgpath']}" id="checkbox${i}">`);
-    }
+// entfernen einer bereits ausgewählten Person
+function deleteAssignedPerson(i) {
+    let toPurge = assignedPersons.indexOf(i);
+    assignedPersons.splice(toPurge, 1);
 }
 
-async function renderDropDownList() {
-    // debugger;
-    let ddfield = document.getElementById('dd-list-content');
-    ddfield.innerHTML = '';
-    await getData();
-    for (let i = 0; i < contacts.length; i++) {
-        // console.log('txt');
-        let initialsCircle = contacts[i]['imgpath'];
-        // console.log(initialsCircle);
-        let name = contacts[i]['name'];
-        if (assignedPersons.find(element => element == i) == i) {
-            ddfield.innerHTML += `
+
+// Prüfen ob die ausgewählte Person bereits hinzugefügt ist oder nicht. Wenn ja wird sie entfernt und wenn nicht wird sie hinzugefügt
+function addToSelectedPersons(i) {
+    if (assignedPersons.indexOf(i) == -1) {
+        addAssignedPerson(i);
+    }
+    else if (assignedPersons.indexOf(i) > -1) {
+        deleteAssignedPerson(i);
+    }
+    renderAssignedPersons();
+}
+
+
+// Template welches für Personen erzeugt wird die bereits sind
+function template_InlineFieldChecked(name, initialsCircle, i) {
+    return `
         <div id="dd-line" class="dd-line">
             <div class="dd-line-inline">
                 <img src="${initialsCircle}"></img>
                 ${name}
             </div>
             <input onclick="addToSelectedPersons('${i}')" class="assigned-cbox" id="checkbox${i}" type="checkbox" checked></input>
-        </div>`;
-        }
-        else {
-            ddfield.innerHTML += `
-            <div id="dd-line" class="dd-line">
-                <div class="dd-line-inline">
-                    <img src="${initialsCircle}"></img>
-                    ${name}
-                </div>
-                <input onclick="addToSelectedPersons('${i}')" class="assigned-cbox" id="checkbox${i}" type="checkbox" ></input>
-            </div>`;
-        }
-    }
+        </div>
+    `;
 }
 
+// Template welches erzeugt wird für Personen die aktuell nicht ausgewählt sind
+function template_InlineFieldUnChecked(name, initialsCircle, i) {
+    return `
+        <div id="dd-line" class="dd-line">
+            <div class="dd-line-inline">
+                <img src="${initialsCircle}"></img>
+                ${name}
+            </div>
+            <input onclick="addToSelectedPersons('${i}')" class="assigned-cbox" id="checkbox${i}" type="checkbox" ></input>
+        </div>
+    `;
+}
 
 
 // ############################################################
