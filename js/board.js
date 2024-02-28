@@ -1,5 +1,5 @@
 let currentDraggedElement;
-let currentState; 
+let currentState;
 
 
 function openDialog() {
@@ -20,7 +20,7 @@ function doNotClose(event) {
 
 
 function render() {
-    let content = document.getElementById(`borderBoard`);
+    let content = document.getElementById(`open`);
     let noToDoDiv = document.querySelector('.no-to-do');
 
     content.innerHTML = '';
@@ -30,7 +30,8 @@ function render() {
             const task = AllTask[i];
 
             content.innerHTML += /*html*/`
-            <div id="borderBoard(${i})" class="borderBoard" onclick="openTask(${i})" draggable="true" ondragstart="startDragging(${i})" ondrop="moveTo('todo')" ondragover="allowDrop(event)">
+            <div id="borderBoard-${i}" class="borderBoard" draggable="true" onclick="openTask(${i})" ondrop="moveTo('open')"
+                    ondragover="allowDrop(event)">
                 <span class="taskCategory">${task.Category}</span>
                 <h3 class="taskTitle">${task.title}</h3>
                 <span class="taskDescription">${task.Description}</span>
@@ -41,7 +42,6 @@ function render() {
             </div>
             `;
 
-            // taskContentHtML(i, task, taskTitle);
         }
 
         noToDoDiv.style.display = 'none';
@@ -50,21 +50,65 @@ function render() {
     }
 }
 
+// function updateHTML() {
+//     let open = AllTask.filter(task => task['state'] == 'todo');
+
+//     document.getElementById('todo').innerHTML = '';
+
+//     for (let index = 0; index < open.length; index++) {
+//         const element = AllTask[index];
+//         document.getElementById('todo').innerHTML += generateTodoHTML(element);
+//     }
+
+// }
+
+
+
 function updateHTML() {
+    //To Do---------------------------------
     let open = AllTask.filter(task => task['state'] == 'todo');
 
-    document.getElementById('todo').innerHTML = '';
+    document.getElementById('open').innerHTML = '';
 
     for (let index = 0; index < open.length; index++) {
-        const element = AllTask[index];
-        document.getElementById('todo').innerHTML += generateTodoHTML(element);
+        const element = open[index];
+        document.getElementById('open').innerHTML += generateTodoHTML(element);
     }
 
+    //In Progress---------------------------------
+    let closed = AllTask.filter(task => task['state'] == 'todo');
+
+    document.getElementById('closed').innerHTML = '';
+
+    for (let index = 0; index < closed.length; index++) {
+        const element = closed[index];
+        document.getElementById('closed').innerHTML += generateTodoHTML(element);
+    }
+
+    //Await feedback---------------------------------
+    let stateAwaitFeedback = AllTask.filter(task => task['state'] == 'todo');
+
+    document.getElementById('open').innerHTML = '';
+
+    for (let index = 0; index < open.length; index++) {
+        const element = open[index];
+        document.getElementById('open').innerHTML += generateTodoHTML(element);
+    }
+
+    //Done---------------------------------
+    let stateDone = AllTask.filter(task => task['state'] == 'todo');
+
+    document.getElementById('closed').innerHTML = '';
+
+    for (let index = 0; index < closed.length; index++) {
+        const element = closed[index];
+        document.getElementById('closed').innerHTML += generateTodoHTML(element);
+    }
 }
 
 
-function generateTodoHTML(i) {
-    render();
+function generateTodoHTML(element) {
+    return `<div draggable="true" ondragstart="startDragging(${element['id']})" class="todo">${element['title']}</div>`;
 }
 
 function startDragging(i) {
