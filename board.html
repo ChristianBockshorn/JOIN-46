@@ -72,10 +72,11 @@
                     <div class="no-to-do">
                         <p>No Task To do</p>
                     </div>
-                    <div id="borderBoard" class="newTask"></div>
+
                 </div>
-                <div id="todo" class="newTask" draggable="true" class="newTask" ondrop="moveTo('todo')"
-                    ondragover="allowDrop(event)"></div>
+                <div class="drag-area" id="open" ondrop="moveTo('open')" ondragover="allowDrop(event)">
+                    <div id="borderBoard"></div>
+                </div>
             </div>
 
 
@@ -90,39 +91,17 @@
                     <div class="no-to-do">
                         <p>No Task To do</p>
                     </div>
-                    <div class="borderBoard" id="testdrop" ondrop="moveTo('inProgress')" ondragover="allowDrop(event)"></div>
+                    <div id="borderBoard"></div>
                 </div>
-                <!-- <div class="newTask" draggable="true" id="todo" class="newTask" ondrop="moveTo('todo')"
-                ondragover="allowDrop(event)"></div> -->
+                <div class="drag-area" id="closed" ondrop="moveTo('close')" ondragover="allowDrop(event)"></div>
             </div>
-        </div>
-
-        <div class="dynamicDisplayFlex">
-            <div class="flex">
-                <div class="test2">
-                    <p class="status-text">Await feedback</p>
-                    <div class="popup-container">
-                        <img class="standardImg" src="assets/images/plus_button.svg" alt="">
-                    </div>
-                </div>
-                <div class="test">
-                    <div class="no-to-do">
-                        <p>No Task To do</p>
-                    </div>
-                    <div class="borderBoard"></div>
-                </div>
-                <div class="newTask"></div>
-            </div>
-
 
             <div class="dynamicDisplayFlex">
                 <div class="flex">
                     <div class="test2">
-                        <p class="status-text">Done</p>
-                        <div>
-                            <div onclick="openModal('Done')" class="popup-container">
-                                <img class="standardImg" src="assets/images/plus_button.svg" alt="">
-                            </div>
+                        <p class="status-text">Await feedback</p>
+                        <div class="popup-container">
+                            <img class="standardImg" src="assets/images/plus_button.svg" alt="">
                         </div>
                     </div>
                     <div class="test">
@@ -134,17 +113,36 @@
                     <div class="newTask"></div>
                 </div>
 
-                <div class="newTask"></div>
-            </div>
-        </div>
 
-    </div>
-    <div class="modal">
-        <div class="modal-content">
-            <div class="add-task-board">
+                <div class="dynamicDisplayFlex">
+                    <div class="flex">
+                        <div class="test2">
+                            <p class="status-text">Done</p>
+                            <div>
+                                <div onclick="openModal('Done')" class="popup-container">
+                                    <img class="standardImg" src="assets/images/plus_button.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="test">
+                            <div class="no-to-do">
+                                <p>No Task To do</p>
+                            </div>
+                            <div class="borderBoard"></div>
+                        </div>
+                        <div class="newTask"></div>
+                    </div>
+                    <div class="newTask"></div>
+                </div>
+            </div>
+
+        </div>
+        <div class="modal">
+            <div class="modal-content">
+                <div class="add-task-board">
+                </div>
             </div>
         </div>
-    </div>
     </div>
     <div class="modal">
         <div class="modal-content">
