@@ -135,7 +135,6 @@ input {
 }
 
 .borderBoard {
-
   display: flex;
   background-color: #ffff;
   border-radius: 24px;
@@ -147,6 +146,19 @@ input {
   cursor: pointer;
   border: solid 1.5px #DBDBDB;
   transition: 0.5s ease;
+}
+
+.drag-area {
+  height: 200px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 1px dashed black;
+  margin-bottom: 50px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.drag-area-highlight {
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .dialog-bg {
