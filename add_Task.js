@@ -48,7 +48,6 @@ function loadAllTasks() {
 function addTask() {
     let title = document.getElementById('title').value;
     let description = document.getElementById('description').value;
-    let assigned = document.getElementById('assigned').value;
     let date = document.getElementById('date').value;
     let selectedPrio = document.querySelector('.active-urgent').value;
     let selectElement = document.getElementById('categorySelect').value;
@@ -56,7 +55,7 @@ function addTask() {
     let newTasks = {
         "title": title,
         "Description": description,
-        "Assigned": assigned,
+        "Assigned": assignedPersons,
         "date": date,
         "Prio": selectedPrio,
         "Category": selectElement,
