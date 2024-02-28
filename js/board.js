@@ -30,7 +30,7 @@ function render() {
             const task = AllTask[i];
 
             content.innerHTML += /*html*/`
-            <div id="borderBoard-${i}" class="borderBoard" draggable="true" onclick="openTask(${i})" ondrop="moveTo('open')"
+            <div id="borderBoard-${i}" class="borderBoard" draggable="true" onclick="openTask(${i})" ondragstart="startDragging(${i})" ondrop="moveTo('open')"
                     ondragover="allowDrop(event)">
                 <span class="taskCategory">${task.Category}</span>
                 <h3 class="taskTitle">${task.title}</h3>
@@ -116,7 +116,6 @@ function startDragging(i) {
 }
 
 function allowDrop(ev) {
-    console.log(event.target.nodeName)
     ev.preventDefault();
 }
 
