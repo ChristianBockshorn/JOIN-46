@@ -74,7 +74,7 @@
                     </div>
 
                 </div>
-                <div class="drag-area" id="open" ondrop="moveTo('open')" ondragover="allowDrop(event)">
+                <div class="drag-area" id="stateToDo" ondrop="moveTo('stateToDo')" ondragover="allowDrop(event)">
                     <div id="borderBoard"></div>
                 </div>
             </div>
@@ -93,7 +93,7 @@
                     </div>
                     <div id="borderBoard"></div>
                 </div>
-                <div class="drag-area" id="closed" ondrop="moveTo('closed')" ondragover="allowDrop(event)"></div>
+                <div class="drag-area" id="stateInProgress" ondrop="moveTo('stateInProgress')" ondragover="allowDrop(event)"></div>
             </div>
 
             <div class="dynamicDisplayFlex">
@@ -108,9 +108,9 @@
                         <div class="no-to-do">
                             <p>No Task To do</p>
                         </div>
-                        <div class="borderBoard"></div>
+                        <div id="borderBoard"></div>
                     </div>
-                    <div class="newTask"></div>
+                    <div class="drag-area" id="stateAwaitFeedback" ondrop="moveTo('stateAwaitFeedback')" ondragover="allowDrop(event)"></div>
                 </div>
 
 
@@ -128,9 +128,9 @@
                             <div class="no-to-do">
                                 <p>No Task To do</p>
                             </div>
-                            <div class="borderBoard"></div>
+                            <div id="borderBoard"></div>
                         </div>
-                        <div class="newTask"></div>
+                        <div class="drag-area" id="stateDone" ondrop="moveTo('stateToDo')" ondragover="allowDrop(event)"></div>
                     </div>
                     <div class="newTask"></div>
                 </div>
