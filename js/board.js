@@ -38,8 +38,9 @@ function render() {
 
 
 function generateHtmlContent(i, task) {
+    console.log('Index:', i);
     return /*html*/`
-        <div id="borderBoard-${i}" class="borderBoard" draggable="true" onclick="openTask(${i})" ondragstart="startDragging(${i})" ondrop="moveTo('stateToDo')"
+        <div id="borderBoard-${i}" class="borderBoard" draggable="true" onclick="openTask(${i})" ondragstart="startDragging(${i})" ondrop="moveTo('category', ${i})"
         ondragover="allowDrop(event)">
             <span class="taskCategory">${task.Category}</span>
             <h3 class="taskTitle">${task.title}</h3>
@@ -66,7 +67,7 @@ function updateHTML() {
     }
 
     //In Progress---------------------------------
-    let stateInProgress = AllTask.filter(task => task['state'] == 'todo');
+    let stateInProgress = AllTask.filter(task => task['state'] == 'inProgress');
 
     document.getElementById('stateInProgress').innerHTML = '';
 
@@ -77,7 +78,7 @@ function updateHTML() {
     }
 
     //Await feedback---------------------------------
-    let stateAwaitFeedback = AllTask.filter(task => task['state'] == 'todo');
+    let stateAwaitFeedback = AllTask.filter(task => task['state'] == 'awaitFeedback');
 
     document.getElementById('stateAwaitFeedback').innerHTML = '';
 
@@ -88,7 +89,7 @@ function updateHTML() {
     }
 
     //Done---------------------------------
-    let stateDone = AllTask.filter(task => task['state'] == 'todo');
+    let stateDone = AllTask.filter(task => task['state'] == 'done');
 
     document.getElementById('stateDone').innerHTML = '';
 
@@ -107,9 +108,13 @@ function allowDrop(ev) {
     ev.preventDefault();
 }
 
-function moveTo(category) {
-    AllTask[currentDraggedElement]['state'] = category;
-    updateHTML();
+function moveTo(category, i) {
+    if (AllTask[i]) {
+        AllTask[i]['state'] = category;
+        render();
+    } else {
+        console.error(`Element at index ${i} not found in AllTask array.`);
+    }
 }
 
 function openTask(i) {
