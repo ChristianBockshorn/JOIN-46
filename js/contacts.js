@@ -21,12 +21,11 @@ async function renderContacts() {
     } else {
       j = 0;
     }
-    // console.log(letter);
     let name = contacts[i]['name'];
     let mail = contacts[i]['email'];
-    let path = contacts[i]['imgpath'];
-    // console.log(path);
-    con_content.innerHTML += template_NameFrame(i, name, mail, path);
+    let initials = contacts[i]['initials'];
+    let color = contacts[i]['usercolor'];
+    con_content.innerHTML += template_NameFrame(i, name, mail, initials, color);
   }
 }
 
@@ -52,10 +51,11 @@ function generateDetails(i) {
   changeColorSelectedContact(i);
   let name = contacts[i]['name'];
   let mail = contacts[i]['email'];
-  let path = contacts[i]['imgpath'];
+  let initials = contacts[i]['initials'];
+  let color = contacts[i]['usercolor'];
   let phone = contacts[i]['telephone'];
   let detailFrame = document.getElementById('main-content');
-  detailFrame.innerHTML = template_ContactDetails(i, name, path, mail, phone);
+  detailFrame.innerHTML = template_ContactDetails(i, name, mail, phone, initials, color);
 }
 
 function changeColorSelectedContact(i) {
@@ -84,10 +84,10 @@ function changeColorSelectedContact(i) {
 }
 
 
-function template_NameFrame(i, name, mail, path) {
+function template_NameFrame(i, name, mail, initials, color) {
   return `
           <div class="content-container d-flex ai-center gap-35" id="${i}" onclick="generateDetails(${i})">
-              <img src="${path}">
+            <div style="background-color: ${color}" class="initialscirclecontact d-flex center">${initials}</div>
               <div class="frame d-flex fd-column gap-5">
                 <div>${name}</div>
                 <a href="mailto:${mail}">${mail}</a>
@@ -97,9 +97,9 @@ function template_NameFrame(i, name, mail, path) {
 };
 
 
-function template_ContactDetails(i, name, path, mail, phone) {
+function template_ContactDetails(i, name, mail, phone, initials, color) {
   return `<div class="d-flex ai-center gap-54 mobile-gap-20">
-        <img src="${path}" alt="Icon mit Initialen">
+        <div style="background-color: ${color}" class="initialscircle d-flex center">${initials}</div>
           <div class="d-flex fd-column gap-8">
             <h5>${name}</h5>
             <div id="options" class="options d-flex gap-12 f-size-16">

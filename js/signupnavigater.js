@@ -35,15 +35,6 @@ function iconChangerOnFocus(selected) {
 }
 
 
-// function iconChangerFocusOut(selected) {
-//     if (selected == 'passwd') {
-//         document.getElementById('new-pass-img').src = './assets/images/lock.svg';
-//     }
-//     if (selected == 'confirm') {
-//         document.getElementById('new-pass-confirm-img').src = './assets/images/lock.svg';
-//     }
-// }
-
 function showPasswd(id) {
     let selectedField = document.getElementById(id);
     if (selectedField.type == 'password') {
@@ -76,7 +67,8 @@ async function goSignUp() {
         name: name,
         email: mail,
         password: pass,
-        imgpath: "/assets/contacticons/Emmanuel.svg"
+        initials: generateInitials(name),
+        usercolor: getRandomColor()
     };
     contacts.push(obj);
     await saveData(contacts);

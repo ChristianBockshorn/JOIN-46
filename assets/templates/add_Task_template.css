@@ -89,9 +89,8 @@ input::placeholder {
     height: 24px;
 }
 
-.selected-persons img{
-    height: 42px;
-    width: 42px;
+.selected-persons{
+    display: flex;
 }
 
 /* Ende STYLE FÜR DIE DROPDOWNLISTE */

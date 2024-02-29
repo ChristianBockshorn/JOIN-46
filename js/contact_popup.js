@@ -30,6 +30,7 @@ async function deleteUser(i) {
 
 
 async function editUser() {
+    debugger;
     let editname = document.getElementById('name').value;
     let editemail = document.getElementById('mail').value;
     let edittelephone = document.getElementById('phone').value;
@@ -37,8 +38,9 @@ async function editUser() {
     contacts[editnr] = {
         name: editname,
         email: editemail,
-        telephone: edittelephone,
-        imgpath: "/assets/contacticons/Emmanuel.svg"
+        initials: generateInitials(editname),
+        usercolor: getRandomColor(),
+        telephone: edittelephone
     };
     await saveData(contacts);
     await renderContacts();
@@ -76,8 +78,9 @@ async function addNewUser() {
     let obj = {
         name: newname,
         email: newemail,
+        initials: generateInitials(newname),
+        usercolor: getRandomColor(),
         telephone: newtelephone,
-        imgpath: "/assets/contacticons/Emmanuel.svg"
     };
     contacts.push(obj);
     await saveData(contacts);

@@ -3,12 +3,6 @@ let AllTask = [];
 let assignedPersons = [];
 
 
-function myFunction() {
-    var popup = document.getElementById("myPopup");
-    popup.classList.toggle("show");
-}
-
-
 function activeBtn(btnId) {
     // Alle Buttons zurücksetzen (Klasse entfernen)
     let buttons = document.querySelectorAll('.prioCategory');
@@ -78,17 +72,17 @@ async function init() {
 
 // erstellen der Dropdownlist mit den aktuell gespeicherten Benutzern
 async function renderDropDownList() {
-    let searchSign = document.getElementById('assigned').value;
     let ddfield = document.getElementById('dd-list-content');
     ddfield.innerHTML = '';
     for (let i = 0; i < contacts.length; i++) {
-        let initialsCircle = contacts[i]['imgpath'];
+        let initials = contacts[i]['initials'];
         let name = contacts[i]['name'];
+        let color = contacts[i]['usercolor'];
         if (assignedPersons.find(element => element == i) == i) {
-            ddfield.innerHTML += template_InlineFieldChecked(name, initialsCircle, i);
+            ddfield.innerHTML += template_InlineFieldChecked(name, initials, i, color);
         }
         else {
-            ddfield.innerHTML += template_InlineFieldUnChecked(name, initialsCircle, i);
+            ddfield.innerHTML += template_InlineFieldUnChecked(name, initials, i, color);
         }
     }
 }
@@ -102,14 +96,14 @@ function searchPattern() {
     ddfield.innerHTML = '';
     let contacts_Temp = contacts.filter(c => c.name.toLowerCase().startsWith(searchSign.toLowerCase()));
     for (let i = 0; i < contacts_Temp.length; i++) {
-        let initialsCircle = contacts_Temp[i]['imgpath'];
+        let initials = contacts_Temp[i]['initials'];
         let name = contacts_Temp[i]['name'];
         let contactsIndex = contacts.findIndex(c => c.name == `${name}`);
         if (assignedPersons.find(element => element == contactsIndex) == contactsIndex) {
-            ddfield.innerHTML += template_InlineFieldChecked(name, initialsCircle, contactsIndex);
+            ddfield.innerHTML += template_InlineFieldChecked(name, initials, contactsIndex);
         }
         else {
-            ddfield.innerHTML += template_InlineFieldUnChecked(name, initialsCircle, contactsIndex);
+            ddfield.innerHTML += template_InlineFieldUnChecked(name, initials, contactsIndex);
         }
     }
 }
@@ -120,7 +114,7 @@ function renderAssignedPersons() {
     let selected = document.getElementById('selected-persons');
     selected.innerHTML = '';
     for (let j = 0; j < assignedPersons.length; j++) {
-        selected.innerHTML += `<img src="${contacts[assignedPersons[j]]['imgpath']}" id="${assignedPersons[j]}">`;
+        selected.innerHTML += `<div style="background-color: ${contacts[assignedPersons[j]]['usercolor']}" class="initialscirclecontact d-flex center">${contacts[assignedPersons[j]]['initials']}</div>`;
     }
 }
 
@@ -177,11 +171,11 @@ function addToSelectedPersons(i) {
 
 
 // Template welches für Personen erzeugt wird die bereits sind
-function template_InlineFieldChecked(name, initialsCircle, i) {
+function template_InlineFieldChecked(name, initials, i, color) {
     return `
         <div id="dd-line" class="dd-line">
             <div class="dd-line-inline">
-                <img src="${initialsCircle}"></img>
+                <div style="background-color: ${color}" class="initialscirclecontact d-flex center">${initials}</div>
                 ${name}
             </div>
             <input onclick="addToSelectedPersons('${i}')" class="assigned-cbox" id="checkbox${i}" type="checkbox" checked></input>
@@ -190,11 +184,11 @@ function template_InlineFieldChecked(name, initialsCircle, i) {
 }
 
 // Template welches erzeugt wird für Personen die aktuell nicht ausgewählt sind
-function template_InlineFieldUnChecked(name, initialsCircle, i) {
+function template_InlineFieldUnChecked(name, initials, i, color) {
     return `
         <div id="dd-line" class="dd-line">
             <div class="dd-line-inline">
-                <img src="${initialsCircle}"></img>
+            <div style="background-color: ${color}" class="initialscirclecontact d-flex center">${initials}</div>
                 ${name}
             </div>
             <input onclick="addToSelectedPersons('${i}')" class="assigned-cbox" id="checkbox${i}" type="checkbox" ></input>
