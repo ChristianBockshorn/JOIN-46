@@ -28,40 +28,29 @@ function render() {
     if (AllTask.length > 0) {
         for (let i = 0; i < AllTask.length; i++) {
             const task = AllTask[i];
-
-            content.innerHTML += /*html*/`
-            <div id="borderBoard-${i}" class="borderBoard" draggable="true" onclick="openTask(${i})" ondragstart="startDragging(${i})" ondrop="moveTo('open')"
-                    ondragover="allowDrop(event)">
-                <span class="taskCategory">${task.Category}</span>
-                <h3 class="taskTitle">${task.title}</h3>
-                <span class="taskDescription">${task.Description}</span>
-                <span>Assigned to: ${task.Assigned}</span>
-                <span>Date: ${task.date}</span>
-                <span>Prio: ${task.Prio}</span>
-                Subtasks: [],
-            </div>
-            `;
-
+            content.innerHTML += generateHtmlContent(i, task);
         }
-
         noToDoDiv.style.display = 'none';
     } else {
         noToDoDiv.style.display = 'block';
     }
 }
 
-// function updateHTML() {
-//     let open = AllTask.filter(task => task['state'] == 'todo');
 
-//     document.getElementById('todo').innerHTML = '';
-
-//     for (let index = 0; index < open.length; index++) {
-//         const element = AllTask[index];
-//         document.getElementById('todo').innerHTML += generateTodoHTML(element);
-//     }
-
-// }
-
+function generateHtmlContent(i, task) {
+    return /*html*/`
+        <div id="borderBoard-${i}" class="borderBoard" draggable="true" onclick="openTask(${i})" ondragstart="startDragging(${i})" ondrop="moveTo('open')"
+        ondragover="allowDrop(event)">
+            <span class="taskCategory">${task.Category}</span>
+            <h3 class="taskTitle">${task.title}</h3>
+            <span class="taskDescription">${task.Description}</span>
+            <span>Assigned to: ${task.Assigned}</span>
+            <span>Date: ${task.date}</span>
+            <span>Prio: ${task.Prio}</span>
+            Subtasks: [],
+        </div>
+    `;
+}
 
 
 function updateHTML() {
@@ -72,7 +61,8 @@ function updateHTML() {
 
     for (let index = 0; index < open.length; index++) {
         const element = open[index];
-        document.getElementById('open').innerHTML += generateTodoHTML(element);
+        const task = AllTask[index];
+        document.getElementById('open').innerHTML += generateHtmlContent(index, task);
     }
 
     //In Progress---------------------------------
@@ -82,7 +72,8 @@ function updateHTML() {
 
     for (let index = 0; index < closed.length; index++) {
         const element = closed[index];
-        document.getElementById('closed').innerHTML += generateTodoHTML(element);
+        const task = AllTask[index];
+        document.getElementById('open').innerHTML += generateHtmlContent(index, task);
     }
 
     //Await feedback---------------------------------
@@ -92,7 +83,8 @@ function updateHTML() {
 
     for (let index = 0; index < open.length; index++) {
         const element = open[index];
-        document.getElementById('open').innerHTML += generateTodoHTML(element);
+        const task = AllTask[index];
+        document.getElementById('open').innerHTML += generateHtmlContent(index, task);
     }
 
     //Done---------------------------------
@@ -102,7 +94,8 @@ function updateHTML() {
 
     for (let index = 0; index < closed.length; index++) {
         const element = closed[index];
-        document.getElementById('closed').innerHTML += generateTodoHTML(element);
+        const task = AllTask[index];
+        document.getElementById('open').innerHTML += generateHtmlContent(index, task);
     }
 }
 
