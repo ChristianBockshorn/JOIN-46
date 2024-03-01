@@ -41,6 +41,7 @@ function addTask() {
         "Category": selectElement,
         "Subtasks": [],
         'state': 'todo',
+        'id': generateUniqueId(),
     };
 
     // Überprüfen, ob bereits Aufgaben im AllTask-Array vorhanden sind
@@ -61,6 +62,13 @@ function safe() {
     let AllTaskAsString = JSON.stringify(AllTask);
     localStorage.setItem('AllTask', AllTaskAsString);
 }
+
+function generateUniqueId() {
+    let timestamp = new Date().getTime();
+    let randomNum = Math.floor(Math.random() * 10000);
+    let uniqueId = parseInt(timestamp.toString() + randomNum.toString());
+    return uniqueId;
+  }
 
 // ############################################################
 // generate dropdown content
