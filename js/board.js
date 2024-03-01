@@ -27,20 +27,20 @@ function render() {
 
     if (AllTask.length > 0) {
         for (let i = 0; i < AllTask.length; i++) {
-            const task = AllTask[i];
-            content.innerHTML += generateHtmlContent(i, task);
+            const element = AllTask[i];
+            content.innerHTML += generateHtmlContent(i, element);            
         }
         noToDoDiv.style.display = 'none';
     } else {
         noToDoDiv.style.display = 'block';
     }
+    
 }
 
 
-function generateHtmlContent(i, task) {
-    console.log('Index:', i);
+function generateHtmlContent(element, task) {
     return /*html*/`
-        <div id="borderBoard-${i}" class="borderBoard" draggable="true" onclick="openTask(${i})" ondragstart="startDragging(${i})" ondrop="moveTo('category', ${i})"
+        <div id="borderBoard-${element}" class="borderBoard" draggable="true" onclick="openTask(${element})" ondragstart="startDragging(${element['id']})"
         ondragover="allowDrop(event)">
             <span class="taskCategory">${task.Category}</span>
             <h3 class="taskTitle">${task.title}</h3>
@@ -63,7 +63,7 @@ function updateHTML() {
     for (let index = 0; index < stateToDo.length; index++) {
         const element = stateToDo[index];
         const task = AllTask[index];
-        document.getElementById('stateToDo').innerHTML += generateHtmlContent(index, task);
+        document.getElementById('stateToDo').innerHTML += generateHtmlContent(element, task);
     }
 
     //In Progress---------------------------------
@@ -74,7 +74,7 @@ function updateHTML() {
     for (let index = 0; index < stateInProgress.length; index++) {
         const element = stateInProgress[index];
         const task = AllTask[index];
-        document.getElementById('stateInProgress').innerHTML += generateHtmlContent(index, task);
+        document.getElementById('stateInProgress').innerHTML += generateHtmlContent(element, task);
     }
 
     //Await feedback---------------------------------
@@ -85,7 +85,7 @@ function updateHTML() {
     for (let index = 0; index < stateAwaitFeedback.length; index++) {
         const element = stateAwaitFeedback[index];
         const task = AllTask[index];
-        document.getElementById('stateAwaitFeedback').innerHTML += generateHtmlContent(index, task);
+        document.getElementById('stateAwaitFeedback').innerHTML += generateHtmlContent(element, task);
     }
 
     //Done---------------------------------
@@ -96,7 +96,7 @@ function updateHTML() {
     for (let index = 0; index < stateDone.length; index++) {
         const element = stateDone[index];
         const task = AllTask[index];
-        document.getElementById('stateDone').innerHTML += generateHtmlContent(index, task);
+        document.getElementById('stateDone').innerHTML += generateHtmlContent(element, task);
     }
 }
 
@@ -108,13 +108,9 @@ function allowDrop(ev) {
     ev.preventDefault();
 }
 
-function moveTo(category, i) {
-    if (AllTask[i]) {
-        AllTask[i]['state'] = category;
-        render();
-    } else {
-        console.error(`Element at index ${i} not found in AllTask array.`);
-    }
+function moveTo(category) {
+    AllTask[currentDraggedElement]['Category'] = category;
+    updateHTML();
 }
 
 function openTask(i) {
