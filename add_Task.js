@@ -1,5 +1,4 @@
 let AllTask = [];
-
 let assignedPersons = [];
 
 
@@ -19,9 +18,7 @@ function loadAllTasks() {
     let AllTaskAsString = localStorage.getItem('AllTask');
     AllTask = JSON.parse(AllTaskAsString);
     console.log('loaded task', AllTask);
-
     render();
-
 }
 
 
@@ -53,7 +50,7 @@ function addTask() {
     localStorage.setItem('AllTask', updatedTasksAsString);
     // Das AllTask-Array für den sofortigen Gebrauch aktualisieren
     AllTask = existingTasks;
-
+    
     window.location.href = 'board.html';
 }
 
