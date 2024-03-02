@@ -204,3 +204,29 @@ function template_InlineFieldUnChecked(name, initials, i, color) {
 
 // ############################################################
 // End generate dropdown content
+
+
+
+
+// ############################################################
+// generate subtask section
+
+
+// onfocus input Feld -> umschalten zu Icon X und Hacken
+function changeSubtaskIconToggle() {
+    // debugger;
+    document.getElementById('show-add').classList.toggle('d-none');
+    document.getElementById('show-write').classList.toggle('d-none');
+}
+// onclick hacken icon -> rendern der Liste unterhalb des input feldes ("subtask-content")
+//      -> leeren des impud feldes
+//      -> li generieren mit dem inhalt der eingegeben wurde
+//      -> beim hover über diese Zeile das "options" menü aufrufen
+//          -> beim click auf edit icon umschalten zwischen li zu textfeld wieder anzeigen des menu mit löschen und hacken
+//          -> 
+// onclick X -> inputfeld leeren und Plus zeichen wieder anzeigen
+
+
+
+// ############################################################
+// End generate subtask section
