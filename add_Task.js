@@ -236,7 +236,7 @@ function cleanSubtaskInputFiled(){
 
 function renderSubtaskList(){
     let inputValue = document.getElementById('subtask-input').value;
-    document.getElementById('subtask-content').innerHTML += `${inputValue}<br>`;
+    document.getElementById('subtask-content').innerHTML += `<li>${inputValue}</li>`;
     cleanSubtaskInputFiled();
 }
 
