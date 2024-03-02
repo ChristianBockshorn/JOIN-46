@@ -6,22 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Help</title>
 
-    <link rel="stylesheet" href="/assets/templates/navbar_template.css">
-    <link rel="icon" type="image/x-icon" href="/assets/images/logo.svg">
+    <!-- <link rel="stylesheet" href="/assets/templates/navbar_template.css"> -->
+    <!-- <link rel="icon" type="image/x-icon" href="/assets/images/logo.svg"> -->
     <link rel="stylesheet" href="/assets/templates/add_Task_template.css">
-    <link rel="stylesheet" href="/positions.css">
+    <!-- <link rel="stylesheet" href="/positions.css"> -->
     <script src="add_Task.js"></script>
     <script src="/js/board.js"></script>
 
 </head>
 
 <body onload="includeHTML()">
-    <div w3-include-html="/assets/templates/navbar_template.html"></div>
-    <div w3-include-html="/assets/templates/header_template.html"></div>
+    <!-- <div w3-include-html="/assets/templates/navbar_template.html"></div> -->
+    <!-- <div w3-include-html="/assets/templates/header_template.html"></div> -->
 
     <div id="mainContent" class="main">
         <h1>Add Task</h1>
-        <div class="d-flex gap-16 flex-wrap">
+        <div class="d-flex gap-48 flex-wrap">
             <div class="left-column">
                 <label class="title" for="Title">Title</label>
                 <input required id="title" class="f-size-20" type="text" placeholder="Enter a title">
@@ -31,9 +31,7 @@
                     placeholder="Enter a description"></textarea>
 
                 <label class="assigned" for="Title">Assigned to</label>
-                <!-- <input onblur="closeDDWithoutFocus()" onclick="renderDropDownList()" class="f-size-20" id="assigned" type="text" placeholder="Enter a title"> -->
                 <input onclick="ddListToggle()" oninput="searchPattern()" class="f-size-20" id="assigned" type="text" placeholder="Enter a title">
-                <!-- <input onclick="ddListToggle()" class="f-size-20" id="assigned" type="text" placeholder="Enter a title"> -->
                 <div class="pos-rel">
                     <div id="dd-list-content" class="dd-list-content"></div>
                 </div>
