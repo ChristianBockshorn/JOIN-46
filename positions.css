@@ -73,6 +73,10 @@
     gap: 5px;
 }
 
+.gap-4 {
+    gap: 4px;
+}
+
 .gap-8 {
     gap: 8px;
 }
@@ -151,6 +155,10 @@
 
 .pad-bot-30{
     padding-bottom: 30px;
+}
+
+.pad-around-4-16{
+    padding: 4px 16px;
 }
 
 /* Höhe */
