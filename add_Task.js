@@ -18,7 +18,8 @@ function loadAllTasks() {
     let AllTaskAsString = localStorage.getItem('AllTask');
     AllTask = JSON.parse(AllTaskAsString);
     console.log('loaded task', AllTask);
-    render();
+    // render();
+    // updateHTML();
 }
 
 
@@ -50,7 +51,7 @@ function addTask() {
     localStorage.setItem('AllTask', updatedTasksAsString);
     // Das AllTask-Array für den sofortigen Gebrauch aktualisieren
     AllTask = existingTasks;
-    
+
     window.location.href = 'board.html';
 }
 
@@ -65,7 +66,7 @@ function generateUniqueId() {
     let randomNum = Math.floor(Math.random() * 10000);
     let uniqueId = parseInt(timestamp.toString() + randomNum.toString());
     return uniqueId;
-  }
+}
 
 // ############################################################
 // generate dropdown content
