@@ -16,7 +16,7 @@ b {
 
     margin-top: 60px;
     width: 440px;
-    height: 420px;
+    /* height: 420px; */
 }
 
 textarea:focus {
@@ -30,7 +30,7 @@ textarea {
     color: #3F3F3F;
     border: solid 1px #DBDBDB;
     border-radius: 10px;
-    
+    height: 120px;
 }
 
 textarea::placeholder {
@@ -46,11 +46,11 @@ input::placeholder {
 /* STYLE FÜR DIE DROPDOWNLISTE */
 
 .dd-list-content{
-    display: none;
+    /* display: none; */
     overflow-y: auto;
     overflow-x: hidden;
     top: -19px;
-    height: 336px;
+    max-height: 280px;
     width: 100%;
     flex-direction: column;
     position: absolute;
@@ -67,7 +67,6 @@ input::placeholder {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* width: 423px; */
     height: 56px;
     padding: 7px 16px;
 }
@@ -103,7 +102,7 @@ input::placeholder {
 .right-column {
     margin-top: 60px;
     width: 440px;
-    height: 420px;
+    /* height: 420px; */
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -154,13 +153,12 @@ input::placeholder {
     top: 0;
     bottom: 0;
     padding: 4px;
-    cursor: pointer;
+    /* overflow: visible; */
+    /* border-radius: 50%; */
 }
 
-.inputSymbo {
-    position: absolute;
-    overflow: visible;
-    border-radius: 50%;
+.inputSymbol {
+    cursor: pointer;
 }
 
 .edit-options-seperator{

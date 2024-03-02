@@ -31,10 +31,10 @@
                     placeholder="Enter a description"></textarea>
 
                 <label class="assigned" for="Title">Assigned to</label>
-                <input onclick="ddListToggle()" oninput="searchPattern()" class="pad-around-4-16 f-size-20"
+                <input onclick="ddListToggle()" oninput="searchPattern()" class="f-size-20"
                     id="assigned" type="text" placeholder="Enter a title">
                 <div class="pos-rel">
-                    <div id="dd-list-content" class="dd-list-content"></div>
+                    <div id="dd-list-content" class="dd-list-content d-none"></div>
                 </div>
                 <div id="selected-persons" class="selected-persons"></div>
             </div>
@@ -63,16 +63,16 @@
                 <div class="formSection">
                     <label for="Title">Subtasks</label>
                     <div class="pos-rel">
-                        <input id="subtask-input" class="pad-around-4-16 subtask-input f-size-20"
-                            onfocus="changeSubtaskIconToggle()" onblur="changeSubtaskIconToggle()" type="text"
+                        <input id="subtask-input" class=" pad-r-50 pad-around-4-16 subtask-input f-size-20"
+                            onfocus="changeSubtaskIconToggle()" type="text"
                             placeholder="Add new subtask">
                         <div class="subtask-icons d-flex center" id="show-add">
                             <img class="subtask-plus-symbol height-24 inputSymbol" id="subtask-input-plus" src="assets/images/add_task_plus_black.svg">
                         </div>
                         <div class="d-none subtask-icons d-flex center gap-4" id="show-write">
-                            <img class="subtask-X-symbol height-24 inputSymbol" id="subtask-input-X" src="assets/images/cancel.svg">
-                            <div class="edit-options-seperator inputSymbol"></div>
-                            <img class="subtask-hook-symbol inputSymbol height-24" id="subtask-input-hook" src="assets/images/hook.svg">
+                            <img class="subtask-X-symbol height-24 inputSymbol" id="subtask-input-X" onclick="cleanSubtaskInputFiled()" src="assets/images/cancel.svg">
+                            <div class="edit-options-seperator"></div>
+                            <img class="subtask-hook-symbol inputSymbol height-24" id="subtask-input-hook" onclick="renderSubtaskList()" src="assets/images/hook.svg">
                         </div>
                     </div>
                     <div id="subtask-content" class="subtask-content"></div>
