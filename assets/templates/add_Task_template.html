@@ -24,14 +24,15 @@
         <div class="d-flex gap-48 flex-wrap">
             <div class="left-column">
                 <label class="title" for="Title">Title</label>
-                <input required id="title" class="f-size-20" type="text" placeholder="Enter a title">
+                <input required id="title" class="pad-around-4-16 f-size-20" type="text" placeholder="Enter a title">
 
                 <label for="Title">Description</label>
-                <textarea required class="f-size-20" name="" id="description" cols="30" rows="10"
+                <textarea required class="pad-around-4-16 f-size-20" name="" id="description" cols="30" rows="10"
                     placeholder="Enter a description"></textarea>
 
                 <label class="assigned" for="Title">Assigned to</label>
-                <input onclick="ddListToggle()" oninput="searchPattern()" class="f-size-20" id="assigned" type="text" placeholder="Enter a title">
+                <input onclick="ddListToggle()" oninput="searchPattern()" class="pad-around-4-16 f-size-20"
+                    id="assigned" type="text" placeholder="Enter a title">
                 <div class="pos-rel">
                     <div id="dd-list-content" class="dd-list-content"></div>
                 </div>
@@ -40,7 +41,7 @@
             <div class="middle-seperator"></div>
             <div class="right-column">
                 <label class="date" for="Title">Due date</label>
-                <input class="f-size-20" id="date" type="date" placeholder="tt.mm.jjjj">
+                <input class="pad-around-4-16 f-size-20" id="date" type="date" placeholder="tt.mm.jjjj">
 
                 <label class="prio" for="Title">Prio</label>
                 <div class="prioCategoryCont">
@@ -61,8 +62,20 @@
 
                 <div class="formSection">
                     <label for="Title">Subtasks</label>
-                    <input class="f-size-20" type="text" placeholder="Add new subtask">
-                    <img class="subtaskPlusSymbol inputSymbol height-24" src="assets/images/add_task_plus_black.svg">
+                    <div class="pos-rel">
+                        <input id="subtask-input" class="pad-around-4-16 subtask-input f-size-20"
+                            onfocus="changeSubtaskIconToggle()" onblur="changeSubtaskIconToggle()" type="text"
+                            placeholder="Add new subtask">
+                        <div class="subtask-icons d-flex center" id="show-add">
+                            <img class="subtask-plus-symbol height-24 inputSymbol" id="subtask-input-plus" src="assets/images/add_task_plus_black.svg">
+                        </div>
+                        <div class="d-none subtask-icons d-flex center gap-4" id="show-write">
+                            <img class="subtask-X-symbol height-24 inputSymbol" id="subtask-input-X" src="assets/images/cancel.svg">
+                            <div class="edit-options-seperator inputSymbol"></div>
+                            <img class="subtask-hook-symbol inputSymbol height-24" id="subtask-input-hook" src="assets/images/hook.svg">
+                        </div>
+                    </div>
+                    <div id="subtask-content" class="subtask-content"></div>
                 </div>
 
             </div>

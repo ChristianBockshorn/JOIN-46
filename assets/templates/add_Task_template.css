@@ -112,8 +112,6 @@ input::placeholder {
 .formSection {
     display: flex;
     flex-direction: column;
-   
-    position: relative;
 }
 
 .prioCategoryCont{
@@ -144,24 +142,41 @@ input::placeholder {
     cursor: pointer;
 }
 
-.subtaskPlusSymbol{
-    right: 0px;
-    top: 32px;
-    padding: 4px;
-}
-
-.inputSymbol {
-    position: absolute;
-    cursor: pointer;
-    overflow: visible;
-    border-radius: 50%;
-}
-
 .active-urgent{
     color: white;
     background-color: #29ABE2;
     border: #29ABE2;
 }
+
+.subtask-icons{
+    position: absolute;
+    right: 16px;
+    top: 0;
+    bottom: 0;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.inputSymbo {
+    position: absolute;
+    overflow: visible;
+    border-radius: 50%;
+}
+
+.edit-options-seperator{
+    height: 24px;
+    width: 1px;
+    background-color: rgba(209, 209, 209, 1);
+}
+
+.show-add{
+    display: block
+}
+
+.show-write{
+    display: none;
+}
+
 
 .category::after,
 .prio::after,
