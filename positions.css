@@ -150,7 +150,11 @@
 }
 
 .pad-r-50{
-    padding-right: 50px;
+    padding-right: 50px !important;
+}
+
+.pad-r-80{
+    padding-right: 80px !important;
 }
 
 .pad-bot-30{

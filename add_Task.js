@@ -96,6 +96,7 @@ async function renderDropDownList() {
 // Filterfunktion die Just in Time prüft ob es einträge mit den entsprechenden Buchstaben bzw. suchmuster gibt
 function searchPattern() {
     document.getElementById('dd-list-content').classList.add('d-flex')
+    document.getElementById('dd-list-content').classList.remove('d-none')
     let searchSign = document.getElementById('assigned').value;
     let ddfield = document.getElementById('dd-list-content');
     ddfield.innerHTML = '';
@@ -104,11 +105,12 @@ function searchPattern() {
         let initials = contacts_Temp[i]['initials'];
         let name = contacts_Temp[i]['name'];
         let contactsIndex = contacts.findIndex(c => c.name == `${name}`);
+        let color = contacts[i]['usercolor'];
         if (assignedPersons.find(element => element == contactsIndex) == contactsIndex) {
-            ddfield.innerHTML += template_InlineFieldChecked(name, initials, contactsIndex);
+            ddfield.innerHTML += template_InlineFieldChecked(name, initials, contactsIndex, color);
         }
         else {
-            ddfield.innerHTML += template_InlineFieldUnChecked(name, initials, contactsIndex);
+            ddfield.innerHTML += template_InlineFieldUnChecked(name, initials, contactsIndex, color);
         }
     }
 }
@@ -136,7 +138,10 @@ document.addEventListener('click', function myFunction(event) {
 
 // Umschalten zwischen einblenden und ausblenden wenn man in das assigned input feld geklickt hat
 function ddListToggle() {
+    // debugger;
     document.getElementById('dd-list-content').classList.toggle('d-flex');
+    document.getElementById('dd-list-content').classList.toggle('d-none');
+    // document.getElementById('dd-list-content').style.display = 'flex';
     if (document.getElementById('dd-list-content').classList.contains('d-flex')) {
         renderDropDownList();
         // searchPattern();
@@ -147,6 +152,7 @@ function ddListToggle() {
 // funktions zum ausblenden des ddmenüs
 function closeDDListWithOutsideClick() {
     document.getElementById('dd-list-content').classList.remove('d-flex');
+    document.getElementById('dd-list-content').classList.add('d-none');
 }
 
 
@@ -217,7 +223,23 @@ function changeSubtaskIconToggle() {
     // debugger;
     document.getElementById('show-add').classList.toggle('d-none');
     document.getElementById('show-write').classList.toggle('d-none');
+    document.getElementById('subtask-input').classList.toggle('pad-r-80');
 }
+
+
+function cleanSubtaskInputFiled(){
+    document.getElementById('subtask-input').value = '';
+    changeSubtaskIconToggle();
+}
+
+
+function renderSubtaskList(){
+    let inputValue = document.getElementById('subtask-input').value;
+    document.getElementById('subtask-content').innerHTML += `${inputValue}<br>`;
+    cleanSubtaskInputFiled();
+}
+
+
 // onclick hacken icon -> rendern der Liste unterhalb des input feldes ("subtask-content")
 //      -> leeren des impud feldes
 //      -> li generieren mit dem inhalt der eingegeben wurde
