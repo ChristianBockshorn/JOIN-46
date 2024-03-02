@@ -19,35 +19,34 @@ function doNotClose(event) {
 
 
 
-function render() {
-    let content = document.getElementById(`stateToDo`);
-    let noToDoDiv = document.querySelector('.no-to-do');
+// function render() {
+//     let content = document.getElementById(`stateToDo`);
+//     let noToDoDiv = document.querySelector('.no-to-do');
 
-    content.innerHTML = '';
+//     content.innerHTML = '';
 
-    if (AllTask.length > 0) {
-        for (let i = 0; i < AllTask.length; i++) {
-            const element = AllTask[i];
-            content.innerHTML += generateHtmlContent(i, element);            
-        }
-        noToDoDiv.style.display = 'none';
-    } else {
-        noToDoDiv.style.display = 'block';
-    }
+//     if (AllTask.length > 0) {
+//         for (let i = 0; i < AllTask.length; i++) {
+//             const element = AllTask[i];
+//             content.innerHTML += generateHtmlContent(element,task);            
+//         }
+//         noToDoDiv.style.display = 'none';
+//     } else {
+//         noToDoDiv.style.display = 'block';
+//     }
     
-}
+// }
 
 
-function generateHtmlContent(element, task) {
+function generateHtmlContent(element) {
     return /*html*/`
-        <div id="borderBoard-${element}" class="borderBoard" draggable="true" onclick="openTask(${element})" ondragstart="startDragging(${element['id']})"
-        ondragover="allowDrop(event)">
-            <span class="taskCategory">${task.Category}</span>
-            <h3 class="taskTitle">${task.title}</h3>
-            <span class="taskDescription">${task.Description}</span>
-            <span>Assigned to: ${task.Assigned}</span>
-            <span>Date: ${task.date}</span>
-            <span>Prio: ${task.Prio}</span>
+        <div id="borderBoard-${element['id']}" class="borderBoard" draggable="true" onclick="openTask(${element['id']})" ondragstart="startDragging(${element['id']})">
+            <span class="taskCategory">${element.Category}</span>
+            <h3 class="taskTitle">${element.title}</h3>
+            <span class="taskDescription">${element.Description}</span>
+            <span>Assigned to: ${element.Assigned}</span>
+            <span>Date: ${element.date}</span>
+            <span>Prio: ${element.Prio}</span>
             Subtasks: [],
         </div>
     `;
@@ -62,8 +61,7 @@ function updateHTML() {
 
     for (let index = 0; index < stateToDo.length; index++) {
         const element = stateToDo[index];
-        const task = AllTask[index];
-        document.getElementById('stateToDo').innerHTML += generateHtmlContent(element, task);
+        document.getElementById('stateToDo').innerHTML += generateHtmlContent(element);
     }
 
     //In Progress---------------------------------
@@ -73,8 +71,7 @@ function updateHTML() {
 
     for (let index = 0; index < stateInProgress.length; index++) {
         const element = stateInProgress[index];
-        const task = AllTask[index];
-        document.getElementById('stateInProgress').innerHTML += generateHtmlContent(element, task);
+        document.getElementById('stateInProgress').innerHTML += generateHtmlContent(element);
     }
 
     //Await feedback---------------------------------
@@ -84,8 +81,7 @@ function updateHTML() {
 
     for (let index = 0; index < stateAwaitFeedback.length; index++) {
         const element = stateAwaitFeedback[index];
-        const task = AllTask[index];
-        document.getElementById('stateAwaitFeedback').innerHTML += generateHtmlContent(element, task);
+        document.getElementById('stateAwaitFeedback').innerHTML += generateHtmlContent(element);
     }
 
     //Done---------------------------------
@@ -95,13 +91,12 @@ function updateHTML() {
 
     for (let index = 0; index < stateDone.length; index++) {
         const element = stateDone[index];
-        const task = AllTask[index];
-        document.getElementById('stateDone').innerHTML += generateHtmlContent(element, task);
+        document.getElementById('stateDone').innerHTML += generateHtmlContent(element);
     }
 }
 
-function startDragging(i) {
-    currentDraggedElement = i;
+function startDragging(id) {
+    currentDraggedElement = id;
 }
 
 function allowDrop(ev) {
@@ -109,7 +104,7 @@ function allowDrop(ev) {
 }
 
 function moveTo(category) {
-    AllTask[currentDraggedElement]['Category'] = category;
+    AllTask[currentDraggedElement]['state'] = category;
     updateHTML();
 }
 
