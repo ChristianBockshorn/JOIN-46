@@ -37,7 +37,7 @@ function addTask() {
         "date": date,
         "Prio": selectedPrio,
         "Category": selectElement,
-        "Subtasks": [],
+        "Subtasks": generateSubtasks(),
         'state': 'todo',
         'id': generateUniqueId(),
     };
@@ -218,6 +218,20 @@ function template_InlineFieldUnChecked(name, initials, i, color) {
 // ############################################################
 // generate subtask section
 
+
+function generateSubtasks() {
+    let allLiElements = document.querySelectorAll('li');
+    let allArray = [];
+    for (let i = 0; i < allLiElements.length; i++) {
+        let element = allLiElements[i].innerHTML;
+        console.log(element += element);
+        allArray.push(element);
+        console.log(allArray);
+    }
+    return allArray;
+}
+
+
 // onfocus input Feld -> umschalten zu Icon X und Hacken
 function changeSubtaskIconToggle() {
     // debugger;
@@ -268,35 +282,35 @@ function editSubtaskLine(k) {
     document.getElementById(`show-save${k}`).style.display = 'flex';
 
     //ändern des li elements in ein input feld um den text zu editieren
-        let listItem = document.getElementById(`subtask-line${k}`);
-        let inputField = document.createElement('input');
-        inputField.setAttribute('type','text');
-        inputField.setAttribute('id', `subtask-edit-line${k}`);
-        inputField.setAttribute('class', `subtask-edit-line`);
-        inputField.value = listItem.innerHTML;
-        listItem.parentNode.replaceChild(inputField, listItem);
+    let listItem = document.getElementById(`subtask-line${k}`);
+    let inputField = document.createElement('input');
+    inputField.setAttribute('type', 'text');
+    inputField.setAttribute('id', `subtask-edit-line${k}`);
+    inputField.setAttribute('class', `subtask-edit-line`);
+    inputField.value = listItem.innerHTML;
+    listItem.parentNode.replaceChild(inputField, listItem);
     //entfernen eines padding left des übergeordneten Elements nachdem das li element in ein input Feld gewandelt wurde
-        document.getElementById(`subtask-edit-line${k}`).parentElement.classList.remove('pad-add');
+    document.getElementById(`subtask-edit-line${k}`).parentElement.classList.remove('pad-add');
 }
 
 
-function saveSubtaskChanges(k){
+function saveSubtaskChanges(k) {
     // debugger;
     //ausblenden save icons und einblenden edit icons
-        document.getElementById(`show-edit${k}`).style.display = 'flex';
-        document.getElementById(`show-save${k}`).style.display = 'none';
+    document.getElementById(`show-edit${k}`).style.display = 'flex';
+    document.getElementById(`show-save${k}`).style.display = 'none';
 
     // ändern des input feldes zu einem li element
-        let fieldItem = document.getElementById(`subtask-edit-line${k}`);
-        let listField = document.createElement('li');
-        listField.setAttribute('id',`subtask-line${k}`);
-        listField.setAttribute('class','subtask-line');
-        listField.setAttribute('ondblclick',`editSubtaskLine(${k})`);
-        listField.innerHTML = fieldItem.value;
-        console.log(fieldItem.value);
-        fieldItem.parentNode.replaceChild(listField, fieldItem);
+    let fieldItem = document.getElementById(`subtask-edit-line${k}`);
+    let listField = document.createElement('li');
+    listField.setAttribute('id', `subtask-line${k}`);
+    listField.setAttribute('class', 'subtask-line');
+    listField.setAttribute('ondblclick', `editSubtaskLine(${k})`);
+    listField.innerHTML = fieldItem.value;
+    console.log(fieldItem.value);
+    fieldItem.parentNode.replaceChild(listField, fieldItem);
     //hinzufügen eines padding des übergeordneten elements wenn das inputfeld zurück in ein li element gewandelt wurde
-        document.getElementById(`subtask-line${k}`).parentElement.classList.add('pad-add');
+    document.getElementById(`subtask-line${k}`).parentElement.classList.add('pad-add');
 }
 
 
