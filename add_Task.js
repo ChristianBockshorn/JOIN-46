@@ -1,6 +1,6 @@
 let AllTask = [];
 let assignedPersons = [];
-
+let k = 0;
 
 function activeBtn(btnId) {
     // Alle Buttons zurücksetzen (Klasse entfernen)
@@ -228,25 +228,57 @@ function changeSubtaskIconToggle() {
 }
 
 
-function cleanSubtaskInputFiled(){
+function cleanSubtaskInputFiled() {
     document.getElementById('subtask-input').value = '';
     changeSubtaskIconToggle();
 }
 
 
-function renderSubtaskList(){
+function renderSubtaskList() {
+    // debugger;
     let inputValue = document.getElementById('subtask-input').value;
-    document.getElementById('subtask-content').innerHTML += `<li>${inputValue}</li>`;
-    cleanSubtaskInputFiled();
+    if (inputValue == '') {
+        cleanSubtaskInputFiled();
+    }
+    else {
+        document.getElementById('subtask-content').innerHTML += `
+        <div class="pad-add pos-rel">
+            <li class="subtask-line" ondblclick="editSubtaskLine(${k})" id="subtask-line${k}">${inputValue}</li>
+            <div class="subtask-edit-icons d-flex center gap-4" id="show-edit">
+                <img class="subtask-X-symbol icon-size-24 inputSymbol" id="subtask-input-X" onclick="cleanSubtaskInputFiled()" src="assets/images/delete_small.svg">
+                <div class="edit-options-seperator"></div>
+                <img class="subtask-hook-symbol icon-size-24 inputSymbol" id="subtask-input-hook" onclick="renderSubtaskList()" src="assets/images/hook.svg">
+            </div>
+        </div>`;
+        k++;
+        cleanSubtaskInputFiled();
+    }
 }
 
 
+function editSubtaskLine(k) {
+    // debugger;
+    //ändern des li elements in ein input feld um den text zu editieren
+        let listItem = document.getElementById(`subtask-line${k}`);
+        let inputField = document.createElement('input');
+        inputField.setAttribute('type','text');
+        inputField.setAttribute('id', `subtask-edit-line${k}`);
+        inputField.setAttribute('class', `subtask-edit-line`);
+        inputField.value = listItem.innerHTML;
+        listItem.parentNode.replaceChild(inputField, listItem);
+    //entfernen des padding left wenn das li element in ein inout gewandelt wurde
+        let element = document.getElementById(`subtask-edit-line${k}`)
+        let parentElement = element.parentElement;
+        parentElement.classList.remove('pad-add');
+
+}
+
 // onclick hacken icon -> rendern der Liste unterhalb des input feldes ("subtask-content")
-//      -> leeren des impud feldes
+//      -> leeren des inpud feldes
 //      -> li generieren mit dem inhalt der eingegeben wurde
 //      -> beim hover über diese Zeile das "options" menü aufrufen
 //          -> beim click auf edit icon umschalten zwischen li zu textfeld wieder anzeigen des menu mit löschen und hacken
-//          -> 
+//          ->
 // onclick X -> inputfeld leeren und Plus zeichen wieder anzeigen
 
 
