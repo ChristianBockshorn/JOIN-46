@@ -61,22 +61,23 @@
                         <option value="User Story">User Story</option>
                     </select>
 
-                    <div class="formSection">
+                    <div class="formSection gap-8">
                         <label for="Title">Subtasks</label>
                         <div class="pos-rel">
                             <input id="subtask-input" class=" pad-r-50 pad-around-4-16 subtask-input f-size-20"
                                 onfocus="changeSubtaskIconToggle()" type="text"
                                 placeholder="Add new subtask">
                             <div class="subtask-icons d-flex center" id="show-add">
-                                <img class="subtask-plus-symbol height-24 inputSymbol" id="subtask-input-plus" src="assets/images/add_task_plus_black.svg">
+                                <img class="subtask-plus-symbol icon-size-24 inputSymbol" id="subtask-input-plus" src="assets/images/subtask_plus_small.svg">
                             </div>
                             <div class="d-none subtask-icons d-flex center gap-4" id="show-write">
-                                <img class="subtask-X-symbol height-24 inputSymbol" id="subtask-input-X" onclick="cleanSubtaskInputFiled()" src="assets/images/cancel.svg">
+                                <img class="subtask-X-symbol icon-size-24 inputSymbol" id="subtask-input-X" onclick="cleanSubtaskInputFiled()" src="assets/images/cancel.svg">
                                 <div class="edit-options-seperator"></div>
-                                <img class="subtask-hook-symbol inputSymbol height-24" id="subtask-input-hook" onclick="renderSubtaskList()" src="assets/images/hook.svg">
+                                <img class="subtask-hook-symbol inputSymbol icon-size-24" id="subtask-input-hook" onclick="renderSubtaskList()" src="assets/images/hook.svg">
                             </div>
                         </div>
-                        <div id="subtask-content" class="subtask-content"></div>
+                        <div id="subtask-content" class="subtask-content">
+                        </div>
                     </div>
 
                 </div>

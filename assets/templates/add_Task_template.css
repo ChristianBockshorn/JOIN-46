@@ -8,7 +8,7 @@
     max-width: 977px;
 }
 
-#mainContent h1{
+#mainContent h1 {
     margin: 0;
 }
 
@@ -52,7 +52,7 @@ input::placeholder {
 
 /* STYLE FÜR DIE DROPDOWNLISTE */
 
-.dd-list-content{
+.dd-list-content {
     /* display: none; */
     overflow-y: auto;
     overflow-x: hidden;
@@ -65,12 +65,12 @@ input::placeholder {
     z-index: 1;
 }
 
-.dd-list-content img{
+.dd-list-content img {
     width: 42px;
     height: 42px;
 }
 
-.dd-line{
+.dd-line {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -78,23 +78,23 @@ input::placeholder {
     padding: 7px 16px;
 }
 
-.dd-line:hover{
+.dd-line:hover {
     cursor: pointer;
     background: linear-gradient(#f9f9f9, #f0f0f0);
 }
 
-.dd-line-inline{
+.dd-line-inline {
     display: flex;
     align-items: center;
     gap: 16px;
 }
 
-.assigned-cbox{
+.assigned-cbox {
     width: 24px;
     height: 24px;
 }
 
-.selected-persons{
+.selected-persons {
     display: flex;
 }
 
@@ -120,7 +120,7 @@ input::placeholder {
     flex-direction: column;
 }
 
-.prioCategoryCont{
+.prioCategoryCont {
     display: flex;
     gap: 20px;
 }
@@ -129,7 +129,7 @@ input::placeholder {
     height: 15px;
 }
 
-.prioCategory{
+.prioCategory {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -148,13 +148,15 @@ input::placeholder {
     cursor: pointer;
 }
 
-.active-urgent{
+.active-urgent {
     color: white;
     background-color: #29ABE2;
     border: #29ABE2;
 }
 
-.subtask-icons{
+/* Style für Subtask */
+
+.subtask-icons {
     position: absolute;
     right: 16px;
     top: 0;
@@ -168,20 +170,73 @@ input::placeholder {
     cursor: pointer;
 }
 
-.edit-options-seperator{
+.icon-size-24 {
+    height: 24px;
+    width: 24px;
+}
+
+.edit-options-seperator {
     height: 24px;
     width: 1px;
     background-color: rgba(209, 209, 209, 1);
 }
 
-.show-add{
+.show-add {
     display: block
 }
 
-.show-write{
+.show-write {
     display: none;
 }
 
+#show-edit {
+    position: absolute;
+}
+
+/* .subtask-content li:hover {
+    cursor: pointer;
+} */
+
+.subtask-line:hover {
+    cursor: pointer;
+}
+
+.subtask-edit-line {
+    /* border-bottom: 2px solid #29ABE2 !important; */
+    height: 32px;
+    border: 0;
+    border-radius: 0;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 4px 16px;
+}
+
+.subtask-edit-line:focus {
+    border: 0;
+    border-bottom: 1px solid #29ABE2 !important;
+}
+
+.subtask-edit-icons {
+    /* display: flex; */
+    position: absolute;
+    right: 16px;
+    top: 0;
+    bottom: 0;
+    padding: 4px;
+    /* overflow: visible; */
+    /* border-radius: 50%; */
+}
+
+.pad-add{
+    padding-left: 16px;
+    width: auto;
+}
+
+.pad-del{
+    padding: 0;
+}
+
+/* Ende Style für Subtask */
 
 .category::after,
 .prio::after,
