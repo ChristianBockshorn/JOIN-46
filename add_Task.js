@@ -218,7 +218,6 @@ function template_InlineFieldUnChecked(name, initials, i, color) {
 // ############################################################
 // generate subtask section
 
-
 // onfocus input Feld -> umschalten zu Icon X und Hacken
 function changeSubtaskIconToggle() {
     // debugger;
@@ -242,12 +241,17 @@ function renderSubtaskList() {
     }
     else {
         document.getElementById('subtask-content').innerHTML += `
-        <div class="pad-add pos-rel">
+        <div class="pad-add pos-rel" id="delete-line${k}">
             <li class="subtask-line" ondblclick="editSubtaskLine(${k})" id="subtask-line${k}">${inputValue}</li>
-            <div class="subtask-edit-icons d-flex center gap-4" id="show-edit">
-                <img class="subtask-X-symbol icon-size-24 inputSymbol" id="subtask-input-X" onclick="cleanSubtaskInputFiled()" src="assets/images/delete_small.svg">
+            <div class="subtask-edit-icons d-flex center gap-4" id="show-edit${k}">
+                <img class="subtask-X-symbol icon-size-24 inputSymbol" id="subtask-input-X" onclick="editSubtaskLine(${k})" src="assets/images/edit_white.svg">
                 <div class="edit-options-seperator"></div>
-                <img class="subtask-hook-symbol icon-size-24 inputSymbol" id="subtask-input-hook" onclick="renderSubtaskList()" src="assets/images/hook.svg">
+                <img class="subtask-hook-symbol icon-size-24 inputSymbol" id="subtask-input-hook" onclick="deleteSubtask(${k})" src="assets/images/delete_small.svg">
+            </div>
+            <div class="subtask-edit-icons d-none center gap-4" id="show-save${k}">
+                <img class="subtask-X-symbol icon-size-24 inputSymbol" id="subtask-input-X" onclick="deleteSubtask(${k})" src="assets/images/delete_small.svg">
+                <div class="edit-options-seperator"></div>
+                <img class="subtask-hook-symbol icon-size-24 inputSymbol" id="subtask-input-hook" onclick="saveSubtaskChanges(${k})" src="assets/images/hook.svg">
             </div>
         </div>`;
         k++;
@@ -258,6 +262,11 @@ function renderSubtaskList() {
 
 function editSubtaskLine(k) {
     // debugger;
+
+    //ausblenden edit icons und einblenden save icons
+    document.getElementById(`show-edit${k}`).style.display = 'none';
+    document.getElementById(`show-save${k}`).style.display = 'flex';
+
     //ändern des li elements in ein input feld um den text zu editieren
         let listItem = document.getElementById(`subtask-line${k}`);
         let inputField = document.createElement('input');
@@ -266,13 +275,34 @@ function editSubtaskLine(k) {
         inputField.setAttribute('class', `subtask-edit-line`);
         inputField.value = listItem.innerHTML;
         listItem.parentNode.replaceChild(inputField, listItem);
-    //entfernen des padding left wenn das li element in ein inout gewandelt wurde
-        let element = document.getElementById(`subtask-edit-line${k}`)
-        let parentElement = element.parentElement;
-        parentElement.classList.remove('pad-add');
-
+    //entfernen eines padding left des übergeordneten Elements nachdem das li element in ein input Feld gewandelt wurde
+        document.getElementById(`subtask-edit-line${k}`).parentElement.classList.remove('pad-add');
 }
 
+
+function saveSubtaskChanges(k){
+    // debugger;
+    //ausblenden save icons und einblenden edit icons
+        document.getElementById(`show-edit${k}`).style.display = 'flex';
+        document.getElementById(`show-save${k}`).style.display = 'none';
+
+    // ändern des input feldes zu einem li element
+        let fieldItem = document.getElementById(`subtask-edit-line${k}`);
+        let listField = document.createElement('li');
+        listField.setAttribute('id',`subtask-line${k}`);
+        listField.setAttribute('class','subtask-line');
+        listField.setAttribute('ondblclick',`editSubtaskLine(${k})`);
+        listField.innerHTML = fieldItem.value;
+        console.log(fieldItem.value);
+        fieldItem.parentNode.replaceChild(listField, fieldItem);
+    //hinzufügen eines padding des übergeordneten elements wenn das inputfeld zurück in ein li element gewandelt wurde
+        document.getElementById(`subtask-line${k}`).parentElement.classList.add('pad-add');
+}
+
+
+function deleteSubtask(k) {
+    document.getElementById(`delete-line${k}`).remove();
+}
 // onclick hacken icon -> rendern der Liste unterhalb des input feldes ("subtask-content")
 //      -> leeren des inpud feldes
 //      -> li generieren mit dem inhalt der eingegeben wurde

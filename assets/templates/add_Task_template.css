@@ -181,21 +181,22 @@ input::placeholder {
     background-color: rgba(209, 209, 209, 1);
 }
 
-.show-add {
-    display: block
-}
+/* #show-add {
+    z-index: 2;
+} */
 
-.show-write {
-    display: none;
-}
+/* #show-write {
+    z-index: 2;
+} */
 
 #show-edit {
     position: absolute;
 }
 
-/* .subtask-content li:hover {
-    cursor: pointer;
-} */
+#show-save {
+    display: none;
+    position: absolute;
+}
 
 .subtask-line:hover {
     cursor: pointer;
@@ -227,12 +228,12 @@ input::placeholder {
     /* border-radius: 50%; */
 }
 
-.pad-add{
+.pad-add {
     padding-left: 16px;
     width: auto;
 }
 
-.pad-del{
+.pad-del {
     padding: 0;
 }
 
