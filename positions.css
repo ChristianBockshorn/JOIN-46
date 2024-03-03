@@ -69,12 +69,12 @@
     padding: 8px;
 }
 
-.gap-5 {
-    gap: 5px;
-}
-
 .gap-4 {
     gap: 4px;
+}
+
+.gap-5 {
+    gap: 5px;
 }
 
 .gap-8 {
@@ -141,6 +141,10 @@
     gap: 350px;
 }
 
+.gap-450 {
+    gap: 450px;
+}
+
 .pad-l-16 {
     padding-left: 16px;
 }
@@ -172,7 +176,7 @@
 }
 
 .marg-top {
-    margin-top: 60px;
+    margin-top: 138px;
 }
 
 

@@ -1,8 +1,15 @@
 .main {
-    margin-top: 160px;
+    margin-top: 206px;
     margin-left: 328px;
     font-size: 20px;
+    height: 778px;
     font-family: 'Inter';
+    justify-content: space-between;
+    max-width: 977px;
+}
+
+#mainContent h1{
+    margin: 0;
 }
 
 b {
@@ -14,7 +21,7 @@ b {
     flex-direction: column;
     gap: 20px;
 
-    margin-top: 60px;
+    margin-top: 48px;
     width: 440px;
     /* height: 420px; */
 }
@@ -100,7 +107,7 @@ input::placeholder {
 }
 
 .right-column {
-    margin-top: 60px;
+    margin-top: 48px;
     width: 440px;
     /* height: 420px; */
     display: flex;
