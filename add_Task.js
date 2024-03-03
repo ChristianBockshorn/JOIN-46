@@ -224,9 +224,7 @@ function generateSubtasks() {
     let allArray = [];
     for (let i = 0; i < allLiElements.length; i++) {
         let element = allLiElements[i].innerHTML;
-        console.log(element += element);
         allArray.push(element);
-        console.log(allArray);
     }
     return allArray;
 }
