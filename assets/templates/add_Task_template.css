@@ -1,9 +1,15 @@
 .main {
-    margin-left: 296px;
-    margin-top: 160px;
-    margin-right: 328px;
+    margin-top: 206px;
+    margin-left: 328px;
     font-size: 20px;
+    height: 778px;
     font-family: 'Inter';
+    justify-content: space-between;
+    max-width: 977px;
+}
+
+#mainContent h1 {
+    margin: 0;
 }
 
 b {
@@ -15,9 +21,9 @@ b {
     flex-direction: column;
     gap: 20px;
 
-    margin-top: 60px;
+    margin-top: 48px;
     width: 440px;
-    height: 420px;
+    /* height: 420px; */
 }
 
 textarea:focus {
@@ -31,7 +37,7 @@ textarea {
     color: #3F3F3F;
     border: solid 1px #DBDBDB;
     border-radius: 10px;
-    
+    height: 120px;
 }
 
 textarea::placeholder {
@@ -46,12 +52,12 @@ input::placeholder {
 
 /* STYLE FÜR DIE DROPDOWNLISTE */
 
-.dd-list-content{
-    display: none;
+.dd-list-content {
+    /* display: none; */
     overflow-y: auto;
     overflow-x: hidden;
     top: -19px;
-    height: 336px;
+    max-height: 280px;
     width: 100%;
     flex-direction: column;
     position: absolute;
@@ -59,39 +65,37 @@ input::placeholder {
     z-index: 1;
 }
 
-.dd-list-content img{
+.dd-list-content img {
     width: 42px;
     height: 42px;
 }
 
-.dd-line{
+.dd-line {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* width: 423px; */
     height: 56px;
     padding: 7px 16px;
 }
 
-.dd-line:hover{
+.dd-line:hover {
     cursor: pointer;
     background: linear-gradient(#f9f9f9, #f0f0f0);
 }
 
-.dd-line-inline{
+.dd-line-inline {
     display: flex;
     align-items: center;
     gap: 16px;
 }
 
-.assigned-cbox{
+.assigned-cbox {
     width: 24px;
     height: 24px;
 }
 
-.selected-persons img{
-    height: 42px;
-    width: 42px;
+.selected-persons {
+    display: flex;
 }
 
 /* Ende STYLE FÜR DIE DROPDOWNLISTE */
@@ -103,9 +107,9 @@ input::placeholder {
 }
 
 .right-column {
-    margin-top: 60px;
+    margin-top: 48px;
     width: 440px;
-    height: 420px;
+    /* height: 420px; */
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -114,11 +118,9 @@ input::placeholder {
 .formSection {
     display: flex;
     flex-direction: column;
-   
-    position: relative;
 }
 
-.prioCategoryCont{
+.prioCategoryCont {
     display: flex;
     gap: 20px;
 }
@@ -127,7 +129,7 @@ input::placeholder {
     height: 15px;
 }
 
-.prioCategory{
+.prioCategory {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -146,24 +148,96 @@ input::placeholder {
     cursor: pointer;
 }
 
-.subtaskPlusSymbol{
-    right: 0px;
-    top: 32px;
-    padding: 4px;
-}
-
-.inputSymbol {
-    position: absolute;
-    cursor: pointer;
-    overflow: visible;
-    border-radius: 50%;
-}
-
-.active-urgent{
+.active-urgent {
     color: white;
     background-color: #29ABE2;
     border: #29ABE2;
 }
+
+/* Style für Subtask */
+
+.subtask-icons {
+    position: absolute;
+    right: 16px;
+    top: 0;
+    bottom: 0;
+    padding: 4px;
+    /* overflow: visible; */
+    /* border-radius: 50%; */
+}
+
+.inputSymbol {
+    cursor: pointer;
+}
+
+.icon-size-24 {
+    height: 24px;
+    width: 24px;
+}
+
+.edit-options-seperator {
+    height: 24px;
+    width: 1px;
+    background-color: rgba(209, 209, 209, 1);
+}
+
+/* #show-add {
+    z-index: 2;
+} */
+
+/* #show-write {
+    z-index: 2;
+} */
+
+#show-edit {
+    position: absolute;
+}
+
+#show-save {
+    display: none;
+    position: absolute;
+}
+
+.subtask-line:hover {
+    cursor: pointer;
+}
+
+.subtask-edit-line {
+    /* border-bottom: 2px solid #29ABE2 !important; */
+    height: 32px;
+    border: 0;
+    border-radius: 0;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 4px 16px;
+}
+
+.subtask-edit-line:focus {
+    border: 0;
+    border-bottom: 1px solid #29ABE2 !important;
+}
+
+.subtask-edit-icons {
+    /* display: flex; */
+    position: absolute;
+    right: 16px;
+    top: 0;
+    bottom: 0;
+    padding: 4px;
+    /* overflow: visible; */
+    /* border-radius: 50%; */
+}
+
+.pad-add {
+    padding-left: 16px;
+    width: auto;
+}
+
+.pad-del {
+    padding: 0;
+}
+
+/* Ende Style für Subtask */
 
 .category::after,
 .prio::after,

@@ -12,16 +12,16 @@
     <script src="js/storage.js"></script>
     <script src="add_Task.js"></script>
     <script src="js/board.js"></script>
-   
-    
+
+
 
     <title>Board</title>
 </head>
 
-<body class="BoardSection" onload="includeHTML(), loadAllTasks(), initBoard('board')">
+<body class="BoardSection" onload="includeHTML(), loadAllTasks(),updateHTML()">
     <div w3-include-html="/assets/templates/header_template.html"></div>
     <div w3-include-html="/assets/templates/navbar_template.html"></div>
-    
+
     <div class="headerBoard">
         <h1>Board</h1>
         <div class="headerFlex">
@@ -51,8 +51,8 @@
 
         <div id="taskDetail" class="dialog-bg d-none" onclick="closeTask()">
             <div class="taskDetail" onclick="doNotClose(event)">
-                <div id="addtask-dialog" class="addtask-dialog" >
-                    
+                <div id="addtask-dialog" class="addtask-dialog">
+
                 </div>
             </div>
         </div>
@@ -72,10 +72,11 @@
                     <div class="no-to-do">
                         <p>No Task To do</p>
                     </div>
-                    <div  id="borderBoard" draggable="true" id="todo" class="newTask" ondrop="moveTo('todo')"
-                    ondragover="allowDrop(event)"></div>
+
                 </div>
-                <div id="newTask" class="newTask"></div>
+                <div class="drag-area" id="stateToDo" ondrop="moveTo('stateToDo')" ondragover="allowDrop(event)">
+                    <div id="borderBoard"></div>
+                </div>
             </div>
 
 
@@ -90,61 +91,63 @@
                     <div class="no-to-do">
                         <p>No Task To do</p>
                     </div>
-                    <div  class="borderBoard" draggable="true" id="todo" class="newTask" ondrop="moveTo('todo')"
-                    ondragover="allowDrop(event)"></div>
+                    <div id="borderBoard"></div>
                 </div>
-                <div class="newTask"></div>
+                <div class="drag-area" id="stateInProgress" ondrop="moveTo('stateInProgress')"
+                    ondragover="allowDrop(event)">
+                    <div id="borderBoard"></div>
+                </div>  
             </div>
-        </div>
-
-        <div class="dynamicDisplayFlex">
-            <div class="flex">
-                <div class="test2">
-                    <p class="status-text">Await feedback</p>
-                    <div class="popup-container">
-                        <img class="standardImg" src="assets/images/plus_button.svg" alt="">
-                    </div>
-                </div>
-                <div class="test">
-                    <div class="no-to-do">
-                        <p>No Task To do</p>
-                    </div>
-                    <div class="borderBoard"></div>
-                </div>
-                <div class="newTask"></div>
-            </div>
-
 
             <div class="dynamicDisplayFlex">
                 <div class="flex">
                     <div class="test2">
-                        <p class="status-text">Done</p>
-                        <div>
-                            <div onclick="openModal('Done')" class="popup-container">
-                                <img class="standardImg" src="assets/images/plus_button.svg" alt="">
-                            </div>
+                        <p class="status-text">Await feedback</p>
+                        <div class="popup-container">
+                            <img class="standardImg" src="assets/images/plus_button.svg" alt="">
                         </div>
                     </div>
                     <div class="test">
                         <div class="no-to-do">
                             <p>No Task To do</p>
                         </div>
-                        <div class="borderBoard"></div>
+                        <div id="borderBoard"></div>
+                    </div>
+                    <div class="drag-area" id="stateAwaitFeedback" ondrop="moveTo('stateAwaitFeedback')"
+                        ondragover="allowDrop(event)"></div>
+                </div>
+
+
+                <div class="dynamicDisplayFlex">
+                    <div class="flex">
+                        <div class="test2">
+                            <p class="status-text">Done</p>
+                            <div>
+                                <div onclick="openModal('Done')" class="popup-container">
+                                    <img class="standardImg" src="assets/images/plus_button.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="test">
+                            <div class="no-to-do">
+                                <p>No Task To do</p>
+                            </div>
+                            <div id="borderBoard"></div>
+                        </div>
+                        <div class="drag-area" id="stateDone" ondrop="moveTo('stateToDo')"
+                            ondragover="allowDrop(event)"></div>
                     </div>
                     <div class="newTask"></div>
                 </div>
+            </div>
 
-                <div class="newTask"></div>
+        </div>
+        <div class="modal">
+            <div class="modal-content">
+                <div class="add-task-board">
+                </div>
             </div>
         </div>
-
-    </div>
-    <div class="modal">
-        <div class="modal-content">
-            <div class="add-task-board">
-            </div>
-        </div>
-    </div>
     </div>
     <div class="modal">
         <div class="modal-content">

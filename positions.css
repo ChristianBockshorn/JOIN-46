@@ -69,6 +69,10 @@
     padding: 8px;
 }
 
+.gap-4 {
+    gap: 4px;
+}
+
 .gap-5 {
     gap: 5px;
 }
@@ -125,12 +129,20 @@
     gap: 35px;
 }
 
+.gap-48 {
+    gap: 48px;
+}
+
 .gap-54{
     gap: 54px;
 }
 
 .gap-350 {
     gap: 350px;
+}
+
+.gap-450 {
+    gap: 450px;
 }
 
 .pad-l-16 {
@@ -142,11 +154,19 @@
 }
 
 .pad-r-50{
-    padding-right: 50px;
+    padding-right: 50px !important;
+}
+
+.pad-r-80{
+    padding-right: 80px !important;
 }
 
 .pad-bot-30{
     padding-bottom: 30px;
+}
+
+.pad-around-4-16{
+    padding: 4px 16px;
 }
 
 /* Höhe */
@@ -156,7 +176,7 @@
 }
 
 .marg-top {
-    margin-top: 60px;
+    margin-top: 138px;
 }
 
 

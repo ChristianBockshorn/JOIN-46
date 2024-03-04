@@ -257,3 +257,23 @@ form {
     opacity: 1;
     /* Firefox */
 }
+
+.initialscircle{
+    font-size: 47px;
+    font-weight: 500;
+    color: white;
+    height: 114px;
+    width: 114px;
+    border-radius: 60px;
+    border: 3px solid white;
+}
+
+.initialscirclecontact{
+    font-size: 12px;
+    font-weight: 400;
+    color: white;
+    height: 38px;
+    width: 38px;
+    border-radius: 19px;
+    border: 2px solid white;
+}
