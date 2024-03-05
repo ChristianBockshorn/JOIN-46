@@ -76,11 +76,27 @@ input::placeholder {
     align-items: center;
     height: 56px;
     padding: 7px 16px;
+    border-radius: 10px;
 }
 
 .dd-line:hover {
     cursor: pointer;
     background: linear-gradient(#f9f9f9, #f0f0f0);
+}
+
+.dd-line-dark{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 56px;
+    padding: 7px 16px;
+    border-radius: 10px;
+    color: white;
+    background-color: rgba(42, 54, 71, 1);
+}
+
+.dd-line-dark:hover{
+    background-color: rgba(9, 25, 49, 1);
 }
 
 .dd-line-inline {

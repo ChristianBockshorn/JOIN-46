@@ -19,7 +19,7 @@ function loadAllTasks() {
     AllTask = JSON.parse(AllTaskAsString);
     console.log('loaded task', AllTask);
     // render();
-    updateHTML();
+    // updateHTML();
 }
 
 
@@ -62,10 +62,10 @@ function safe() {
 }
 
 function generateUniqueId() {
-    let timestamp = new Date().getTime().toString(16); // Hexadezimale Darstellung des Zeitstempels
-    let randomNum = Math.floor(Math.random() * 1000).toString(16); // Hexadezimale Darstellung der Zufallszahl
-    let uniqueId = timestamp + randomNum;
-    return parseInt(uniqueId, 16);
+    let timestamp = new Date().getTime();
+    let randomNum = Math.floor(Math.random() * 10000);
+    let uniqueId = parseInt(timestamp.toString() + randomNum.toString());
+    return uniqueId;
 }
 
 // ############################################################
@@ -131,7 +131,8 @@ function renderAssignedPersons() {
 document.addEventListener('click', function myFunction(event) {
     let parentClass = event.target.parentNode.className;
     let targetId = event.target.id;
-    if (targetId !== 'assigned' && targetId !== 'dd-line' && parentClass !== 'dd-line' && parentClass !== 'dd-line-inline') {
+    let targetClassName = event.target.className;
+    if (targetId !== 'assigned' && targetId !== 'dd-line' && targetClassName !== 'dd-line' && parentClass !== 'dd-line' && parentClass !== 'dd-line-inline') {
         closeDDListWithOutsideClick();
     }
 })
@@ -174,9 +175,11 @@ function deleteAssignedPerson(i) {
 function addToSelectedPersons(i) {
     if (assignedPersons.indexOf(i) == -1) {
         addAssignedPerson(i);
+        document.getElementById(`checkbox${i}`).checked = true;
     }
     else if (assignedPersons.indexOf(i) > -1) {
         deleteAssignedPerson(i);
+        document.getElementById(`checkbox${i}`).checked = false;
     }
     renderAssignedPersons();
 }
@@ -185,12 +188,12 @@ function addToSelectedPersons(i) {
 // Template welches für Personen erzeugt wird die bereits sind
 function template_InlineFieldChecked(name, initials, i, color) {
     return `
-        <div id="dd-line" class="dd-line">
+        <div id="dd-line${i}" class="dd-line" onclick="addToSelectedPersons('${i}')">
             <div class="dd-line-inline">
                 <div style="background-color: ${color}" class="initialscirclecontact d-flex center">${initials}</div>
                 ${name}
             </div>
-            <input onclick="addToSelectedPersons('${i}')" class="assigned-cbox" id="checkbox${i}" type="checkbox" checked></input>
+            <input class="assigned-cbox" id="checkbox${i}" type="checkbox" checked></input>
         </div>
     `;
 }
@@ -198,12 +201,12 @@ function template_InlineFieldChecked(name, initials, i, color) {
 // Template welches erzeugt wird für Personen die aktuell nicht ausgewählt sind
 function template_InlineFieldUnChecked(name, initials, i, color) {
     return `
-        <div id="dd-line" class="dd-line">
+        <div id="dd-line${i}" class="dd-line" onclick="addToSelectedPersons('${i}')">
             <div class="dd-line-inline">
             <div style="background-color: ${color}" class="initialscirclecontact d-flex center">${initials}</div>
                 ${name}
             </div>
-            <input onclick="addToSelectedPersons('${i}')" class="assigned-cbox" id="checkbox${i}" type="checkbox" ></input>
+            <input class="assigned-cbox" id="checkbox${i}" type="checkbox" ></input>
         </div>
     `;
 }
@@ -252,23 +255,26 @@ function renderSubtaskList() {
         cleanSubtaskInputFiled();
     }
     else {
-        document.getElementById('subtask-content').innerHTML += `
-        <div class="pad-add pos-rel" id="delete-line${k}">
-            <li class="subtask-line" ondblclick="editSubtaskLine(${k})" id="subtask-line${k}">${inputValue}</li>
-            <div class="subtask-edit-icons d-flex center gap-4" id="show-edit${k}">
-                <img class="subtask-X-symbol icon-size-24 inputSymbol" id="subtask-input-X" onclick="editSubtaskLine(${k})" src="assets/images/edit_white.svg">
-                <div class="edit-options-seperator"></div>
-                <img class="subtask-hook-symbol icon-size-24 inputSymbol" id="subtask-input-hook" onclick="deleteSubtask(${k})" src="assets/images/delete_small.svg">
-            </div>
-            <div class="subtask-edit-icons d-none center gap-4" id="show-save${k}">
-                <img class="subtask-X-symbol icon-size-24 inputSymbol" id="subtask-input-X" onclick="deleteSubtask(${k})" src="assets/images/delete_small.svg">
-                <div class="edit-options-seperator"></div>
-                <img class="subtask-hook-symbol icon-size-24 inputSymbol" id="subtask-input-hook" onclick="saveSubtaskChanges(${k})" src="assets/images/hook.svg">
-            </div>
-        </div>`;
+        document.getElementById('subtask-content').innerHTML += template_Subtask(k, inputValue);
         k++;
         cleanSubtaskInputFiled();
     }
+}
+
+function template_Subtask(k, inputValue){
+return `<div class="pad-add pos-rel" id="delete-line${k}">
+    <li class="subtask-line" ondblclick="editSubtaskLine(${k})" id="subtask-line${k}">${inputValue}</li>
+    <div class="subtask-edit-icons d-flex center gap-4" id="show-edit${k}">
+        <img class="subtask-X-symbol icon-size-24 inputSymbol" id="subtask-input-X" onclick="editSubtaskLine(${k})" src="assets/images/edit_white.svg">
+        <div class="edit-options-seperator"></div>
+        <img class="subtask-hook-symbol icon-size-24 inputSymbol" id="subtask-input-hook" onclick="deleteSubtask(${k})" src="assets/images/delete_small.svg">
+    </div>
+    <div class="subtask-edit-icons d-none center gap-4" id="show-save${k}">
+        <img class="subtask-X-symbol icon-size-24 inputSymbol" id="subtask-input-X" onclick="deleteSubtask(${k})" src="assets/images/delete_small.svg">
+        <div class="edit-options-seperator"></div>
+        <img class="subtask-hook-symbol icon-size-24 inputSymbol" id="subtask-input-hook" onclick="saveSubtaskChanges(${k})" src="assets/images/hook.svg">
+    </div>
+</div>`;
 }
 
 
