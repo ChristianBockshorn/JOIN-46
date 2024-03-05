@@ -19,7 +19,7 @@ function loadAllTasks() {
     AllTask = JSON.parse(AllTaskAsString);
     console.log('loaded task', AllTask);
     // render();
-    // updateHTML();
+    updateHTML();
 }
 
 
@@ -62,10 +62,10 @@ function safe() {
 }
 
 function generateUniqueId() {
-    let timestamp = new Date().getTime();
-    let randomNum = Math.floor(Math.random() * 10000);
-    let uniqueId = parseInt(timestamp.toString() + randomNum.toString());
-    return uniqueId;
+    let timestamp = new Date().getTime().toString(16); // Hexadezimale Darstellung des Zeitstempels
+    let randomNum = Math.floor(Math.random() * 1000).toString(16); // Hexadezimale Darstellung der Zufallszahl
+    let uniqueId = timestamp + randomNum;
+    return parseInt(uniqueId, 16);
 }
 
 // ############################################################

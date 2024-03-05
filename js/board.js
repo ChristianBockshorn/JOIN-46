@@ -1,5 +1,5 @@
 let currentDraggedElement;
-let currentState;
+
 
 
 function openDialog() {
@@ -101,10 +101,18 @@ function startDragging(id) {
 
 function allowDrop(ev) {
     ev.preventDefault();
+    
 }
 
 function moveTo(category) {
-    AllTask[currentDraggedElement]['state'] = category;
+    const taskIndex = AllTask.findIndex(task => task.id === currentDraggedElement);
+
+    if (taskIndex !== -1) {
+        AllTask[taskIndex].state = category;
+        
+    } else {
+        console.error("Task not found in AllTask array");
+    }
     updateHTML();
 }
 
