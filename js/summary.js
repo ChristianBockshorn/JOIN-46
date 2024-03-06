@@ -130,21 +130,28 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+// den eingeloggten Benutzer aus dem localStorage holen und via Return übergeben
+function getLoggedInUser(){
+  let loggedin = JSON.parse(localStorage.getItem('logged'));
+  let user = loggedin[0]['name'];
+  return user;
+}
+
+
 function greetUser() {
   let isUserLoggedIn = false;
 
-  for (let i = 0; i < users.length; i++) {
-    let user = users[i];
-    if (user["isYou"]) {
-      document.getElementById("logedinUser").innerHTML = `${user["firstName"]} ${user["lastName"]}`;
-      document.getElementById("mobileLogedinUser").innerHTML = `${user["firstName"]} ${user["lastName"]}`;
+  let user = getLoggedInUser();
+
+  if (user) {
+      document.getElementById("logedinUser").innerHTML = user;
+      document.getElementById("mobileLogedinUser").innerHTML = user;
+
       isUserLoggedIn = true;
-      break;
     }
   }
 
-  if (!isUserLoggedIn) {
-    document.getElementById("logedinUser").innerHTML = "Guest";
-    document.getElementById("mobileLogedinUser").innerHTML = "Guest";
-  }
+if (isUserLoggedIn == false) {
+  document.getElementById("logedinUser").innerHTML = "Guest";
+  document.getElementById("mobileLogedinUser").innerHTML = "Guest";
 }
