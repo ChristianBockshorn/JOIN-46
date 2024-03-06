@@ -43,10 +43,10 @@ function generateHtmlContent(element, index) {
             <span class="taskCategory">${element.Category}</span>
             <h3 class="taskTitle">${element.title}</h3>
             <span class="taskDescription">${element.Description}</span>
-            <span class="d-flex ai-start fd-column" id="selected-assigned-user${index}">Assigned to: ${element.Assigned}</span>
+            <span class="d-flex ai-start fd-column gap-8" id="selected-assigned-user${index}"></span>
             <span>Date: ${element.date}</span>
             <span>Prio: ${element.Prio}</span>
-            Subtasks: [],
+            <span class="d-flex ai-start fd-column gap-8" id="subtasks-view${index}"></span>
         </div>
     `;
 }
@@ -61,15 +61,42 @@ async function init() {
 function getAssignedUser(element, index) {
     let assignedUsers = element['Assigned'];
     let assignedUsersField = document.getElementById(`selected-assigned-user${index}`);
-    assignedUsersField.innerHTML = 'Assigned to:<br>';
+    assignedUsersField.innerHTML = 'Assigned To:<br>';
     for (let i = 0; i < assignedUsers.length; i++) {
         let assignedUserID = assignedUsers[i];
         let assignedUserName = contacts[assignedUserID]['name'];
         let assignedUserColor = contacts[assignedUserID]['usercolor'];
         let assignedUserInitials = contacts[assignedUserID]['initials'];
-        console.log(assignedUserName);
         assignedUsersField.innerHTML += template_AssignedUsers(assignedUserColor, assignedUserInitials, assignedUserName);
     }
+}
+
+
+// Funktion zum laden und anzeigen der Untertasks, falls diese Vorhanden sind.
+function getSubtasks(element, index) {
+    let subtasks = document.getElementById(`subtasks-view${index}`);
+    subtasks.innerHTML = 'Subtasks';
+    let state = 'unchecked';
+    for (let i = 0; i < element['Subtasks'].length; i++) {
+        let subtask = element['Subtasks'][i];
+        let checkedState = element['Subtasks'][i]['done'];
+        if (checkedState == true){
+            state = 'checked';
+        }
+        else{
+            state = 'unchecked';
+        }
+        console.log(subtask);
+        subtasks.innerHTML += template_SubtasksShow(subtask, i, index, state);
+    }
+}
+
+function checkIfSubtaskIsDone(index, i, event){
+    let selectetTask = AllTask[index]['Subtasks'][i]['done'];
+    selectetTask = !selectetTask;
+    AllTask[index]['Subtasks'][i]['done'] = selectetTask;
+    var jsonString = JSON.stringify(AllTask);
+    localStorage.setItem('AllTask',jsonString);
 }
 
 
@@ -84,6 +111,7 @@ async function updateHTML() {
         const element = stateToDo[index];
         document.getElementById('stateToDo').innerHTML += generateHtmlContent(element, index);
         getAssignedUser(element, index);
+        getSubtasks(element, index);
     }
 
     //In Progress---------------------------------
@@ -187,4 +215,15 @@ function template_AssignedUsers(assignedUserColor, assignedUserInitials, assigne
             <div style="background-color:${assignedUserColor}" class="initialscirclecontact d-flex center">${assignedUserInitials}</div>
             <div>${assignedUserName}</div>
         </div>`;
+}
+
+
+function template_SubtasksShow(subtask, i, index, state) {
+    return `
+    <div class="d-flex gap-8 ai-center">
+    <div class="gap-8">
+        <input onclick="checkIfSubtaskIsDone(${index},${i},${event})" type="checkbox" ${state} id="${i}" class="d-flex center"></div>
+        <div>${subtask['task']}</div>
+    </div>
+    </div>`;
 }
