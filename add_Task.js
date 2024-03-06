@@ -132,7 +132,7 @@ document.addEventListener('click', function myFunction(event) {
     let parentClass = event.target.parentNode.className;
     let targetId = event.target.id;
     let targetClassName = event.target.className;
-    if (targetId !== 'assigned' && targetId !== 'dd-line' && targetClassName !== 'dd-line' && parentClass !== 'dd-line' && parentClass !== 'dd-line-inline') {
+    if (targetId !== 'assigned' && targetId !== 'dd-line' && targetClassName !== 'dd-line' && targetClassName !== 'dd-line-dark' && parentClass !== 'dd-line' && parentClass !== 'dd-line-inline') {
         closeDDListWithOutsideClick();
     }
 })
@@ -140,13 +140,10 @@ document.addEventListener('click', function myFunction(event) {
 
 // Umschalten zwischen einblenden und ausblenden wenn man in das assigned input feld geklickt hat
 function ddListToggle() {
-    // debugger;
     document.getElementById('dd-list-content').classList.toggle('d-flex');
     document.getElementById('dd-list-content').classList.toggle('d-none');
-    // document.getElementById('dd-list-content').style.display = 'flex';
     if (document.getElementById('dd-list-content').classList.contains('d-flex')) {
         renderDropDownList();
-        // searchPattern();
     }
 }
 
@@ -176,19 +173,23 @@ function addToSelectedPersons(i) {
     if (assignedPersons.indexOf(i) == -1) {
         addAssignedPerson(i);
         document.getElementById(`checkbox${i}`).checked = true;
+        document.getElementById(`dd-line${i}`).classList.add('dd-line-dark');
+        document.getElementById(`dd-line${i}`).classList.remove('dd-line');
     }
     else if (assignedPersons.indexOf(i) > -1) {
         deleteAssignedPerson(i);
         document.getElementById(`checkbox${i}`).checked = false;
+        document.getElementById(`dd-line${i}`).classList.remove('dd-line-dark');
+        document.getElementById(`dd-line${i}`).classList.add('dd-line');
     }
     renderAssignedPersons();
 }
 
 
-// Template welches für Personen erzeugt wird die bereits sind
+// Template welches für Personen erzeugt wird die bereits ausgewählt sind
 function template_InlineFieldChecked(name, initials, i, color) {
     return `
-        <div id="dd-line${i}" class="dd-line" onclick="addToSelectedPersons('${i}')">
+        <div id="dd-line${i}" class="dd-line-dark" onclick="addToSelectedPersons('${i}')">
             <div class="dd-line-inline">
                 <div style="background-color: ${color}" class="initialscirclecontact d-flex center">${initials}</div>
                 ${name}
@@ -235,7 +236,6 @@ function generateSubtasks() {
 
 // onfocus input Feld -> umschalten zu Icon X und Hacken
 function changeSubtaskIconToggle() {
-    // debugger;
     document.getElementById('show-add').classList.toggle('d-none');
     document.getElementById('show-write').classList.toggle('d-none');
     document.getElementById('subtask-input').classList.toggle('pad-r-80');
@@ -249,7 +249,6 @@ function cleanSubtaskInputFiled() {
 
 
 function renderSubtaskList() {
-    // debugger;
     let inputValue = document.getElementById('subtask-input').value;
     if (inputValue == '') {
         cleanSubtaskInputFiled();
@@ -261,8 +260,8 @@ function renderSubtaskList() {
     }
 }
 
-function template_Subtask(k, inputValue){
-return `<div class="pad-add pos-rel" id="delete-line${k}">
+function template_Subtask(k, inputValue) {
+    return `<div class="pad-add pos-rel" id="delete-line${k}">
     <li class="subtask-line" ondblclick="editSubtaskLine(${k})" id="subtask-line${k}">${inputValue}</li>
     <div class="subtask-edit-icons d-flex center gap-4" id="show-edit${k}">
         <img class="subtask-X-symbol icon-size-24 inputSymbol" id="subtask-input-X" onclick="editSubtaskLine(${k})" src="assets/images/edit_white.svg">
@@ -279,13 +278,8 @@ return `<div class="pad-add pos-rel" id="delete-line${k}">
 
 
 function editSubtaskLine(k) {
-    // debugger;
-
-    //ausblenden edit icons und einblenden save icons
     document.getElementById(`show-edit${k}`).style.display = 'none';
     document.getElementById(`show-save${k}`).style.display = 'flex';
-
-    //ändern des li elements in ein input feld um den text zu editieren
     let listItem = document.getElementById(`subtask-line${k}`);
     let inputField = document.createElement('input');
     inputField.setAttribute('type', 'text');
@@ -293,18 +287,13 @@ function editSubtaskLine(k) {
     inputField.setAttribute('class', `subtask-edit-line`);
     inputField.value = listItem.innerHTML;
     listItem.parentNode.replaceChild(inputField, listItem);
-    //entfernen eines padding left des übergeordneten Elements nachdem das li element in ein input Feld gewandelt wurde
     document.getElementById(`subtask-edit-line${k}`).parentElement.classList.remove('pad-add');
 }
 
 
 function saveSubtaskChanges(k) {
-    // debugger;
-    //ausblenden save icons und einblenden edit icons
     document.getElementById(`show-edit${k}`).style.display = 'flex';
     document.getElementById(`show-save${k}`).style.display = 'none';
-
-    // ändern des input feldes zu einem li element
     let fieldItem = document.getElementById(`subtask-edit-line${k}`);
     let listField = document.createElement('li');
     listField.setAttribute('id', `subtask-line${k}`);
@@ -313,7 +302,6 @@ function saveSubtaskChanges(k) {
     listField.innerHTML = fieldItem.value;
     console.log(fieldItem.value);
     fieldItem.parentNode.replaceChild(listField, fieldItem);
-    //hinzufügen eines padding des übergeordneten elements wenn das inputfeld zurück in ein li element gewandelt wurde
     document.getElementById(`subtask-line${k}`).parentElement.classList.add('pad-add');
 }
 
@@ -321,14 +309,6 @@ function saveSubtaskChanges(k) {
 function deleteSubtask(k) {
     document.getElementById(`delete-line${k}`).remove();
 }
-// onclick hacken icon -> rendern der Liste unterhalb des input feldes ("subtask-content")
-//      -> leeren des inpud feldes
-//      -> li generieren mit dem inhalt der eingegeben wurde
-//      -> beim hover über diese Zeile das "options" menü aufrufen
-//          -> beim click auf edit icon umschalten zwischen li zu textfeld wieder anzeigen des menu mit löschen und hacken
-//          ->
-// onclick X -> inputfeld leeren und Plus zeichen wieder anzeigen
-
 
 
 // ############################################################
