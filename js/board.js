@@ -34,17 +34,16 @@ function doNotClose(event) {
 //     } else {
 //         noToDoDiv.style.display = 'block';
 //     }
-    
 // }
 
 
-function generateHtmlContent(element) {
+function generateHtmlContent(element, index) {
     return /*html*/`
         <div id="borderBoard-${element['id']}" class="borderBoard" draggable="true" onclick="openTask(${element['id']})" ondragstart="startDragging(${element['id']})">
             <span class="taskCategory">${element.Category}</span>
             <h3 class="taskTitle">${element.title}</h3>
             <span class="taskDescription">${element.Description}</span>
-            <span>Assigned to: ${element.Assigned}</span>
+            <span class="d-flex ai-start fd-column" id="selected-assigned-user${index}">Assigned to: ${element.Assigned}</span>
             <span>Date: ${element.date}</span>
             <span>Prio: ${element.Prio}</span>
             Subtasks: [],
@@ -52,16 +51,39 @@ function generateHtmlContent(element) {
     `;
 }
 
+// Kontakte laden
+async function init() {
+    await getData();
+}
 
-function updateHTML() {
+
+//Funktion zum Wandeln der Übergebenen Personen ID in den Entsprechenden Namen
+function getAssignedUser(element, index) {
+    let assignedUsers = element['Assigned'];
+    let assignedUsersField = document.getElementById(`selected-assigned-user${index}`);
+    assignedUsersField.innerHTML = 'Assigned to:<br>';
+    for (let i = 0; i < assignedUsers.length; i++) {
+        let assignedUserID = assignedUsers[i];
+        let assignedUserName = contacts[assignedUserID]['name'];
+        let assignedUserColor = contacts[assignedUserID]['usercolor'];
+        let assignedUserInitials = contacts[assignedUserID]['initials'];
+        console.log(assignedUserName);
+        assignedUsersField.innerHTML += template_AssignedUsers(assignedUserColor, assignedUserInitials, assignedUserName);
+    }
+}
+
+
+async function updateHTML() {
+    await init();
+
     //To Do---------------------------------
     let stateToDo = AllTask.filter(task => task['state'] == 'todo');
 
     document.getElementById('stateToDo').innerHTML = '';
-
     for (let index = 0; index < stateToDo.length; index++) {
         const element = stateToDo[index];
-        document.getElementById('stateToDo').innerHTML += generateHtmlContent(element);
+        document.getElementById('stateToDo').innerHTML += generateHtmlContent(element, index);
+        getAssignedUser(element, index);
     }
 
     //In Progress---------------------------------
@@ -72,6 +94,7 @@ function updateHTML() {
     for (let index = 0; index < stateInProgress.length; index++) {
         const element = stateInProgress[index];
         document.getElementById('stateInProgress').innerHTML += generateHtmlContent(element);
+        getAssignedUser(element, index);
     }
 
     //Await feedback---------------------------------
@@ -82,6 +105,7 @@ function updateHTML() {
     for (let index = 0; index < stateAwaitFeedback.length; index++) {
         const element = stateAwaitFeedback[index];
         document.getElementById('stateAwaitFeedback').innerHTML += generateHtmlContent(element);
+        getAssignedUser(element, index);
     }
 
     //Done---------------------------------
@@ -92,6 +116,7 @@ function updateHTML() {
     for (let index = 0; index < stateDone.length; index++) {
         const element = stateDone[index];
         document.getElementById('stateDone').innerHTML += generateHtmlContent(element);
+        getAssignedUser(element, index);
     }
 }
 
@@ -101,7 +126,7 @@ function startDragging(id) {
 
 function allowDrop(ev) {
     ev.preventDefault();
-    
+
 }
 
 function moveTo(category) {
@@ -109,7 +134,7 @@ function moveTo(category) {
 
     if (taskIndex !== -1) {
         AllTask[taskIndex].state = category;
-        
+
     } else {
         console.error("Task not found in AllTask array");
     }
@@ -153,4 +178,13 @@ function taskContentHtML(i, task) {
         
     </div>
     `;
+}
+
+
+function template_AssignedUsers(assignedUserColor, assignedUserInitials, assignedUserName) {
+    return `
+        <div class="d-flex gap-8 ai-center">
+            <div style="background-color:${assignedUserColor}" class="initialscirclecontact d-flex center">${assignedUserInitials}</div>
+            <div>${assignedUserName}</div>
+        </div>`;
 }
