@@ -228,7 +228,11 @@ function generateSubtasks() {
     let allArray = [];
     for (let i = 0; i < allLiElements.length; i++) {
         let element = allLiElements[i].innerHTML;
-        allArray.push(element);
+        let obj = {
+            task: element,
+            done: false
+        }
+        allArray.push(obj);
     }
     return allArray;
 }
