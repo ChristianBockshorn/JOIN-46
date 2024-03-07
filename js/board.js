@@ -80,22 +80,22 @@ function getSubtasks(element, index) {
     for (let i = 0; i < element['Subtasks'].length; i++) {
         let subtask = element['Subtasks'][i];
         let checkedState = element['Subtasks'][i]['done'];
-        if (checkedState == true){
+        if (checkedState == true) {
             state = 'checked';
         }
-        else{
+        else {
             state = 'unchecked';
         }
         subtasks.innerHTML += template_SubtasksShow(subtask, i, index, state);
     }
 }
 
-function checkIfSubtaskIsDone(index, i){
+function checkIfSubtaskIsDone(index, i) {
     let selectetTask = AllTask[index]['Subtasks'][i]['done'];
     selectetTask = !selectetTask;
     AllTask[index]['Subtasks'][i]['done'] = selectetTask;
     var jsonString = JSON.stringify(AllTask);
-    localStorage.setItem('AllTask',jsonString);
+    localStorage.setItem('AllTask', jsonString);
 }
 
 
@@ -183,9 +183,10 @@ function openDetailTask(index) {
     taskContentHtML(index, task);
 }
 
-function taskContentHtML(index, task) {
+function taskContentHtML(index, task,) {
     let taskContent = document.getElementById('addtask-dialog');
     taskContent.innerHTML = '';
+    getAssignedUser(task, index);
     taskContent.innerHTML +=  /*html*/`
         
     <div class="borderBoardDetailTask">
@@ -201,10 +202,36 @@ function taskContentHtML(index, task) {
             <span>Date: ${task.date}</span>
             <span>Prio: ${task.Prio}</span>
             <span>Assigned to: ${task.Assigned}</span>
+            <span>Assigned to: ${contacts[index].name}</span>
+            <span>Assigned to: ${currentContacts()}</span>
+            <span>Subtasks: ${currentSubtasks(task)}</span>
+            
         </div>
         
     </div>
     `;
+}
+
+
+function currentSubtasks(task) {
+    let subtasksHTML = '';
+    for (let i = 0; i < task.Subtasks.length; i++) {
+        subtasksHTML += `
+            <ul>
+                <li>${task.Subtasks[i].task}</li>
+            </ul>
+        `;
+    }
+    return subtasksHTML;
+}
+
+
+function currentContacts() {
+    let subtasksHTML = '';
+    for (let c = 0; c < contacts.length; c++) {
+        subtasksHTML += `<span>${contacts.name}</span>,`;
+    }
+    return subtasksHTML;
 }
 
 

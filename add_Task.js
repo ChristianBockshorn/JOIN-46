@@ -40,6 +40,7 @@ function addTask() {
         "Subtasks": generateSubtasks(),
         'state': 'todo',
         'id': generateUniqueId(),
+        
     };
 
     // Überprüfen, ob bereits Aufgaben im AllTask-Array vorhanden sind
