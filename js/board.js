@@ -39,7 +39,7 @@ function doNotClose(event) {
 
 function generateHtmlContent(element, index) {
     return /*html*/`
-        <div id="borderBoard-${element['id']}" class="borderBoard" draggable="true" onclick="openTask(${element['id']})" ondragstart="startDragging(${element['id']})">
+        <div id="borderBoard-${element['id']}" class="borderBoard" draggable="true" onclick="openTask(${index})" ondragstart="startDragging(${element['id']})">
             <span class="taskCategory">${element.Category}</span>
             <h3 class="taskTitle">${element.title}</h3>
             <span class="taskDescription">${element.Description}</span>
@@ -169,9 +169,9 @@ function moveTo(category) {
     updateHTML();
 }
 
-function openTask(i) {
+function openTask(index) {
     document.getElementById('taskDetail').classList.remove('d-none');
-    openDetailTask(i);
+    openDetailTask(index);
 }
 
 
@@ -179,12 +179,12 @@ function closeTask() {
     document.getElementById('taskDetail').classList.add('d-none');
 }
 
-function openDetailTask(i) {
-    const task = AllTask[i];
-    taskContentHtML(i, task);
+function openDetailTask(index) {
+    let task = AllTask[index];
+    taskContentHtML(index, task);
 }
 
-function taskContentHtML(i, task) {
+function taskContentHtML(index, task) {
     let taskContent = document.getElementById('addtask-dialog');
     taskContent.innerHTML = '';
     taskContent.innerHTML +=  /*html*/`
@@ -195,7 +195,7 @@ function taskContentHtML(i, task) {
             <img class="closeHeader" src="assets/images/close_X_black.svg" alt="close" onclick="closeTask()">
         </div>
         
-        <h2 id="taskTitle-${i}" class="taskTitleDetail">${task.title}</h2>
+        <h2 id="taskTitle-${index}" class="taskTitleDetail">${task.title}</h2>
         <span class="taskDescriptionDetail">${task.Description}</span>
         
         <div class="detailDatePrioAssigned">
