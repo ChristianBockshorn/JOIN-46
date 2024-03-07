@@ -39,7 +39,7 @@ function doNotClose(event) {
 
 function generateHtmlContent(element, index) {
     return /*html*/`
-        <div id="borderBoard-${element['id']}" class="borderBoard" draggable="true" onclick="openTask(${element['id']})" ondragstart="startDragging(${element['id']})">
+        <div id="borderBoard-${element['id']}" class="borderBoard" draggable="true" onclick="openTask(${index})" ondragstart="startDragging(${element['id']})">
             <span class="taskCategory">${element.Category}</span>
             <h3 class="taskTitle">${element.title}</h3>
             <span class="taskDescription">${element.Description}</span>
@@ -169,9 +169,9 @@ function moveTo(category) {
     updateHTML();
 }
 
-function openTask(element) {
+function openTask(index) {
     document.getElementById('taskDetail').classList.remove('d-none');
-    openDetailTask(element);
+    openDetailTask(index);
 }
 
 
@@ -179,29 +179,29 @@ function closeTask() {
     document.getElementById('taskDetail').classList.add('d-none');
 }
 
-function openDetailTask(element) {
-    let task = AllTask[element];
-    taskContentHtML(element, task);
+function openDetailTask(index) {
+    let task = AllTask[index];
+    taskContentHtML(index, task);
 }
 
-function taskContentHtML(element, task) {
+function taskContentHtML(index, task) {
     let taskContent = document.getElementById('addtask-dialog');
     taskContent.innerHTML = '';
     taskContent.innerHTML +=  /*html*/`
         
     <div class="borderBoardDetailTask">
         <div class="detailHeader">
-            <span class="taskCategory">${element.Category}</span>
+            <span class="taskCategory">${task.Category}</span>
             <img class="closeHeader" src="assets/images/close_X_black.svg" alt="close" onclick="closeTask()">
         </div>
         
-        <h2 id="taskTitle-${element}" class="taskTitleDetail">${element.title}</h2>
-        <span class="taskDescriptionDetail">${element.Description}</span>
+        <h2 id="taskTitle-${index}" class="taskTitleDetail">${task.title}</h2>
+        <span class="taskDescriptionDetail">${task.Description}</span>
         
         <div class="detailDatePrioAssigned">
-            <span>Date: ${element.date}</span>
-            <span>Prio: ${element.Prio}</span>
-            <span>Assigned to: ${element.Assigned}</span>
+            <span>Date: ${task.date}</span>
+            <span>Prio: ${task.Prio}</span>
+            <span>Assigned to: ${task.Assigned}</span>
         </div>
         
     </div>
