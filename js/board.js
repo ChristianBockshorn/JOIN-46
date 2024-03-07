@@ -202,10 +202,20 @@ function taskContentHtML(index, task) {
             <span>Date: ${task.date}</span>
             <span>Prio: ${task.Prio}</span>
             <span>Assigned to: ${task.Assigned}</span>
+            <span>Subtasks: ${currentSubtasks(task)}</span>
         </div>
         
     </div>
     `;
+    taskContent.innerHTML += template_AssignedUsers(task.assignedUserColor, task.assignedUserInitials, task.assignedUserName);
+}
+
+function currentSubtasks(task){
+    let subtasksHTML = '<span>Subtasks:</span>';
+    for (let i = 0; i < task.Subtasks.length; i++) {
+        subtasksHTML += `<span>${task.Subtasks[i]}</span>`;
+    }
+    return subtasksHTML;
 }
 
 
