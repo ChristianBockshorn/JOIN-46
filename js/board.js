@@ -169,9 +169,9 @@ function moveTo(category) {
     updateHTML();
 }
 
-function openTask(i) {
+function openTask(element) {
     document.getElementById('taskDetail').classList.remove('d-none');
-    openDetailTask(i);
+    openDetailTask(element);
 }
 
 
@@ -179,29 +179,29 @@ function closeTask() {
     document.getElementById('taskDetail').classList.add('d-none');
 }
 
-function openDetailTask(i) {
-    const task = AllTask[i];
-    taskContentHtML(i, task);
+function openDetailTask(element) {
+    let task = AllTask[element];
+    taskContentHtML(element, task);
 }
 
-function taskContentHtML(i, task) {
+function taskContentHtML(element, task) {
     let taskContent = document.getElementById('addtask-dialog');
     taskContent.innerHTML = '';
     taskContent.innerHTML +=  /*html*/`
         
     <div class="borderBoardDetailTask">
         <div class="detailHeader">
-            <span class="taskCategory">${task.Category}</span>
+            <span class="taskCategory">${element.Category}</span>
             <img class="closeHeader" src="assets/images/close_X_black.svg" alt="close" onclick="closeTask()">
         </div>
         
-        <h2 id="taskTitle-${i}" class="taskTitleDetail">${task.title}</h2>
-        <span class="taskDescriptionDetail">${task.Description}</span>
+        <h2 id="taskTitle-${element}" class="taskTitleDetail">${element.title}</h2>
+        <span class="taskDescriptionDetail">${element.Description}</span>
         
         <div class="detailDatePrioAssigned">
-            <span>Date: ${task.date}</span>
-            <span>Prio: ${task.Prio}</span>
-            <span>Assigned to: ${task.Assigned}</span>
+            <span>Date: ${element.date}</span>
+            <span>Prio: ${element.Prio}</span>
+            <span>Assigned to: ${element.Assigned}</span>
         </div>
         
     </div>
