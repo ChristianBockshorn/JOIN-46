@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 // den eingeloggten Benutzer aus dem localStorage holen und via Return übergeben
-function getLoggedInUser(){
+function getLoggedInUser() {
   let loggedin = JSON.parse(localStorage.getItem('logged'));
   let user = loggedin[0]['name'];
   return user;
@@ -140,18 +140,14 @@ function getLoggedInUser(){
 
 function greetUser() {
   let isUserLoggedIn = false;
-
   let user = getLoggedInUser();
-
   if (user) {
-      document.getElementById("logedinUser").innerHTML = user;
-      document.getElementById("mobileLogedinUser").innerHTML = user;
-
-      isUserLoggedIn = true;
-    }
+    document.getElementById("logedinUser").innerHTML = user;
+    document.getElementById("mobileLogedinUser").innerHTML = user;
+    isUserLoggedIn = true;
   }
-
-if (isUserLoggedIn == false) {
-  document.getElementById("logedinUser").innerHTML = "Guest";
-  document.getElementById("mobileLogedinUser").innerHTML = "Guest";
+  if (isUserLoggedIn == false) {
+    document.getElementById("logedinUser").innerHTML = "Guest";
+    document.getElementById("mobileLogedinUser").innerHTML = "Guest";
+  }
 }
