@@ -204,6 +204,7 @@ function taskContentHtML(index, task,) {
             <span>Prio: ${task.Prio}</span>
             <span>Assigned to: ${task.Assigned}</span>
             <span>Assigned to: ${contacts[index].name}</span>
+            <span>Assigned to: ${currentContacts()}</span>
             <span>Subtasks: ${currentSubtasks(task)}</span>
             
         </div>
@@ -226,9 +227,9 @@ function currentSubtasks(task) {
 }
 
 
-function currentContacts(task) {
+function currentContacts() {
     let subtasksHTML = '';
-    for (let i = 0; i < contacts.length; i++) {
+    for (let c = 0; c < contacts.length; c++) {
         subtasksHTML += `<span>${contacts.name}</span>,`;
     }
     return subtasksHTML;
