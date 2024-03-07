@@ -217,9 +217,9 @@ function currentSubtasks(task) {
     let subtasksHTML = '';
     for (let i = 0; i < task.Subtasks.length; i++) {
         subtasksHTML += `
-        <ul>
-            <li>${task.Subtasks[i].task}</li>
-        </ul>
+            <ul>
+                <li>${task.Subtasks[i].task}</li>
+            </ul>
         `;
     }
     return subtasksHTML;
