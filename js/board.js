@@ -86,12 +86,11 @@ function getSubtasks(element, index) {
         else{
             state = 'unchecked';
         }
-        console.log(subtask);
         subtasks.innerHTML += template_SubtasksShow(subtask, i, index, state);
     }
 }
 
-function checkIfSubtaskIsDone(index, i, event){
+function checkIfSubtaskIsDone(index, i){
     let selectetTask = AllTask[index]['Subtasks'][i]['done'];
     selectetTask = !selectetTask;
     AllTask[index]['Subtasks'][i]['done'] = selectetTask;
@@ -222,7 +221,7 @@ function template_SubtasksShow(subtask, i, index, state) {
     return `
     <div class="d-flex gap-8 ai-center">
     <div class="gap-8">
-        <input onclick="checkIfSubtaskIsDone(${index},${i},${event})" type="checkbox" ${state} id="${i}" class="d-flex center"></div>
+        <input onclick="checkIfSubtaskIsDone(${index},${i})" type="checkbox" ${state} id="${i}" class="d-flex center"></div>
         <div>${subtask['task']}</div>
     </div>
     </div>`;
