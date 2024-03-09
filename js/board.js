@@ -37,13 +37,13 @@ function doNotClose(event) {
 // }
 
 
-function generateHtmlContent(element, index) {
+function generateHtmlContent(element, index, f) {
     return /*html*/`
         <div id="borderBoard-${element['id']}" class="borderBoard" draggable="true" onclick="openTask(${index})" ondragstart="startDragging(${element['id']})">
             <span class="taskCategory">${element.Category}</span>
             <h3 class="taskTitle">${element.title}</h3>
             <span class="taskDescription">${element.Description}</span>
-            <span class="d-flex ai-start fd-column gap-8" id="selected-assigned-user${index}"></span>
+            <span class="d-flex ai-start fd-column gap-8" id="selected-assigned-user${f}"></span>
             <span>Date: ${element.date}</span>
             <span>Prio: ${element.Prio}</span>
             <span class="d-flex ai-start fd-column gap-8" id="subtasks-view${index}"></span>
@@ -53,14 +53,15 @@ function generateHtmlContent(element, index) {
 
 // Kontakte laden
 async function init() {
+    await loadAllTasks();
     await getData();
 }
 
 
 //Funktion zum Wandeln der Übergebenen Personen ID in den Entsprechenden Namen
-function getAssignedUser(element, index) {
+function getAssignedUser(element, index, f) {
     let assignedUsers = element['Assigned'];
-    let assignedUsersField = document.getElementById(`selected-assigned-user${index}`);
+    let assignedUsersField = document.getElementById(`selected-assigned-user${f}`);
     assignedUsersField.innerHTML = 'Assigned To:<br>';
     for (let i = 0; i < assignedUsers.length; i++) {
         let assignedUserID = contacts.findIndex(x => x.name == assignedUsers[i]);
@@ -98,18 +99,29 @@ function checkIfSubtaskIsDone(index, i) {
     localStorage.setItem('AllTask', jsonString);
 }
 
+function getIndexPosition(element){
+    console.log(element);
+    let searchWord = element.title;
+    let indexPosition = AllTask.findIndex(task => task.title == searchWord)
+    console.log(indexPosition);
+    return indexPosition;
+}
+
 
 async function updateHTML() {
     await init();
-
+    let f = 0;
     //To Do---------------------------------
     let stateToDo = AllTask.filter(task => task['state'] == 'stateToDo');
 
     document.getElementById('stateToDo').innerHTML = '';
     for (let index = 0; index < stateToDo.length; index++) {
         const element = stateToDo[index];
-        document.getElementById('stateToDo').innerHTML += generateHtmlContent(element, index);
-        getAssignedUser(element, index);
+        // console.log(element);
+        let indexPosition = getIndexPosition(element);
+        document.getElementById('stateToDo').innerHTML += generateHtmlContent(element, index, indexPosition);
+        getAssignedUser(element, index, indexPosition);
+        f++;
         
     }
 
@@ -120,8 +132,10 @@ async function updateHTML() {
 
     for (let index = 0; index < stateInProgress.length; index++) {
         const element = stateInProgress[index];
-        document.getElementById('stateInProgress').innerHTML += generateHtmlContent(element, index);
-        getAssignedUser(element, index);
+        let indexPosition = getIndexPosition(element);
+        document.getElementById('stateInProgress').innerHTML += generateHtmlContent(element, index,indexPosition);
+        getAssignedUser(element, index, indexPosition);
+        f++;
     }
 
     //Await feedback---------------------------------
@@ -131,8 +145,10 @@ async function updateHTML() {
 
     for (let index = 0; index < stateAwaitFeedback.length; index++) {
         const element = stateAwaitFeedback[index];
-        document.getElementById('stateAwaitFeedback').innerHTML += generateHtmlContent(element, index);
-        getAssignedUser(element, index);
+        let indexPosition = getIndexPosition(element);
+        document.getElementById('stateAwaitFeedback').innerHTML += generateHtmlContent(element, index, indexPosition);
+        getAssignedUser(element, index, indexPosition);
+        f++;
     }
 
     //Done---------------------------------
@@ -142,8 +158,10 @@ async function updateHTML() {
 
     for (let index = 0; index < stateDone.length; index++) {
         const element = stateDone[index];
-        document.getElementById('stateDone').innerHTML += generateHtmlContent(element, index);
-        getAssignedUser(element, index);
+        let indexPosition = getIndexPosition(element);
+        document.getElementById('stateDone').innerHTML += generateHtmlContent(element, index, indexPosition);
+        getAssignedUser(element, index, indexPosition);
+        f++;
     }
 }
 
