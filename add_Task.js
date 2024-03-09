@@ -50,7 +50,8 @@ function addTask() {
     // Die neue Aufgabe an das vorhandene Array anhängen oder ein neues Array mit der Aufgabe initialisieren
     existingTasks.push(newTasks);
     let updatedTasksAsString = JSON.stringify(existingTasks);
-    localStorage.setItem('AllTask', updatedTasksAsString);
+    // localStorage.setItem('AllTask', updatedTasksAsString);
+    setItem('AllTask',updatedTasksAsString);
     // Das AllTask-Array für den sofortigen Gebrauch aktualisieren
     AllTask = existingTasks;
 
