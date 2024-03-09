@@ -79,7 +79,7 @@ function getSubtasks(element, index) {
     let state = 'unchecked';
     for (let i = 0; i < element['Subtasks'].length; i++) {
         let subtask = element['Subtasks'][i];
-        let checkedState = element['Subtasks'][i]['done'];
+        let checkedState = element['Subtasks'][i]['stateDone'];
         if (checkedState == true) {
             state = 'checked';
         }
@@ -91,9 +91,9 @@ function getSubtasks(element, index) {
 }
 
 function checkIfSubtaskIsDone(index, i) {
-    let selectetTask = AllTask[index]['Subtasks'][i]['done'];
+    let selectetTask = AllTask[index]['Subtasks'][i]['stateDone'];
     selectetTask = !selectetTask;
-    AllTask[index]['Subtasks'][i]['done'] = selectetTask;
+    AllTask[index]['Subtasks'][i]['stateDone'] = selectetTask;
     var jsonString = JSON.stringify(AllTask);
     localStorage.setItem('AllTask', jsonString);
 }
@@ -110,7 +110,7 @@ async function updateHTML() {
         const element = stateToDo[index];
         document.getElementById('stateToDo').innerHTML += generateHtmlContent(element, index);
         getAssignedUser(element, index);
-        getSubtasks(element, index);
+        
     }
 
     //In Progress---------------------------------
@@ -120,7 +120,7 @@ async function updateHTML() {
 
     for (let index = 0; index < stateInProgress.length; index++) {
         const element = stateInProgress[index];
-        document.getElementById('stateInProgress').innerHTML += generateHtmlContent(element);
+        document.getElementById('stateInProgress').innerHTML += generateHtmlContent(element, index);
         getAssignedUser(element, index);
     }
 
@@ -131,7 +131,7 @@ async function updateHTML() {
 
     for (let index = 0; index < stateAwaitFeedback.length; index++) {
         const element = stateAwaitFeedback[index];
-        document.getElementById('stateAwaitFeedback').innerHTML += generateHtmlContent(element);
+        document.getElementById('stateAwaitFeedback').innerHTML += generateHtmlContent(element, index);
         getAssignedUser(element, index);
     }
 
@@ -142,7 +142,7 @@ async function updateHTML() {
 
     for (let index = 0; index < stateDone.length; index++) {
         const element = stateDone[index];
-        document.getElementById('stateDone').innerHTML += generateHtmlContent(element);
+        document.getElementById('stateDone').innerHTML += generateHtmlContent(element, index);
         getAssignedUser(element, index);
     }
 }
