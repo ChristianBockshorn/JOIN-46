@@ -14,13 +14,13 @@ function activeBtn(btnId) {
 }
 
 
-function loadAllTasks() {
-    let AllTaskAsString = localStorage.getItem('AllTask');
-    AllTask = JSON.parse(AllTaskAsString);
-    console.log('loaded task', AllTask);
-    // render();
-    // updateHTML();
-}
+// function loadAllTasks() {
+//     let AllTaskAsString = localStorage.getItem('AllTask');
+//     AllTask = JSON.parse(AllTaskAsString);
+//     console.log('loaded task', AllTask);
+//     // render();
+//     // updateHTML();
+// }
 
 
 function addTask() {
