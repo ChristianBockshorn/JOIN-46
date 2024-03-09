@@ -39,7 +39,7 @@ function doNotClose(event) {
 
 function generateHtmlContent(element, index, f) {
     return /*html*/`
-        <div id="borderBoard-${element['id']}" class="borderBoard" draggable="true" onclick="openTask(${index})" ondragstart="startDragging(${element['id']})">
+        <div id="borderBoard-${element['id']}" class="borderBoard" draggable="true" onclick="openTask(${f})" ondragstart="startDragging(${element['id']})">
             <span class="taskCategory">${element.Category}</span>
             <h3 class="taskTitle">${element.title}</h3>
             <span class="taskDescription">${element.Description}</span>
@@ -59,9 +59,9 @@ async function init() {
 
 
 //Funktion zum Wandeln der Übergebenen Personen ID in den Entsprechenden Namen
-function getAssignedUser(element, index, f) {
+function getAssignedUser(element, indexPosition) {
     let assignedUsers = element['Assigned'];
-    let assignedUsersField = document.getElementById(`selected-assigned-user${f}`);
+    let assignedUsersField = document.getElementById(`selected-assigned-user${indexPosition}`);
     assignedUsersField.innerHTML = 'Assigned To:<br>';
     for (let i = 0; i < assignedUsers.length; i++) {
         let assignedUserID = contacts.findIndex(x => x.name == assignedUsers[i]);
@@ -97,6 +97,7 @@ function checkIfSubtaskIsDone(index, i) {
     AllTask[index]['Subtasks'][i]['stateDone'] = selectetTask;
     var jsonString = JSON.stringify(AllTask);
     localStorage.setItem('AllTask', jsonString);
+    // setItem('AllTask', jsonString);
 }
 
 function getIndexPosition(element){
@@ -110,7 +111,7 @@ function getIndexPosition(element){
 
 async function updateHTML() {
     await init();
-    let f = 0;
+
     //To Do---------------------------------
     let stateToDo = AllTask.filter(task => task['state'] == 'stateToDo');
 
@@ -120,9 +121,7 @@ async function updateHTML() {
         // console.log(element);
         let indexPosition = getIndexPosition(element);
         document.getElementById('stateToDo').innerHTML += generateHtmlContent(element, index, indexPosition);
-        getAssignedUser(element, index, indexPosition);
-        f++;
-        
+        getAssignedUser(element, indexPosition);
     }
 
     //In Progress---------------------------------
@@ -134,8 +133,7 @@ async function updateHTML() {
         const element = stateInProgress[index];
         let indexPosition = getIndexPosition(element);
         document.getElementById('stateInProgress').innerHTML += generateHtmlContent(element, index,indexPosition);
-        getAssignedUser(element, index, indexPosition);
-        f++;
+        getAssignedUser(element, indexPosition);
     }
 
     //Await feedback---------------------------------
@@ -147,8 +145,7 @@ async function updateHTML() {
         const element = stateAwaitFeedback[index];
         let indexPosition = getIndexPosition(element);
         document.getElementById('stateAwaitFeedback').innerHTML += generateHtmlContent(element, index, indexPosition);
-        getAssignedUser(element, index, indexPosition);
-        f++;
+        getAssignedUser(element, indexPosition);
     }
 
     //Done---------------------------------
@@ -160,8 +157,7 @@ async function updateHTML() {
         const element = stateDone[index];
         let indexPosition = getIndexPosition(element);
         document.getElementById('stateDone').innerHTML += generateHtmlContent(element, index, indexPosition);
-        getAssignedUser(element, index, indexPosition);
-        f++;
+        getAssignedUser(element, indexPosition);
     }
 }
 
@@ -202,9 +198,10 @@ function openDetailTask(index) {
     taskContentHtML(index, task);
 }
 
-function taskContentHtML(index, task,) {
+function taskContentHtML(index, task) {
     let taskContent = document.getElementById('addtask-dialog');
     taskContent.innerHTML = '';
+    getIndexPosition = 
     getAssignedUser(task, index);
     taskContent.innerHTML +=  /*html*/`
         
@@ -221,10 +218,10 @@ function taskContentHtML(index, task,) {
             <span>Date: ${task.date}</span>
             <span>Prio: ${task.Prio}</span>
             <span>Assigned to: ${task.Assigned}</span>
-            <span>Assigned to: ${contacts[index].name}</span>
-            <span>Assigned to: ${currentContacts()}</span>
-            <span>Subtasks: ${currentSubtasks(task)}</span>
-            
+            <!-- <span>Assigned to: ${contacts[index].name}</span>
+            // <span>Assigned to: ${currentContacts()}</span>-->
+            <!--<span>Subtasks: ${currentSubtasks(task)}</span>-->
+            <span>Subtasks: ${getSubtasks(task, index)}</span>
         </div>
         
     </div>
