@@ -97,6 +97,7 @@ input {
   display: flex;
   flex-direction: column;
   width: 252px;
+  margin: 32px;
 }
 
 .test2 {
@@ -150,11 +151,8 @@ input {
 
 .drag-area {
   height: 200px;
-  background-color: rgba(0, 0, 0, 0.1);
-  border: 1px dashed black;
   margin-bottom: 50px;
   display: flex;
-  align-items: flex-start;
   flex-direction: column;
 }
 
@@ -337,6 +335,7 @@ input {
   .dynamicDisplayFlex {
     display: flex;
     flex-direction: column;
+    align-items: space-between;
   }
 
   h1 {

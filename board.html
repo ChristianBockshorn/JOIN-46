@@ -74,7 +74,7 @@
                     </div>
 
                 </div>
-                <div class="drag-area" id="stateToDo" ondrop="moveTo('stateToDo')" ondragover="'allowDrop(${event})'" >
+                <div class="drag-area" id="stateToDo" ondrop="moveTo('stateToDo')" ondragover="'allowDrop(${event})'">
                     <div id="borderBoard"></div>
                 </div>
             </div>
@@ -96,58 +96,57 @@
                 <div class="drag-area" id="stateInProgress" ondrop="moveTo('stateInProgress')"
                     ondragover="allowDrop(event)">
                     <div id="borderBoard"></div>
-                </div>  
+                </div>
+            </div>
+        </div>
+
+
+        <div class="dynamicDisplayFlex">
+            <div class="flex">
+                <div class="test2">
+                    <p class="status-text">Await feedback</p>
+                    <div class="popup-container">
+                        <img class="standardImg" src="assets/images/plus_button.svg" alt="">
+                    </div>
+                </div>
+                <div class="test">
+                    <div class="no-to-do">
+                        <p>No Task To do</p>
+                    </div>
+                    <div id="borderBoard"></div>
+                </div>
+                <div class="drag-area" id="stateAwaitFeedback" ondrop="moveTo('stateAwaitFeedback')"
+                    ondragover="allowDrop(event)"></div>
             </div>
 
-            <div class="dynamicDisplayFlex">
-                <div class="flex">
-                    <div class="test2">
-                        <p class="status-text">Await feedback</p>
-                        <div class="popup-container">
+            <div class="flex">
+                <div class="test2">
+                    <p class="status-text">Done</p>
+                    <div>
+                        <div onclick="openModal('Done')" class="popup-container">
                             <img class="standardImg" src="assets/images/plus_button.svg" alt="">
                         </div>
                     </div>
-                    <div class="test">
-                        <div class="no-to-do">
-                            <p>No Task To do</p>
-                        </div>
-                        <div id="borderBoard"></div>
-                    </div>
-                    <div class="drag-area" id="stateAwaitFeedback" ondrop="moveTo('stateAwaitFeedback')"
-                        ondragover="allowDrop(event)"></div>
                 </div>
-
-
-                <div class="dynamicDisplayFlex">
-                    <div class="flex">
-                        <div class="test2">
-                            <p class="status-text">Done</p>
-                            <div>
-                                <div onclick="openModal('Done')" class="popup-container">
-                                    <img class="standardImg" src="assets/images/plus_button.svg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="test">
-                            <div class="no-to-do">
-                                <p>No Task To do</p>
-                            </div>
-                            <div id="borderBoard"></div>
-                        </div>
-                        <div class="drag-area" id="stateDone" ondrop="moveTo('stateDone')"
-                            ondragover="allowDrop(event)"></div>
+                <div class="test">
+                    <div class="no-to-do">
+                        <p>No Task To do</p>
                     </div>
-                    <div class="newTask"></div>
+                    <div id="borderBoard"></div>
+                </div>
+                <div class="drag-area" id="stateDone" ondrop="moveTo('stateDone')" ondragover="allowDrop(event)">
                 </div>
             </div>
-
+            <div class="newTask"></div>
         </div>
-        <div class="modal">
-            <div class="modal-content">
-                <div class="add-task-board">
-                </div>
+
+    </div>
+    <div class="modal">
+        <div class="modal-content">
+            <div class="add-task-board">
             </div>
         </div>
+    </div>
     </div>
     <div class="modal">
         <div class="modal-content">
