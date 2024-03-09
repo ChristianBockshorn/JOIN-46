@@ -17,7 +17,7 @@ function showUpdateUserDialog(i) {
 
 async function deleteUser(i) {
     let nr = parseInt(document.getElementById('del-btn').value);
-    if (typeof nr === "number") {
+    if(!i){
         i = nr;
     }
     contacts.splice(i, 1);
