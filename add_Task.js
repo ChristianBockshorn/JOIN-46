@@ -1,5 +1,6 @@
 let AllTask = [];
 let assignedPersons = [];
+let assignedPersonsNames = [];
 let k = 0;
 
 function activeBtn(btnId) {
@@ -33,7 +34,7 @@ function addTask() {
     let newTasks = {
         "title": title,
         "Description": description,
-        "Assigned": assignedPersons,
+        "Assigned": assignedPersonsNames,
         "date": date,
         "Prio": selectedPrio,
         "Category": selectElement,
@@ -159,6 +160,7 @@ function closeDDListWithOutsideClick() {
 // ausgewählte Person dem Speicher hinzufügen
 function addAssignedPerson(i) {
     assignedPersons.push(i);
+    assignedPersonsNames.push(contacts[i]['name']);
 }
 
 
