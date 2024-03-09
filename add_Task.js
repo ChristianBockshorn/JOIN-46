@@ -38,7 +38,7 @@ function addTask() {
         "Prio": selectedPrio,
         "Category": selectElement,
         "Subtasks": generateSubtasks(),
-        'state': 'todo',
+        'state': 'stateToDo',
         'id': generateUniqueId(),
         
     };

@@ -2,135 +2,115 @@
 <html lang="de">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy</title>
-    <link rel="stylesheet" href="positions.css">
-    <link rel="stylesheet" href="inter-font.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="summary.css">
-    <link rel="stylesheet" href="main.css">
-    <script src="/js/storage.js"></script>
-    <script src="add_Task.js"></script>
-    <script src="js/board.js"></script>
-    <script src="js/summary.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy</title>
+  <link rel="stylesheet" href="positions.css">
+  <link rel="stylesheet" href="inter-font.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="summary.css">
+  <link rel="stylesheet" href="main.css">
+  <script src="js/storage.js"></script>
+  <script src="add_Task.js"></script>
+  <script src="js/board.js"></script>
+  <script src="js/summary.js"></script>
 
 <body onload="includeHTML(), init()">
-    <div w3-include-html="/assets/templates/navbar_template.html"></div>
-    <div w3-include-html="/assets/templates/header_template.html"></div>
+   <!-- <div w3-include-html="/assets/templates/navbar_template.html"></div> -->
+  <div w3-include-html="/assets/templates/header_template.html"></div>
 
-    <section id="summaryContent" class="summaryContent">
-        <div class="summaryHead">
-          <h1>Join 360</h1>
-          <div class="sumHeadDevider"></div>
-          <span class="sumHeadSlogan">Key Metrics at a Glance</span>
-          <div class="sumHeadDeviderMobile"></div>
+  <section id="summaryContent" class="summaryContent">
+    <div class="summaryHead">
+      <h1>Join 360</h1>
+      <div class="sumHeadDevider"></div>
+      <span class="sumHeadSlogan">Key Metrics at a Glance</span>
+      <div class="sumHeadDeviderMobile"></div>
+    </div>
+    <div class="summaryMainContent">
+      <div class="summaryBoxes">
+        <div class="summaryBoxesTop">
+          <div class="summaryBox summaryBoxTop" onclick="location.href ='board.html'">
+            <div class="summaryBoxTopIcon">
+              <img class="summaryIcon" class="summaryBoxesTopIcons" src="./assets/icon/todoIcon.svg" alt="" />
+            </div>
+            <div class="summaryCountContainer">
+              <div class="summaryCountNum" id="todoCount">1</div>
+              <div class="summaryCountText">To-do</div>
+            </div>
+          </div>
+          <div class="summaryBox summaryBoxTop" onclick="location.href ='board.html'">
+            <div class="summaryBoxTopIcon">
+              <img class="summaryIcon" class="summaryBoxesTopIcons" src="./assets/icon/doneIcon.svg" alt="" />
+            </div>
+            <div class="summaryCountContainer">
+              <div class="summaryCountNum" id="doneCount">1</div>
+              <div class="summaryCountText">Done</div>
+            </div>
+          </div>
         </div>
-        <div class="summaryMainContent">
-          <div class="summaryBoxes">
-            <div class="summaryBoxesTop">
-              <div
-                class="summaryBox summaryBoxTop"
-                onclick="location.href ='board.html'"
-              >
-                <div class="summaryBoxTopIcon">
-                  <img class="summaryIcon"
-                    class="summaryBoxesTopIcons"
-                    src="./assets/icon/todoIcon.svg"alt=""/>
-                </div>
-                <div class="summaryCountContainer">
-                  <div class="summaryCountNum" id="todoCount">1</div>
-                  <div class="summaryCountText">To-do</div>
-                </div>
-              </div>
-              <div
-                class="summaryBox summaryBoxTop"
-                onclick="location.href ='board.html'"
-              >
-                <div class="summaryBoxTopIcon">
-                  <img class="summaryIcon"
-                    class="summaryBoxesTopIcons"
-                    src="./assets/icon/doneIcon.svg"alt=""/>
-                </div>
-                <div class="summaryCountContainer">
-                  <div class="summaryCountNum" id="doneCount">1</div>
-                  <div class="summaryCountText">Done</div>
-                </div>
-              </div>
+
+        <div class="summaryBox summaryBoxMid" onclick="location.href ='board.html'">
+          <div class="urgentIconCount">
+            <div class="summaryBoxMidIcon">
+              <img class="summaryIcon" src="./assets/icon/urgentIcon.svg" alt="" />
             </div>
-  
-            <div
-              class="summaryBox summaryBoxMid"
-              onclick="location.href ='board.html'"
-            >
-              <div class="urgentIconCount">
-                <div class="summaryBoxMidIcon">
-                  <img class="summaryIcon" src="./assets/icon/urgentIcon.svg" alt="" />
-                </div>
-                <div class="summaryCountContainer">
-                  <div class="summaryCountNum" id="urgentCount">1</div>
-                  <div class="summaryCountText">Urgent</div>
-                </div>
-              </div>
-              <div class="sumUrgentDevider"></div>
-              <div>
-                <div class="nextUrgentDate" id="nextUrgentDate">date</div>
-                <div class="nextUrgentDateText" id="nextUrgentDateText">
-                  Upcoming Deadline
-                </div>
-              </div>
+            <div class="summaryCountContainer">
+              <div class="summaryCountNum" id="urgentCount">1</div>
+              <div class="summaryCountText">Urgent</div>
             </div>
-  
-            <div class="summaryBoxesBottom">
-              <div
-                class="summaryBox summaryBoxBottom"
-                onclick="location.href ='board.html'"
-              >
-                <div class="summaryCountContainer">
-                  <div class="summaryCountNum" id="totalCount">1</div>
-                  <div class="summaryCountText">
-                    Tasks in <br />
-                    Board
-                  </div>
-                </div>
-              </div>
-              <div
-                class="summaryBox summaryBoxBottom"
-                onclick="location.href ='board.html'"
-              >
-                <div class="summaryCountContainer">
-                  <div class="summaryCountNum" id="progressCount">1</div>
-                  <div class="summaryCountText">
-                    Tasks in <br />
-                    Progress
-                  </div>
-                </div>
-              </div>
-              <div
-                class="summaryBox summaryBoxBottom"
-                onclick="location.href ='board.html'"
-              >
-                <div class="summaryCountContainer">
-                  <div class="summaryCountNum" id="feedbackCount">1</div>
-                  <div class="summaryCountText">
-                    Awaiting <br />
-                    Feedback
-                  </div>
-                </div>
+          </div>
+          <div class="sumUrgentDevider"></div>
+          <div>
+            <div class="nextUrgentDate" id="nextUrgentDate">date</div>
+            <div class="nextUrgentDateText" id="nextUrgentDateText">
+              Upcoming Deadline
+            </div>
+          </div>
+        </div>
+
+        <div class="summaryBoxesBottom">
+          <div class="summaryBox summaryBoxBottom" onclick="location.href ='board.html'">
+            <div class="summaryCountContainer">
+              <div class="summaryCountNum" id="totalCount">1</div>
+              <div class="summaryCountText">
+                Tasks in <br />
+                Board
               </div>
             </div>
           </div>
-  
-          <div class="userGreet">
-            <div id="timedGreeting"></div>
-            <div id="logedinUser"></div>
+          <div class="summaryBox summaryBoxBottom" onclick="location.href ='board.html'">
+            <div class="summaryCountContainer">
+              <div class="summaryCountNum" id="progressCount">1</div>
+              <div class="summaryCountText">
+                Tasks in <br />
+                Progress
+              </div>
+            </div>
+          </div>
+          <div class="summaryBox summaryBoxBottom" onclick="location.href ='board.html'">
+            <div class="summaryCountContainer">
+              <div class="summaryCountNum" id="feedbackCount">1</div>
+              <div class="summaryCountText">
+                Awaiting <br />
+                Feedback
+              </div>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
+
+      <div class="userGreet">
+        <div id="timedGreeting"></div>
+        <div id="logedinUser"></div>
+      </div>
       <section id="mobileGreet">
         <div id="mobileTimedGreeting"></div>
         <div id="mobileLogedinUser"></div>
       </section>
+    </div>
+
+  </section>
+
 
 
 

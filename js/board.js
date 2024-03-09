@@ -103,7 +103,7 @@ async function updateHTML() {
     await init();
 
     //To Do---------------------------------
-    let stateToDo = AllTask.filter(task => task['state'] == 'todo');
+    let stateToDo = AllTask.filter(task => task['state'] == 'stateToDo');
 
     document.getElementById('stateToDo').innerHTML = '';
     for (let index = 0; index < stateToDo.length; index++) {
@@ -114,7 +114,7 @@ async function updateHTML() {
     }
 
     //In Progress---------------------------------
-    let stateInProgress = AllTask.filter(task => task['state'] == 'inProgress');
+    let stateInProgress = AllTask.filter(task => task['state'] == 'stateInProgress');
 
     document.getElementById('stateInProgress').innerHTML = '';
 
@@ -125,7 +125,7 @@ async function updateHTML() {
     }
 
     //Await feedback---------------------------------
-    let stateAwaitFeedback = AllTask.filter(task => task['state'] == 'awaitFeedback');
+    let stateAwaitFeedback = AllTask.filter(task => task['state'] == 'stateAwaitFeedback');
 
     document.getElementById('stateAwaitFeedback').innerHTML = '';
 
@@ -136,7 +136,7 @@ async function updateHTML() {
     }
 
     //Done---------------------------------
-    let stateDone = AllTask.filter(task => task['state'] == 'done');
+    let stateDone = AllTask.filter(task => task['state'] == 'stateDone');
 
     document.getElementById('stateDone').innerHTML = '';
 

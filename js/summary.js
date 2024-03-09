@@ -3,6 +3,7 @@ users = [];
 
 
 async function init() {
+  loadAllTasks();
   await includeHTML();
   await loadData();
   renderSummaryConten();
@@ -139,7 +140,7 @@ function getLoggedInUser() {
 
 
 function greetUser() {
-  let isUserLoggedIn = false;
+  let isUserLoggedIn = true;
   let user = getLoggedInUser();
   if (user) {
     document.getElementById("logedinUser").innerHTML = user;
