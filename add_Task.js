@@ -108,7 +108,7 @@ function searchPattern() {
         let initials = contacts_Temp[i]['initials'];
         let name = contacts_Temp[i]['name'];
         let contactsIndex = contacts.findIndex(c => c.name == `${name}`);
-        let color = contacts[i]['usercolor'];
+        let color = contacts_Temp[i]['usercolor'];
         if (assignedPersons.find(element => element == contactsIndex) == contactsIndex) {
             ddfield.innerHTML += template_InlineFieldChecked(name, initials, contactsIndex, color);
         }
