@@ -201,7 +201,6 @@ function openDetailTask(index) {
 function taskContentHtML(index, task) {
     let taskContent = document.getElementById('addtask-dialog');
     taskContent.innerHTML = '';
-    getIndexPosition = 
     getAssignedUser(task, index);
     taskContent.innerHTML +=  /*html*/`
         
