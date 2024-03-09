@@ -63,7 +63,7 @@ function getAssignedUser(element, index) {
     let assignedUsersField = document.getElementById(`selected-assigned-user${index}`);
     assignedUsersField.innerHTML = 'Assigned To:<br>';
     for (let i = 0; i < assignedUsers.length; i++) {
-        let assignedUserID = assignedUsers[i];
+        let assignedUserID = contacts.findIndex(x => x.name == assignedUsers[i]);
         let assignedUserName = contacts[assignedUserID]['name'];
         let assignedUserColor = contacts[assignedUserID]['usercolor'];
         let assignedUserInitials = contacts[assignedUserID]['initials'];
