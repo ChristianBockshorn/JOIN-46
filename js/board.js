@@ -100,10 +100,10 @@ function checkIfSubtaskIsDone(index, i) {
 }
 
 function getIndexPosition(element){
-    console.log(element);
+    // console.log(element);
     let searchWord = element.title;
     let indexPosition = AllTask.findIndex(task => task.title == searchWord)
-    console.log(indexPosition);
+    // console.log(indexPosition);
     return indexPosition;
 }
 
@@ -179,7 +179,8 @@ function moveTo(category) {
 
     if (taskIndex !== -1) {
         AllTask[taskIndex].state = category;
-
+        let updatedTasksAsString = JSON.stringify(AllTask);
+        setItem('AllTask',updatedTasksAsString);
     } else {
         console.error("Task not found in AllTask array");
     }
