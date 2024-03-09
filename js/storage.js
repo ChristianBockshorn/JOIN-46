@@ -116,8 +116,11 @@ async function getData() {
         return user;
     }
 
-    function loadAllTasks() {
-        let AllTaskAsString = localStorage.getItem('AllTask');
-        AllTask = JSON.parse(AllTaskAsString);
+    async function loadAllTasks() {
+        // let AllTaskAsString = localStorage.getItem('AllTask');
+        let AllTaskAsString = await getItem('AllTask');
+        console.log(AllTaskAsString);
+        let respons = AllTaskAsString['data']['value'];
+        AllTask = JSON.parse(respons);
         console.log('loaded task', AllTask);
     }
