@@ -43,7 +43,11 @@ function generateHtmlContent(element, index, f) {
             <span class="taskCategory">${element.Category}</span>
             <h3 class="taskTitle">${element.title}</h3>
             <span class="taskDescription">${element.Description}</span>
-            <span class="d-flex ai-start fd-column gap-8" id="selected-assigned-user${f}"></span>
+            <div>Assigned To:
+                <div class="pad-l-16">
+                    <span class="stapled-icons" id="selected-assigned-user-small${f}"></span>
+                </div>
+            </div>
             <span>Date: ${element.date}</span>
             <span>Prio: ${element.Prio}</span>
             <!--<span class="d-flex ai-start fd-column gap-8" id="subtasks-view${index}"></span>-->
@@ -55,6 +59,27 @@ function generateHtmlContent(element, index, f) {
 async function init() {
     await loadAllTasks();
     await getData();
+}
+
+
+
+function getAssignedUserSmall(element, indexPosition) {
+    let assignedUsers = element['Assigned'];
+    let assignedUsersField = document.getElementById(`selected-assigned-user-small${indexPosition}`);
+    for (let i = 0; i < assignedUsers.length; i++) {
+        let assignedUserID = contacts.findIndex(x => x.name == assignedUsers[i]);
+        let assignedUserColor = contacts[assignedUserID]['usercolor'];
+        let assignedUserInitials = contacts[assignedUserID]['initials'];
+        assignedUsersField.innerHTML += template_AssignedUsersSmall(assignedUserColor, assignedUserInitials);
+    }
+}
+
+
+function template_AssignedUsersSmall(assignedUserColor, assignedUserInitials) {
+    return `
+        <div class="stapled-icons">
+            <div style="background-color:${assignedUserColor}" class="initialscirclecontact d-flex center">${assignedUserInitials}</div>
+        </div>`;
 }
 
 
@@ -115,7 +140,7 @@ function renderStateToDo(stateToDo) {
         // console.log(element);
         let indexPosition = getIndexPosition(element);
         document.getElementById('stateToDo').innerHTML += generateHtmlContent(element, index, indexPosition);
-        getAssignedUser(element, indexPosition);
+        getAssignedUserSmall(element, indexPosition);
     }
 }
 
@@ -125,10 +150,10 @@ async function updateHTML() {
 
     //To Do---------------------------------
     let stateToDo = AllTask.filter(task => task['state'] == 'stateToDo');
-    if(stateToDo.length >= 1 ){
+    if (stateToDo.length >= 1) {
         renderStateToDo(stateToDo);
         console.log(stateToDo);
-    }else{
+    } else {
         console.log('keinn Task mit state To Do');
     }
 
@@ -141,7 +166,7 @@ async function updateHTML() {
         const element = stateInProgress[index];
         let indexPosition = getIndexPosition(element);
         document.getElementById('stateInProgress').innerHTML += generateHtmlContent(element, index, indexPosition);
-        getAssignedUser(element, indexPosition);
+        getAssignedUserSmall(element, indexPosition);
     }
 
     //Await feedback---------------------------------
@@ -153,7 +178,7 @@ async function updateHTML() {
         const element = stateAwaitFeedback[index];
         let indexPosition = getIndexPosition(element);
         document.getElementById('stateAwaitFeedback').innerHTML += generateHtmlContent(element, index, indexPosition);
-        getAssignedUser(element, indexPosition);
+        getAssignedUserSmall(element, indexPosition);
     }
 
     //Done---------------------------------
@@ -165,7 +190,7 @@ async function updateHTML() {
         const element = stateDone[index];
         let indexPosition = getIndexPosition(element);
         document.getElementById('stateDone').innerHTML += generateHtmlContent(element, index, indexPosition);
-        getAssignedUser(element, indexPosition);
+        getAssignedUserSmall(element, indexPosition);
     }
 }
 
@@ -265,6 +290,9 @@ function template_AssignedUsers(assignedUserColor, assignedUserInitials, assigne
             <div>${assignedUserName}</div>
         </div>`;
 }
+
+
+
 
 
 function template_SubtasksShow(subtask, i, index, state) {
