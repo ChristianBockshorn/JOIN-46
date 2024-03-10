@@ -46,7 +46,7 @@ function generateHtmlContent(element, index, f) {
             <span class="d-flex ai-start fd-column gap-8" id="selected-assigned-user${f}"></span>
             <span>Date: ${element.date}</span>
             <span>Prio: ${element.Prio}</span>
-            <span class="d-flex ai-start fd-column gap-8" id="subtasks-view${index}"></span>
+            <!--<span class="d-flex ai-start fd-column gap-8" id="subtasks-view${index}"></span>-->
         </div>
     `;
 }
@@ -91,21 +91,32 @@ function getSubtasks(element, index) {
     }
 }
 
-function checkIfSubtaskIsDone(index, i) {
+async function checkIfSubtaskIsDone(index, i) {
     let selectetTask = AllTask[index]['Subtasks'][i]['stateDone'];
     selectetTask = !selectetTask;
     AllTask[index]['Subtasks'][i]['stateDone'] = selectetTask;
     var jsonString = JSON.stringify(AllTask);
     localStorage.setItem('AllTask', jsonString);
-    // setItem('AllTask', jsonString);
+    await setItem('AllTask', jsonString);
 }
 
-function getIndexPosition(element){
+function getIndexPosition(element) {
     // console.log(element);
     let searchWord = element.title;
     let indexPosition = AllTask.findIndex(task => task.title == searchWord)
     // console.log(indexPosition);
     return indexPosition;
+}
+
+function renderStateToDo(stateToDo) {
+    document.getElementById('stateToDo').innerHTML = '';
+    for (let index = 0; index < stateToDo.length; index++) {
+        const element = stateToDo[index];
+        // console.log(element);
+        let indexPosition = getIndexPosition(element);
+        document.getElementById('stateToDo').innerHTML += generateHtmlContent(element, index, indexPosition);
+        getAssignedUser(element, indexPosition);
+    }
 }
 
 
@@ -114,14 +125,11 @@ async function updateHTML() {
 
     //To Do---------------------------------
     let stateToDo = AllTask.filter(task => task['state'] == 'stateToDo');
-
-    document.getElementById('stateToDo').innerHTML = '';
-    for (let index = 0; index < stateToDo.length; index++) {
-        const element = stateToDo[index];
-        // console.log(element);
-        let indexPosition = getIndexPosition(element);
-        document.getElementById('stateToDo').innerHTML += generateHtmlContent(element, index, indexPosition);
-        getAssignedUser(element, indexPosition);
+    if(stateToDo.length >= 1 ){
+        renderStateToDo(stateToDo);
+        console.log(stateToDo);
+    }else{
+        console.log('kann Task mit state To Do');
     }
 
     //In Progress---------------------------------
@@ -132,7 +140,7 @@ async function updateHTML() {
     for (let index = 0; index < stateInProgress.length; index++) {
         const element = stateInProgress[index];
         let indexPosition = getIndexPosition(element);
-        document.getElementById('stateInProgress').innerHTML += generateHtmlContent(element, index,indexPosition);
+        document.getElementById('stateInProgress').innerHTML += generateHtmlContent(element, index, indexPosition);
         getAssignedUser(element, indexPosition);
     }
 
@@ -176,7 +184,7 @@ async function moveTo(category) {
     if (taskIndex !== -1) {
         AllTask[taskIndex].state = category;
         let updatedTasksAsString = JSON.stringify(AllTask);
-        await setItem('AllTask',updatedTasksAsString);
+        await setItem('AllTask', updatedTasksAsString);
     } else {
         console.error("Task not found in AllTask array");
     }
@@ -196,6 +204,7 @@ function closeTask() {
 function openDetailTask(index) {
     let task = AllTask[index];
     taskContentHtML(index, task);
+    getSubtasks(task, index);
 }
 
 function taskContentHtML(index, task) {
@@ -220,7 +229,7 @@ function taskContentHtML(index, task) {
             <!-- <span>Assigned to: ${contacts[index].name}</span>
             // <span>Assigned to: ${currentContacts()}</span>-->
             <!--<span>Subtasks: ${currentSubtasks(task)}</span>-->
-            <span>Subtasks: ${getSubtasks(task, index)}</span>
+            <span class="d-flex ai-start fd-column gap-8" id="subtasks-view${index}"></span>
         </div>
         
     </div>
