@@ -134,7 +134,6 @@ function getIndexPosition(element) {
 }
 
 function renderStateToDo(stateToDo) {
-    document.getElementById('stateToDo').innerHTML = '';
     for (let index = 0; index < stateToDo.length; index++) {
         const element = stateToDo[index];
         // console.log(element);
@@ -150,11 +149,12 @@ async function updateHTML() {
 
     //To Do---------------------------------
     let stateToDo = AllTask.filter(task => task['state'] == 'stateToDo');
+    document.getElementById('stateToDo').innerHTML = '';
     if (stateToDo.length >= 1) {
         renderStateToDo(stateToDo);
         console.log(stateToDo);
     } else {
-        console.log('keinn Task mit state To Do');
+        console.log('kein Task mit state To Do');
     }
 
     //In Progress---------------------------------
