@@ -227,6 +227,8 @@ input {
 }
 
 .taskDetail {
+  width: 525px;
+  height: 931px;
   background-color: white;
   border: 1px solid lightgrey;
   border-radius: 20px;
@@ -236,7 +238,7 @@ input {
 .borderBoardDetailTask {
   display: flex;
   flex-direction: column;
-  width: 300px;
+  /* width: 300px; */
 }
 
 .taskTitleDetail {
