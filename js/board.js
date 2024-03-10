@@ -170,13 +170,13 @@ function allowDrop(ev) {
 
 }
 
-function moveTo(category) {
+async function moveTo(category) {
     const taskIndex = AllTask.findIndex(task => task.id === currentDraggedElement);
 
     if (taskIndex !== -1) {
         AllTask[taskIndex].state = category;
         let updatedTasksAsString = JSON.stringify(AllTask);
-        setItem('AllTask',updatedTasksAsString);
+        await setItem('AllTask',updatedTasksAsString);
     } else {
         console.error("Task not found in AllTask array");
     }
