@@ -3,21 +3,21 @@ users = [];
 
 
 async function init() {
-  loadAllTasks();
+  await loadAllTasks();
   await includeHTML();
-  await loadData();
+  // await loadData();
   renderSummaryConten();
 }
 
 
-async function loadData() {
-  try {
-    tasks = JSON.parse(await getItem('tasks'));
-    users = JSON.parse(await getItem('users'));
-  } catch (e) {
-    console.error('Loading Data error:', e);
-  }
-}
+// async function loadData() {
+//   try {
+//     tasks = JSON.parse(await getItem('tasks'));
+//     users = JSON.parse(await getItem('users'));
+//   } catch (e) {
+//     console.error('Loading Data error:', e);
+//   }
+// }
 
 
 let todoCounts = {
@@ -50,7 +50,7 @@ function loadeCount() {
   document.getElementById("urgentCount").innerHTML = todoCounts.urgentPriority;
   document.getElementById("nextUrgentDate").innerHTML =
     todoCounts.closestDueDateForUrgent;
-  document.getElementById("totalCount").innerHTML = tasks.length;
+  document.getElementById("totalCount").innerHTML = AllTask.length;
 }
 
 function countTodos(tasks) {
