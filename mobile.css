@@ -84,9 +84,6 @@
 }
 
 @media (max-width: 1050px){
-    .navbar{
-        display: none;
-    }
     .contact-content {
         margin-left: 0;
     }
@@ -106,9 +103,6 @@
         display: none;
     }
 
-    .navbar {
-        display: none;
-    }
 }
 
 @media (max-width: 800px) {
@@ -182,10 +176,6 @@
 
 
 @media (max-width: 428px) {
-
-    .navdnone {
-        display: none;
-    }
 
     body {
         background-color: rgba(246, 247, 248, 1);
@@ -333,22 +323,6 @@
         top: 50px;
         left: 42px;
     } */
-
-    .navbar {
-        display: none;
-    }
-
-    .nav-logo {
-        display: none;
-    }
-
-    .nav-main {
-        display: none;
-    }
-
-    .nav-footer {
-        display: none;
-    }
 
     .contacts-btn-box {
         display: none !important;
