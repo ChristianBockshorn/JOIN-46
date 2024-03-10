@@ -112,8 +112,14 @@ async function getData() {
     // den eingeloggten Benutzer aus dem localStorage holen und via Return übergeben
     function getLoggedInUser() {
         let loggedin = JSON.parse(localStorage.getItem('logged'));
-        let user = loggedin[0]['name'];
-        return user;
+        if(loggedin){
+            console.log(loggedin);
+            let user = loggedin[0]['name'];
+            return user;
+        }else{
+            console.error('Aktuell ist kein Benutzer angemeldet');
+            return false;
+        }
     }
 
     async function loadAllTasks() {
