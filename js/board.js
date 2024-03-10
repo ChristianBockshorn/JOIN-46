@@ -129,7 +129,7 @@ async function updateHTML() {
         renderStateToDo(stateToDo);
         console.log(stateToDo);
     }else{
-        console.log('kann Task mit state To Do');
+        console.log('keinn Task mit state To Do');
     }
 
     //In Progress---------------------------------
@@ -205,12 +205,12 @@ function openDetailTask(index) {
     let task = AllTask[index];
     taskContentHtML(index, task);
     getSubtasks(task, index);
+    getAssignedUser(task, index);
 }
 
 function taskContentHtML(index, task) {
     let taskContent = document.getElementById('addtask-dialog');
     taskContent.innerHTML = '';
-    getAssignedUser(task, index);
     taskContent.innerHTML +=  /*html*/`
         
     <div class="borderBoardDetailTask">
@@ -225,10 +225,9 @@ function taskContentHtML(index, task) {
         <div class="detailDatePrioAssigned">
             <span>Date: ${task.date}</span>
             <span>Prio: ${task.Prio}</span>
-            <span>Assigned to: ${task.Assigned}</span>
-            <!-- <span>Assigned to: ${contacts[index].name}</span>
-            // <span>Assigned to: ${currentContacts()}</span>-->
-            <!--<span>Subtasks: ${currentSubtasks(task)}</span>-->
+            <span class="d-flex ai-start fd-column gap-8" id="selected-assigned-user${index}"></span>
+            
+
             <span class="d-flex ai-start fd-column gap-8" id="subtasks-view${index}"></span>
         </div>
         
