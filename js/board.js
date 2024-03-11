@@ -140,9 +140,17 @@ function getIndexPosition(element) {
 function renderStateToDo(stateToDo) {
     for (let index = 0; index < stateToDo.length; index++) {
         const element = stateToDo[index];
-        // console.log(element);
         let indexPosition = getIndexPosition(element);
         document.getElementById('stateToDo').innerHTML += generateHtmlContent(element, index, indexPosition);
+        getAssignedUserSmall(element, indexPosition);
+    }
+}
+
+function renderStateInProgress(stateInProgress) {
+    for (let index = 0; index < stateInProgress.length; index++) {
+        const element = stateInProgress[index];
+        let indexPosition = getIndexPosition(element);
+        document.getElementById('stateInProgress').innerHTML += generateHtmlContent(element, index, indexPosition);
         getAssignedUserSmall(element, indexPosition);
     }
 }
@@ -166,15 +174,18 @@ async function updateHTML() {
 
     //In Progress---------------------------------
     let stateInProgress = AllTask.filter(task => task['state'] == 'stateInProgress');
-
     document.getElementById('stateInProgress').innerHTML = '';
 
-    for (let index = 0; index < stateInProgress.length; index++) {
-        const element = stateInProgress[index];
-        let indexPosition = getIndexPosition(element);
-        document.getElementById('stateInProgress').innerHTML += generateHtmlContent(element, index, indexPosition);
-        getAssignedUserSmall(element, indexPosition);
+    if (stateInProgress >= 0) {
+        renderStateInProgress(stateInProgress);
+        console.log(stateInProgress);
+        noToDoDiv.style.display = 'none'; //Ausblenden des grauen Platzhalters "No Task To do"
+    } else {
+        console.log('kein Task mit state In progress');
+        noToDoDiv.style.display = 'block'; //Einblenden des grauen Platzhalters "No Task To do"
     }
+
+
 
     //Await feedback---------------------------------
     let stateAwaitFeedback = AllTask.filter(task => task['state'] == 'stateAwaitFeedback');
