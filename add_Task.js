@@ -24,7 +24,7 @@ function activeBtn(btnId) {
 // }
 
 
-function addTask() {
+async function addTask() {
     let title = document.getElementById('title').value;
     let description = document.getElementById('description').value;
     let date = document.getElementById('date').value;
@@ -51,7 +51,7 @@ function addTask() {
     existingTasks.push(newTasks);
     let updatedTasksAsString = JSON.stringify(existingTasks);
     // localStorage.setItem('AllTask', updatedTasksAsString);
-    setItem('AllTask',updatedTasksAsString);
+    await setItem('AllTask',updatedTasksAsString);
     // Das AllTask-Array für den sofortigen Gebrauch aktualisieren
     AllTask = existingTasks;
 
