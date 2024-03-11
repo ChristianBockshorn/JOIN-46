@@ -182,7 +182,7 @@ async function updateHTML() {
     let stateToDo = AllTask.filter(task => task['state'] == 'stateToDo');
     document.getElementById('stateToDo').innerHTML = '';
 
-    if (stateToDo.length >= 0) {
+    if (stateToDo.length >= 1) {
         renderStateToDo(stateToDo);
         console.log(stateToDo);
         noToDoDiv.style.display = 'none'; //Ausblenden des grauen Platzhalters "No Task To do"
@@ -195,7 +195,7 @@ async function updateHTML() {
     let stateInProgress = AllTask.filter(task => task['state'] == 'stateInProgress');
     document.getElementById('stateInProgress').innerHTML = '';
 
-    if (stateInProgress >= 0) {
+    if (stateInProgress >= 1) {
         renderStateInProgress(stateInProgress);
         console.log(stateInProgress);
         noToDoDiv.style.display = 'none'; //Ausblenden des grauen Platzhalters "No Task To do"
@@ -208,7 +208,7 @@ async function updateHTML() {
     let stateAwaitFeedback = AllTask.filter(task => task['state'] == 'stateAwaitFeedback');
     document.getElementById('stateAwaitFeedback').innerHTML = '';
 
-    if (stateAwaitFeedback >= 0) {
+    if (stateAwaitFeedback >= 1) {
         renderStateAwaitFeedback(stateAwaitFeedback);
         console.log(stateAwaitFeedback);
         noToDoDiv.style.display = 'none'; //Ausblenden des grauen Platzhalters "No Task To do"
@@ -221,7 +221,7 @@ async function updateHTML() {
     let stateDone = AllTask.filter(task => task['state'] == 'stateDone');
     document.getElementById('stateDone').innerHTML = '';
 
-    if (stateDone >= 0) {
+    if (stateDone >= 1) {
         renderStateAwaitFeedback(stateDone);
         console.log(stateDone);
         noToDoDiv.style.display = 'none'; //Ausblenden des grauen Platzhalters "No Task To do"
