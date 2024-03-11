@@ -47,7 +47,6 @@ async function addTask() {
     // Überprüfen, ob bereits Aufgaben im AllTask-Array vorhanden sind
     // let existingTasksAsString = localStorage.getItem('AllTask');
     let existingTasksAsString = JSON.stringify(AllTask);
-    console.log(existingTasksAsString);
     let existingTasks = existingTasksAsString ? JSON.parse(existingTasksAsString) : [];
     // Die neue Aufgabe an das vorhandene Array anhängen oder ein neues Array mit der Aufgabe initialisieren
     existingTasks.push(newTasks);
