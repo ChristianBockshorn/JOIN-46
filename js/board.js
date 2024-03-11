@@ -222,7 +222,7 @@ async function updateHTML() {
     document.getElementById('stateDone').innerHTML = '';
 
     if (stateDone.length >= 1) {
-        renderStateAwaitFeedback(stateDone);
+        renderStateDone(stateDone);
         console.log(stateDone);
         noToDoDiv.style.display = 'none'; //Ausblenden des grauen Platzhalters "No Task To do"
     } else {
