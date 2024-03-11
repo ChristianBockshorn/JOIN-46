@@ -181,8 +181,8 @@ async function updateHTML() {
     //To Do---------------------------------
     let stateToDo = AllTask.filter(task => task['state'] == 'stateToDo');
     document.getElementById('stateToDo').innerHTML = '';
-    
-    if (stateToDo.length >= 1) {
+
+    if (stateToDo.length >= 0) {
         renderStateToDo(stateToDo);
         console.log(stateToDo);
         noToDoDiv.style.display = 'none'; //Ausblenden des grauen Platzhalters "No Task To do"
