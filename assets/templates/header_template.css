@@ -22,6 +22,10 @@ p {
     font-size: 18px;
 }
 
+.headerLogoDark{
+    display: none;
+}
+
 .header-description {
     margin-left: 64px;
 }
@@ -115,5 +119,11 @@ p {
 
     to {
         opacity: 1;
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .headerLogoDark {
+        display: block;
     }
 }
