@@ -299,6 +299,10 @@ footer span::before {
 
     .jc-sb {
         justify-content: flex-start;
-        
+
+    }
+
+    .pos-li-buttons {
+        margin-left: 75px;
     }
 }
