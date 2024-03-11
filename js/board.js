@@ -146,6 +146,7 @@ function renderStateToDo(stateToDo) {
 
 async function updateHTML() {
     await init();
+    let noToDoDiv = document.querySelector('.no-to-do');
 
     //To Do---------------------------------
     let stateToDo = AllTask.filter(task => task['state'] == 'stateToDo');
@@ -153,8 +154,10 @@ async function updateHTML() {
     if (stateToDo.length >= 1) {
         renderStateToDo(stateToDo);
         console.log(stateToDo);
+        noToDoDiv.style.display = 'none'; //Ausblenden des grauen Platzhalters "No Task To do"
     } else {
         console.log('kein Task mit state To Do');
+        noToDoDiv.style.display = 'block'; //Einblenden des grauen Platzhalters "No Task To do"
     }
 
     //In Progress---------------------------------
