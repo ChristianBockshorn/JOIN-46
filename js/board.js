@@ -68,9 +68,13 @@ function getAssignedUserSmall(element, indexPosition) {
     let assignedUsersField = document.getElementById(`selected-assigned-user-small${indexPosition}`);
     for (let i = 0; i < assignedUsers.length; i++) {
         let assignedUserID = contacts.findIndex(x => x.name == assignedUsers[i]);
-        let assignedUserColor = contacts[assignedUserID]['usercolor'];
-        let assignedUserInitials = contacts[assignedUserID]['initials'];
-        assignedUsersField.innerHTML += template_AssignedUsersSmall(assignedUserColor, assignedUserInitials);
+        if (assignedUserID !== -1 && contacts[assignedUserID]) {
+            let assignedUserColor = contacts[assignedUserID]['usercolor'];
+            let assignedUserInitials = contacts[assignedUserID]['initials'];
+            assignedUsersField.innerHTML += template_AssignedUsersSmall(assignedUserColor, assignedUserInitials);
+        } else {
+            console.error(`Kontakt mit dem Namen ${assignedUsers[i]} nicht gefunden.`);
+        }
     }
 }
 
