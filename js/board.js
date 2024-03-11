@@ -68,9 +68,13 @@ function getAssignedUserSmall(element, indexPosition) {
     let assignedUsersField = document.getElementById(`selected-assigned-user-small${indexPosition}`);
     for (let i = 0; i < assignedUsers.length; i++) {
         let assignedUserID = contacts.findIndex(x => x.name == assignedUsers[i]);
-        let assignedUserColor = contacts[assignedUserID]['usercolor'];
-        let assignedUserInitials = contacts[assignedUserID]['initials'];
-        assignedUsersField.innerHTML += template_AssignedUsersSmall(assignedUserColor, assignedUserInitials);
+        if (assignedUserID !== -1 && contacts[assignedUserID]) {
+            let assignedUserColor = contacts[assignedUserID]['usercolor'];
+            let assignedUserInitials = contacts[assignedUserID]['initials'];
+            assignedUsersField.innerHTML += template_AssignedUsersSmall(assignedUserColor, assignedUserInitials);
+        } else {
+            console.error(`Kontakt mit dem Namen ${assignedUsers[i]} nicht gefunden.`);
+        }
     }
 }
 
@@ -136,9 +140,17 @@ function getIndexPosition(element) {
 function renderStateToDo(stateToDo) {
     for (let index = 0; index < stateToDo.length; index++) {
         const element = stateToDo[index];
-        // console.log(element);
         let indexPosition = getIndexPosition(element);
         document.getElementById('stateToDo').innerHTML += generateHtmlContent(element, index, indexPosition);
+        getAssignedUserSmall(element, indexPosition);
+    }
+}
+
+function renderStateInProgress(stateInProgress) {
+    for (let index = 0; index < stateInProgress.length; index++) {
+        const element = stateInProgress[index];
+        let indexPosition = getIndexPosition(element);
+        document.getElementById('stateInProgress').innerHTML += generateHtmlContent(element, index, indexPosition);
         getAssignedUserSmall(element, indexPosition);
     }
 }
@@ -146,6 +158,7 @@ function renderStateToDo(stateToDo) {
 
 async function updateHTML() {
     await init();
+    let noToDoDiv = document.querySelector('.no-to-do');
 
     //To Do---------------------------------
     let stateToDo = AllTask.filter(task => task['state'] == 'stateToDo');
@@ -153,21 +166,26 @@ async function updateHTML() {
     if (stateToDo.length >= 1) {
         renderStateToDo(stateToDo);
         console.log(stateToDo);
+        noToDoDiv.style.display = 'none'; //Ausblenden des grauen Platzhalters "No Task To do"
     } else {
         console.log('kein Task mit state To Do');
+        noToDoDiv.style.display = 'block'; //Einblenden des grauen Platzhalters "No Task To do"
     }
 
     //In Progress---------------------------------
     let stateInProgress = AllTask.filter(task => task['state'] == 'stateInProgress');
-
     document.getElementById('stateInProgress').innerHTML = '';
 
-    for (let index = 0; index < stateInProgress.length; index++) {
-        const element = stateInProgress[index];
-        let indexPosition = getIndexPosition(element);
-        document.getElementById('stateInProgress').innerHTML += generateHtmlContent(element, index, indexPosition);
-        getAssignedUserSmall(element, indexPosition);
+    if (stateInProgress >= 0) {
+        renderStateInProgress(stateInProgress);
+        console.log(stateInProgress);
+        noToDoDiv.style.display = 'none'; //Ausblenden des grauen Platzhalters "No Task To do"
+    } else {
+        console.log('kein Task mit state In progress');
+        noToDoDiv.style.display = 'block'; //Einblenden des grauen Platzhalters "No Task To do"
     }
+
+
 
     //Await feedback---------------------------------
     let stateAwaitFeedback = AllTask.filter(task => task['state'] == 'stateAwaitFeedback');

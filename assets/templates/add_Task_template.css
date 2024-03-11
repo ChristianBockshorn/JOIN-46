@@ -84,7 +84,7 @@ input::placeholder {
     background: linear-gradient(#f9f9f9, #f0f0f0);
 }
 
-.dd-line-dark{
+.dd-line-dark {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -95,7 +95,7 @@ input::placeholder {
     background-color: rgba(42, 54, 71, 1);
 }
 
-.dd-line-dark:hover{
+.dd-line-dark:hover {
     background-color: rgba(9, 25, 49, 1);
 }
 
@@ -267,4 +267,42 @@ input::placeholder {
 footer span::before {
     content: "*";
     color: #FF8190;
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 1050px) {
+    .middle-seperator {
+        display: none;
+    }
+
+    .right-column {
+        margin-top: -58px;
+    }
+
+    .main {
+        margin-top: 125px;
+        margin-bottom: 400px;
+    }
+
+    .margin-bottom-80 {
+        margin-bottom: -295px;
+    }
+
+    .btn-clear{
+        display: none;
+    }
+
+    .jc-sb {
+        justify-content: flex-start;
+
+    }
+
+    .pos-li-buttons {
+        margin-left: 75px;
+    }
 }
