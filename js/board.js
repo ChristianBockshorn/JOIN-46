@@ -193,41 +193,44 @@ async function updateHTML() {
 
     //In Progress---------------------------------
     let stateInProgress = AllTask.filter(task => task['state'] == 'stateInProgress');
+    let noToDoDivInProgress = document.querySelector('.no-to-do-InProgress');
     document.getElementById('stateInProgress').innerHTML = '';
 
     if (stateInProgress.length >= 1) {
         renderStateInProgress(stateInProgress);
         console.log(stateInProgress);
-        noToDoDiv.style.display = 'none'; //Ausblenden des grauen Platzhalters "No Task To do"
+        noToDoDivInProgress.style.display = 'none'; //Ausblenden des grauen Platzhalters "No Task To do"
     } else {
         console.log('kein Task mit state In progress');
-        noToDoDiv.style.display = 'block'; //Einblenden des grauen Platzhalters "No Task To do"
+        noToDoDivInProgress.style.display = 'block'; //Einblenden des grauen Platzhalters "No Task To do"
     }
 
     //Await feedback---------------------------------
     let stateAwaitFeedback = AllTask.filter(task => task['state'] == 'stateAwaitFeedback');
+    let noToDoDivAwaitFeedback = document.querySelector('.no-to-do-AwaitFeedback');
     document.getElementById('stateAwaitFeedback').innerHTML = '';
 
     if (stateAwaitFeedback.length >= 1) {
         renderStateAwaitFeedback(stateAwaitFeedback);
         console.log(stateAwaitFeedback);
-        noToDoDiv.style.display = 'none'; //Ausblenden des grauen Platzhalters "No Task To do"
+        noToDoDivAwaitFeedback.style.display = 'none'; //Ausblenden des grauen Platzhalters "No Task To do"
     } else {
         console.log('kein Task mit state Await feedback');
-        noToDoDiv.style.display = 'block'; //Einblenden des grauen Platzhalters "No Task To do"
+        noToDoDivAwaitFeedback.style.display = 'block'; //Einblenden des grauen Platzhalters "No Task To do"
     }
 
     //Done---------------------------------
     let stateDone = AllTask.filter(task => task['state'] == 'stateDone');
+    let noToDoDivDone= document.querySelector('.no-to-do-Done');
     document.getElementById('stateDone').innerHTML = '';
 
     if (stateDone.length >= 1) {
         renderStateDone(stateDone);
         console.log(stateDone);
-        noToDoDiv.style.display = 'none'; //Ausblenden des grauen Platzhalters "No Task To do"
+        noToDoDivDone.style.display = 'none'; //Ausblenden des grauen Platzhalters "No Task To do"
     } else {
         console.log('kein Task mit state Done');
-        noToDoDiv.style.display = 'block'; //Einblenden des grauen Platzhalters "No Task To do"
+        noToDoDivDone.style.display = 'block'; //Einblenden des grauen Platzhalters "No Task To do"
     }
    
 }

@@ -109,7 +109,10 @@ input {
   font-size: 20px;
 }
 
-.no-to-do {
+.no-to-do,
+.no-to-do-InProgress,
+.no-to-do-AwaitFeedback,
+.no-to-do-Done {
   color: #a8a8a8;
   border: 1px dotted #a8a8a8;
   background-color: #e7e7e7;
@@ -118,6 +121,7 @@ input {
   justify-content: center;
   font-size: 16px;
 }
+
 
 .addTaskBtn {
   display: flex;
@@ -268,7 +272,7 @@ input {
   margin-top: 30px;
 }
 
-.stapled-icons{
+.stapled-icons {
   display: flex;
   margin-left: -10px;
 }
