@@ -272,6 +272,29 @@ input {
   margin-top: 30px;
 }
 
+
+
+.btn-deleteEdit {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4px;
+}
+
+.btn-deleteEdit button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 400;
+  border: none;
+  background-color: transparent;
+}
+
+.btn-deleteEdit button img {
+  height: 24px;
+}
+
 .stapled-icons {
   display: flex;
   margin-left: -10px;

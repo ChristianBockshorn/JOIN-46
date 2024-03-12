@@ -155,7 +155,7 @@ function renderStateInProgress(stateInProgress) {
     }
 }
 
-function renderStateAwaitFeedback(stateAwaitFeedback){
+function renderStateAwaitFeedback(stateAwaitFeedback) {
     for (let index = 0; index < stateAwaitFeedback.length; index++) {
         const element = stateAwaitFeedback[index];
         let indexPosition = getIndexPosition(element);
@@ -164,7 +164,7 @@ function renderStateAwaitFeedback(stateAwaitFeedback){
     }
 }
 
-function renderStateDone(stateDone){
+function renderStateDone(stateDone) {
     for (let index = 0; index < stateDone.length; index++) {
         const element = stateDone[index];
         let indexPosition = getIndexPosition(element);
@@ -221,7 +221,7 @@ async function updateHTML() {
 
     //Done---------------------------------
     let stateDone = AllTask.filter(task => task['state'] == 'stateDone');
-    let noToDoDivDone= document.querySelector('.no-to-do-Done');
+    let noToDoDivDone = document.querySelector('.no-to-do-Done');
     document.getElementById('stateDone').innerHTML = '';
 
     if (stateDone.length >= 1) {
@@ -232,7 +232,7 @@ async function updateHTML() {
         console.log('kein Task mit state Done');
         noToDoDivDone.style.display = 'block'; //Einblenden des grauen Platzhalters "No Task To do"
     }
-   
+
 }
 
 function startDragging(id) {
@@ -295,6 +295,12 @@ function taskContentHtML(index, task) {
             
 
             <span class="d-flex ai-start fd-column gap-8" id="subtasks-view${index}"></span>
+        </div>
+
+        <div class="btn-deleteEdit">
+            <button><img src="assets/images/delete.svg" alt="delete">Delete</button>
+            <div class="edit-options-seperator"></div>
+            <button><img src="assets/images/edit_white.svg" alt="edit">Edit</button>
         </div>
         
     </div>
