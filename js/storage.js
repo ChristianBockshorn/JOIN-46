@@ -130,3 +130,12 @@ async function getData() {
         AllTask = JSON.parse(respons);
         // console.log('loaded task', AllTask);
     }
+
+
+    function getIndexPosition(element) {
+        // console.log(element);
+        let searchWord = element.title;
+        let indexPosition = AllTask.findIndex(task => task.title == searchWord)
+        // console.log(indexPosition);
+        return indexPosition;
+    }

@@ -129,13 +129,6 @@ async function checkIfSubtaskIsDone(index, i) {
     await setItem('AllTask', jsonString);
 }
 
-function getIndexPosition(element) {
-    // console.log(element);
-    let searchWord = element.title;
-    let indexPosition = AllTask.findIndex(task => task.title == searchWord)
-    // console.log(indexPosition);
-    return indexPosition;
-}
 
 function renderStateToDo(stateToDo) {
     for (let index = 0; index < stateToDo.length; index++) {
@@ -259,6 +252,8 @@ async function moveTo(category) {
 
 function openTask(index) {
     document.getElementById('taskDetail').classList.remove('d-none');
+    document.getElementById('searchContent').classList.add('d-none');
+    document.getElementById('searchInput').value = '';
     openDetailTask(index);
 }
 
