@@ -41,7 +41,7 @@ async function addTask() {
         "Subtasks": generateSubtasks(),
         'state': 'stateToDo',
         'id': generateUniqueId(),
-        
+
     };
 
     // Überprüfen, ob bereits Aufgaben im AllTask-Array vorhanden sind
@@ -52,7 +52,7 @@ async function addTask() {
     existingTasks.push(newTasks);
     let updatedTasksAsString = JSON.stringify(existingTasks);
     // localStorage.setItem('AllTask', updatedTasksAsString);
-    await setItem('AllTask',updatedTasksAsString);
+    await setItem('AllTask', updatedTasksAsString);
     // Das AllTask-Array für den sofortigen Gebrauch aktualisieren
     AllTask = existingTasks;
 
@@ -229,15 +229,26 @@ function template_InlineFieldUnChecked(name, initials, i, color) {
 // generate subtask section
 
 
+function buildArray(taskInput) {
+    let obj = {
+        task: taskInput,
+        done: false
+    }
+    return obj;
+}
+
+
 function generateSubtasks() {
     let allLiElements = document.querySelectorAll('li');
+    let oneSubTask = document.getElementById('subtask-input').value;
     let allArray = [];
     for (let i = 0; i < allLiElements.length; i++) {
         let element = allLiElements[i].innerHTML;
-        let obj = {
-            task: element,
-            done: false
-        }
+        let obj = buildArray(element);
+        allArray.push(obj);
+    }
+    if (oneSubTask !== '') {
+        let obj = buildArray(oneSubTask);
         allArray.push(obj);
     }
     return allArray;
