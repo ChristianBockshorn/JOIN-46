@@ -27,7 +27,8 @@
         <div class="headerFlex">
             <div class="input-container">
                 <div class="input-wrapper">
-                    <input id="searchInput" placeholder="Find Task" type="text">
+                    <input oninput="searchTask(event)" id="searchInput" placeholder="Find Task" type="text">
+                    <div class="searchContent d-none" id="searchContent"></div>
                     <div class="border-left"></div>
                     <img class="input-icon" id="searchImg" src="assets/images/search.svg" alt="">
                 </div>

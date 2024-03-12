@@ -334,3 +334,41 @@ function deleteSubtask(k) {
 
 // ############################################################
 // End generate subtask section
+
+
+// ############################################################
+// Search Filed function
+
+
+function showSearchContent(){
+    document.getElementById('searchContent').classList.remove('d-none');
+}
+
+
+function hideSearchContent(){
+    document.getElementById('searchContent').classList.add('d-none');
+}
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById('searchInput').addEventListener('focus', showSearchContent);
+    // document.getElementById('searchInput').addEventListener('blur', hideSearchContent);
+  });
+
+
+function searchTask() {
+    let pressedKey = document.getElementById('searchInput').value;
+    let AllTask_Temp = AllTask.filter(c => c.title.toLowerCase().startsWith(pressedKey.toLowerCase()));
+    let setSearchContent = document.getElementById('searchContent');
+
+    setSearchContent.innerHTML = '';
+    for (let i = 0; i < AllTask_Temp.length; i++) {
+        const element = AllTask_Temp[i];
+        let indexPosition = getIndexPosition(element);
+        setSearchContent.innerHTML += `<div class="search-field-line" onclick="openTask(${indexPosition})">${element.title}</div>`;
+        console.log(element);
+    }
+    // console.log(AllTask_Temp);
+
+    
+}
