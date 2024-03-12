@@ -298,14 +298,21 @@ function taskContentHtML(index, task) {
         </div>
 
         <div class="btn-deleteEdit">
-            <button><img src="assets/images/delete.svg" alt="delete">Delete</button>
+            <button onclick="deleteTask(${index})"><img src="assets/images/delete.svg" alt="delete">Delete</button>
             <div class="edit-options-seperator"></div>
-            <button><img src="assets/images/edit_white.svg" alt="edit">Edit</button>
+            <button onclick="editTask()"><img src="assets/images/edit_white.svg" alt="edit">Edit</button>
         </div>
         
     </div>
     `;
 }
+
+function deleteTask(index) {
+    AllTask.splice(index, 1);
+    closeTask();
+}
+
+
 
 
 function currentSubtasks(task) {
