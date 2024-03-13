@@ -233,6 +233,7 @@ function startDragging(id) {
 }
 
 function allowDrop(ev) {
+    document.location = '#board'
     ev.preventDefault();
 
 }
