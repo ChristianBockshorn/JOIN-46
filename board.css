@@ -335,7 +335,13 @@ input {
   height: 150px;
 }
 
-.overflow-x{
+.overflow-x {
+  overflow-x: hidden;
+}
+
+.overflowTask {
+  overflow-y: scroll;
+  height: 390px;
   overflow-x: hidden;
 }
 
