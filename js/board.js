@@ -44,7 +44,7 @@ function generateHtmlContent(element, index, f) {
             <h3 class="taskTitle">${element.title}</h3>
             <span class="taskDescription">${element.Description}</span>
             <div>Assigned To:
-                <div class="pad-l-16">
+                <div class="pad-l-16 overflow-x">
                     <span class="stapled-icons" id="selected-assigned-user-small${f}"></span>
                 </div>
             </div>
@@ -287,7 +287,7 @@ function taskContentHtML(index, task) {
         <div class="detailDatePrioAssigned">
             <span>Date: ${task.date}</span>
             <span>Prio: ${task.Prio}</span>
-            <span class="d-flex ai-start fd-column gap-8" id="selected-assigned-user${index}"></span>
+            <span class="d-flex ai-start fd-column gap-8 overflow" id="selected-assigned-user${index}"></span>
             
 
             <span class="d-flex ai-start fd-column gap-8" id="subtasks-view${index}"></span>

@@ -330,6 +330,15 @@ input {
   cursor: pointer;
 }
 
+.overflow {
+  overflow-y: auto;
+  height: 150px;
+}
+
+.overflow-x{
+  overflow-x: hidden;
+}
+
 
 @media(max-width:1500px) {
   .status {
