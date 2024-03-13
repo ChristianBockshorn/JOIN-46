@@ -354,3 +354,23 @@ function template_SubtasksShow(subtask, i, index, state) {
     </div>
     </div>`;
 }
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById('searchInput').addEventListener('focus', showSearchContent);
+  });
+
+
+function searchTask() {
+    let pressedKey = document.getElementById('searchInput').value;
+    let AllTask_Temp = AllTask.filter(c => c.title.toLowerCase().startsWith(pressedKey.toLowerCase()));
+    let setSearchContent = document.getElementById('searchContent');
+
+    setSearchContent.innerHTML = '';
+    for (let i = 0; i < AllTask_Temp.length; i++) {
+        const element = AllTask_Temp[i];
+        let indexPosition = getIndexPosition(element);
+        setSearchContent.innerHTML += `<div class="search-field-line" onclick="openTask(${indexPosition})">${element.title}</div>`;
+        console.log(element);
+    }
+}
