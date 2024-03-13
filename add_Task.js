@@ -78,6 +78,7 @@ function generateUniqueId() {
 async function init() {
     await getData();
     loadAllTasks();
+    getPastDate();
 }
 
 
@@ -340,35 +341,25 @@ function deleteSubtask(k) {
 // Search Filed function
 
 
-function showSearchContent(){
+function showSearchContent() {
     document.getElementById('searchContent').classList.remove('d-none');
 }
 
 
-function hideSearchContent(){
+function hideSearchContent() {
     document.getElementById('searchContent').classList.add('d-none');
 }
 
 
-document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById('searchInput').addEventListener('focus', showSearchContent);
-    // document.getElementById('searchInput').addEventListener('blur', hideSearchContent);
-  });
-
-
-function searchTask() {
-    let pressedKey = document.getElementById('searchInput').value;
-    let AllTask_Temp = AllTask.filter(c => c.title.toLowerCase().startsWith(pressedKey.toLowerCase()));
-    let setSearchContent = document.getElementById('searchContent');
-
-    setSearchContent.innerHTML = '';
-    for (let i = 0; i < AllTask_Temp.length; i++) {
-        const element = AllTask_Temp[i];
-        let indexPosition = getIndexPosition(element);
-        setSearchContent.innerHTML += `<div class="search-field-line" onclick="openTask(${indexPosition})">${element.title}</div>`;
-        console.log(element);
+function getPastDate() {
+    let today = new Date();
+    let day = today.getDate();
+    let month = today.getMonth() + 1;
+    if (month < 10) {
+        month = '0' + month;
     }
-    // console.log(AllTask_Temp);
-
-    
+    let year = today.getFullYear();
+    let forbiddenDays = `${year}-${month}-${day}`;
+    document.getElementById('date').min = forbiddenDays;
+    return forbiddenDays;
 }
