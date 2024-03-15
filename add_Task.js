@@ -27,7 +27,7 @@ function activeBtn(btnId) {
 async function addTask() {
     let title = document.getElementById('title').value;
     let description = document.getElementById('description').value;
-    let date = document.getElementById('date').value;
+    let date = document.getElementById('dueDate').value;
     let selectedPrio = document.querySelector('.active-urgent').value;
     let selectElement = document.getElementById('categorySelect').value;
 

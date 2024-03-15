@@ -303,7 +303,7 @@ function taskContentHtML(index, task) {
     `;
 }
 
-function deleteTask(index) {
+function deleteTask(index) { 
     AllTask.splice(index, 1);
     closeTask();
 }
