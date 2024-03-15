@@ -305,6 +305,7 @@ function taskContentHtML(index, task) {
 async function deleteTask(index) { 
     AllTask.splice(index, 1);
     await saveAllTaskRemote();
+    await updateHTML();
     closeTask();
 }
 
