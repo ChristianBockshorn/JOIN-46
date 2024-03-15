@@ -82,7 +82,6 @@ input {
 
 .dynamicDisplayFlex {
   display: flex;
-  gap: 32px;
 }
 
 .standardImg {
@@ -370,6 +369,12 @@ input {
     left: 0;
     height: auto;
     width: 100%;
+  }
+
+  .dynamicDisplayFlex {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
   }
 
   .board {
