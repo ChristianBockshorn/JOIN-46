@@ -372,6 +372,12 @@ input {
     width: 100%;
   }
 
+  .dynamicDisplayFlex {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+  }
+
   .board {
     padding: 0 24px 104px 24px;
   }
