@@ -294,8 +294,9 @@ input {
   margin-left: -8px;
 }
 
-.stapled-icons:hover {
-  margin-left: 0;
+.stapled-icons-line {
+  display: flex;
+  /* margin-left: -8px; */
 }
 
 .searchContent {

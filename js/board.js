@@ -44,8 +44,8 @@ function generateHtmlContent(element, index, f) {
             <h3 class="taskTitle">${element.title}</h3>
             <span class="taskDescription">${element.Description}</span>
             <div>Assigned To:
-                <div class="pad-l-16 overflow-x">
-                    <span class="stapled-icons" id="selected-assigned-user-small${f}"></span>
+                <div class="pad-l-8 overflow-x">
+                    <span class="stapled-icons-line" id="selected-assigned-user-small${f}"></span>
                 </div>
             </div>
             <span>Date: ${element.date}</span>
