@@ -179,6 +179,9 @@ input {
   border: 1px solid lightgrey;
   border-radius: 20px;
   padding: 54px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  
 }
 
 .d-none {

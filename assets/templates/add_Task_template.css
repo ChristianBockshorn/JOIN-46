@@ -305,9 +305,4 @@ footer span::before {
     .pos-li-buttons {
         margin-left: 75px;
     }
-
-    #mainContent {
-        overflow-y: scroll;
-        overflow-x: hidden;
-    }
 }
