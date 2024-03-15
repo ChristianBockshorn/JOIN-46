@@ -124,9 +124,7 @@ async function checkIfSubtaskIsDone(index, i) {
     let selectetTask = AllTask[index]['Subtasks'][i]['stateDone'];
     selectetTask = !selectetTask;
     AllTask[index]['Subtasks'][i]['stateDone'] = selectetTask;
-    var jsonString = JSON.stringify(AllTask);
-    localStorage.setItem('AllTask', jsonString);
-    await setItem('AllTask', jsonString);
+    await saveAllTaskRemote()
 }
 
 
@@ -243,8 +241,9 @@ async function moveTo(category) {
 
     if (taskIndex !== -1) {
         AllTask[taskIndex].state = category;
-        let updatedTasksAsString = JSON.stringify(AllTask);
-        await setItem('AllTask', updatedTasksAsString);
+        // let updatedTasksAsString = JSON.stringify(AllTask);
+        // await setItem('AllTask', updatedTasksAsString);
+        await saveAllTaskRemote();
     } else {
         console.error("Task not found in AllTask array");
     }
@@ -303,11 +302,16 @@ function taskContentHtML(index, task) {
     `;
 }
 
-function deleteTask(index) { 
+async function deleteTask(index) { 
     AllTask.splice(index, 1);
+    await saveAllTaskRemote();
     closeTask();
 }
 
+async function saveAllTaskRemote() {
+    var jsonString = JSON.stringify(AllTask);
+    await setItem('AllTask', jsonString);
+}
 
 
 
