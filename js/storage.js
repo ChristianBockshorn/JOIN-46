@@ -122,6 +122,11 @@ async function getData() {
         }
     }
 
+    function logout() {
+        localStorage.removeItem("logged");
+    }
+
+
     async function loadAllTasks() {
         // let AllTaskAsString = localStorage.getItem('AllTask');
         let AllTaskAsString = await getItem('AllTask');
