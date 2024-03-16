@@ -20,42 +20,36 @@ async function init() {
 // }
 
 
-let Counts = {
-  toDoStatus: 0,
-  inProgressStatus: 0,
-  doneStatus: 0,
-  awaitFeedbackStatus: 0,
-  urgentPriority: 0,
-  closestDueDateForUrgent: null,
-};
+// let Counts = {
+//   toDoStatus: 0,
+//   inProgressStatus: 0,
+//   doneStatus: 0,
+//   awaitFeedbackStatus: 0,
+//   urgentPriority: 0,
+//   closestDueDateForUrgent: null,
+// };
 
 let currentDate = new Date();
 let currentTime = new Date().getHours();
 
 
 async function renderSummaryConten() {
-  loadeCount();
+  await loadeCount();
   timedGreeting();
   greetUser();
 }
 
 async function loadeCount() {
-  debugger;
   let CounterToDo = await AllTask.filter(task => task['state'] == 'stateToDo');
+  document.getElementById('todoCount').innerHTML = CounterToDo.length;
   let CounterDone = AllTask.filter(task => task['state'] == 'stateDone');
+  document.getElementById('doneCount').innerHTML = CounterDone.length;
   let CounterInProgress = AllTask.filter(task => task['state'] == 'stateInProgress');
+  document.getElementById('progressCount').innerHTML = CounterInProgress.length;
   let CounterAwaitFeedback = AllTask.filter(task => task['state'] == 'stateAwaitFeedback');
+  document.getElementById('feedbackCount').innerHTML = CounterAwaitFeedback.length;
   let CounterUrgent = AllTask.filter(task => task['Prio'] == 'urgent');
   let TotalCountTasks = AllTask.length;
-
-  Counts = {
-    toDoStatus: CounterToDo.length,
-    inProgressStatus: CounterInProgress.length,
-    doneStatus: CounterDone.length,
-    awaitFeedbackStatus: CounterAwaitFeedback.length,
-    urgentPriority: CounterUrgent.length,
-    closestDueDateForUrgent: null,
-  };
 }
 
 
