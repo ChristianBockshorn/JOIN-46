@@ -343,8 +343,8 @@ input {
 }
 
 .overflowTask {
-  overflow-y: scroll;
-  height: 520px;
+  overflow-y: auto;
+  max-height: calc(100vh - 360px);
   overflow-x: hidden;
 }
 
