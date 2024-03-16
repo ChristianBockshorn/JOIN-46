@@ -49,6 +49,7 @@ async function loadeCount() {
   let CounterAwaitFeedback = AllTask.filter(task => task['state'] == 'stateAwaitFeedback');
   document.getElementById('feedbackCount').innerHTML = CounterAwaitFeedback.length;
   let CounterUrgent = AllTask.filter(task => task['Prio'] == 'urgent');
+  document.getElementById('urgentCount').innerHTML = CounterUrgent.length;
   document.getElementById("totalCount").innerHTML = AllTask.length;
 }
 
