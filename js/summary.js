@@ -6,7 +6,7 @@ async function init() {
   await loadAllTasks();
   await includeHTML();
   // await loadData();
-  renderSummaryConten();
+  await renderSummaryConten();
 }
 
 
@@ -33,25 +33,31 @@ let currentDate = new Date();
 let currentTime = new Date().getHours();
 
 
-function renderSummaryConten() {
+async function renderSummaryConten() {
   loadeCount();
   timedGreeting();
   greetUser();
 }
 
-function loadeCount() {
-  countTodos(tasks);
-  document.getElementById("todoCount").innerHTML = Counts.toDoStatus;
-  document.getElementById("doneCount").innerHTML = Counts.doneStatus;
-  document.getElementById("progressCount").innerHTML =
-  Counts.inProgressStatus;
-  document.getElementById("feedbackCount").innerHTML =
-  Counts.awaitFeedbackStatus;
-  document.getElementById("urgentCount").innerHTML = Counts.urgentPriority;
-  document.getElementById("nextUrgentDate").innerHTML =
-  Counts.closestDueDateForUrgent;
-  document.getElementById("totalCount").innerHTML = AllTask.length;
+async function loadeCount() {
+  debugger;
+  let CounterToDo = await AllTask.filter(task => task['state'] == 'stateToDo');
+  let CounterDone = AllTask.filter(task => task['state'] == 'stateDone');
+  let CounterInProgress = AllTask.filter(task => task['state'] == 'stateInProgress');
+  let CounterAwaitFeedback = AllTask.filter(task => task['state'] == 'stateAwaitFeedback');
+  let CounterUrgent = AllTask.filter(task => task['Prio'] == 'urgent');
+  let TotalCountTasks = AllTask.length;
+
+  Counts = {
+    toDoStatus: CounterToDo.length,
+    inProgressStatus: CounterInProgress.length,
+    doneStatus: CounterDone.length,
+    awaitFeedbackStatus: CounterAwaitFeedback.length,
+    urgentPriority: CounterUrgent.length,
+    closestDueDateForUrgent: null,
+  };
 }
+
 
 function countTodos(tasks) {
   tasks.forEach((tasks) => {
