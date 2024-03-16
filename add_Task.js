@@ -360,6 +360,5 @@ function getPastDate() {
     }
     let year = today.getFullYear();
     let forbiddenDays = `${year}-${month}-${day}`;
-    document.getElementById('date').min = forbiddenDays;
-    return forbiddenDays;
+    document.getElementById('dueDate').min = forbiddenDays;
 }
