@@ -20,7 +20,7 @@ async function init() {
 // }
 
 
-let todoCounts = {
+let Counts = {
   toDoStatus: 0,
   inProgressStatus: 0,
   doneStatus: 0,
@@ -41,27 +41,27 @@ function renderSummaryConten() {
 
 function loadeCount() {
   countTodos(tasks);
-  document.getElementById("todoCount").innerHTML = todoCounts.toDoStatus;
-  document.getElementById("doneCount").innerHTML = todoCounts.doneStatus;
+  document.getElementById("todoCount").innerHTML = Counts.toDoStatus;
+  document.getElementById("doneCount").innerHTML = Counts.doneStatus;
   document.getElementById("progressCount").innerHTML =
-    todoCounts.inProgressStatus;
+  Counts.inProgressStatus;
   document.getElementById("feedbackCount").innerHTML =
-    todoCounts.awaitFeedbackStatus;
-  document.getElementById("urgentCount").innerHTML = todoCounts.urgentPriority;
+  Counts.awaitFeedbackStatus;
+  document.getElementById("urgentCount").innerHTML = Counts.urgentPriority;
   document.getElementById("nextUrgentDate").innerHTML =
-    todoCounts.closestDueDateForUrgent;
+  Counts.closestDueDateForUrgent;
   document.getElementById("totalCount").innerHTML = AllTask.length;
 }
 
 function countTodos(tasks) {
-  tasks.forEach((task) => {
-    todoCounts[task.status]++;
-    if (task.prio === "Urgent") {
-      todoCounts.urgentPriority++;
+  tasks.forEach((tasks) => {
+    Counts[tasks.status]++;
+    if (tasks.prio === "Urgent") {
+      Counts.urgentPriority++;
     }
 
-    setNextUrgentDate(task, todoCounts)
-    updateDeadlineText(todoCounts.urgentPriority)
+    setNextUrgentDate(tasks, Counts)
+    updateDeadlineText(Counts.urgentPriority)
   });
 }
 
@@ -89,15 +89,15 @@ function timedGreeting() {
   document.getElementById("mobileTimedGreeting").innerHTML = greeting;
 }
 
-function setNextUrgentDate(task, todoCounts) {
+function setNextUrgentDate(task, Counts) {
   if (
     task.prio === "Urgent" &&
-    (!todoCounts.closestDueDateForUrgent ||
+    (!Counts.closestDueDateForUrgent ||
       (new Date(task.dueDate) >= currentDate &&
         new Date(task.dueDate) <
-        new Date(todoCounts.closestDueDateForUrgent)))
+        new Date(Counts.closestDueDateForUrgent)))
   ) {
-    return todoCounts.closestDueDateForUrgent = formatDate(task.dueDate);
+    return Counts.closestDueDateForUrgent = formatDate(task.dueDate);
   }
 }
 
