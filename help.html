@@ -5,17 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Help</title>
+    <link rel="stylesheet" href="positions.css">
+    <link rel="stylesheet" href="inter-font.css">
+    <link rel="stylesheet" href="style.css">
+
 
     <link rel="stylesheet" href="/assets/templates/navbar_template.css">
     <link rel="icon" type="image/x-icon" href="/assets/images/logo.svg">
-    <script src="add_Task.js"></script>
 
 </head>
+
 <style>
     .main {
         margin-left: 328px;
         margin-top: 206px;
-        margin-right: 328px;
+        width: calc(100% - 422px);
     }
 
     .list {
@@ -36,6 +40,17 @@
     b {
         color: #29ABE2;
     }
+
+    .backArrow {
+        width: 32px;
+        height: 32px;
+    }
+
+    .headline {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
 </style>
 
 <body onload="includeHTML()">
@@ -43,7 +58,11 @@
     <div w3-include-html="/assets/templates/header_template.html"></div>
 
     <div class="main">
-        <h1>Help</h1>
+        <div class="headline">
+            <h1>Help</h1>
+            <img class="backArrow" onclick="location.href ='summary.html'" src="assets/icon/backArrow.svg" alt="">
+
+        </div>
         <p class="f-size-20">Welcome to the help page for Join, your guide to using our kanban project management tool.
             Here, we'll provide an overview of what Join is, how it can benefit you, and how to use it.</p>
         <h2 class="f-size-32">What is Join?</h2>
