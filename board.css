@@ -302,6 +302,11 @@ input {
   /* margin-left: -8px; */
 }
 
+.initialscirclecontactsmall:hover {
+  margin-right: 8px;
+
+}
+
 .searchContent {
   font-size: 20px;
   display: flex;

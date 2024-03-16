@@ -82,7 +82,7 @@ function getAssignedUserSmall(element, indexPosition) {
 function template_AssignedUsersSmall(assignedUserColor, assignedUserInitials) {
     return `
         <div class="stapled-icons">
-            <div style="background-color:${assignedUserColor}" class="initialscirclecontact d-flex center">${assignedUserInitials}</div>
+            <div style="background-color:${assignedUserColor}" class="initialscirclecontact initialscirclecontactsmall d-flex center">${assignedUserInitials}</div>
         </div>`;
 }
 
