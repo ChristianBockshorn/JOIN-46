@@ -21,7 +21,7 @@
 
     <div id="mainContent" class="main d-flex fd-column">
         <h1>Add Task</h1>
-        <form onsubmit="return false;" class="formSection gap-8" id="add-task-form">
+        <form onsubmit="addTask(); return false;" class="formSection gap-8" id="add-task-form">
             <div class="d-flex gap-48 flex-wrap jc-center">
                 <div class="left-column">
                     <label class="title" for="Title">Title</label>
@@ -32,8 +32,8 @@
                     <textarea class="pad-around-4-16 f-size-20" name="" id="description" cols="30" rows="10"
                         placeholder="Enter a description"></textarea>
 
-                    <label class="assigned" for="Title">Assigned to</label>
-                    <input onclick="ddListToggle()" oninput="searchPattern()" class="f-size-20" id="assigned"
+                    <label class="assigned" for="assigned">Assigned to</label>
+                    <input name="assigned" onclick="ddListToggle()" oninput="searchPattern()" class="f-size-20" id="assigned"
                         type="text" placeholder="Enter a title">
                     <div class="pos-rel">
                         <div id="dd-list-content" class="dd-list-content d-none"></div>
@@ -42,32 +42,32 @@
                 </div>
                 <div class="middle-seperator"></div>
                 <div class="right-column">
-                    <label class="date" for="Title">Due date</label>
-                    <input class="pad-around-4-16 f-size-20" id="dueDate" type="date">
-                    <label class="prio" for="Title">Prio</label>
+                    <label class="date" for="date">Due date</label>
+                    <input name="date" class="pad-around-4-16 f-size-20" id="dueDate" type="date" required>
+                    <label class="prio" for="prioCategory">Prio</label>
                     <div class="prioCategoryCont">
-                        <input type="radio" name="prioCategory" required>
+                        <input type="radio" name="prioCategory" value="priourgent">
                         <button type="button" onclick="activeBtn('priourgent')" class="prioCategory" id="priourgent"
                             value="urgent">Urgent<img src="assets/images/urgent_symbol.svg">
                         </button>
-                        <input type="radio" name="prioCategory">
+                        <input type="radio" name="prioCategory" value="priomedium">
                         <button type="button" onclick="activeBtn('priomedium')" class="prioCategory" id="priomedium"
                             value="medium">Medium<img src="assets/images/medium_symbol.svg">
                         </button>
-                        <input type="radio" name="prioCategory">
+                        <input type="radio" name="prioCategory" value="priolow">
                         <button type="button" onclick="activeBtn('priolow')" class="prioCategory" id="priolow"
                             value="low">Low<img src="assets/images/low_symbol.svg">
                         </button>
                     </div>
 
-                    <label class="category" for="Title">Category</label>
-                    <select type="text" id="categorySelect" placeholder="Select task category">
+                    <label class="category" for="category">Category</label>
+                    <select name="category" type="text" id="categorySelect" placeholder="Select task category" required>
                         <option value="Technical Task">Technical Task</option>
                         <option value="User Story">User Story</option>
                     </select>
-                    <label for="Title">Subtasks</label>
+                    <label for="subtasks">Subtasks</label>
                     <div class="pos-rel">
-                        <input id="subtask-input" class=" pad-r-50 pad-around-4-16 subtask-input f-size-20"
+                        <input name="subtasks" id="subtask-input" class=" pad-r-50 pad-around-4-16 subtask-input f-size-20"
                             onfocus="changeSubtaskIconToggle()" type="text" placeholder="Add new subtask">
                         <div class="subtask-icons d-flex center" id="show-add">
                             <img class="subtask-plus-symbol icon-size-24 inputSymbol" id="subtask-input-plus"
@@ -89,7 +89,7 @@
                     <div class="d-flex gap-16 pos-li-button">
                         <button class="d-flex center normal-btn btn-pad-big btn-clear">Clear<img class="height-24"
                                 src="assets/images/cancel.svg" alt="check"></button>
-                        <button onclick="ddTask()" class="d-flex center gap-8 colored-btn btn-pad-big">Create
+                        <button onclick="" class="d-flex center gap-8 colored-btn btn-pad-big">Create
                             Task<img class="height-24" src="assets/images/check_add_task.svg" alt="check"></button>
                     </div>
                 </footer>
