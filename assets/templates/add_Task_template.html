@@ -24,11 +24,11 @@
         <form onsubmit="addTask(); return false;" class="formSection gap-8" id="add-task-form">
             <div class="d-flex gap-48 flex-wrap jc-center">
                 <div class="left-column">
-                    <label class="title" for="Title">Title</label>
+                    <label class="title" for="title">Title</label>
                     <input required id="title" class="pad-around-4-16 f-size-20" type="text"
                         placeholder="Enter a title">
 
-                    <label for="Title">Description</label>
+                    <label for="description">Description</label>
                     <textarea class="pad-around-4-16 f-size-20" name="" id="description" cols="30" rows="10"
                         placeholder="Enter a description"></textarea>
 
@@ -42,10 +42,10 @@
                 </div>
                 <div class="middle-seperator"></div>
                 <div class="right-column">
-                    <label class="date" for="date">Due date</label>
+                    <label class="date" for="dueDate">Due date</label>
                     <input name="date" class="pad-around-4-16 f-size-20" id="dueDate" type="date" required>
                     <label class="prio" for="prioCategory">Prio</label>
-                    <div class="prioCategoryCont">
+                    <div id="prioCategory" class="prioCategoryCont">
                         <input type="radio" name="prioCategory" value="priourgent">
                         <button type="button" onclick="activeBtn('priourgent')" class="prioCategory" id="priourgent"
                             value="urgent">Urgent<img src="assets/images/urgent_symbol.svg">
@@ -60,12 +60,13 @@
                         </button>
                     </div>
 
-                    <label class="category" for="category">Category</label>
-                    <select name="category" type="text" id="categorySelect" placeholder="Select task category" required>
+                    <label class="category" for="categorySelect">Category</label>
+                    <select name="category" type="text" id="categorySelect" required>
+                        <option value="" disabled selected hidden>Select task category</option>
                         <option value="Technical Task">Technical Task</option>
                         <option value="User Story">User Story</option>
                     </select>
-                    <label for="subtasks">Subtasks</label>
+                    <label for="subtask-input">Subtasks</label>
                     <div class="pos-rel">
                         <input name="subtasks" id="subtask-input" class=" pad-r-50 pad-around-4-16 subtask-input f-size-20"
                             onfocus="changeSubtaskIconToggle()" type="text" placeholder="Add new subtask">
