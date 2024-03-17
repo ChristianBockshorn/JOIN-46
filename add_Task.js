@@ -11,6 +11,7 @@ function activeBtn(btnId) {
     });
 
     // Gewählten Button als aktiv markieren
+    document.querySelector('input[name="prioCategory"][value="' + btnId + '"]').checked = true;
     document.getElementById(btnId).classList.add('active-urgent');
 }
 
@@ -28,7 +29,7 @@ async function addTask() {
     let title = document.getElementById('title').value;
     let description = document.getElementById('description').value;
     let date = document.getElementById('dueDate').value;
-    let selectedPrio = document.querySelector('.active-urgent').value;
+    let selectedPrio = document.querySelector('input[name="prioCategory"]:checked').value;
     let selectElement = document.getElementById('categorySelect').value;
 
     let newTasks = {
