@@ -260,9 +260,7 @@ input::placeholder {
 /* Ende Style für Subtask */
 
 .category::after,
-.prio::after,
 .date::after,
-.assigned::after,
 .title::after {
     content: "*";
     color: #FF8190;
@@ -281,6 +279,11 @@ footer {
 }
 
 
+@media screen and (max-width: 1290px){
+    .middle-seperator{
+        display: none;
+    }
+}
 
 
 @media screen and (max-width: 1050px) {
@@ -288,9 +291,9 @@ footer {
         display: none;
     }
 
-    .right-column {
+    /* .right-column {
         margin-top: -58px;
-    }
+    } */
 
     .main {
         margin: auto;
