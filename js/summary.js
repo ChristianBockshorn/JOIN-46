@@ -49,6 +49,15 @@ async function loadeCount() {
   let CounterAwaitFeedback = AllTask.filter(task => task['state'] == 'stateAwaitFeedback');
   document.getElementById('feedbackCount').innerHTML = CounterAwaitFeedback.length;
   let CounterUrgent = AllTask.filter(task => task['Prio'] == 'urgent');
+
+  CounterUrgent.sort(function (a, b) {
+    let x = a.date;
+    let y = b.date;
+    if (x < y) { return -1; }
+    if (x > y) { return 1; }
+    return 0;
+});
+  document.getElementById('nextUrgentDate').innerHTML = CounterUrgent[0]['date'];
   document.getElementById('urgentCount').innerHTML = CounterUrgent.length;
   document.getElementById("totalCount").innerHTML = AllTask.length;
 }
