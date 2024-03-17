@@ -73,6 +73,10 @@
     padding: 8px;
 }
 
+.pad-16 {
+    padding: 16px;
+}
+
 .gap-4 {
     gap: 4px;
 }
