@@ -126,4 +126,8 @@ p {
     .headerLogoDark {
         display: block;
     }
+
+    header {
+        height: 80px;
+    }
 }
