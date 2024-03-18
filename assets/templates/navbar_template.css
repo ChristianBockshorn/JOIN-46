@@ -130,12 +130,12 @@ a {
     }
 }
 
-@media screen and (max-height: 450px) {
+@media screen and (max-height: 450px),(max-width: 450px) {
     .navbar {
         padding-top: 15px;
     }
 
-    .navbar a {
-        font-size: 18px;
+    .nav-main a {
+        font-size: 12px;
     }
 }
