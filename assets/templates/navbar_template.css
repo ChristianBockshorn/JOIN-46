@@ -96,7 +96,6 @@ a {
         margin-bottom: 0;
         justify-content: space-around;
         padding: 0 32px;
-        width: 100%;
     }
 
     .nav-footer {
@@ -127,6 +126,7 @@ a {
 @media screen and (max-width: 600px) {
     .nav-main {
         padding: 0;
+        gap: 0;
     }
 }
 
