@@ -338,7 +338,7 @@
         height: 56px !important;
         border-radius: 28px !important;
         top: 758px;
-        left: 356px;
+        right: 16px;
         box-shadow: none;
         border-right: none;
     }
@@ -554,7 +554,8 @@
         display: block;
         position: absolute;
         top: 128px;
-        left: 380px;
+        left: auto;
+        right: 16px;
         width: 32px;
         height: 32px;
     }
