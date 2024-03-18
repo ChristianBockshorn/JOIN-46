@@ -419,3 +419,9 @@
     display: block;
   }
 }
+
+@media (max-width: 360px) {
+  .summaryCountNum {
+    font-size: 20px;
+  }
+}
