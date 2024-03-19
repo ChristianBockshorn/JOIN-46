@@ -173,6 +173,7 @@ function addAssignedPerson(i) {
 function deleteAssignedPerson(i) {
     let toPurge = assignedPersons.indexOf(i);
     assignedPersons.splice(toPurge, 1);
+    assignedPersonsNames.splice(toPurge, 1);
 }
 
 
