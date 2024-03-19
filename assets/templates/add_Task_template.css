@@ -227,10 +227,7 @@ input::placeholder {
 }
 
 .subtask-line:hover + .hiding {
-    cursor: pointer;
     display: flex;
-    background-color: #EEEEEE;
-    border-radius: 10px;
 }
 
 .subtask-line:hover {
