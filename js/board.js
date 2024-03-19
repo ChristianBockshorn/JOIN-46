@@ -303,7 +303,7 @@ function taskContentHtML(index, task) {
         <div class="btn-deleteEdit">
             <button onclick="deleteTask(${index})"><img src="assets/images/delete.svg" alt="delete">Delete</button>
             <div class="edit-options-seperator"></div>
-            <button onclick="editTask()"><img src="assets/images/edit_white.svg" alt="edit">Edit</button>
+            <button onclick="editTask(${index})"><img src="assets/images/edit_white.svg" alt="edit">Edit</button>
         </div>
         
     </div>
@@ -316,6 +316,68 @@ async function deleteTask(index) {
     await updateHTML();
     closeTask();
 }
+
+function editTask(index){
+    let task = AllTask[index];
+    let taskContent = document.getElementById('addtask-dialog');
+    taskContent.innerHTML = '';
+
+    taskContent.innerHTML +=  /*html*/`
+    <div class="borderBoardDetailTask">
+        <div class="detailHeader">
+            <label class="title" for="title">Title</label>
+            <img class="closeHeader" src="assets/images/close_X_black.svg" alt="close" onclick="closeTask()">
+        </div>
+        <input type="text" id="editTitle" value="${task.title}">
+
+        <label for="description">Description</label>
+        <textarea id="editDescription">${task.Description}</textarea>
+
+        <label class="date" for="dueDate">Due date</label>
+        <input name="date" class="pad-around-4-16 f-size-20" id="dueDate" value="${task.date}" type="date" required>
+        
+        <label class="prio" for="prioCategory">Prio</label>
+        <div id="prioCategory" class="prioCategoryCont">
+            
+            <button type="button" onclick="activeBtn('priourgent')" class="prioCategory" id="priourgent"
+                    value="urgent">Urgent<img src="assets/images/urgent_symbol.svg">
+            </button>
+            <button type="button" onclick="activeBtn('priomedium')" class="prioCategory active-urgent"
+                id="priomedium" value="medium">Medium<img src="assets/images/medium_symbol.svg">
+            </button>
+            <button type="button" onclick="activeBtn('priolow')" class="prioCategory" id="priolow"
+                value="low">Low<img src="assets/images/low_symbol.svg">
+            </button>
+        </div>
+
+        <label class="assigned" for="assigned">Assigned to</label>
+        <input name="assigned" onclick="ddListToggle()" oninput="searchPattern()" class="f-size-20" id="assigned" type="text" placeholder="Enter a title">
+        <label for="subtask-input">Subtasks</label>
+        <div class="pos-rel">
+            <input name="subtasks" id="subtask-input" class=" pad-r-50 pad-around-4-16 subtask-input f-size-20"
+                onfocus="changeSubtaskIconToggle()" type="text" placeholder="Add new subtask">
+            <div class="subtask-icons d-flex center" id="show-add">
+                <img class="subtask-plus-symbol icon-size-24 inputSymbol" id="subtask-input-plus"
+                    src="assets/images/subtask_plus_small.svg">
+            </div>
+            <div class="d-none subtask-icons d-flex center gap-4" id="show-write">
+                <img class="subtask-X-symbol icon-size-24 inputSymbol" id="subtask-input-X"
+                    onclick="cleanSubtaskInputFiled()" src="assets/images/cancel.svg">
+            <div class="edit-options-seperator"></div>
+                <img class="subtask-hook-symbol inputSymbol icon-size-24" id="subtask-input-hook"
+                    onclick="renderSubtaskList()" src="assets/images/hook.svg">
+            </div>
+        </div>
+
+        <div class="btn-taskEdit">
+            <button class="d-flex center gap-8 colored-btn btn-pad-big" onclick="saveEditedTask(${index})">Save <img class="btn-little-img" src="/assets/images/check_little.svg" alt="Hacken"></button>
+            <div class="edit-options-seperator"></div>
+            <button class="d-flex center gap-8 colored-btn btn-pad-big" onclick="closeTask()">Cancel</button>
+        </div>
+    </div>
+    `;
+}
+
 
 async function saveAllTaskRemote() {
     var jsonString = JSON.stringify(AllTask);

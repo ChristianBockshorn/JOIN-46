@@ -271,6 +271,7 @@ input {
   margin-top: 30px;
 }
 
+.btn-taskEdit,
 .btn-deleteEdit {
   display: flex;
   justify-content: flex-end;
@@ -289,6 +290,19 @@ input {
 }
 
 .btn-deleteEdit button img {
+  height: 24px;
+}
+
+.btn-taskEdit button{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 400;
+  border: none;
+}
+
+.btn-taskEdit button img {
   height: 24px;
 }
 
