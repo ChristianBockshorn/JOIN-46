@@ -346,3 +346,10 @@ footer {
         margin-left: 75px;
     }
 }
+
+
+@media screen and (max-width: 500px){
+    .left-column {
+        width: 396px;
+    }
+}
