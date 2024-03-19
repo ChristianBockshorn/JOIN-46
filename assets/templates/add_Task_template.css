@@ -110,7 +110,7 @@ input::placeholder {
     height: 24px;
 }
 
-#add-task-form input[type="radio"]{
+#add-task-form input[type="radio"] {
     display: none;
 }
 
@@ -218,8 +218,25 @@ input::placeholder {
     position: absolute;
 }
 
+.subtask-line {
+    padding: 4px;
+}
+
+.hiding {
+    display: none;
+}
+
+.subtask-line:hover + .hiding {
+    cursor: pointer;
+    display: flex;
+    background-color: #EEEEEE;
+    border-radius: 10px;
+}
+
 .subtask-line:hover {
     cursor: pointer;
+    background-color: #EEEEEE;
+    border-radius: 10px;
 }
 
 .subtask-edit-line {
@@ -278,25 +295,25 @@ footer {
 }
 
 
-@media screen and (max-width: 1290px){
+@media screen and (max-width: 1290px) {
     /* .middle-seperator{
         display: none;
     } */
 
-    .main{
+    .main {
         margin-left: 240px;
     }
 }
 
-@media screen and (max-width: 1160px){
-    .middle-seperator{
+@media screen and (max-width: 1160px) {
+    .middle-seperator {
         display: none;
     }
 
 }
 
-@media screen and (max-width: 1110px){
-    .middle-seperator{
+@media screen and (max-width: 1110px) {
+    .middle-seperator {
         display: none;
     }
 
@@ -348,7 +365,7 @@ footer {
 }
 
 
-@media screen and (max-width: 500px){
+@media screen and (max-width: 500px) {
     .left-column {
         width: 396px;
     }

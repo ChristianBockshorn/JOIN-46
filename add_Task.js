@@ -295,7 +295,7 @@ function renderSubtaskList() {
 function template_Subtask(k, inputValue) {
     return `<div class="pad-add pos-rel" id="delete-line${k}">
     <li class="subtask-line" ondblclick="editSubtaskLine(${k})" id="subtask-line${k}">${inputValue}</li>
-    <div class="subtask-edit-icons d-flex center gap-4" id="show-edit${k}">
+    <div class="hiding subtask-edit-icons d-flex center gap-4" id="show-edit${k}">
         <img class="subtask-X-symbol icon-size-24 inputSymbol" id="subtask-input-X" onclick="editSubtaskLine(${k})" src="assets/images/edit_white.svg">
         <div class="edit-options-seperator"></div>
         <img class="subtask-hook-symbol icon-size-24 inputSymbol" id="subtask-input-hook" onclick="deleteSubtask(${k})" src="assets/images/delete_small.svg">
