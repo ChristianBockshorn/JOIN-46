@@ -231,6 +231,14 @@ function template_InlineFieldUnChecked(name, initials, i, color) {
 // ############################################################
 // generate subtask section
 
+function safeOnEnter(event) {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        console.log('Die Entertaste wurde im subtaskfeld gedrückt');
+        renderSubtaskList();
+    }
+};
+
 
 function buildArray(taskInput) {
     let obj = {

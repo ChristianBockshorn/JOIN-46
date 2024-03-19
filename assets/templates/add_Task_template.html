@@ -71,7 +71,7 @@
                         <div class="pos-rel">
                             <input name="subtasks" id="subtask-input"
                                 class=" pad-r-50 pad-around-4-16 subtask-input f-size-20"
-                                onfocus="changeSubtaskIconToggle()" type="text" placeholder="Add new subtask">
+                                onfocus="changeSubtaskIconToggle()" type="text" placeholder="Add new subtask" onkeydown="safeOnEnter(event)">
                             <div class="subtask-icons d-flex center" id="show-add">
                                 <img class="subtask-plus-symbol icon-size-24 inputSymbol" id="subtask-input-plus"
                                     src="assets/images/subtask_plus_small.svg">
