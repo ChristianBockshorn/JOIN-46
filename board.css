@@ -348,6 +348,11 @@ input {
   overflow-x: hidden;
 }
 
+.drag-area-highlight {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 25px;
+}
+
 @media (max-width: 1500px) {
   .status {
     flex-direction: column;

@@ -67,7 +67,7 @@
                     <p class="status-text">To do</p>
                     <div>
                         <div class="popup-container">
-                            <img class="standardImg" src="assets/images/plus_button.svg" onclick="openDialog()">
+                            <img class="standardImg" src="assets/images/plus_button.svg" alt="">
                         </div>
                     </div>
                 </div>
@@ -77,7 +77,7 @@
                     </div>
 
                 </div>
-                <div class="drag-area overflowTask" id="stateToDo" ondrop="moveTo('stateToDo')" ondragover="allowDrop(event)">
+                <div class="drag-area overflowTask" id="stateToDo" ondrop="moveTo('stateToDo')" ondragleave="removeHighlight('stateToDo')" ondragover="allowDrop(event); highlight('stateToDo')">
                     <div id="borderBoard"></div>
                 </div>
             </div>
@@ -87,7 +87,7 @@
                 <div class="test2">
                     <p class="status-text">In progress</p>
                     <div class="popup-container">
-                        <img class="standardImg" src="assets/images/plus_button.svg" onclick="openDialog()">
+                        <img class="standardImg" src="assets/images/plus_button.svg" alt="">
                     </div>
                 </div>
                 <div class="test">
@@ -96,8 +96,8 @@
                     </div>
                     <div id="borderBoard"></div>
                 </div>
-                <div class="drag-area overflowTask" id="stateInProgress" ondrop="moveTo('stateInProgress')"
-                    ondragover="allowDrop(event)">
+                <div class="drag-area overflowTask" id="stateInProgress" ondrop="moveTo('stateInProgress')" ondragleave="removeHighlight('stateInProgress')"
+                    ondragover="allowDrop(event); highlight('stateInProgress')">
                     <div id="borderBoard"></div>
                 </div>
             </div>
@@ -109,7 +109,7 @@
                 <div class="test2">
                     <p class="status-text">Await feedback</p>
                     <div class="popup-container">
-                        <img class="standardImg" src="assets/images/plus_button.svg" onclick="openDialog()">
+                        <img class="standardImg" src="assets/images/plus_button.svg" alt="">
                     </div>
                 </div>
                 <div class="test">
@@ -118,8 +118,8 @@
                     </div>
                     <div id="borderBoard"></div>
                 </div>
-                <div class="drag-area overflowTask" id="stateAwaitFeedback" ondrop="moveTo('stateAwaitFeedback')"
-                    ondragover="allowDrop(event)"></div>
+                <div class="drag-area overflowTask" id="stateAwaitFeedback" ondrop="moveTo('stateAwaitFeedback')" ondragleave="removeHighlight('stateAwaitFeedback')"
+                    ondragover="allowDrop(event); highlight('stateAwaitFeedback')"></div>
             </div>
 
             <div class="flex">
@@ -127,7 +127,7 @@
                     <p class="status-text">Done</p>
                     <div>
                         <div onclick="openModal('Done')" class="popup-container">
-                            <img class="standardImg" src="assets/images/plus_button.svg" onclick="openDialog()">
+                            <img class="standardImg" src="assets/images/plus_button.svg" alt="">
                         </div>
                     </div>
                 </div>
@@ -137,7 +137,7 @@
                     </div>
                     <div id="borderBoard"></div>
                 </div>
-                <div class="drag-area overflowTask" id="stateDone" ondrop="moveTo('stateDone')" ondragover="allowDrop(event)">
+                <div class="drag-area overflowTask" id="stateDone" ondrop="moveTo('stateDone')" ondragover="allowDrop(event); highlight('stateDone')" ondragleave="removeHighlight('stateDone')">
                 </div>
             </div>
             <div class="newTask"></div>
