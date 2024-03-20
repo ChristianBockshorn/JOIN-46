@@ -44,7 +44,7 @@
                     <div class="middle-seperator"></div>
                     <div class="right-column">
                         <label class="date" for="dueDate">Due date</label>
-                        <input name="date" class="pad-around-4-16 f-size-20" id="dueDate" type="date" required>
+                        <input name="date" onfocus="getPastDate()" class="pad-around-4-16 f-size-20" id="dueDate" type="date" required>
                         <label class="prio" for="prioCategory">Prio</label>
                         <div id="prioCategory" class="prioCategoryCont">
                             <input type="radio" name="prioCategory" value="urgent">

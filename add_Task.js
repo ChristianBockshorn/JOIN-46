@@ -79,7 +79,6 @@ function generateUniqueId() {
 async function init() {
     await getData();
     loadAllTasks();
-    getPastDate();
 }
 
 
