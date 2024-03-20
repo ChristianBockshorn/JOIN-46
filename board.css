@@ -376,6 +376,9 @@ input {
   .BoardSection {
     padding-bottom: 80px;
   }
+  h1 {
+    padding: 0;
+  }
 }
 
 @media (min-width: 1330px) {
@@ -432,7 +435,7 @@ input {
     flex-direction: column;
     flex-direction: column-reverse;
     align-items: center;
-    margin-top: -85px;
+    /* margin-top: -85px; */
   }
 
   .headerFlex {
@@ -468,6 +471,13 @@ input {
 
   .headerBoard {
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
   }
+
+  .overflowTask {
+    max-height: none;
+    gap: 8px;
+  }
+  
+
 }
