@@ -131,9 +131,6 @@ a {
 }
 
 @media screen and (max-height: 450px),(max-width: 450px) {
-    .navbar {
-        padding-top: 15px;
-    }
 
     .nav-main a {
         font-size: 12px;

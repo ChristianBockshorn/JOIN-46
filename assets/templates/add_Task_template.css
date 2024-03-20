@@ -22,7 +22,7 @@ b {
     gap: 20px;
 
     margin-top: 48px;
-    width: 440px;
+    max-width: 440px;
     /* height: 420px; */
 }
 
@@ -128,7 +128,7 @@ input::placeholder {
 
 .right-column {
     margin-top: 48px;
-    width: 440px;
+    max-width: 440px;
     /* height: 420px; */
     display: flex;
     flex-direction: column;
@@ -317,7 +317,7 @@ footer {
     .form-wrap {
         flex-direction: column;
         justify-content: center;
-        align-items: center;
+        /* align-items: center; */
     }
 }
 
@@ -364,6 +364,6 @@ footer {
 
 @media screen and (max-width: 500px) {
     .left-column {
-        width: 396px;
+        /* width: 396px; */
     }
 }
