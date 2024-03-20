@@ -108,6 +108,7 @@ input::placeholder {
 .assigned-cbox {
     width: 24px;
     height: 24px;
+    min-width: auto;
 }
 
 #add-task-form input[type="radio"] {
