@@ -113,8 +113,10 @@
     /* .contact-content {
         margin: auto;
     } */
-    .scrollbar{
+    .scrollbar {
+        height: calc(100vh - 160px);
         margin-top: 80px;
+        margin-bottom: 80px;
     }
 
     .contacts-detail {
@@ -337,7 +339,8 @@
         width: 56px !important;
         height: 56px !important;
         border-radius: 28px !important;
-        top: 758px;
+        /* top: 758px; */
+        bottom: 108px;
         right: 24px;
         box-shadow: none;
         border-right: none;
@@ -428,11 +431,11 @@
     }
 
 
-    .scrollbar {
+    /* .scrollbar {
         height: calc(100vh - 160px);
         margin-top: 80px;
         margin-bottom: 80px;
-    }
+    } */
 
     /* .contacts-detail {
         width: calc(100% - 16px);
@@ -595,5 +598,11 @@
         100% {
             bottom: 200px;
         }
+    }
+}
+
+@media screen and (max-height:700px){
+    .scrollbar {
+        /* height: 20vh; */
     }
 }
