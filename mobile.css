@@ -192,14 +192,14 @@
         left: 38px;
     }
 
-    .bg-color {
+    /* .bg-color {
         animation: background-color-fader 2500ms forwards;
         position: absolute;
         width: 100%;
         height: 100%;
         background-color: rgba(255, 0, 0, 0);
         z-index: -1;
-    }
+    } */
 
     @keyframes background-color-fader {
         from {
