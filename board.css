@@ -9,6 +9,10 @@
   height: 232px;
 }
 
+.addPlus-mobile {
+  display: none;
+}
+
 h1 {
   padding-left: 250px;
   padding-top: 30px;
@@ -57,6 +61,23 @@ input {
 
 .addPlus {
   height: 24px;
+}
+
+.addPlus-mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  border: solid 1px #2a3647;
+  border-radius: 12px;
+  gap: 8px;
+  font-size: 20px;
+  font-family: "Inter";
+  cursor: pointer;
+  background-color: #2a3647;
+  color: white;
+  font-weight: 600;
+  margin-top: 80px;
 }
 
 .headerFlex {
@@ -293,7 +314,7 @@ input {
   height: 24px;
 }
 
-.btn-taskEdit button{
+.btn-taskEdit button {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -376,9 +397,7 @@ input {
   .BoardSection {
     padding-bottom: 80px;
   }
-  h1 {
-    padding: 0;
-  }
+
 }
 
 @media (min-width: 1330px) {
@@ -394,6 +413,44 @@ input {
   }
 }
 
+@media (max-width: 1070px) {
+  .addTaskBtn {
+    display: none;
+  }
+
+  .status {
+    margin-top: 0;
+  }
+
+  .input-wrapper {
+    margin-right: 182px;
+    margin-bottom: 30px;
+  }
+
+  .headerBoard {
+    flex-direction: column;
+  }
+
+  .mobile-header {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 1050px) {
+  h1 {
+    padding-left: 0px;
+  }
+
+  .status{
+    padding-left: 0;
+  }
+
+  input {
+      width: auto;
+  }
+}
+
 @media (max-width: 1024px) {
   .sidebar {
     bottom: 0;
@@ -404,8 +461,6 @@ input {
 
   .dynamicDisplayFlex {
     display: flex;
-    flex-direction: column;
-    margin-top: 100px;
   }
 
   .board {
@@ -418,16 +473,13 @@ input {
 
   .headerFlex {
     flex-direction: row;
-    margin-top: -64px;
   }
 
   .test2 {
     font-size: 32px;
   }
 
-  .input-container {
-    width: 30%;
-  }
+  
 }
 
 @media (max-width: 700px) {
@@ -436,6 +488,14 @@ input {
     flex-direction: column-reverse;
     align-items: center;
     /* margin-top: -85px; */
+  }
+
+  .input-wrapper {
+    margin-right: 0;
+  }
+
+  #board {
+    margin-right: 30px;
   }
 
   .headerFlex {
@@ -449,18 +509,18 @@ input {
     align-items: space-between;
   }
 
-  .drag-area{
+  .drag-area {
     flex-direction: row;
     overflow-x: auto;
   }
 
-  .status{
+  .status {
     padding-left: 0;
     gap: 0;
     margin-top: 0;
   }
 
-  .flex{
+  .flex {
     margin: 0;
   }
 
@@ -471,13 +531,12 @@ input {
 
   .headerBoard {
     flex-direction: column;
-    align-items: flex-start;
   }
 
   .overflowTask {
     max-height: none;
     gap: 8px;
   }
-  
+
 
 }
