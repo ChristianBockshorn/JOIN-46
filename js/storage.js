@@ -109,11 +109,11 @@ async function getData() {
     }
 
 
-    function save() {
+    async function save() {
         let AllTaskAsString = JSON.stringify(AllTask);
-        localStorage.setItem('AllTask', AllTaskAsString);
+        await setItem('AllTask', AllTaskAsString);
     }
-    
+
 
     // den eingeloggten Benutzer aus dem localStorage holen und via Return übergeben
     function getLoggedInUser() {
