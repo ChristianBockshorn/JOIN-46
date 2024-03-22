@@ -1,0 +1,42 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>header</title>
+    <link rel="stylesheet" href="/assets/templates/header_template.css">
+    <link rel="stylesheet" href="/inter-font.css"> 
+</head>
+
+<body>
+    <script>
+        // When the user clicks on <div>, open the popup
+        function myFunction() {
+            var popup = document.getElementById("myPopup");
+            popup.classList.toggle("show");
+        }
+    </script>
+    <header>
+        <img class="headerLogoDark" src="/assets/images/logo.svg" alt="logo">
+
+        <div class="header-description">
+            <p>Kanban Project Management Tool</p>
+        </div>
+
+        <div class="header-questionProfile">
+            <div class="questionMark">
+                <a href="/help.html"><img src="/assets/images/questionMark.svg" alt="help-icon"></a>
+            </div>
+
+
+            <div class="popup">
+                <img src="/assets/images/profile.svg" onclick="myFunction()">
+                <span class="popuptext" id="myPopup">
+                    <a class="popup-links" href="/privacypolicyNotUser.html">Privacy Policy</a>
+                    <a class="popup-links" href="/legalnoticeNotUser.html">Legal Notice</a>
+                    <a class="popup-links" href="/index.html" >Login</a>
+                </span>
+            </div>
+
+        </div>
+
+    </header>
+</body>

@@ -277,3 +277,29 @@ form {
     border-radius: 19px;
     border: 2px solid white;
 }
+
+.textcontainer {
+    margin-left: 328px;
+    margin-top: 206px;
+    margin-right: 328px;
+}
+
+@media screen and (max-width: 1050px) {
+    .textcontainer {
+        margin-left: 50px;
+        margin-top: 161px;
+        margin-right: 50px;
+    }
+
+    .navbarnotuser {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .textcontainer {
+        margin-left: 20px;
+        margin-top: 128px;
+        margin-right: 20px;
+    }
+}
