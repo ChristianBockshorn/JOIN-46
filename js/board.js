@@ -54,7 +54,12 @@ function getAssignedUserSmall(element, indexPosition) {
             let assignedUserInitials = contacts[assignedUserID]['initials'];
             assignedUsersField.innerHTML += template_AssignedUsersSmall(assignedUserColor, assignedUserInitials);
         } else {
-            console.error(`Kontakt mit dem Namen ${assignedUsers[i]} nicht gefunden.`);
+            if (assignedUsers[i] == 'gelöscht') {
+                assignedUsersField.innerHTML += template_AssignedUsersSmall('#f2ad00', 'Delete');
+            }
+            else {
+                console.error(`Kontakt mit dem Namen ${assignedUsers[i]} nicht gefunden.`);
+            }
         }
     }
 }
@@ -75,11 +80,20 @@ function getAssignedUser(element, indexPosition) {
     assignedUsersField.innerHTML = 'Assigned To:<br>';
     for (let i = 0; i < assignedUsers.length; i++) {
         let assignedUserID = contacts.findIndex(x => x.name == assignedUsers[i]);
-        let assignedUserName = contacts[assignedUserID]['name'];
-        let assignedUserColor = contacts[assignedUserID]['usercolor'];
-        let assignedUserInitials = contacts[assignedUserID]['initials'];
-        assignedUsersField.innerHTML += template_AssignedUsers(assignedUserColor, assignedUserInitials, assignedUserName);
-    }
+        if (assignedUserID !== -1 && contacts[assignedUserID]) {
+            let assignedUserName = contacts[assignedUserID]['name'];
+            let assignedUserColor = contacts[assignedUserID]['usercolor'];
+            let assignedUserInitials = contacts[assignedUserID]['initials'];
+            assignedUsersField.innerHTML += template_AssignedUsers(assignedUserColor, assignedUserInitials, assignedUserName);
+        } else {
+            if (assignedUsers[i] == 'gelöscht') {
+                assignedUsersField.innerHTML += template_AssignedUsers('#f2ad00', 'Delete', 'der Benutzer wurde gelöscht');
+            }
+            else {
+                console.error(`Kontakt mit dem Namen ${assignedUsers[i]} nicht gefunden.`);
+            }
+        }
+   }
 }
 
 
