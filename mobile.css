@@ -73,9 +73,7 @@
         gap: 20px !important;
     }
     .contact-content {
-        /* margin-top: 0; */
         width: 400px;
-        /* margin: auto; */
     }
     .contacts-btn-box {
         padding-left: 24px;
@@ -85,20 +83,25 @@
 
 @media (max-width: 1050px){
     .contact-content {
+        margin-top: 85px;
         margin-left: 0;
     }
     .contacts-btn-box {
         margin: auto;
-        margin-top: 96px;
+        margin-top: 80px;
     }
     .container-pos{
         justify-content: space-around;
     }
+
+    .scrollbar {
+        height: calc(100vh - 160px);
+        margin-top: 80px;
+        margin-bottom: 80px;
+    }
 }
 
 @media (max-width: 960px) {
-
-
     .gap-54 {
         display: none;
     }
@@ -106,18 +109,6 @@
 }
 
 @media (max-width: 800px) {
-    /* .contacts-btn-box {
-        display: none;
-    } */
-
-    /* .contact-content {
-        margin: auto;
-    } */
-    .scrollbar {
-        height: calc(100vh - 160px);
-        margin-top: 80px;
-        margin-bottom: 80px;
-    }
 
     .contacts-detail {
         width: calc(100% - 16px);
@@ -129,7 +120,6 @@
         position: absolute;
         top: 0;
         height: calc(100vh - 204px);
-        /* background-color: white; */
     }
 
     .gap-54 {
@@ -199,21 +189,11 @@
         left: 38px;
     }
 
-    /* .bg-color {
-        animation: background-color-fader 2500ms forwards;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(255, 0, 0, 0);
-        z-index: -1;
-    } */
-
     @keyframes background-color-fader {
         from {
             background-color: rgba(42, 54, 71, 1);
         }
     }
-
 
     .moveToLeftWhite {
         display: block;
@@ -226,7 +206,6 @@
         z-index: 3;
         opacity: 0;
     }
-
 
     @keyframes moveToLefterWhite {
         0% {
@@ -281,7 +260,6 @@
         }
     }
 
-
     .sign-up-mobile-position {
         display: flex;
         justify-content: center;
@@ -326,11 +304,6 @@
         padding-top: 32px;
     }
 
-    /* .back-arrow {
-        top: 50px;
-        left: 42px;
-    } */
-
     .contacts-btn-box {
         display: none !important;
     }
@@ -344,7 +317,6 @@
         width: 56px !important;
         height: 56px !important;
         border-radius: 28px !important;
-        /* top: 758px; */
         bottom: 108px;
         right: 24px;
         box-shadow: none;
@@ -418,7 +390,6 @@
         margin: auto;
         width: 375px;
         box-shadow: none;
-        /* margin-left: 0; */
     }
 
     .letter {
@@ -434,26 +405,6 @@
     .frame {
         font-size: 20px;
     }
-
-
-    /* .scrollbar {
-        height: calc(100vh - 160px);
-        margin-top: 80px;
-        margin-bottom: 80px;
-    } */
-
-    /* .contacts-detail {
-        width: calc(100% - 16px);
-        display: none;
-        margin-top: 0;
-        padding-top: 124px;
-        margin-bottom: 80px;
-        padding-left: 16px;
-        position: absolute;
-        top: 0;
-        height: calc(100vh - 204px);
-        background-color: white;
-    } */
 
     .contact-details-headline-position-mobile {
         align-items: flex-start !important;
@@ -498,54 +449,16 @@
         display: flex !important;
     }
 
-
-    /* create User window */
-
-    /* .window-content {
-        display: block;
-        height: 760px;
-        width: 396px;
-    } */
-
-    /* #window-content-img {
-        display: none;
-    } */
-
-    /* #add-user-show-mobile {
-        display: block;
-        height: 352px;
-        width: 396px;
-        border-top-left-radius: 30px;
-        border-top-right-radius: 30px;
-    } */
-
-    /* #cancel-btn {
-        display: none;
-    } */
-
-    /* #change-direktion-mobile {
-        flex-direction: column;
-    } */
-
     .contacticon {
         margin-left: 0;
         margin-bottom: 35px;
     }
 
-    /* .window-content form {
-        margin-left: 0;
-        width: 364px;
-    } */
-
     .gap-15-mobile {
         gap: 15px !important;
     }
 
-    /* .btn-position-mobile {
-        justify-content: center;
-    } */
-
-    #close-cross-icon {
+     #close-cross-icon {
         display: flex;
         position: absolute;
         top: 104px;
@@ -603,11 +516,5 @@
         100% {
             bottom: 200px;
         }
-    }
-}
-
-@media screen and (max-height:700px){
-    .scrollbar {
-        /* height: 20vh; */
     }
 }
