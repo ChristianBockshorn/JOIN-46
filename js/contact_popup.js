@@ -52,13 +52,6 @@ async function editUser() {
 }
 
 
-function showSuccessMsg() {
-    document.getElementById('slideMsg').classList.remove('d-none');
-    document.getElementById('infoBoxPosition').classList.remove('d-none');
-    document.getElementById('slideMsg').innerHTML = 'Contact succefully created';
-}
-
-
 function clearForm() {
     document.getElementById('newname').value = '';
     document.getElementById('newmail').value = '';
@@ -87,7 +80,7 @@ async function addNewUser() {
     contacts.push(obj);
     await saveData(contacts);
     closeDialog();
-    showSuccessMsg();
+    showSuccessMsg('Contact succefully created');
     await renderContacts();
     let arrayPos = getNewContactPos(newname);
     generateDetails(arrayPos);

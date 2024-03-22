@@ -150,3 +150,10 @@ async function getData() {
         // console.log(indexPosition);
         return indexPosition;
     }
+
+
+function showSuccessMsg(message) {
+    document.getElementById('slideMsg').classList.remove('d-none');
+    document.getElementById('infoBoxPosition').classList.remove('d-none');
+    document.getElementById('slideMsg').innerHTML = message;
+}
