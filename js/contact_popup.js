@@ -17,9 +17,11 @@ function showUpdateUserDialog(i) {
 
 async function deleteUser(i) {
     let nr = parseInt(document.getElementById('del-btn').value);
-    if(!i){
+    if (!i) {
         i = nr;
     }
+    let userNameToDelete = contacts[i]['name'];
+    cleanUserFromAvailableTask(userNameToDelete);
     contacts.splice(i, 1);
     document.getElementById('main-content').style.display = 'none';
     document.getElementById('contacts-detail').classList.add('contacts-detail');
@@ -112,3 +114,20 @@ function showOptions() {
     document.getElementById('options').classList.add('show-on-mobile');
     document.getElementById('options').classList.remove('options');
 }
+
+
+async function cleanUserFromAvailableTask(userNameToDelete) {
+    let taskTemp = AllTask.filter(task => task.Assigned.includes(userNameToDelete));
+    // let matchingIndexes = AllTask.map((task, index) => task.Assigned.includes(userNameToDelete) ? index : null).filter(index => index !== null);
+    console.log(taskTemp);
+    for (i = 0; taskTemp.length > i; i++) {
+        let currentTask = AllTask.find(c => c.title == taskTemp[i].title);
+        let currentTaskPos = AllTask.indexOf(currentTask);
+        console.log(currentTaskPos);
+        let userIndex = AllTask[currentTaskPos]['Assigned'].indexOf(userNameToDelete);
+        console.log(userIndex);
+        AllTask[currentTaskPos]['Assigned'][userIndex] = 'gelöscht'
+    }
+    await save();
+}
+
