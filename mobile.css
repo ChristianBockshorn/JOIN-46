@@ -136,6 +136,10 @@
         height: 32px;
     }
     
+    .loginBox {
+        width: 528px;
+        height: 515px;
+    }    
 }
 
 @media (max-width: 600px){
@@ -168,6 +172,18 @@
     .initialscircle {
         height: 80px;
         width: 80px;
+    }
+
+    .sign-up {
+        right: 20px;
+    }
+
+    .loginBox {
+        width: 396px;
+        height: 515px;
+    }
+    .login-lines {
+        width: auto;
     }
 }
 
@@ -266,22 +282,14 @@
     }
 
     .sign-up {
-        top: 753px;
+        top: auto;
+        bottom: 160px;
         right: auto;
     }
 
     .pos-li-buttons {
         flex-direction: column;
         gap: 21px;
-    }
-
-    .loginBox {
-        width: 396px;
-        height: 515px;
-    }
-
-    .login-lines {
-        width: 364px;
     }
 
     .remember-box {
