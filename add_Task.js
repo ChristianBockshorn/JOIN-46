@@ -61,11 +61,6 @@ async function addTask() {
 }
 
 
-function safe() {
-    let AllTaskAsString = JSON.stringify(AllTask);
-    localStorage.setItem('AllTask', AllTaskAsString);
-}
-
 function generateUniqueId() {
     let timestamp = new Date().getTime();
     let randomNum = Math.floor(Math.random() * 10000);
@@ -230,7 +225,7 @@ function template_InlineFieldUnChecked(name, initials, i, color) {
 // ############################################################
 // generate subtask section
 
-function safeOnEnter(event) {
+function saveOnEnter(event) {
     if (event.key === 'Enter') {
         event.preventDefault();
         console.log('Die Entertaste wurde im subtaskfeld gedrückt');

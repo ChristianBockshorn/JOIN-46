@@ -109,6 +109,12 @@ async function getData() {
     }
 
 
+    function save() {
+        let AllTaskAsString = JSON.stringify(AllTask);
+        localStorage.setItem('AllTask', AllTaskAsString);
+    }
+    
+
     // den eingeloggten Benutzer aus dem localStorage holen und via Return übergeben
     function getLoggedInUser() {
         let loggedin = JSON.parse(localStorage.getItem('logged'));
