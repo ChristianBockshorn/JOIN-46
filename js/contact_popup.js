@@ -86,10 +86,10 @@ async function addNewUser() {
     };
     contacts.push(obj);
     await saveData(contacts);
-    let arrayPos = getNewContactPos(newname);
     closeDialog();
     showSuccessMsg();
     await renderContacts();
+    let arrayPos = getNewContactPos(newname);
     generateDetails(arrayPos);
     clearForm();
 }
