@@ -18,25 +18,6 @@ function doNotClose(event) {
 }
 
 
-
-// function render() {
-//     let content = document.getElementById(`stateToDo`);
-//     let noToDoDiv = document.querySelector('.no-to-do');
-
-//     content.innerHTML = '';
-
-//     if (AllTask.length > 0) {
-//         for (let i = 0; i < AllTask.length; i++) {
-//             const element = AllTask[i];
-//             content.innerHTML += generateHtmlContent(element,task);            
-//         }
-//         noToDoDiv.style.display = 'none';
-//     } else {
-//         noToDoDiv.style.display = 'block';
-//     }
-// }
-
-
 function generateHtmlContent(element, index, f) {
     return /*html*/`
         <div id="borderBoard-${element['id']}" class="borderBoard" draggable="true" onclick="openTask(${f})" ondragstart="startDragging(${element['id']})">
@@ -415,9 +396,6 @@ function template_AssignedUsers(assignedUserColor, assignedUserInitials, assigne
             <div>${assignedUserName}</div>
         </div>`;
 }
-
-
-
 
 
 function template_SubtasksShow(subtask, i, index, state) {

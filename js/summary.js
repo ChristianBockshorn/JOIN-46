@@ -9,26 +9,6 @@ async function init() {
   await renderSummaryConten();
 }
 
-
-// async function loadData() {
-//   try {
-//     tasks = JSON.parse(await getItem('tasks'));
-//     users = JSON.parse(await getItem('users'));
-//   } catch (e) {
-//     console.error('Loading Data error:', e);
-//   }
-// }
-
-
-// let Counts = {
-//   toDoStatus: 0,
-//   inProgressStatus: 0,
-//   doneStatus: 0,
-//   awaitFeedbackStatus: 0,
-//   urgentPriority: 0,
-//   closestDueDateForUrgent: null,
-// };
-
 let currentDate = new Date();
 let currentTime = new Date().getHours();
 
@@ -38,6 +18,7 @@ async function renderSummaryConten() {
   timedGreeting();
   greetUser();
 }
+// Die Function zählt die Tasks und übergibt die an den passenden IDs
 
 async function loadeCount() {
   let CounterToDo = await AllTask.filter(task => task['state'] == 'stateToDo');
@@ -56,12 +37,14 @@ async function loadeCount() {
     if (x < y) { return -1; }
     if (x > y) { return 1; }
     return 0;
+
 });
   document.getElementById('nextUrgentDate').innerHTML = CounterUrgent[0]['date'];
   document.getElementById('urgentCount').innerHTML = CounterUrgent.length;
   document.getElementById("totalCount").innerHTML = AllTask.length;
 }
 
+    // Die Urgents werden gefiltert und gezählt.
 
 function countTodos(tasks) {
   tasks.forEach((tasks) => {
@@ -81,6 +64,7 @@ function formatDate(dateString) {
   return new Date(dateString).toLocaleDateString("en-US", options);
 }
 
+// Greeting beim laden der Seite.
 
 function timedGreeting() {
   let greeting;
@@ -98,6 +82,8 @@ function timedGreeting() {
   document.getElementById("timedGreeting").innerHTML = greeting;
   document.getElementById("mobileTimedGreeting").innerHTML = greeting;
 }
+
+// das Datum des nächstdringende Task wird eingetragen sodass man alles im Blick hat.
 
 function setNextUrgentDate(task, Counts) {
   if (
@@ -122,6 +108,7 @@ function updateDeadlineText(UrgentTasksCount) {
   }
 }
 
+// Responsive Ansichten Anpassungen!!
 
 document.addEventListener("DOMContentLoaded", function () {
   let mobileGreetDiv = document.getElementById("mobileGreet");
@@ -140,6 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+// Erkennung des angemeldeten Users um mit Namen zu grüßen. Sont Gast.
 
 function greetUser() {
   let isUserLoggedIn = false;
