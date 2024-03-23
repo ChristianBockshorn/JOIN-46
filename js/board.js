@@ -24,6 +24,7 @@ function generateHtmlContent(element, index, f) {
             <span class="taskCategory">${element.Category}</span>
             <h3 class="taskTitle">${element.title}</h3>
             <span class="taskDescription">${element.Description}</span>
+            <span id="progress-bar${f}"></span>
             <div>Assigned To:
                 <div class="pad-l-8 overflow-x">
                     <span class="stapled-icons-line" id="selected-assigned-user-small${f}"></span>
@@ -129,6 +130,7 @@ function renderStateToDo(stateToDo) {
         let indexPosition = getIndexPosition(element);
         document.getElementById('stateToDo').innerHTML += generateHtmlContent(element, index, indexPosition);
         getAssignedUserSmall(element, indexPosition);
+        generateProgressBar(indexPosition);
     }
 }
 
@@ -138,6 +140,7 @@ function renderStateInProgress(stateInProgress) {
         let indexPosition = getIndexPosition(element);
         document.getElementById('stateInProgress').innerHTML += generateHtmlContent(element, index, indexPosition);
         getAssignedUserSmall(element, indexPosition);
+        generateProgressBar(indexPosition);
     }
 }
 
@@ -147,6 +150,7 @@ function renderStateAwaitFeedback(stateAwaitFeedback) {
         let indexPosition = getIndexPosition(element);
         document.getElementById('stateAwaitFeedback').innerHTML += generateHtmlContent(element, index, indexPosition);
         getAssignedUserSmall(element, indexPosition);
+        generateProgressBar(indexPosition);
     }
 }
 
@@ -156,6 +160,7 @@ function renderStateDone(stateDone) {
         let indexPosition = getIndexPosition(element);
         document.getElementById('stateDone').innerHTML += generateHtmlContent(element, index, indexPosition);
         getAssignedUserSmall(element, indexPosition);
+        generateProgressBar(indexPosition);
     }
 }
 
@@ -440,4 +445,10 @@ function searchTask() {
         setSearchContent.innerHTML += `<div class="search-field-line" onclick="openTask(${indexPosition})">${element.title}</div>`;
         console.log(element);
     }
+}
+
+function generateProgressBar(index) {
+    let subTasksLength = AllTask[index]['Subtasks'].length;
+    let subTasksDoneLength = AllTask[index]['Subtasks'].filter(state => state.stateDone == true).length;
+    document.getElementById(`progress-bar${index}`).innerHTML = `<progress id="file" value="${subTasksDoneLength}" max="${subTasksLength}"></progress>Subtasks${subTasksDoneLength}/${subTasksLength}`;
 }
