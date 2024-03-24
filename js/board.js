@@ -1,10 +1,17 @@
 let currentDraggedElement;
 
 
-
 function openDialog() {
     document.getElementById('dialog').classList.remove('d-none');
     document.getElementById('mainContent').classList.remove('main');
+}
+
+
+function openDialogEdit(index) {
+    document.getElementById('dialogEdit').classList.remove('d-none');
+    document.getElementById('mainContent').classList.remove('main');
+    document.getElementById('taskDetail').classList.add('d-none');
+    console.log(AllTask[index]);
 }
 
 
@@ -32,7 +39,6 @@ function generateHtmlContent(element, index, f) {
             </div>
             <span>Date: ${element.date}</span>
             <span>Prio: ${element.Prio}</span>
-            <!--<span class="d-flex ai-start fd-column gap-8" id="subtasks-view${index}"></span>-->
         </div>
     `;
 }
@@ -42,7 +48,6 @@ async function init() {
     await loadAllTasks();
     await getData();
 }
-
 
 
 function getAssignedUserSmall(element, indexPosition) {
@@ -94,7 +99,7 @@ function getAssignedUser(element, indexPosition) {
                 console.error(`Kontakt mit dem Namen ${assignedUsers[i]} nicht gefunden.`);
             }
         }
-   }
+    }
 }
 
 
@@ -175,10 +180,8 @@ async function updateHTML() {
 
     if (stateToDo.length >= 1) {
         renderStateToDo(stateToDo);
-        console.log(stateToDo);
         noToDoDiv.style.display = 'none'; //Ausblenden des grauen Platzhalters "No Task To do"
     } else {
-        console.log('kein Task mit state To Do');
         noToDoDiv.style.display = 'block'; //Einblenden des grauen Platzhalters "No Task To do"
     }
 
@@ -189,10 +192,8 @@ async function updateHTML() {
 
     if (stateInProgress.length >= 1) {
         renderStateInProgress(stateInProgress);
-        console.log(stateInProgress);
         noToDoDivInProgress.style.display = 'none'; //Ausblenden des grauen Platzhalters "No Task To do"
     } else {
-        console.log('kein Task mit state In progress');
         noToDoDivInProgress.style.display = 'block'; //Einblenden des grauen Platzhalters "No Task To do"
     }
 
@@ -203,10 +204,8 @@ async function updateHTML() {
 
     if (stateAwaitFeedback.length >= 1) {
         renderStateAwaitFeedback(stateAwaitFeedback);
-        console.log(stateAwaitFeedback);
         noToDoDivAwaitFeedback.style.display = 'none'; //Ausblenden des grauen Platzhalters "No Task To do"
     } else {
-        console.log('kein Task mit state Await feedback');
         noToDoDivAwaitFeedback.style.display = 'block'; //Einblenden des grauen Platzhalters "No Task To do"
     }
 
@@ -217,10 +216,8 @@ async function updateHTML() {
 
     if (stateDone.length >= 1) {
         renderStateDone(stateDone);
-        console.log(stateDone);
         noToDoDivDone.style.display = 'none'; //Ausblenden des grauen Platzhalters "No Task To do"
     } else {
-        console.log('kein Task mit state Done');
         noToDoDivDone.style.display = 'block'; //Einblenden des grauen Platzhalters "No Task To do"
     }
 
@@ -249,8 +246,6 @@ async function moveTo(category) {
 
     if (taskIndex !== -1) {
         AllTask[taskIndex].state = category;
-        // let updatedTasksAsString = JSON.stringify(AllTask);
-        // await setItem('AllTask', updatedTasksAsString);
         await saveAllTaskRemote();
     } else {
         console.error("Task not found in AllTask array");
@@ -303,26 +298,26 @@ function taskContentHtML(index, task) {
         <div class="btn-deleteEdit">
             <button onclick="deleteTask(${index})"><img src="assets/images/delete.svg" alt="delete">Delete</button>
             <div class="edit-options-seperator"></div>
-            <button onclick="editTask(${index})"><img src="assets/images/edit_white.svg" alt="edit">Edit</button>
+            <button onclick="openDialogEdit(${index})"><img src="assets/images/edit_white.svg" alt="edit">Edit</button>
         </div>
         
     </div>
     `;
 }
 
-async function deleteTask(index) { 
+async function deleteTask(index) {
     AllTask.splice(index, 1);
     await saveAllTaskRemote();
     await updateHTML();
     closeTask();
 }
 
-function editTask(index){
+function editTask(index) {
     let task = AllTask[index];
     let taskContent = document.getElementById('addtask-dialog');
     taskContent.innerHTML = '';
 
-    taskContent.innerHTML +=  /*html*/`
+    taskContent.innerHTML +=  `
     <div class="borderBoardDetailTask">
         <div class="detailHeader">
             <label class="title" for="title">Title</label>
@@ -428,9 +423,9 @@ function template_SubtasksShow(subtask, i, index, state) {
 }
 
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('searchInput').addEventListener('focus', showSearchContent);
-  });
+});
 
 
 function searchTask() {
@@ -443,12 +438,13 @@ function searchTask() {
         const element = AllTask_Temp[i];
         let indexPosition = getIndexPosition(element);
         setSearchContent.innerHTML += `<div class="search-field-line" onclick="openTask(${indexPosition})">${element.title}</div>`;
-        console.log(element);
     }
 }
 
 function generateProgressBar(index) {
     let subTasksLength = AllTask[index]['Subtasks'].length;
-    let subTasksDoneLength = AllTask[index]['Subtasks'].filter(state => state.stateDone == true).length;
-    document.getElementById(`progress-bar${index}`).innerHTML = `<progress id="file" value="${subTasksDoneLength}" max="${subTasksLength}"></progress>Subtasks${subTasksDoneLength}/${subTasksLength}`;
+    if (subTasksLength >= 1) {
+        let subTasksDoneLength = AllTask[index]['Subtasks'].filter(state => state.stateDone == true).length;
+        document.getElementById(`progress-bar${index}`).innerHTML = `<progress id="file" value="${subTasksDoneLength}" max="${subTasksLength}"></progress>Subtasks${subTasksDoneLength}/${subTasksLength}`;
+    }
 }
