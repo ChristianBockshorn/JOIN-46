@@ -153,6 +153,15 @@
     }    
 }
 
+@media (max-width: 700px){
+
+        .contacts-detail {
+            padding-top: 32px;
+            height: 100vh;
+        }
+
+}
+
 @media (max-width: 600px){
     #add-user-show-mobile{
         display: block;
