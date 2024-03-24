@@ -104,7 +104,6 @@ function closeDetails() {
 
 function showOptions() {
     document.getElementById('options').innerHTML;
-    document.getElementById('options').classList.add('show-on-mobile');
     document.getElementById('options').classList.remove('options');
 }
 
