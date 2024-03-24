@@ -94,6 +94,9 @@ async function renderDropDownList() {
     }
 }
 
+function reload() {
+   location.reload();
+}
 
 // Filterfunktion die Just in Time prüft ob es einträge mit den entsprechenden Buchstaben bzw. suchmuster gibt
 function searchPattern() {
