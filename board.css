@@ -447,6 +447,10 @@ input {
   input {
       width: auto;
   }
+
+  .dialog-bg {
+    height: 89vh;
+  }
 }
 
 @media (max-width: 1024px) {
