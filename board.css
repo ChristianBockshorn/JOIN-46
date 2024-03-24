@@ -253,7 +253,6 @@ input {
 
 .taskDetail {
   width: 525px;
-  height: 931px;
   background-color: white;
   border: 1px solid lightgrey;
   border-radius: 20px;
@@ -489,6 +488,14 @@ input {
     flex-direction: column-reverse;
     align-items: center;
     margin-top: -85px;
+  }
+
+  .borderBoard {
+    max-width: 190px;
+  }
+
+  .flex {
+    width: 335px;
   }
 
   header_templates {

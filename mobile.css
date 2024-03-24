@@ -312,14 +312,19 @@
 
     .signUpBox {
         height: 595px;
-        width: 396px;
+        width: 370px;
+    }
+
+    .back-arrow {
+        left: 24px;
+        width: 24px;
     }
 
     .start-logo {
-        width: 64px;
-        height: 78px;
-        top: 37px;
-        left: 38px;
+        width: 45px;
+        height: 48px;
+        top: 34px;
+        left: 20px;
     }
 
     .app-box {
@@ -336,7 +341,11 @@
         }
 
         .pos-footer {
-            bottom: -32px;
+            bottom: 0;
+        }
+
+        .footer-loin {
+            bottom: -24px;
         }
     }
 
