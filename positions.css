@@ -349,3 +349,9 @@ select {
     font-size: 20px;
     padding: 10px;
 }
+
+@media (max-width: 1110px) {
+    .gap-48 {
+        gap: 0;
+    }
+}
