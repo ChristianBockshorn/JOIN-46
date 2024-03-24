@@ -27,6 +27,14 @@ function openDialogEdit(index) {
     console.log(AllTask[index]);
 }
 
+function closeDialogEdit() {
+    document.getElementById('dialogEdit').classList.add('d-none');
+}
+
+
+function doNotClose(event) {
+    event.stopPropagation();
+}
 
 function closeDialog() {
     document.getElementById('dialog').classList.add('d-none');
