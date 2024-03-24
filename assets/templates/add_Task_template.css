@@ -117,6 +117,7 @@ input::placeholder {
 
 .selected-persons {
     display: flex;
+    flex-wrap: wrap;
 }
 
 /* Ende STYLE FÜR DIE DROPDOWNLISTE */
