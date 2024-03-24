@@ -11,6 +11,19 @@ function openDialogEdit(index) {
     document.getElementById('dialogEdit').classList.remove('d-none');
     document.getElementById('mainContent').classList.remove('main');
     document.getElementById('taskDetail').classList.add('d-none');
+
+    document.getElementById('edittitle').innerHTML = AllTask[index]['title'];
+    document.getElementById('editdescription').value = AllTask[index]['Description'];
+    // document.getElementById('editassigned').value = AllTask[index]['Assigned'];
+    document.getElementById('editdueDate').value = AllTask[index]['date'];
+    document.getElementById('editprioCategory').value = AllTask[index]['Category'];
+    document.getElementById('editcategorySelect').value = AllTask[index]['Prio'];
+    // document.getElementById('editsubtask-input').value = AllTask[index]['Subtasks'];
+
+
+
+
+
     console.log(AllTask[index]);
 }
 
