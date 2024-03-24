@@ -187,21 +187,19 @@ input {
   background-color: rgba(0, 0, 0, 0.2);
   z-index: 999;
   position: fixed;
-  height: 100vh;
+  height: 98vh;
   left: 0;
   right: 0;
   bottom: 0;
   top: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .dialog {
   background-color: white;
   border: 1px solid lightgrey;
   border-radius: 20px;
-  padding: 54px;
   overflow-y: scroll;
   overflow-x: hidden;
 }
