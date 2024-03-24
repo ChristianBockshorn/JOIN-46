@@ -21,7 +21,7 @@ async function deleteUser(i) {
         i = nr;
     }
     let userNameToDelete = contacts[i]['name'];
-    cleanUserFromAvailableTask(userNameToDelete);
+    await cleanUserFromAvailableTask(userNameToDelete);
     contacts.splice(i, 1);
     document.getElementById('main-content').style.display = 'none';
     document.getElementById('contacts-detail').classList.add('contacts-detail');
@@ -113,12 +113,12 @@ async function cleanUserFromAvailableTask(userNameToDelete) {
     // let matchingIndexes = AllTask.map((task, index) => task.Assigned.includes(userNameToDelete) ? index : null).filter(index => index !== null);
     console.log(taskTemp);
     for (i = 0; taskTemp.length > i; i++) {
-        let currentTask = AllTask.find(c => c.title == taskTemp[i].title);
+        let currentTask = await AllTask.find(c => c.title == taskTemp[i].title);
         let currentTaskPos = AllTask.indexOf(currentTask);
         console.log(currentTaskPos);
-        let userIndex = AllTask[currentTaskPos]['Assigned'].indexOf(userNameToDelete);
+        let userIndex = await AllTask[currentTaskPos]['Assigned'].indexOf(userNameToDelete);
         console.log(userIndex);
-        AllTask[currentTaskPos]['Assigned'][userIndex] = 'gelöscht'
+        AllTask[currentTaskPos]['Assigned'][userIndex] = 'gelöscht';
     }
     await save();
 }
