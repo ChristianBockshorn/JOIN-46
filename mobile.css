@@ -405,14 +405,14 @@
         display: flex;
         flex-direction: column;
         gap: 16px;
-        top: 758px;
-        left: 300px;
+        bottom: 84px;
+        right: 20px;
     }
 
     @keyframes slider {
         0% {
-            top: 758px;
-            left: 500px;
+            bottom: 84px;
+            right: -100px;
         }
     }
 

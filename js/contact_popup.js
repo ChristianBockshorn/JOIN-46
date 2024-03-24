@@ -103,8 +103,8 @@ function closeDetails() {
 }
 
 function showOptions() {
-    document.getElementById('options').innerHTML;
-    document.getElementById('options').classList.remove('options');
+    document.getElementById('options').classList.add('options-slidein');
+    document.getElementById('options').classList.add('show-on-mobile');
 }
 
 
