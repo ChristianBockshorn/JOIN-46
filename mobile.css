@@ -511,9 +511,9 @@
      #close-cross-icon {
         display: flex;
         position: absolute;
-        top: 104px;
-        left: 364px;
-        height: 32px;
+        top: 15px;
+        left: 332px;
+        height: 40px;
         width: 32px;
     }
 
