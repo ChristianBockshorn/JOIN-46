@@ -10,7 +10,7 @@
 .summaryHead {
   display: flex;
   align-items: center;
- 
+
 }
 
 .summaryIcon {
@@ -35,6 +35,7 @@
   font-weight: 400;
   color: #2a3647;
 }
+
 .summaryMainContent {
   display: flex;
   align-items: center;
@@ -69,9 +70,9 @@
 }
 
 .summaryBox:hover .summaryBoxesTopIcons {
-  filter: brightness(0) saturate(100%) invert(14%) sepia(3%) saturate(6188%)
-    hue-rotate(177deg) brightness(105%) contrast(84%);
+  filter: brightness(0) saturate(100%) invert(14%) sepia(3%) saturate(6188%) hue-rotate(177deg) brightness(105%) contrast(84%);
 }
+
 .summaryBox:hover .summaryCountText {
   color: white;
 }
@@ -101,9 +102,12 @@
   display: flex;
   align-items: center;
 
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box; /* Firefox, other Gecko */
-  box-sizing: border-box; /* Opera/IE 8+ */
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
 }
 
 .summaryBoxMid {
@@ -113,9 +117,12 @@
   display: flex;
   align-items: center;
 
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box; /* Firefox, other Gecko */
-  box-sizing: border-box; /* Opera/IE 8+ */
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
 }
 
 .summaryBoxBottom {
@@ -123,9 +130,12 @@
   height: 168px;
   width: 168px;
 
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box; /* Firefox, other Gecko */
-  box-sizing: border-box; /* Opera/IE 8+ */
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
 }
 
 .summaryBoxTopIcon {
@@ -262,6 +272,7 @@
   .summaryContent {
     margin-top: 130px;
   }
+
   .summaryMainContent {
     flex-direction: column;
     margin-top: 48px;
@@ -278,9 +289,11 @@
   .summaryContent {
     margin-left: 280px;
   }
+
   .summaryContent {
     margin-top: 130px;
   }
+
   .summaryMainContent {
     margin-top: 32px;
   }
@@ -309,17 +322,20 @@
 }
 
 @media (max-width: 767.98px) {
-  .userGreet {
-    display: none;
-  }
-
+ 
   #mobileGreet.show {
-    display: flex; 
+    display: flex;
     opacity: 1;
   }
 
   #mobileGreet.hidden {
     opacity: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .summaryHead {
+    margin-top: 16px;
   }
 }
 
@@ -418,6 +434,18 @@
   .sumHeadDeviderMobile {
     display: block;
   }
+}
+
+@media (max-width: 450px) {
+
+  #timedGreeting {
+    font-size: 24px;
+  }
+
+  #logedinUser {
+    font-size: 27px;
+  }
+
 }
 
 @media (max-width: 360px) {

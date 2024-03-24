@@ -488,7 +488,11 @@ input {
     flex-direction: column;
     flex-direction: column-reverse;
     align-items: center;
-    /* margin-top: -85px; */
+    margin-top: -85px;
+  }
+
+  header_templates {
+    display: none;
   }
 
   .input-wrapper {
