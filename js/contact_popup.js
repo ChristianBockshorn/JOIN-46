@@ -110,14 +110,10 @@ function showOptions() {
 
 async function cleanUserFromAvailableTask(userNameToDelete) {
     let taskTemp = AllTask.filter(task => task.Assigned.includes(userNameToDelete));
-    // let matchingIndexes = AllTask.map((task, index) => task.Assigned.includes(userNameToDelete) ? index : null).filter(index => index !== null);
-    console.log(taskTemp);
     for (i = 0; taskTemp.length > i; i++) {
         let currentTask = await AllTask.find(c => c.title == taskTemp[i].title);
         let currentTaskPos = AllTask.indexOf(currentTask);
-        console.log(currentTaskPos);
         let userIndex = await AllTask[currentTaskPos]['Assigned'].indexOf(userNameToDelete);
-        console.log(userIndex);
         AllTask[currentTaskPos]['Assigned'][userIndex] = 'gelöscht';
     }
     await save();
