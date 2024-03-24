@@ -148,6 +148,9 @@ function ddListToggle() {
     }
 }
 
+function doNotClose(event) {
+    event.stopPropagation();
+}
 
 // funktions zum ausblenden des ddmenüs
 function closeDDListWithOutsideClick() {
