@@ -197,6 +197,10 @@
     h1 {
         font-size: 47px;
     }
+    .loginBox {
+        width: 375px;
+        height: 515px;
+    }
 
     .moveToLeft {
         height: 64px;
@@ -249,7 +253,6 @@
         }
     }
 
-
     @keyframes moveToLefter {
         0% {
             top: 50vh;
@@ -283,7 +286,7 @@
 
     .sign-up {
         top: auto;
-        bottom: 160px;
+        bottom: 120px;
         right: auto;
     }
 
@@ -314,6 +317,16 @@
 
     .contacts-btn-box {
         display: none !important;
+    }
+
+    @media (max-height: 667px) {
+        .sign-up {
+            bottom: 16px;
+        }
+
+        .pos-footer {
+            bottom: -32px;
+        }
     }
 
     .colored-btn-mobile {
