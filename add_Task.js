@@ -16,15 +16,6 @@ function activeBtn(btnId) {
 }
 
 
-// function loadAllTasks() {
-//     let AllTaskAsString = localStorage.getItem('AllTask');
-//     AllTask = JSON.parse(AllTaskAsString);
-//     console.log('loaded task', AllTask);
-//     // render();
-//     // updateHTML();
-// }
-
-
 async function addTask() {
     let title = document.getElementById('title').value;
     let description = document.getElementById('description').value;
@@ -46,13 +37,11 @@ async function addTask() {
     };
 
     // Überprüfen, ob bereits Aufgaben im AllTask-Array vorhanden sind
-    // let existingTasksAsString = localStorage.getItem('AllTask');
     let existingTasksAsString = JSON.stringify(AllTask);
     let existingTasks = existingTasksAsString ? JSON.parse(existingTasksAsString) : [];
     // Die neue Aufgabe an das vorhandene Array anhängen oder ein neues Array mit der Aufgabe initialisieren
     existingTasks.push(newTasks);
     let updatedTasksAsString = JSON.stringify(existingTasks);
-    // localStorage.setItem('AllTask', updatedTasksAsString);
     await setItem('AllTask', updatedTasksAsString);
     // Das AllTask-Array für den sofortigen Gebrauch aktualisieren
     AllTask = existingTasks;
@@ -234,7 +223,6 @@ function template_InlineFieldUnChecked(name, initials, i, color) {
 function saveOnEnter(event) {
     if (event.key === 'Enter') {
         event.preventDefault();
-        console.log('Die Entertaste wurde im subtaskfeld gedrückt');
         renderSubtaskList();
     }
 };
@@ -332,7 +320,6 @@ function saveSubtaskChanges(k) {
     listField.setAttribute('class', 'subtask-line');
     listField.setAttribute('ondblclick', `editSubtaskLine(${k})`);
     listField.innerHTML = fieldItem.value;
-    console.log(fieldItem.value);
     fieldItem.parentNode.replaceChild(listField, fieldItem);
     document.getElementById(`subtask-line${k}`).parentElement.classList.add('pad-add');
 }
