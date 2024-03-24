@@ -12,13 +12,14 @@ function openDialogEdit(index) {
     document.getElementById('mainContent').classList.remove('main');
     document.getElementById('taskDetail').classList.add('d-none');
 
-    document.getElementById('edittitle').innerHTML = AllTask[index]['title'];
+    document.getElementById('edittitle').value = AllTask[index]['title'];
     document.getElementById('editdescription').value = AllTask[index]['Description'];
     // document.getElementById('editassigned').value = AllTask[index]['Assigned'];
     document.getElementById('editdueDate').value = AllTask[index]['date'];
-    document.getElementById('editprioCategory').value = AllTask[index]['Category'];
-    document.getElementById('editcategorySelect').value = AllTask[index]['Prio'];
-    // document.getElementById('editsubtask-input').value = AllTask[index]['Subtasks'];
+    document.getElementById('editprioCategory').value = AllTask[index]['Prio'];
+    document.getElementById('editCategorySelect').value = AllTask[index]['Category'];
+    document.getElementById('editsubtask-content').innerHTML = '';
+    renderEditSubtasks(index);
 
 
 
@@ -26,6 +27,16 @@ function openDialogEdit(index) {
 
     console.log(AllTask[index]);
 }
+
+
+function renderEditSubtasks(index) {
+    let field = document.getElementById('subtask-input').value;
+    for (let i = 0; i < AllTask[index]['Subtasks'].length; i++) {
+        const element = AllTask[index]['Subtasks'][i]['task'];
+        document.getElementById('editsubtask-content').innerHTML += template_Subtask(i, element);
+    }
+}
+
 
 function closeDialogEdit() {
     document.getElementById('dialogEdit').classList.add('d-none');
