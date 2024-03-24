@@ -372,3 +372,10 @@ function getPastDate() {
     let forbiddenDays = `${year}-${month}-${day}`;
     document.getElementById('dueDate').min = forbiddenDays;
 }
+
+
+function cleanAllTaskFieldInputs() {
+    document.getElementById('subtask-content').innerHTML = '';
+    document.getElementById('selected-persons').innerHTML = '';
+    assignedPersons = [];
+}
