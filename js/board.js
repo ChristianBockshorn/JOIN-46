@@ -30,7 +30,6 @@ function openDialogEdit(index) {
 
 
 function renderEditSubtasks(index) {
-    let field = document.getElementById('subtask-input').value;
     for (let i = 0; i < AllTask[index]['Subtasks'].length; i++) {
         const element = AllTask[index]['Subtasks'][i]['task'];
         document.getElementById('editsubtask-content').innerHTML += template_Subtask(i, element);
