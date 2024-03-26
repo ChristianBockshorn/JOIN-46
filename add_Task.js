@@ -111,8 +111,8 @@ function searchPattern() {
 
 
 // rendern der ausgewählten Personen um sie unter dem assigned inputfeld anzuzeigen
-function renderAssignedPersons() {
-    let selected = document.getElementById('selected-persons');
+function renderAssignedPersons(idElement) {
+    let selected = document.getElementById(idElement);
     selected.innerHTML = '';
     for (let j = 0; j < assignedPersons.length; j++) {
         selected.innerHTML += `<div style="background-color: ${contacts[assignedPersons[j]]['usercolor']}" class="initialscirclecontact d-flex center">${contacts[assignedPersons[j]]['initials']}</div>`;
@@ -180,7 +180,7 @@ function addToSelectedPersons(i) {
         document.getElementById(`dd-line${i}`).classList.remove('dd-line-dark');
         document.getElementById(`dd-line${i}`).classList.add('dd-line');
     }
-    renderAssignedPersons();
+    renderAssignedPersons('selected-persons');
 }
 
 
