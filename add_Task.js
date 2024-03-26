@@ -67,8 +67,8 @@ async function init() {
 
 
 // erstellen der Dropdownlist mit den aktuell gespeicherten Benutzern
-async function renderDropDownList() {
-    let ddfield = document.getElementById('dd-list-content');
+async function renderDropDownList(idElement) {
+    let ddfield = document.getElementById(idElement);
     ddfield.innerHTML = '';
     for (let i = 0; i < contacts.length; i++) {
         let initials = contacts[i]['initials'];
@@ -136,7 +136,7 @@ function ddListToggle() {
     document.getElementById('dd-list-content').classList.toggle('d-flex');
     document.getElementById('dd-list-content').classList.toggle('d-none');
     if (document.getElementById('dd-list-content').classList.contains('d-flex')) {
-        renderDropDownList();
+        renderDropDownList('dd-list-content');
     }
 }
 
