@@ -21,11 +21,29 @@ function openDialogEdit(index) {
     document.getElementById('editsubtask-content').innerHTML = '';
     renderEditSubtasks(index);
 
-
-
+    // renderDropDownList('dd-list-editcontent');
+    // document.getElementById('dd-list-editcontent').classList.remove('d-none');
+    // document.getElementById('dd-list-editcontent').classList.add('d-flex');
+    fillAssignedPersonsArray(index);
+    
 
 
     console.log(AllTask[index]);
+}
+
+
+function fillAssignedPersonsArray(index) {
+    let selectedUsers = AllTask[index]['Assigned'];
+    for (let i = 0; i < selectedUsers.length; i++) {
+        const selectedUser = selectedUsers[i];
+        if (selectedUser !== 'gelöscht') {
+            let indexPosition = contacts.findIndex(c => c.name == selectedUser)
+            // addToSelectedPersons(indexPosition, 'editselected-persons');
+            addAssignedPerson(indexPosition);
+            // renderAssignedPersons('editselected-persons');
+            renderAssignedPersons('editselected-persons');
+        }
+    }
 }
 
 

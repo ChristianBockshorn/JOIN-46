@@ -75,10 +75,10 @@ async function renderDropDownList(idElement) {
         let name = contacts[i]['name'];
         let color = contacts[i]['usercolor'];
         if (assignedPersons.find(element => element == i) == i) {
-            ddfield.innerHTML += template_InlineFieldChecked(name, initials, i, color);
+            ddfield.innerHTML += template_InlineFieldChecked(name, initials, i, color, idElement);
         }
         else {
-            ddfield.innerHTML += template_InlineFieldUnChecked(name, initials, i, color);
+            ddfield.innerHTML += template_InlineFieldUnChecked(name, initials, i, color, idElement);
         }
     }
 }
@@ -101,10 +101,10 @@ function searchPattern() {
         let contactsIndex = contacts.findIndex(c => c.name == `${name}`);
         let color = contacts_Temp[i]['usercolor'];
         if (assignedPersons.find(element => element == contactsIndex) == contactsIndex) {
-            ddfield.innerHTML += template_InlineFieldChecked(name, initials, contactsIndex, color);
+            ddfield.innerHTML += template_InlineFieldChecked(name, initials, contactsIndex, color, idElement);
         }
         else {
-            ddfield.innerHTML += template_InlineFieldUnChecked(name, initials, contactsIndex, color);
+            ddfield.innerHTML += template_InlineFieldUnChecked(name, initials, contactsIndex, color, idElement);
         }
     }
 }
@@ -123,20 +123,21 @@ function renderAssignedPersons(idElement) {
 // Prüfen ob ein klick auserhalb des ddMenüs ist, wenn ja und geöffnet wird es geschlossen
 document.addEventListener('click', function myFunction(event) {
     let parentClass = event.target.parentNode.className;
+    console.log(parentClass);
     let targetId = event.target.id;
     let targetClassName = event.target.className;
     if (targetId !== 'assigned' && targetId !== 'dd-line' && targetClassName !== 'dd-line' && targetClassName !== 'dd-line-dark' && parentClass !== 'dd-line' && parentClass !== 'dd-line-inline') {
-        closeDDListWithOutsideClick();
+        closeDDListWithOutsideClick('dd-list-content');
     }
 })
 
 
 // Umschalten zwischen einblenden und ausblenden wenn man in das assigned input feld geklickt hat
-function ddListToggle() {
-    document.getElementById('dd-list-content').classList.toggle('d-flex');
-    document.getElementById('dd-list-content').classList.toggle('d-none');
-    if (document.getElementById('dd-list-content').classList.contains('d-flex')) {
-        renderDropDownList('dd-list-content');
+function ddListToggle(idElement) {
+    document.getElementById(idElement).classList.toggle('d-flex');
+    document.getElementById(idElement).classList.toggle('d-none');
+    if (document.getElementById(idElement).classList.contains('d-flex')) {
+        renderDropDownList(idElement);
     }
 }
 
@@ -145,14 +146,15 @@ function doNotClose(event) {
 }
 
 // funktions zum ausblenden des ddmenüs
-function closeDDListWithOutsideClick() {
-    document.getElementById('dd-list-content').classList.remove('d-flex');
-    document.getElementById('dd-list-content').classList.add('d-none');
+function closeDDListWithOutsideClick(idElement) {
+    document.getElementById(idElement).classList.remove('d-flex');
+    document.getElementById(idElement).classList.add('d-none');
 }
 
 
 // ausgewählte Person dem Speicher hinzufügen
 function addAssignedPerson(i) {
+    console.log(i);
     assignedPersons.push(i);
     assignedPersonsNames.push(contacts[i]['name']);
 }
@@ -167,7 +169,7 @@ function deleteAssignedPerson(i) {
 
 
 // Prüfen ob die ausgewählte Person bereits hinzugefügt ist oder nicht. Wenn ja wird sie entfernt und wenn nicht wird sie hinzugefügt
-function addToSelectedPersons(i) {
+function addToSelectedPersons(i, idElement) {
     if (assignedPersons.indexOf(i) == -1) {
         addAssignedPerson(i);
         document.getElementById(`checkbox${i}`).checked = true;
@@ -180,14 +182,14 @@ function addToSelectedPersons(i) {
         document.getElementById(`dd-line${i}`).classList.remove('dd-line-dark');
         document.getElementById(`dd-line${i}`).classList.add('dd-line');
     }
-    renderAssignedPersons('selected-persons');
+    renderAssignedPersons(idElement);
 }
 
 
 // Template welches für Personen erzeugt wird die bereits ausgewählt sind
 function template_InlineFieldChecked(name, initials, i, color) {
     return `
-        <div id="dd-line${i}" class="dd-line-dark" onclick="addToSelectedPersons('${i}')">
+        <div id="dd-line${i}" class="dd-line-dark" onclick="addToSelectedPersons(${i},'selected-persons')">
             <div class="dd-line-inline">
                 <div style="background-color: ${color}" class="initialscirclecontact d-flex center">${initials}</div>
                 ${name}
@@ -200,7 +202,7 @@ function template_InlineFieldChecked(name, initials, i, color) {
 // Template welches erzeugt wird für Personen die aktuell nicht ausgewählt sind
 function template_InlineFieldUnChecked(name, initials, i, color) {
     return `
-        <div id="dd-line${i}" class="dd-line" onclick="addToSelectedPersons('${i}')">
+        <div id="dd-line${i}" class="dd-line" onclick="addToSelectedPersons(${i},'selected-persons')">
             <div class="dd-line-inline">
             <div style="background-color: ${color}" class="initialscirclecontact d-flex center">${initials}</div>
                 ${name}

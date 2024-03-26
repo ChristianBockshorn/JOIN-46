@@ -34,10 +34,10 @@
                             placeholder="Enter a description"></textarea>
 
                         <label class="assigned" for="assigned">Assigned to</label>
-                        <input name="assigned" onclick="ddListToggle()" oninput="searchPattern()" class="f-size-20"
+                        <input name="assigned" onclick="ddListToggle('dd-list-editcontent')" oninput="searchPattern()" class="f-size-20"
                             id="editassigned" type="text" placeholder="Enter a title">
                         <div class="pos-rel">
-                            <div id="dd-list-content" onclick="doNotClose(event)" class="dd-list-content d-none"></div>
+                            <div id="dd-list-editcontent" onclick="doNotClose(event)" class="dd-list-content d-none"></div>
                         </div>
                         <div id="editselected-persons" class="selected-persons"></div>
                     </div>
