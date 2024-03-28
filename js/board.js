@@ -2,6 +2,7 @@ let currentDraggedElement;
 
 
 function openDialog() {
+    document.getElementById('selected-persons').innerHTML = '';
     document.getElementById('dialog').classList.remove('d-none');
     document.getElementById('mainContent').classList.remove('main');
 }
@@ -57,6 +58,7 @@ function renderEditSubtasks(index) {
 
 function closeDialogEdit() {
     document.getElementById('dialogEdit').classList.add('d-none');
+    assignedPersons = [];
 }
 
 
@@ -66,6 +68,7 @@ function doNotClose(event) {
 
 function closeDialog() {
     document.getElementById('dialog').classList.add('d-none');
+    assignedPersons = [];
 }
 
 
