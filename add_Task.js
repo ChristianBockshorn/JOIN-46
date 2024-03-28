@@ -66,34 +66,44 @@ async function init() {
 }
 
 
+function getRightIdName(idElement) {
+    let newIdElement = 'selected-persons';
+    if (idElement == 'dd-list-editcontent') {
+        newIdElement = 'editselected-persons';
+    }
+    return newIdElement;
+}
+
+
 // erstellen der Dropdownlist mit den aktuell gespeicherten Benutzern
 async function renderDropDownList(idElement) {
     let ddfield = document.getElementById(idElement);
     ddfield.innerHTML = '';
+    let newIdElement = getRightIdName(idElement);
     for (let i = 0; i < contacts.length; i++) {
         let initials = contacts[i]['initials'];
         let name = contacts[i]['name'];
         let color = contacts[i]['usercolor'];
         if (assignedPersons.find(element => element == i) == i) {
-            ddfield.innerHTML += template_InlineFieldChecked(name, initials, i, color, idElement);
+            ddfield.innerHTML += template_InlineFieldChecked(name, initials, i, color, idElement, newIdElement);
         }
         else {
-            ddfield.innerHTML += template_InlineFieldUnChecked(name, initials, i, color, idElement);
+            ddfield.innerHTML += template_InlineFieldUnChecked(name, initials, i, color, idElement, newIdElement);
         }
     }
 }
 
 function reload() {
-   location.reload();
+    location.reload();
 }
 
 // Filterfunktion die Just in Time prüft ob es einträge mit den entsprechenden Buchstaben bzw. suchmuster gibt
 function searchPattern() {
-    document.getElementById('dd-list-content').classList.add('d-flex')
-    document.getElementById('dd-list-content').classList.remove('d-none')
-    let searchSign = document.getElementById('assigned').value;
     let ddfield = document.getElementById('dd-list-content');
+    ddfield.classList.remove('d-none')
+    ddfield.classList.add('d-flex')
     ddfield.innerHTML = '';
+    let searchSign = document.getElementById('assigned').value;
     let contacts_Temp = contacts.filter(c => c.name.toLowerCase().startsWith(searchSign.toLowerCase()));
     for (let i = 0; i < contacts_Temp.length; i++) {
         let initials = contacts_Temp[i]['initials'];
@@ -101,10 +111,10 @@ function searchPattern() {
         let contactsIndex = contacts.findIndex(c => c.name == `${name}`);
         let color = contacts_Temp[i]['usercolor'];
         if (assignedPersons.find(element => element == contactsIndex) == contactsIndex) {
-            ddfield.innerHTML += template_InlineFieldChecked(name, initials, contactsIndex, color, idElement);
+            ddfield.innerHTML += template_InlineFieldChecked(name, initials, contactsIndex, color, idElement, newIdElement);
         }
         else {
-            ddfield.innerHTML += template_InlineFieldUnChecked(name, initials, contactsIndex, color, idElement);
+            ddfield.innerHTML += template_InlineFieldUnChecked(name, initials, contactsIndex, color, idElement, newIdElement);
         }
     }
 }
@@ -169,27 +179,28 @@ function deleteAssignedPerson(i) {
 
 
 // Prüfen ob die ausgewählte Person bereits hinzugefügt ist oder nicht. Wenn ja wird sie entfernt und wenn nicht wird sie hinzugefügt
-function addToSelectedPersons(i, idElement) {
+function addToSelectedPersons(i, idElement, newIdElement) {
+    let parentElement = document.getElementById(idElement);
     if (assignedPersons.indexOf(i) == -1) {
         addAssignedPerson(i);
-        document.getElementById(`checkbox${i}`).checked = true;
-        document.getElementById(`dd-line${i}`).classList.add('dd-line-dark');
-        document.getElementById(`dd-line${i}`).classList.remove('dd-line');
+        parentElement.querySelector(`#checkbox${i}`).checked = true;
+        parentElement.querySelector(`#dd-line${i}`).classList.add('dd-line-dark');
+        parentElement.querySelector(`#dd-line${i}`).classList.remove('dd-line');
     }
     else if (assignedPersons.indexOf(i) > -1) {
         deleteAssignedPerson(i);
-        document.getElementById(`checkbox${i}`).checked = false;
-        document.getElementById(`dd-line${i}`).classList.remove('dd-line-dark');
-        document.getElementById(`dd-line${i}`).classList.add('dd-line');
+        parentElement.querySelector(`#checkbox${i}`).checked = false;
+        parentElement.querySelector(`#dd-line${i}`).classList.remove('dd-line-dark');
+        parentElement.querySelector(`#dd-line${i}`).classList.add('dd-line');
     }
-    renderAssignedPersons(idElement);
+    renderAssignedPersons(newIdElement);
 }
 
 
 // Template welches für Personen erzeugt wird die bereits ausgewählt sind
-function template_InlineFieldChecked(name, initials, i, color) {
+function template_InlineFieldChecked(name, initials, i, color, idElement, newIdElement) {
     return `
-        <div id="dd-line${i}" class="dd-line-dark" onclick="addToSelectedPersons(${i},'selected-persons')">
+        <div id="dd-line${i}" class="dd-line-dark" onclick="addToSelectedPersons(${i},'${idElement}', '${newIdElement}')">
             <div class="dd-line-inline">
                 <div style="background-color: ${color}" class="initialscirclecontact d-flex center">${initials}</div>
                 ${name}
@@ -200,9 +211,9 @@ function template_InlineFieldChecked(name, initials, i, color) {
 }
 
 // Template welches erzeugt wird für Personen die aktuell nicht ausgewählt sind
-function template_InlineFieldUnChecked(name, initials, i, color) {
+function template_InlineFieldUnChecked(name, initials, i, color, idElement, newIdElement) {
     return `
-        <div id="dd-line${i}" class="dd-line" onclick="addToSelectedPersons(${i},'selected-persons')">
+        <div id="dd-line${i}" class="dd-line" onclick="addToSelectedPersons(${i},'${idElement}', '${newIdElement}')">
             <div class="dd-line-inline">
             <div style="background-color: ${color}" class="initialscirclecontact d-flex center">${initials}</div>
                 ${name}
@@ -363,8 +374,8 @@ function getPastDate() {
 }
 
 
-function cleanAllTaskFieldInputs() {
-    document.getElementById('subtask-content').innerHTML = '';
-    document.getElementById('selected-persons').innerHTML = '';
+function cleanAllTaskFieldInputs(subtasks, selectetPersons) {
+    document.getElementById(subtasks).innerHTML = '';
+    document.getElementById(selectetPersons).innerHTML = '';
     assignedPersons = [];
 }
