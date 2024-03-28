@@ -3,12 +3,27 @@
     margin-left: 328px;
     font-size: 20px;
     height: 778px;
-    /* font-family: 'Inter'; */
+    font-family: Inter;
     justify-content: space-between;
     max-width: 977px;
 }
 
-#mainContent h1 {
+.mainEditTask {
+    font-family: Inter;
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainEditTask h1 {
+    padding-left: 0;
+    padding-top: 0;
+    text-align: center;
+}
+
+.main h1 {
     margin: 0;
 }
 

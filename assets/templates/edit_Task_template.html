@@ -19,33 +19,26 @@
     <!-- <div w3-include-html="/assets/templates/navbar_template.html"></div> -->
     <!-- <div w3-include-html="/assets/templates/header_template.html"></div> -->
 
-    <div id="mainContent" class="main d-flex fd-column">
+    <div id="mainContent" class="mainEditTask">
         <h1>Edit Task</h1>
         <form onsubmit="saveEditedTask(); return false;" class="formSection gap-8" id="add-task-form">
             <div class="gap-48 jc-center">
-                <div class="d-flex gap-48 jc-center pad-16 form-wrap">
-                    <div class="left-column">
+                <div class="d-flex gap-48 jc-center pad-16 fd-column">
+                    <div>
                         <label class="title" for="edittitle">Title</label>
                         <input required id="edittitle" class="pad-around-4-16 f-size-20" type="text"
                             placeholder="Enter a title">
-
-                        <label for="editdescription">Description</label>
-                        <textarea class="pad-around-4-16 f-size-20" name="description" id="editdescription" cols="30" rows="10"
-                            placeholder="Enter a description"></textarea>
-
-                        <label class="assigned" for="editassigned">Assigned to</label>
-                        <input name="assigned" onclick="ddListToggle('dd-list-editcontent')" oninput="searchPattern()" class="f-size-20"
-                            id="editassigned" type="text" placeholder="Enter a title">
-                        <div class="pos-rel">
-                            <div id="dd-list-editcontent" onclick="doNotClose(event)" class="dd-list-content d-none"></div>
-                        </div>
-                        <div id="editselected-persons" class="selected-persons"></div>
                     </div>
-                    <div class="middle-seperator"></div>
-                    <div class="right-column">
-                        <label class="date" for="editdueDate">Due date</label>
-                        <input name="date" onfocus="getPastDate()" class="pad-around-4-16 f-size-20" id="editdueDate" type="date" required>
-                        <label class="prio" for="editprioCategory">Prio</label>
+                    <div class="d-flex fd-column">
+                        <label for="editdescription">Description</label>
+                        <textarea class="pad-around-4-16 f-size-20" name="description" id="editdescription" cols="30"
+                            rows="10" placeholder="Enter a description"></textarea>
+                    </div>
+                    <div><label class="date" for="editdueDate">Due date</label>
+                        <input name="date" onfocus="getPastDate()" class="pad-around-4-16 f-size-20" id="editdueDate"
+                            type="date" required>
+                    </div>
+                    <label class="prio" for="editprioCategory">Prio
                         <div id="editprioCategory" class="prioCategoryCont">
                             <input type="radio" name="prioCategory" value="urgent">
                             <button type="button" onclick="activeBtn('urgent')" class="prioCategory" id="urgent"
@@ -60,18 +53,22 @@
                                 value="low">Low<img src="assets/images/low_symbol.svg">
                             </button>
                         </div>
-
-                        <label class="category" for="editcategorySelect">Category</label>
-                        <select name="category" type="text" id="editCategorySelect" required>
-                            <option value="" disabled selected hidden>Select task category</option>
-                            <option value="Technical Task">Technical Task</option>
-                            <option value="User Story">User Story</option>
-                        </select>
-                        <label for="editsubtask-input">Subtasks</label>
+                    </label>
+                    <label class="assigned" for="editassigned">Assigned to
+                        <input name="assigned" onclick="ddListToggle('dd-list-editcontent')" oninput="searchPattern()"
+                            class="f-size-20" id="editassigned" type="text" placeholder="Enter a title">
+                        <div class="pos-rel">
+                            <div id="dd-list-editcontent" onclick="doNotClose(event)" class="dd-list-content d-none">
+                            </div>
+                        </div>
+                        <div id="editselected-persons" class="selected-persons"></div>
+                    </label>
+                    <label for="editsubtask-input">Subtasks
                         <div class="pos-rel">
                             <input name="subtasks" id="editsubtask-input"
                                 class=" pad-r-50 pad-around-4-16 subtask-input f-size-20"
-                                onfocus="changeSubtaskIconToggle()" type="text" placeholder="Add new subtask" onkeydown="saveOnEnter(event)">
+                                onfocus="changeSubtaskIconToggle()" type="text" placeholder="Add new subtask"
+                                onkeydown="saveOnEnter(event)">
                             <div class="subtask-icons d-flex center" id="show-add">
                                 <img class="subtask-plus-symbol icon-size-24 inputSymbol" id="subtask-input-plus"
                                     src="assets/images/subtask_plus_small.svg">
@@ -86,14 +83,16 @@
                         </div>
                         <div id="editsubtask-content" class="subtask-content">
                         </div>
-                    </div>
+                    </label>
                 </div>
                 <footer class="d-flex ai-center margin-bottom-80">
-                    <span class="f-size-16">This field is required</span>
                     <div class="d-flex gap-16 pos-li-button">
-                        <button type="reset" onclick="cleanAllTaskFieldInputs('editsubtask-content', 'editselected-persons')" class="d-flex center normal-btn btn-pad-big btn-clear">Clear<img class="height-24"
+                        <button type="reset"
+                            onclick="cleanAllTaskFieldInputs('editsubtask-content', 'editselected-persons')"
+                            class="d-flex center normal-btn btn-pad-big btn-clear">Clear<img class="height-24"
                                 src="assets/images/cancel.svg" alt="check"></button>
-                        <button type="submit" onclick="saveEditedTask()" value="" id="saveEditedTaskBtn" class="d-flex center gap-8 colored-btn btn-pad-big">Save
+                        <button type="submit" onclick="saveEditedTask()" value="" id="saveEditedTaskBtn"
+                            class="d-flex center gap-8 colored-btn btn-pad-big">Save
                             <img class="height-24" src="assets/images/check_add_task.svg" alt="check"></button>
                     </div>
                 </footer>
