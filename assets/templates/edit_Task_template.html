@@ -21,19 +21,19 @@
 
     <div id="mainContent" class="main d-flex fd-column">
         <h1>Edit Task</h1>
-        <form onsubmit="addTask(); return false;" class="formSection gap-8" id="add-task-form">
+        <form onsubmit="saveEditedTask(); return false;" class="formSection gap-8" id="add-task-form">
             <div class="gap-48 jc-center">
                 <div class="d-flex gap-48 jc-center pad-16 form-wrap">
                     <div class="left-column">
-                        <label class="title" for="title">Title</label>
+                        <label class="title" for="edittitle">Title</label>
                         <input required id="edittitle" class="pad-around-4-16 f-size-20" type="text"
                             placeholder="Enter a title">
 
-                        <label for="description">Description</label>
+                        <label for="editdescription">Description</label>
                         <textarea class="pad-around-4-16 f-size-20" name="description" id="editdescription" cols="30" rows="10"
                             placeholder="Enter a description"></textarea>
 
-                        <label class="assigned" for="assigned">Assigned to</label>
+                        <label class="assigned" for="editassigned">Assigned to</label>
                         <input name="assigned" onclick="ddListToggle('dd-list-editcontent')" oninput="searchPattern()" class="f-size-20"
                             id="editassigned" type="text" placeholder="Enter a title">
                         <div class="pos-rel">
@@ -43,9 +43,9 @@
                     </div>
                     <div class="middle-seperator"></div>
                     <div class="right-column">
-                        <label class="date" for="dueDate">Due date</label>
+                        <label class="date" for="editdueDate">Due date</label>
                         <input name="date" onfocus="getPastDate()" class="pad-around-4-16 f-size-20" id="editdueDate" type="date" required>
-                        <label class="prio" for="prioCategory">Prio</label>
+                        <label class="prio" for="editprioCategory">Prio</label>
                         <div id="editprioCategory" class="prioCategoryCont">
                             <input type="radio" name="prioCategory" value="urgent">
                             <button type="button" onclick="activeBtn('urgent')" class="prioCategory" id="urgent"
@@ -61,13 +61,13 @@
                             </button>
                         </div>
 
-                        <label class="category" for="categorySelect">Category</label>
+                        <label class="category" for="editcategorySelect">Category</label>
                         <select name="category" type="text" id="editCategorySelect" required>
                             <option value="" disabled selected hidden>Select task category</option>
                             <option value="Technical Task">Technical Task</option>
                             <option value="User Story">User Story</option>
                         </select>
-                        <label for="subtask-input">Subtasks</label>
+                        <label for="editsubtask-input">Subtasks</label>
                         <div class="pos-rel">
                             <input name="subtasks" id="editsubtask-input"
                                 class=" pad-r-50 pad-around-4-16 subtask-input f-size-20"
@@ -93,7 +93,7 @@
                     <div class="d-flex gap-16 pos-li-button">
                         <button type="reset" onclick="cleanAllTaskFieldInputs('editsubtask-content', 'editselected-persons')" class="d-flex center normal-btn btn-pad-big btn-clear">Clear<img class="height-24"
                                 src="assets/images/cancel.svg" alt="check"></button>
-                        <button onclick="saveEditedTask()" value="" id="saveEditedTaskBtn" class="d-flex center gap-8 colored-btn btn-pad-big">Save
+                        <button type="submit" onclick="saveEditedTask()" value="" id="saveEditedTaskBtn" class="d-flex center gap-8 colored-btn btn-pad-big">Save
                             <img class="height-24" src="assets/images/check_add_task.svg" alt="check"></button>
                     </div>
                 </footer>
