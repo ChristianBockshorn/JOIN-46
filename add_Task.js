@@ -30,7 +30,7 @@ async function addTask() {
         "date": date,
         "Prio": selectedPrio,
         "Category": selectElement,
-        "Subtasks": generateSubtasks(),
+        "Subtasks": generateSubtasks('subtask-input'),
         'state': 'stateToDo',
         'id': generateUniqueId(),
 
@@ -238,6 +238,7 @@ function saveOnEnter(event) {
         event.preventDefault();
         console.log(event);
         let idElement = event.srcElement.id;
+        console.log(idElement);
         let contentIdElement = 'subtask-content';
         if (idElement == 'editsubtask-input') {
             contentIdElement = 'editsubtask-content'
@@ -256,9 +257,9 @@ function buildArray(taskInput) {
 }
 
 
-function generateSubtasks() {
+function generateSubtasks(idElement) {
     let allLiElements = document.querySelectorAll('li');
-    let oneSubTask = document.getElementById('subtask-input').value;
+    let oneSubTask = document.getElementById(idElement).value;
     let allArray = [];
     for (let i = 0; i < allLiElements.length; i++) {
         let element = allLiElements[i].innerHTML;
@@ -301,7 +302,7 @@ function renderSubtaskList(idElement, contentIdElement) {
 
 function template_Subtask(k, inputValue) {
     return `<div class="pad-add pos-rel" id="delete-line${k}">
-    <li class="subtask-line" ondblclick="editSubtaskLine(${k})" id="subtask-line${k}">${inputValue}</li>
+    <li class="subtask-line" ondblclick="editSubtaskLine(${k})" id="subtask-line${k}" onkeydown="saveOnEnter(event)">${inputValue}</li>
     <div class="hiding subtask-edit-icons d-flex center gap-4" id="show-edit${k}">
         <img class="subtask-X-symbol icon-size-24 inputSymbol" id="subtask-input-X" onclick="editSubtaskLine(${k})" src="assets/images/edit_white.svg">
         <div class="edit-options-seperator"></div>
@@ -324,6 +325,7 @@ function editSubtaskLine(k) {
     inputField.setAttribute('type', 'text');
     inputField.setAttribute('id', `subtask-edit-line${k}`);
     inputField.setAttribute('class', `subtask-edit-line`);
+    inputField.setAttribute('onkeydown', `saveOnEnter(event)`);
     inputField.value = listItem.innerHTML;
     listItem.parentNode.replaceChild(inputField, listItem);
     document.getElementById(`subtask-edit-line${k}`).parentElement.classList.remove('pad-add');
