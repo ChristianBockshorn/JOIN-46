@@ -377,6 +377,7 @@ function getPastDate() {
     let year = today.getFullYear();
     let forbiddenDays = `${year}-${month}-${day}`;
     document.getElementById('dueDate').min = forbiddenDays;
+    document.getElementById('editdueDate').min = forbiddenDays;
 }
 
 
@@ -384,4 +385,5 @@ function cleanAllTaskFieldInputs(subtasks, selectetPersons) {
     document.getElementById(subtasks).innerHTML = '';
     document.getElementById(selectetPersons).innerHTML = '';
     assignedPersons = [];
+    assignedPersonsNames = [];
 }
