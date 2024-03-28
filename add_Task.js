@@ -236,7 +236,13 @@ function template_InlineFieldUnChecked(name, initials, i, color, idElement, newI
 function saveOnEnter(event) {
     if (event.key === 'Enter') {
         event.preventDefault();
-        renderSubtaskList();
+        console.log(event);
+        let idElement = event.srcElement.id;
+        let contentIdElement = 'subtask-content';
+        if (idElement == 'editsubtask-input') {
+            contentIdElement = 'editsubtask-content'
+        }
+        renderSubtaskList(idElement, contentIdElement);
     }
 };
 
@@ -275,21 +281,21 @@ function changeSubtaskIconToggle() {
 }
 
 
-function cleanSubtaskInputFiled() {
-    document.getElementById('subtask-input').value = '';
+function cleanSubtaskInputFiled(idElement) {
+    document.getElementById(idElement).value = '';
     changeSubtaskIconToggle();
 }
 
 
-function renderSubtaskList() {
-    let inputValue = document.getElementById('subtask-input').value;
+function renderSubtaskList(idElement, contentIdElement) {
+    let inputValue = document.getElementById(idElement).value;
     if (inputValue == '') {
-        cleanSubtaskInputFiled();
+        cleanSubtaskInputFiled(idElement);
     }
     else {
-        document.getElementById('subtask-content').innerHTML += template_Subtask(k, inputValue);
+        document.getElementById(contentIdElement).innerHTML += template_Subtask(k, inputValue);
         k++;
-        cleanSubtaskInputFiled();
+        cleanSubtaskInputFiled(idElement);
     }
 }
 
