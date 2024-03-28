@@ -9,27 +9,37 @@ function openDialog() {
 
 
 function openDialogEdit(index) {
+    document.getElementById('editselected-persons').innerHTML = '';
     document.getElementById('dialogEdit').classList.remove('d-none');
     document.getElementById('mainContent').classList.remove('main');
     document.getElementById('taskDetail').classList.add('d-none');
-
     document.getElementById('edittitle').value = AllTask[index]['title'];
     document.getElementById('editdescription').value = AllTask[index]['Description'];
-    // document.getElementById('editassigned').value = AllTask[index]['Assigned'];
     document.getElementById('editdueDate').value = AllTask[index]['date'];
     document.getElementById('editprioCategory').value = AllTask[index]['Prio'];
-    document.getElementById('editCategorySelect').value = AllTask[index]['Category'];
     document.getElementById('editsubtask-content').innerHTML = '';
+    document.getElementById('saveEditedTaskBtn').value = index;
     renderEditSubtasks(index);
-
-    // renderDropDownList('dd-list-editcontent');
-    // document.getElementById('dd-list-editcontent').classList.remove('d-none');
-    // document.getElementById('dd-list-editcontent').classList.add('d-flex');
     fillAssignedPersonsArray(index);
-    
-
-
     console.log(AllTask[index]);
+}
+
+
+async function saveEditedTask() {
+    let editNr = document.getElementById('saveEditedTaskBtn').value;
+    let editTitle = document.getElementById('edittitle').value;
+    let editDescription = document.getElementById('editdescription').value;
+    let editDueDate = document.getElementById('editdueDate').value;
+    let editPrio = document.getElementById('editprioCategory').value;
+    AllTask[editNr]['title'] = editTitle;
+    AllTask[editNr]['Description'] = editDescription;
+    AllTask[editNr]['date'] = editDueDate;
+    AllTask[editNr]['Prio'] = editPrio;
+    AllTask[editNr]['Subtasks'] = generateSubtasks('editsubtask-input');
+    AllTask[editNr]['Assigned'] = assignedPersonsNames;
+    await save();
+    closeDialogEdit();
+    updateHTML();
 }
 
 
@@ -59,6 +69,7 @@ function renderEditSubtasks(index) {
 function closeDialogEdit() {
     document.getElementById('dialogEdit').classList.add('d-none');
     assignedPersons = [];
+    assignedPersonsNames = [];
 }
 
 
@@ -69,11 +80,7 @@ function doNotClose(event) {
 function closeDialog() {
     document.getElementById('dialog').classList.add('d-none');
     assignedPersons = [];
-}
-
-
-function doNotClose(event) {
-    event.stopPropagation();
+    assignedPersonsNames = [];
 }
 
 
@@ -178,6 +185,7 @@ async function checkIfSubtaskIsDone(index, i) {
     selectetTask = !selectetTask;
     AllTask[index]['Subtasks'][i]['stateDone'] = selectetTask;
     await saveAllTaskRemote()
+    updateHTML();
 }
 
 
