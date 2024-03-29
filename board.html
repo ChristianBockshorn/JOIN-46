@@ -14,16 +14,12 @@
     <script src="js/storage.js"></script>
     <script src="add_Task.js"></script>
     <script src="js/board.js"></script>
-
-
-
     <title>Board</title>
 </head>
 
 <body class="BoardSection" onload="includeHTML(), updateHTML()">
     <div w3-include-html="/assets/templates/header_template.html"></div>
     <div w3-include-html="/assets/templates/navbar_template.html"></div>
-
     <div class="headerBoard">
         <div class="mobile-header">
             <h1 id="board">Board</h1>
@@ -38,12 +34,10 @@
                     <img class="input-icon" id="searchImg" src="assets/images/search.svg" alt="">
                 </div>
             </div>
-
             <button class="addTaskBtn" onclick="openDialog()">
                 <span>Add task</span>
                 <img class="addPlus" src="assets/images/add_task_plus.svg" alt="">
             </button>
-
             <div id="dialog" class="dialog-bg d-none" onclick="closeDialog()">
                 <div class="dialog" onclick="doNotClose(event)">
                     <div class="addtask-dialog">
@@ -61,7 +55,6 @@
         </div>
     </div>
     <div class="status">
-
         <div id="taskDetail" class="dialog-bg d-none" onclick="closeTask()">
             <div class="taskDetail" onclick="doNotClose(event)">
                 <div id="addtask-dialog" class="addtask-dialog">
@@ -69,8 +62,6 @@
                 </div>
             </div>
         </div>
-
-
         <div class="dynamicDisplayFlex">
             <div class="flex">
                 <div class="test2">
@@ -85,15 +76,12 @@
                     <div class="no-to-do">
                         <p>No Task To do</p>
                     </div>
-
                 </div>
                 <div class="drag-area overflowTask" id="stateToDo" ondrop="moveTo('stateToDo')"
                     ondragleave="removeHighlight('stateToDo')" ondragover="allowDrop(event); highlight('stateToDo')">
                     <div id="borderBoard"></div>
                 </div>
             </div>
-
-
             <div class="flex">
                 <div class="test2">
                     <p class="status-text">In progress</p>
@@ -114,8 +102,6 @@
                 </div>
             </div>
         </div>
-
-
         <div class="dynamicDisplayFlex">
             <div class="flex">
                 <div class="test2">
@@ -134,7 +120,6 @@
                     ondragleave="removeHighlight('stateAwaitFeedback')"
                     ondragover="allowDrop(event); highlight('stateAwaitFeedback')"></div>
             </div>
-
             <div class="flex">
                 <div class="test2">
                     <p class="status-text">Done</p>
@@ -156,28 +141,7 @@
             </div>
             <div class="newTask"></div>
         </div>
-
     </div>
-    <div class="modal">
-        <div class="modal-content">
-            <div class="add-task-board">
-            </div>
-        </div>
-    </div>
-    </div>
-    <div class="modal">
-        <div class="modal-content">
-            <div class="add-task-board">
-            </div>
-        </div>
-    </div>
-
-    <div class="task">
-    </div>
-
-    <div class="task">
-    </div>
-    </section>
 </body>
 
 </html>

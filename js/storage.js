@@ -78,6 +78,7 @@ async function setItem(key, value) {
         .then(res => res.json());
 }
 
+
 async function getItem(key) {
     const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
     return fetch(url).then(res => res.json());
@@ -101,55 +102,50 @@ async function getData() {
         }
         return contacts;
     }
+}
+
+
+async function saveData(contacts) {
+    await setItem('Contacts', contacts);
+}
+
+
+async function save() {
+    let AllTaskAsString = JSON.stringify(AllTask);
+    await setItem('AllTask', AllTaskAsString);
+}
+
+
+// den eingeloggten Benutzer aus dem localStorage holen und via Return übergeben
+function getLoggedInUser() {
+    let loggedin = JSON.parse(localStorage.getItem('logged'));
+    if (loggedin) {
+        let user = loggedin[0]['name'];
+        return user;
+    } else {
+        console.error('Aktuell ist kein Benutzer angemeldet');
+        return false;
     }
+}
 
 
-    async function saveData(contacts) {
-        await setItem('Contacts', contacts);
-    }
+function logout() {
+    localStorage.removeItem("logged");
+}
 
 
-    async function save() {
-        let AllTaskAsString = JSON.stringify(AllTask);
-        await setItem('AllTask', AllTaskAsString);
-    }
+async function loadAllTasks() {
+    let AllTaskAsString = await getItem('AllTask');
+    let respons = AllTaskAsString['data']['value'];
+    AllTask = JSON.parse(respons);
+}
 
 
-    // den eingeloggten Benutzer aus dem localStorage holen und via Return übergeben
-    function getLoggedInUser() {
-        let loggedin = JSON.parse(localStorage.getItem('logged'));
-        if(loggedin){
-            console.log(loggedin);
-            let user = loggedin[0]['name'];
-            return user;
-        }else{
-            console.error('Aktuell ist kein Benutzer angemeldet');
-            return false;
-        }
-    }
-
-    function logout() {
-        localStorage.removeItem("logged");
-    }
-
-
-    async function loadAllTasks() {
-        // let AllTaskAsString = localStorage.getItem('AllTask');
-        let AllTaskAsString = await getItem('AllTask');
-        // console.log(AllTaskAsString);
-        let respons = AllTaskAsString['data']['value'];
-        AllTask = JSON.parse(respons);
-        // console.log('loaded task', AllTask);
-    }
-
-
-    function getIndexPosition(element) {
-        // console.log(element);
-        let searchWord = element.title;
-        let indexPosition = AllTask.findIndex(task => task.title == searchWord)
-        // console.log(indexPosition);
-        return indexPosition;
-    }
+function getIndexPosition(element) {
+    let searchWord = element.title;
+    let indexPosition = AllTask.findIndex(task => task.title == searchWord)
+    return indexPosition;
+}
 
 
 function showSuccessMsg(message) {

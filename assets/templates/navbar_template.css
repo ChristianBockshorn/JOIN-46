@@ -3,7 +3,6 @@
     width: 232px;
     position: fixed;
     z-index: 2;
-    /*index auf 2 erhöht um auch über dem Header zu liegen*/
     top: 0;
     left: 0;
     background-color: #2b3647;
@@ -64,7 +63,6 @@ a {
         width: 100%;
         position: fixed;
         z-index: 2;
-        /*index auf 2 erhöht um auch über dem Header zu liegen*/
         bottom: 0;
         top: auto;
         background-color: #2b3647;

@@ -1,5 +1,4 @@
 document.getElementById('app').addEventListener("click", enableButton);
-// document.getElementById('signUpButton').addEventListener("click",goSignUp);
 
 
 function enableButton(event) {

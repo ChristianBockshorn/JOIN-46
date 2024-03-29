@@ -5,20 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Help</title>
-
-    <!-- <link rel="stylesheet" href="/assets/templates/navbar_template.css"> -->
-    <!-- <link rel="icon" type="image/x-icon" href="/assets/images/logo.svg"> -->
     <link rel="stylesheet" href="/assets/templates/add_Task_template.css">
-    <!-- <link rel="stylesheet" href="/positions.css"> -->
     <script src="add_Task.js"></script>
-    <!-- <script src="/js/board.js"></script> -->
-
 </head>
 
 <body onload="includeHTML(), getPastDate()">
-    <!-- <div w3-include-html="/assets/templates/navbar_template.html"></div> -->
-    <!-- <div w3-include-html="/assets/templates/header_template.html"></div> -->
-
     <div id="mainContent" class="main d-flex fd-column">
         <h1>Add Task</h1>
         <form onsubmit="addTask(); return false;" class="formSection gap-8" id="add-task-form">
@@ -28,11 +19,9 @@
                         <label class="title" for="title">Title</label>
                         <input required id="title" class="pad-around-4-16 f-size-20" type="text"
                             placeholder="Enter a title">
-
                         <label for="description">Description</label>
                         <textarea class="pad-around-4-16 f-size-20" name="" id="description" cols="30" rows="10"
                             placeholder="Enter a description"></textarea>
-
                         <label class="assigned" for="assigned">Assigned to</label>
                         <input name="assigned" onclick="ddListToggle('dd-list-content')" oninput="searchPattern()" class="f-size-20"
                             id="assigned" type="text" placeholder="Enter a title">
@@ -60,7 +49,6 @@
                                 value="low">Low<img src="assets/images/low_symbol.svg">
                             </button>
                         </div>
-
                         <label class="category" for="categorySelect">Category</label>
                         <select name="category" type="text" id="categorySelect" required>
                             <option value="" disabled selected hidden>Select task category</option>

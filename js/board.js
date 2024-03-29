@@ -21,7 +21,6 @@ function openDialogEdit(index) {
     document.getElementById('saveEditedTaskBtn').value = index;
     renderEditSubtasks(index);
     fillAssignedPersonsArray(index);
-    console.log(AllTask[index]);
 }
 
 
@@ -49,9 +48,7 @@ function fillAssignedPersonsArray(index) {
         const selectedUser = selectedUsers[i];
         if (selectedUser !== 'gelöscht') {
             let indexPosition = contacts.findIndex(c => c.name == selectedUser)
-            // addToSelectedPersons(indexPosition, 'editselected-persons');
             addAssignedPerson(indexPosition);
-            // renderAssignedPersons('editselected-persons');
             renderAssignedPersons('editselected-persons');
         }
     }
@@ -76,6 +73,7 @@ function closeDialogEdit() {
 function doNotClose(event) {
     event.stopPropagation();
 }
+
 
 function closeDialog() {
     document.getElementById('dialog').classList.add('d-none');
@@ -180,6 +178,7 @@ function getSubtasks(element, index) {
     }
 }
 
+
 async function checkIfSubtaskIsDone(index, i) {
     let selectetTask = AllTask[index]['Subtasks'][i]['stateDone'];
     selectetTask = !selectetTask;
@@ -199,6 +198,7 @@ function renderStateToDo(stateToDo) {
     }
 }
 
+
 function renderStateInProgress(stateInProgress) {
     for (let index = 0; index < stateInProgress.length; index++) {
         const element = stateInProgress[index];
@@ -209,6 +209,7 @@ function renderStateInProgress(stateInProgress) {
     }
 }
 
+
 function renderStateAwaitFeedback(stateAwaitFeedback) {
     for (let index = 0; index < stateAwaitFeedback.length; index++) {
         const element = stateAwaitFeedback[index];
@@ -218,6 +219,7 @@ function renderStateAwaitFeedback(stateAwaitFeedback) {
         generateProgressBar(indexPosition);
     }
 }
+
 
 function renderStateDone(stateDone) {
     for (let index = 0; index < stateDone.length; index++) {
@@ -233,18 +235,15 @@ function renderStateDone(stateDone) {
 async function updateHTML() {
     await init();
     let noToDoDiv = document.querySelector('.no-to-do');
-
     //To Do---------------------------------
     let stateToDo = AllTask.filter(task => task['state'] == 'stateToDo');
     document.getElementById('stateToDo').innerHTML = '';
-
     if (stateToDo.length >= 1) {
         renderStateToDo(stateToDo);
         noToDoDiv.style.display = 'none'; //Ausblenden des grauen Platzhalters "No Task To do"
     } else {
         noToDoDiv.style.display = 'block'; //Einblenden des grauen Platzhalters "No Task To do"
     }
-
     //In Progress---------------------------------
     let stateInProgress = AllTask.filter(task => task['state'] == 'stateInProgress');
     let noToDoDivInProgress = document.querySelector('.no-to-do-InProgress');
@@ -256,54 +255,52 @@ async function updateHTML() {
     } else {
         noToDoDivInProgress.style.display = 'block'; //Einblenden des grauen Platzhalters "No Task To do"
     }
-
     //Await feedback---------------------------------
     let stateAwaitFeedback = AllTask.filter(task => task['state'] == 'stateAwaitFeedback');
     let noToDoDivAwaitFeedback = document.querySelector('.no-to-do-AwaitFeedback');
     document.getElementById('stateAwaitFeedback').innerHTML = '';
-
     if (stateAwaitFeedback.length >= 1) {
         renderStateAwaitFeedback(stateAwaitFeedback);
         noToDoDivAwaitFeedback.style.display = 'none'; //Ausblenden des grauen Platzhalters "No Task To do"
     } else {
         noToDoDivAwaitFeedback.style.display = 'block'; //Einblenden des grauen Platzhalters "No Task To do"
     }
-
     //Done---------------------------------
     let stateDone = AllTask.filter(task => task['state'] == 'stateDone');
     let noToDoDivDone = document.querySelector('.no-to-do-Done');
     document.getElementById('stateDone').innerHTML = '';
-
     if (stateDone.length >= 1) {
         renderStateDone(stateDone);
         noToDoDivDone.style.display = 'none'; //Ausblenden des grauen Platzhalters "No Task To do"
     } else {
         noToDoDivDone.style.display = 'block'; //Einblenden des grauen Platzhalters "No Task To do"
     }
-
 }
+
 
 function highlight(id) {
     document.getElementById(id).classList.add('drag-area-highlight');
 }
 
+
 function removeHighlight(id) {
     document.getElementById(id).classList.remove('drag-area-highlight');
 }
+
 
 function startDragging(id) {
     currentDraggedElement = id;
 }
 
+
 function allowDrop(ev) {
     document.location = '#board'
     ev.preventDefault();
-
 }
+
 
 async function moveTo(category) {
     const taskIndex = AllTask.findIndex(task => task.id === currentDraggedElement);
-
     if (taskIndex !== -1) {
         AllTask[taskIndex].state = category;
         await saveAllTaskRemote();
@@ -312,6 +309,7 @@ async function moveTo(category) {
     }
     updateHTML();
 }
+
 
 function openTask(index) {
     document.getElementById('taskDetail').classList.remove('d-none');
@@ -325,6 +323,7 @@ function closeTask() {
     document.getElementById('taskDetail').classList.add('d-none');
 }
 
+
 function openDetailTask(index) {
     let task = AllTask[index];
     taskContentHtML(index, task);
@@ -332,35 +331,29 @@ function openDetailTask(index) {
     getAssignedUser(task, index);
 }
 
+
 function taskContentHtML(index, task) {
     let taskContent = document.getElementById('addtask-dialog');
     taskContent.innerHTML = '';
     taskContent.innerHTML +=  /*html*/`
-        
     <div class="borderBoardDetailTask">
         <div class="detailHeader">
             <span class="taskCategory">${task.Category}</span>
             <img class="closeHeader" src="assets/images/close_X_black.svg" alt="close" onclick="closeTask()">
         </div>
-        
         <h2 id="taskTitle-${index}" class="taskTitleDetail">${task.title}</h2>
         <span class="taskDescriptionDetail">${task.Description}</span>
-        
         <div class="detailDatePrioAssigned">
             <span>Date: ${task.date}</span>
             <span>Prio: ${task.Prio}</span>
             <span class="d-flex ai-start fd-column gap-8 overflow" id="selected-assigned-user${index}"></span>
-            
-
             <span class="d-flex ai-start fd-column gap-8" id="subtasks-view${index}"></span>
         </div>
-
         <div class="btn-deleteEdit">
             <button onclick="deleteTask(${index})"><img src="assets/images/delete.svg" alt="delete">Delete</button>
             <div class="edit-options-seperator"></div>
             <button onclick="openDialogEdit(${index})"><img src="assets/images/edit_white.svg" alt="edit">Edit</button>
         </div>
-        
     </div>
     `;
 }
@@ -370,67 +363,6 @@ async function deleteTask(index) {
     await saveAllTaskRemote();
     await updateHTML();
     closeTask();
-}
-
-function editTask(index) {
-    let task = AllTask[index];
-    let taskContent = document.getElementById('addtask-dialog');
-    taskContent.innerHTML = '';
-
-    taskContent.innerHTML +=  `
-    <div class="borderBoardDetailTask">
-        <div class="detailHeader">
-            <label class="title" for="title">Title</label>
-            <img class="closeHeader" src="assets/images/close_X_black.svg" alt="close" onclick="closeTask()">
-        </div>
-        <input type="text" id="editTitle" value="${task.title}">
-
-        <label for="description">Description</label>
-        <textarea id="editDescription">${task.Description}</textarea>
-
-        <label class="date" for="dueDate">Due date</label>
-        <input name="date" class="pad-around-4-16 f-size-20" id="dueDate" value="${task.date}" type="date" required>
-        
-        <label class="prio" for="prioCategory">Prio</label>
-        <div id="prioCategory" class="prioCategoryCont">
-            
-            <button type="button" onclick="activeBtn('priourgent')" class="prioCategory" id="priourgent"
-                    value="urgent">Urgent<img src="assets/images/urgent_symbol.svg">
-            </button>
-            <button type="button" onclick="activeBtn('priomedium')" class="prioCategory active-urgent"
-                id="priomedium" value="medium">Medium<img src="assets/images/medium_symbol.svg">
-            </button>
-            <button type="button" onclick="activeBtn('priolow')" class="prioCategory" id="priolow"
-                value="low">Low<img src="assets/images/low_symbol.svg">
-            </button>
-        </div>
-
-        <label class="assigned" for="assigned">Assigned to</label>
-        <input name="assigned" onclick="ddListToggle()" oninput="searchPattern()" class="f-size-20" id="assigned" type="text" placeholder="Enter a title">
-        <label for="subtask-input">Subtasks</label>
-        <div class="pos-rel">
-            <input name="subtasks" id="subtask-input" class=" pad-r-50 pad-around-4-16 subtask-input f-size-20"
-                onfocus="changeSubtaskIconToggle()" type="text" placeholder="Add new subtask">
-            <div class="subtask-icons d-flex center" id="show-add">
-                <img class="subtask-plus-symbol icon-size-24 inputSymbol" id="subtask-input-plus"
-                    src="assets/images/subtask_plus_small.svg">
-            </div>
-            <div class="d-none subtask-icons d-flex center gap-4" id="show-write">
-                <img class="subtask-X-symbol icon-size-24 inputSymbol" id="subtask-input-X"
-                    onclick="cleanSubtaskInputFiled()" src="assets/images/cancel.svg">
-            <div class="edit-options-seperator"></div>
-                <img class="subtask-hook-symbol inputSymbol icon-size-24" id="subtask-input-hook"
-                    onclick="renderSubtaskList()" src="assets/images/hook.svg">
-            </div>
-        </div>
-
-        <div class="btn-taskEdit">
-            <button class="d-flex center gap-8 colored-btn btn-pad-big" onclick="saveEditedTask(${index})">Save <img class="btn-little-img" src="/assets/images/check_little.svg" alt="Hacken"></button>
-            <div class="edit-options-seperator"></div>
-            <button class="d-flex center gap-8 colored-btn btn-pad-big" onclick="closeTask()">Cancel</button>
-        </div>
-    </div>
-    `;
 }
 
 
@@ -500,6 +432,7 @@ function searchTask() {
         setSearchContent.innerHTML += `<div class="search-field-line" onclick="openTask(${indexPosition})">${element.title}</div>`;
     }
 }
+
 
 function generateProgressBar(index) {
     let subTasksLength = AllTask[index]['Subtasks'].length;

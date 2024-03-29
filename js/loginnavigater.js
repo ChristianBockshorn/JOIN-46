@@ -15,18 +15,15 @@ function checkForaPp() {
 
 
 function checkForAccess() {
-    // debugger;
     let userp = '';
     let userm = '';
     let mail = document.getElementById('mail').value;
     let pass = document.getElementById('password').value;
 
-    if(userm = contacts.find(c => c.email == mail)){
+    if (userm = contacts.find(c => c.email == mail)) {
         console.log('das wurde ausgeführt');
-        if(userp = contacts.find(c => c.password == pass)){};
+        if (userp = contacts.find(c => c.password == pass)) { };
     };
-
-    
     if (userm && userp) {
         let arrayPos = contacts.indexOf(userm);
         let usern = contacts[arrayPos]['name'];
@@ -39,13 +36,13 @@ function checkForAccess() {
     else {
         noUser();
     }
-
 }
+
 
 function goGuest() {
-    // console.log("es wurde der Login as Guest Button angeklickt");
     window.location.href = './summary.html';
 }
+
 
 function goUser() {
     checkForAccess();
@@ -70,19 +67,6 @@ function noUser() {
 function iconChangerOnFocus(selected) {
     document.getElementById(`${selected}-img`).src = '/assets/images/visibility_off.svg';
 }
-
-
-// function iconChangerOnFocus(selected) {
-//     if (selected == 'passwd') {
-//         document.getElementById('new-pass-img').src = '/assets/images/visibility_off.svg';
-//     }
-//     if (selected == 'confirm') {
-//         document.getElementById('new-pass-confirm-img').src = '/assets/images/visibility_off.svg';
-//     }
-//     if (selected == 'loginpasswd') {
-//         document.getElementById('password-img').src = '/assets/images/visibility_off.svg';
-//     }
-// }
 
 
 function showPasswd(id) {
@@ -110,19 +94,18 @@ function setLoggedInHook(mail, name) {
 }
 
 
-    const urlParams = new URLSearchParams(window.location.search);
-    const msg = urlParams.get('msg');
-    if(msg){
-        backToIndexSite();
-        msg.innerHTML = msg;
-        console.log('inhalt');
-        console.log(msg);
-    }
+const urlParams = new URLSearchParams(window.location.search);
+const msg = urlParams.get('msg');
+if (msg) {
+    backToIndexSite();
+    msg.innerHTML = msg;
+    console.log('inhalt');
+    console.log(msg);
+}
 
 
-    function backToIndexSite(){
-        document.getElementById('moveToLeft').classList.remove('moveToLeft');
-        document.getElementById('moveToLeft').classList.add('start-logo');
-        document.getElementById('fadein').classList.remove('hide');
-    }
-    
+function backToIndexSite() {
+    document.getElementById('moveToLeft').classList.remove('moveToLeft');
+    document.getElementById('moveToLeft').classList.add('start-logo');
+    document.getElementById('fadein').classList.remove('hide');
+}

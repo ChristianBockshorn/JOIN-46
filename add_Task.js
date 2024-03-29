@@ -9,7 +9,6 @@ function activeBtn(btnId) {
     buttons.forEach(function (button) {
         button.classList.remove('active-urgent');
     });
-
     // Gewählten Button als aktiv markieren
     document.querySelector('input[name="prioCategory"][value="' + btnId + '"]').checked = true;
     document.getElementById(btnId).classList.add('active-urgent');
@@ -57,8 +56,10 @@ function generateUniqueId() {
     return uniqueId;
 }
 
+
 // ############################################################
 // generate dropdown content
+
 
 async function init() {
     await getData();
@@ -93,9 +94,11 @@ async function renderDropDownList(idElement) {
     }
 }
 
+
 function reload() {
     location.reload();
 }
+
 
 // Filterfunktion die Just in Time prüft ob es einträge mit den entsprechenden Buchstaben bzw. suchmuster gibt
 function searchPattern() {
@@ -133,7 +136,6 @@ function renderAssignedPersons(idElement) {
 // Prüfen ob ein klick auserhalb des ddMenüs ist, wenn ja und geöffnet wird es geschlossen
 document.addEventListener('click', function myFunction(event) {
     let parentClass = event.target.parentNode.className;
-    console.log(parentClass);
     let targetId = event.target.id;
     let targetClassName = event.target.className;
     if (targetId !== 'assigned' && targetId !== 'dd-line' && targetClassName !== 'dd-line' && targetClassName !== 'dd-line-dark' && parentClass !== 'dd-line' && parentClass !== 'dd-line-inline') {
@@ -164,7 +166,6 @@ function closeDDListWithOutsideClick(idElement) {
 
 // ausgewählte Person dem Speicher hinzufügen
 function addAssignedPerson(i) {
-    console.log(i);
     assignedPersons.push(i);
     assignedPersonsNames.push(contacts[i]['name']);
 }
@@ -233,12 +234,11 @@ function template_InlineFieldUnChecked(name, initials, i, color, idElement, newI
 // ############################################################
 // generate subtask section
 
+
 function saveOnEnter(event) {
     if (event.key === 'Enter') {
         event.preventDefault();
-        console.log(event);
         let idElement = event.srcElement.id;
-        console.log(idElement);
         let contentIdElement = 'subtask-content';
         if (idElement == 'editsubtask-input') {
             contentIdElement = 'editsubtask-content'
@@ -299,6 +299,7 @@ function renderSubtaskList(idElement, contentIdElement) {
         cleanSubtaskInputFiled(idElement);
     }
 }
+
 
 function template_Subtask(k, inputValue) {
     return `<div class="pad-add pos-rel" id="delete-line${k}">

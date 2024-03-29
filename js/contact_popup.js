@@ -58,6 +58,7 @@ function clearForm() {
     document.getElementById('newphone').value = '';
 }
 
+
 function getNewContactPos(newname) {
     if (usern = contacts.find(c => c.name == newname)) {
         let arrayPos = contacts.indexOf(usern);
@@ -93,6 +94,7 @@ function closeDialog() {
     document.getElementById('update_user_window').classList.add('d-none');
 }
 
+
 function doNotClose(event) {
     event.stopPropagation();
 }
@@ -101,6 +103,7 @@ function doNotClose(event) {
 function closeDetails() {
     document.getElementById('contacts-detail').style.display = 'none';
 }
+
 
 function showOptions() {
     document.getElementById('options').classList.add('options-slidein');

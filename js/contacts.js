@@ -30,7 +30,7 @@ async function renderContacts() {
 }
 
 
-function closeMsgDialog(){
+function closeMsgDialog() {
   document.getElementById('slideMsg').classList.add('d-none');
   document.getElementById('infoBoxPosition').classList.add('d-none');
 }
@@ -58,13 +58,14 @@ function generateDetails(i) {
   detailFrame.innerHTML = template_ContactDetails(i, name, mail, phone, initials, color);
 }
 
+
 function changeColorSelectedContact(i) {
   const screenWidth = window.innerWidth;
   if (currentContact == i) {
-    if (screenWidth < 500){
+    if (screenWidth < 500) {
       document.getElementById('main-content').style.display = 'flex';
     }
-    else{
+    else {
       document.getElementById('main-content').style.display = 'none';
       document.getElementById(i).classList.remove('contacts-list-highlight');
       currentContact = -1;
