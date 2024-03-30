@@ -21,7 +21,6 @@ function checkForAccess() {
     let pass = document.getElementById('password').value;
 
     if (userm = contacts.find(c => c.email == mail)) {
-        console.log('das wurde ausgeführt');
         if (userp = contacts.find(c => c.password == pass)) { };
     };
     if (userm && userp) {
@@ -99,8 +98,6 @@ const msg = urlParams.get('msg');
 if (msg) {
     backToIndexSite();
     msg.innerHTML = msg;
-    console.log('inhalt');
-    console.log(msg);
 }
 
 
