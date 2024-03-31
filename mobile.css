@@ -149,7 +149,7 @@
     
     .loginBox {
         width: 528px;
-        height: 515px;
+        height: 650px;
     }    
 }
 
@@ -200,7 +200,6 @@
 
     .loginBox {
         width: 396px;
-        height: 515px;
     }
     .login-lines {
         width: auto;
@@ -219,7 +218,6 @@
     }
     .loginBox {
         width: 375px;
-        height: 515px;
     }
 
     .moveToLeft {
@@ -306,7 +304,7 @@
 
     .sign-up {
         top: auto;
-        bottom: 120px;
+        bottom: 50px;
         right: auto;
     }
 
@@ -344,13 +342,13 @@
         display: none !important;
     }
 
-    @media (max-height: 667px) {
+    @media (max-height: 668px) {
         .sign-up {
             bottom: 16px;
         }
 
         .pos-footer {
-            bottom: 0;
+            position: static !important;
         }
 
         .footer-loin {
