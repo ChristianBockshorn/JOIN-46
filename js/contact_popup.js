@@ -32,7 +32,6 @@ async function deleteUser(i) {
 
 
 async function editUser() {
-    debugger;
     let editname = document.getElementById('name').value;
     let editemail = document.getElementById('mail').value;
     let edittelephone = document.getElementById('phone').value;
