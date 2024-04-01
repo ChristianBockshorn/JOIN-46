@@ -65,6 +65,7 @@ function renderEditSubtasks(index) {
 
 function closeDialogEdit() {
     document.getElementById('dialogEdit').classList.add('d-none');
+    document.getElementById('editsubtask-input').value = '';
     assignedPersons = [];
     assignedPersonsNames = [];
 }
@@ -424,9 +425,9 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById('searchInput').addEventListener('focus', showSearchContent);
-});
+// document.addEventListener("DOMContentLoaded", function () {
+//     document.getElementById('searchInput').addEventListener('focus', showSearchContent);
+// });
 
 
 function showSearchContent() {
@@ -441,7 +442,7 @@ function hideSearchContent() {
 
 function searchTask() {
     let pressedKey = document.getElementById('searchInput').value;
-    document.getElementById('searchInput').addEventListener('focus', showSearchContent);
+    showSearchContent();
     let AllTask_Temp = AllTask.filter(c => c.title.toLowerCase().startsWith(pressedKey.toLowerCase()));
     let setSearchContent = document.getElementById('searchContent');
 
