@@ -3,7 +3,6 @@ document.getElementById('app').addEventListener("click", enableButton);
 
 function enableButton(event) {
     if (event.target.checked) {
-        // console.log("der code geht");
         document.getElementById('signUpButton').disabled = false;
     }
     else {
