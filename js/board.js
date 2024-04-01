@@ -16,7 +16,8 @@ function openDialogEdit(index) {
     document.getElementById('edittitle').value = AllTask[index]['title'];
     document.getElementById('editdescription').value = AllTask[index]['Description'];
     document.getElementById('editdueDate').value = AllTask[index]['date'];
-    document.getElementById('editprioCategory').value = AllTask[index]['Prio'];
+    document.getElementById('editprioCategory').value = 'edit' + AllTask[index]['Prio'];
+    activeBtn('editprioCategory', 'edit' + AllTask[index]['Prio'] + '');
     document.getElementById('editsubtask-content').innerHTML = '';
     document.getElementById('saveEditedTaskBtn').value = index;
     renderEditSubtasks(index);

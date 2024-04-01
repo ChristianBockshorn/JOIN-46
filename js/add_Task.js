@@ -3,14 +3,14 @@ let assignedPersons = [];
 let assignedPersonsNames = [];
 let k = 0;
 
-function activeBtn(btnId) {
+function activeBtn(radioname, btnId) {
     // Alle Buttons zurücksetzen (Klasse entfernen)
     let buttons = document.querySelectorAll('.prioCategory');
     buttons.forEach(function (button) {
         button.classList.remove('active-urgent');
     });
     // Gewählten Button als aktiv markieren
-    document.querySelector('input[name="prioCategory"][value="' + btnId + '"]').checked = true;
+    document.querySelector('input[name="' + radioname +'"][value="' + btnId + '"]').checked = true;
     document.getElementById(btnId).classList.add('active-urgent');
 }
 

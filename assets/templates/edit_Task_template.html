@@ -21,22 +21,23 @@
                         <textarea class="pad-around-4-16 f-size-20" name="description" id="editdescription" cols="30"
                             rows="10" placeholder="Enter a description"></textarea>
                     </div>
-                    <div><label class="date" for="editdueDate">Due date</label>
+                    <div>
+                        <label class="date" for="editdueDate">Due date</label>
                         <input name="date" onfocus="getPastDate()" class="pad-around-4-16 f-size-20" id="editdueDate"
                             type="date" required>
                     </div>
                     <label class="prio" for="editprioCategory">Prio
                         <div id="editprioCategory" class="prioCategoryCont">
-                            <input type="radio" name="prioCategory" value="urgent">
-                            <button type="button" onclick="activeBtn('urgent')" class="prioCategory" id="urgent"
+                            <input type="radio" name="editprioCategory" value="editurgent">
+                            <button type="button" onclick="activeBtn('editprioCategory', 'editurgent')" class="prioCategory" id="editurgent"
                                 value="urgent">Urgent<img src="assets/images/urgent_symbol.svg">
                             </button>
-                            <input type="radio" name="prioCategory" value="medium" checked>
-                            <button type="button" onclick="activeBtn('medium')" class="prioCategory active-urgent"
-                                id="medium" value="medium">Medium<img src="assets/images/medium_symbol.svg">
+                            <input type="radio" name="editprioCategory" value="editmedium" checked>
+                            <button type="button" onclick="activeBtn('editprioCategory', 'editmedium')" class="prioCategory active-urgent"
+                                id="editmedium" value="editmedium">Medium<img src="assets/images/medium_symbol.svg">
                             </button>
-                            <input type="radio" name="prioCategory" value="low">
-                            <button type="button" onclick="activeBtn('low')" class="prioCategory" id="low"
+                            <input type="radio" name="editprioCategory" value="editlow">
+                            <button type="button" onclick="activeBtn('editprioCategory', 'editlow')" class="prioCategory" id="editlow"
                                 value="low">Low<img src="assets/images/low_symbol.svg">
                             </button>
                         </div>
