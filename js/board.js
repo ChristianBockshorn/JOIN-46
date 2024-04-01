@@ -415,13 +415,36 @@ function template_SubtasksShow(subtask, i, index, state) {
 }
 
 
+// ############################################################
+// Search Filed function
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById('searchInput').addEventListener('blur', hideSearchContent);
+});
+
+
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('searchInput').addEventListener('focus', showSearchContent);
 });
 
 
+function showSearchContent() {
+    document.getElementById('searchContent').classList.remove('d-none');
+}
+
+
+function hideSearchContent() {
+    document.getElementById('searchContent').classList.add('d-none');
+}
+
+
+// End Search Filed function
+// ############################################################
+
 function searchTask() {
     let pressedKey = document.getElementById('searchInput').value;
+    document.getElementById('searchInput').addEventListener('focus', showSearchContent);
     let AllTask_Temp = AllTask.filter(c => c.title.toLowerCase().startsWith(pressedKey.toLowerCase()));
     let setSearchContent = document.getElementById('searchContent');
 

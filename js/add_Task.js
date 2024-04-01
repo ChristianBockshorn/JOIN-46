@@ -356,20 +356,6 @@ function deleteSubtask(k) {
 // End generate subtask section
 
 
-// ############################################################
-// Search Filed function
-
-
-function showSearchContent() {
-    document.getElementById('searchContent').classList.remove('d-none');
-}
-
-
-function hideSearchContent() {
-    document.getElementById('searchContent').classList.add('d-none');
-}
-
-
 function getPastDate() {
     let today = new Date();
     let day = today.getDate();
