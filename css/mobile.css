@@ -217,7 +217,7 @@
         font-size: 47px;
     }
     .loginBox {
-        width: 375px;
+        width: 350px;
     }
 
     .moveToLeft {
@@ -304,7 +304,7 @@
 
     .sign-up {
         top: auto;
-        bottom: 50px;
+        bottom: 150px;
         right: auto;
     }
 

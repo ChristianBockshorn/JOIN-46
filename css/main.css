@@ -33,7 +33,7 @@ footer a {
 
 .pos-footer {
     position: absolute;
-    bottom: 550px;
+    bottom: 50px;
 }
 
 
@@ -158,7 +158,6 @@ footer a {
     display: flex;
     position: absolute;
     align-items: center;
-    /* width: 379px; */
     justify-content: flex-end;
     top: 67px;
     right: 122px;
