@@ -30,7 +30,8 @@ async function saveEditedTask() {
     let editTitle = document.getElementById('edittitle').value;
     let editDescription = document.getElementById('editdescription').value;
     let editDueDate = document.getElementById('editdueDate').value;
-    let editPrio = document.getElementById('editprioCategory').value;
+    let editPrio = document.querySelector('input[name="editprioCategory"]:checked').value;
+    editPrio = editPrio.substring(4);
     AllTask[editNr]['title'] = editTitle;
     AllTask[editNr]['Description'] = editDescription;
     AllTask[editNr]['date'] = editDueDate;
