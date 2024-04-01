@@ -177,10 +177,12 @@ input {
   display: flex;
   flex-direction: column;
   min-height: 170px;
+  cursor: crosshair;
 }
 
 .drag-area-highlight {
   background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 25px;
 }
 
 .dialog-bg {
@@ -254,6 +256,7 @@ input {
   border: 1px solid lightgrey;
   border-radius: 20px;
   padding: 54px;
+  overflow-y: auto;
 }
 
 .borderBoardDetailTask {
@@ -377,10 +380,6 @@ input {
   overflow-x: hidden;
 }
 
-.drag-area-highlight {
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 25px;
-}
 
 @media (max-width: 1500px) {
   .status {
