@@ -277,7 +277,7 @@ button {
     border-color: rgba(41, 171, 226, 1);
 }
 
-.colored-btn:disabled {
+button:disabled {
     cursor: no-drop;
 }
 
@@ -350,9 +350,3 @@ select {
     font-size: 20px;
     padding: 10px;
 }
-
-/* @media (max-width: 1110px) {
-    .gap-48 {
-        gap: 0;
-    }
-} */
