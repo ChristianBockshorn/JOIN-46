@@ -177,13 +177,8 @@ input {
   display: flex;
   flex-direction: column;
   min-height: 170px;
-  cursor: crosshair;
 }
 
-.drag-area-highlight {
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 25px;
-}
 
 .dialog-bg {
   background-color: rgba(0, 0, 0, 0.2);
