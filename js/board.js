@@ -439,9 +439,6 @@ function hideSearchContent() {
 }
 
 
-// End Search Filed function
-// ############################################################
-
 function searchTask() {
     let pressedKey = document.getElementById('searchInput').value;
     document.getElementById('searchInput').addEventListener('focus', showSearchContent);
@@ -455,6 +452,10 @@ function searchTask() {
         setSearchContent.innerHTML += `<div class="search-field-line" onclick="openTask(${indexPosition})">${element.title}</div>`;
     }
 }
+
+
+// End Search Filed function
+// ############################################################
 
 
 function generateProgressBar(index) {
