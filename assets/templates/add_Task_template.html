@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
 
-<head>
-    <link rel="stylesheet" href="/assets/templates/add_Task_template.css">
-</head>
-
 <body onload="includeHTML(), getPastDate()">
     <div id="mainContent" class="main d-flex fd-column">
         <h1>Add Task</h1>
@@ -19,7 +15,7 @@
                         <textarea class="pad-around-4-16 f-size-20" name="" id="description" cols="30" rows="10"
                             placeholder="Enter a description"></textarea>
                         <label class="assigned" for="assigned">Assigned to</label>
-                        <input name="assigned" onclick="ddListToggle('dd-list-content')" oninput="searchPattern()" class="f-size-20"
+                        <input name="assigned" onclick="ddListToggle('dd-list-content')" oninput="searchPattern('dd-list-content')" class="f-size-20"
                             id="assigned" type="text" placeholder="Enter a title">
                         <div class="pos-rel">
                             <div id="dd-list-content" onclick="doNotClose(event)" class="dd-list-content d-none"></div>
@@ -65,7 +61,7 @@
                                     onclick="cleanSubtaskInputFiled()" src="assets/images/cancel.svg">
                                 <div class="edit-options-seperator"></div>
                                 <img class="subtask-hook-symbol inputSymbol icon-size-24" id="subtask-input-hook"
-                                    onclick="renderSubtaskList()" src="assets/images/hook.svg">
+                                    onclick="renderSubtaskList('subtask-input', 'subtask-content')" src="assets/images/hook.svg">
                             </div>
                         </div>
                         <div id="subtask-content" class="subtask-content">
