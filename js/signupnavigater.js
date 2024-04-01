@@ -4,9 +4,11 @@ document.getElementById('app').addEventListener("click", enableButton);
 function enableButton(event) {
     if (event.target.checked) {
         document.getElementById('signUpButton').disabled = false;
+        document.getElementById('signUpButton').classList.add('colored-btn');
     }
     else {
         document.getElementById('signUpButton').disabled = true;
+        document.getElementById('signUpButton').classList.remove('colored-btn');
     }
 }
 
