@@ -351,8 +351,8 @@ select {
     padding: 10px;
 }
 
-@media (max-width: 1110px) {
+/* @media (max-width: 1110px) {
     .gap-48 {
         gap: 0;
     }
-}
+} */
