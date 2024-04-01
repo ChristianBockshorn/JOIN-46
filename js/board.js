@@ -420,30 +420,22 @@ function template_SubtasksShow(subtask, i, index, state) {
 // Search Filed function
 
 
-document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById('searchInput').addEventListener('blur', hideSearchContent);
-});
-
-
-// document.addEventListener("DOMContentLoaded", function () {
-//     document.getElementById('searchInput').addEventListener('focus', showSearchContent);
-// });
-
-
-function showSearchContent() {
-    document.getElementById('searchContent').classList.remove('d-none');
-}
-
-
-function hideSearchContent() {
-    document.getElementById('searchContent').classList.add('d-none');
+function searchFieldToggle() {
+    document.getElementById('searchContent').classList.toggle('d-none');
 }
 
 
 function searchTask() {
     let pressedKey = document.getElementById('searchInput').value;
-    showSearchContent();
-    let AllTask_Temp = AllTask.filter(c => c.title.toLowerCase().startsWith(pressedKey.toLowerCase()));
+    if (document.getElementById('searchContent').classList.contains('d-none')) {
+        document.getElementById('searchContent').classList.remove('d-none');
+    }
+    let AllTask_Temp = AllTask;
+    if (pressedKey !== '') {
+        AllTask_Temp = AllTask.filter(c => c.title.toLowerCase().startsWith(pressedKey.toLowerCase()));
+        console.log('Da steht was drin');
+    }
+
     let setSearchContent = document.getElementById('searchContent');
 
     setSearchContent.innerHTML = '';
