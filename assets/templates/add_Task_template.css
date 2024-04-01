@@ -34,10 +34,9 @@ b {
     display: flex;
     flex-direction: column;
     gap: 20px;
-
     margin-top: 48px;
     max-width: 440px;
-    /* height: 420px; */
+    width: 100%;
 }
 
 textarea:focus {
@@ -58,8 +57,6 @@ textarea::placeholder {
     padding: 8px 16px;
 }
 
-
-
 input::placeholder {
     padding: 8px;
 }
@@ -67,7 +64,6 @@ input::placeholder {
 /* STYLE FÜR DIE DROPDOWNLISTE */
 
 .dd-list-content {
-    /* display: none; */
     overflow-y: auto;
     overflow-x: hidden;
     top: -19px;
@@ -107,6 +103,7 @@ input::placeholder {
     border-radius: 10px;
     color: white;
     background-color: rgba(42, 54, 71, 1);
+    cursor: pointer;
 }
 
 .dd-line-dark:hover {
@@ -145,10 +142,10 @@ input::placeholder {
 .right-column {
     margin-top: 48px;
     max-width: 440px;
-    /* height: 420px; */
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 100%;
 }
 
 .formSection {
@@ -198,8 +195,6 @@ input::placeholder {
     top: 0;
     bottom: 0;
     padding: 4px;
-    /* overflow: visible; */
-    /* border-radius: 50%; */
 }
 
 .inputSymbol {
@@ -217,14 +212,6 @@ input::placeholder {
     background-color: rgba(209, 209, 209, 1);
 }
 
-/* #show-add {
-    z-index: 2;
-} */
-
-/* #show-write {
-    z-index: 2;
-} */
-
 #show-edit {
     position: absolute;
 }
@@ -236,6 +223,10 @@ input::placeholder {
 
 .subtask-line {
     padding: 4px;
+    max-width: 320px;
+    overflow-x: hidden;
+    text-wrap: nowrap;
+    text-overflow: clip;
 }
 
 .hiding {
@@ -253,7 +244,6 @@ input::placeholder {
 }
 
 .subtask-edit-line {
-    /* border-bottom: 2px solid #29ABE2 !important; */
     height: 32px;
     border: 0;
     border-radius: 0;
@@ -268,14 +258,11 @@ input::placeholder {
 }
 
 .subtask-edit-icons {
-    /* display: flex; */
     position: absolute;
     right: 16px;
     top: 0;
     bottom: 0;
     padding: 4px;
-    /* overflow: visible; */
-    /* border-radius: 50%; */
 }
 
 .pad-add {
@@ -309,10 +296,6 @@ footer {
 
 
 @media screen and (max-width: 1290px) {
-    /* .middle-seperator{
-        display: none;
-    } */
-
     .main {
         margin-left: 240px;
     }
@@ -333,7 +316,7 @@ footer {
     .form-wrap {
         flex-direction: column;
         justify-content: center;
-        /* align-items: center; */
+        align-items: center;
     }
 }
 
@@ -343,19 +326,11 @@ footer {
         display: none;
     }
 
-    /* .right-column {
-        margin-top: -58px;
-    } */
-
     .main {
         margin: auto;
         margin-top: 125px;
         margin-bottom: 400px;
         width: 100%;
-    }
-
-    .margin-bottom-80 {
-        /* margin-bottom: -295px; */
     }
 
     footer {
@@ -378,10 +353,14 @@ footer {
 }
 
 
-@media screen and (max-width: 500px) {
-    .left-column {
-        /* width: 396px; */
+@media screen and (max-width: 700px) {
+    .right-column {
+        margin-top: 0;
     }
+}
+
+
+@media screen and (max-width: 500px) {
     .prioCategory {
         height: 48px;
         padding: 4px;
