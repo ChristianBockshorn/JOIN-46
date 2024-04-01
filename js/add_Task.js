@@ -101,11 +101,12 @@ function reload() {
 
 
 // Filterfunktion die Just in Time prüft ob es einträge mit den entsprechenden Buchstaben bzw. suchmuster gibt
-function searchPattern() {
+function searchPattern(idElement) {
     let ddfield = document.getElementById('dd-list-content');
     ddfield.classList.remove('d-none')
     ddfield.classList.add('d-flex')
     ddfield.innerHTML = '';
+    let newIdElement = getRightIdName(idElement);
     let searchSign = document.getElementById('assigned').value;
     let contacts_Temp = contacts.filter(c => c.name.toLowerCase().startsWith(searchSign.toLowerCase()));
     for (let i = 0; i < contacts_Temp.length; i++) {
