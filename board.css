@@ -184,13 +184,13 @@ input {
   background-color: rgba(0, 0, 0, 0.2);
   z-index: 999;
   position: fixed;
-  height: 98vh;
   left: 0;
   right: 0;
   bottom: 0;
   top: 0;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .dialog {
@@ -363,7 +363,7 @@ input {
 
 .overflow {
   overflow-y: auto;
-  height: 150px;
+  max-height: 400px;
 }
 
 .overflow-x {
@@ -430,16 +430,12 @@ input {
     padding-left: 0px;
   }
 
-  .status{
+  .status {
     padding-left: 0;
   }
 
   input {
-      width: auto;
-  }
-
-  .dialog-bg {
-    height: 89vh;
+    width: auto;
   }
 }
 
@@ -471,8 +467,17 @@ input {
     font-size: 32px;
   }
 
-  
+
 }
+
+
+@media (max-width: 700px) {
+  .taskDetail {
+    padding: 20px;
+    width: 400px;
+  }
+}
+
 
 @media (max-width: 700px) {
   .headerBoard {
@@ -541,6 +546,14 @@ input {
     max-height: none;
     gap: 8px;
   }
+}
 
+@media screen and (max-height: 1100px){
+  .dialog-bg {
+    align-items: normal;
+  }
 
+  .overflow {
+    height: 150px;
+  }
 }
