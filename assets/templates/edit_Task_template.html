@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
 
-<head>
-    <link rel="stylesheet" href="/assets/templates/add_Task_template.css">
-</head>
-
 <body onload="includeHTML(), getPastDate()">
     <div id="mainContent" class="mainEditTask">
         <h1>Edit Task</h1>
@@ -43,7 +39,7 @@
                         </div>
                     </label>
                     <label class="assigned" for="editassigned">Assigned to
-                        <input name="assigned" onclick="ddListToggle('dd-list-editcontent')" oninput="searchPattern()"
+                        <input name="assigned" onclick="ddListToggle('dd-list-editcontent')" oninput="searchPattern('dd-list-editcontent')"
                             class="f-size-20" id="editassigned" type="text" placeholder="Enter a title">
                         <div class="pos-rel">
                             <div id="dd-list-editcontent" onclick="doNotClose(event)" class="dd-list-content d-none">
@@ -66,7 +62,7 @@
                                     onclick="cleanSubtaskInputFiled()" src="assets/images/cancel.svg">
                                 <div class="edit-options-seperator"></div>
                                 <img class="subtask-hook-symbol inputSymbol icon-size-24" id="subtask-input-hook"
-                                    onclick="renderSubtaskList()" src="assets/images/hook.svg">
+                                    onclick="renderSubtaskList('editsubtask-input', 'editsubtask-content')" src="assets/images/hook.svg">
                             </div>
                         </div>
                         <div id="editsubtask-content" class="subtask-content">
