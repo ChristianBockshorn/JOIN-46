@@ -294,7 +294,7 @@ function startDragging(id) {
 
 
 function allowDrop(ev) {
-    document.location = '#board'
+    // document.location = '#board'
     ev.preventDefault();
 }
 
