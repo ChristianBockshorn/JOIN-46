@@ -20,7 +20,7 @@
         padding-left: 16px !important;
     }
 
-    #add-user-show-mobile{
+    #add-user-show-mobile {
         display: block;
         height: 445px;
         width: 500px;
@@ -58,6 +58,15 @@
         height: 860px;
         width: 500px;
     }
+
+    #close-cross-icon {
+        display: flex;
+        position: absolute;
+        top: 50px;
+        right: 16px;
+        height: 40px;
+        width: 40px;
+    }
 }
 
 @media (max-width: 1150px) {
@@ -72,25 +81,29 @@
         display: flex !important;
         gap: 20px !important;
     }
+
     .contact-content {
         width: 400px;
     }
+
     .contacts-btn-box {
         padding-left: 24px;
         padding-right: 24px;
     }
 }
 
-@media (max-width: 1050px){
+@media (max-width: 1050px) {
     .contact-content {
         margin-top: 85px;
         margin-left: 0;
     }
+
     .contacts-btn-box {
         margin: auto;
         margin-top: 80px;
     }
-    .container-pos{
+
+    .container-pos {
         justify-content: space-around;
     }
 
@@ -137,7 +150,6 @@
         display: none;
     }
 
-    
     .back-arrow-mobile {
         display: block;
         position: absolute;
@@ -146,24 +158,22 @@
         width: 32px;
         height: 32px;
     }
-    
+
     .loginBox {
         width: 528px;
         height: 650px;
-    }    
+    }
 }
 
-@media (max-width: 700px){
-
-        .contacts-detail {
-            padding-top: 32px;
-            height: 100vh;
-        }
-
+@media (max-width: 700px) {
+    .contacts-detail {
+        padding-top: 32px;
+        height: calc(100vh - 32px);
+    }
 }
 
-@media (max-width: 600px){
-    #add-user-show-mobile{
+@media (max-width: 600px) {
+    #add-user-show-mobile {
         display: block;
         height: 352px;
         width: 396px;
@@ -201,6 +211,7 @@
     .loginBox {
         width: 396px;
     }
+
     .login-lines {
         width: auto;
     }
@@ -216,6 +227,7 @@
     h1 {
         font-size: 47px;
     }
+
     .loginBox {
         width: 350px;
     }
@@ -506,13 +518,9 @@
         gap: 15px !important;
     }
 
-     #close-cross-icon {
-        display: flex;
-        position: absolute;
-        top: 15px;
-        left: 332px;
-        height: 40px;
+    #close-cross-icon {
         width: 32px;
+        height: 32px;
     }
 
     #close-cross-dark-icon {

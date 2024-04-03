@@ -59,13 +59,21 @@
   display: none;
 }
 
+#close-cross-icon:hover {
+  cursor: pointer;
+}
+
 #close-cross-dark-icon {
   display: flex;
   position: absolute;
-  top: 265px;
-  left: 1265px;
+  top: 40px;
+  left: 1150px;
   height: 32px;
   width: 32px;
+}
+
+#close-cross-dark-icon:hover {
+  cursor: pointer;
 }
 
 .back-arrow-mobile {

@@ -1,8 +1,11 @@
 
 <body>
     <div id="update_user_window" class="front-window-bg center d-flex d-none" onclick="closeDialog()">
-        <img onclick="closeDialog()" id="close-cross-icon" src="/assets/images/close_cross.svg" alt="schließen Kreuz">
         <div class="window-content" onclick="doNotClose(event)">
+            <div class="position-rel">
+                <img onclick="closeDialog()" id="close-cross-icon" src="/assets/images/close_cross.svg" alt="schließen Kreuz">
+                <img onclick="closeDialog()" id="close-cross-dark-icon" src="/assets/images/close_cross_dark.svg" alt="schließen Kreuz">
+            </div>
             <img id="window-content-img" src="/assets/images/update_user_side_img.svg" alt="Dunkelfarbiges Logo von Join">
             <img id="add-user-show-mobile" src="/assets/images/update_user_side_img_mobile.svg" alt="Dunkelfarbiges Logo von Join">
             <div id="change-direktion-mobile" class="d-flex center">
