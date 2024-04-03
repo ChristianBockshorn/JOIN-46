@@ -130,9 +130,3 @@ p {
         height: 80px;
     }
 }
-
-@media (max-width: 700px) {
-    header {
-        display: none;
-    }
-}
