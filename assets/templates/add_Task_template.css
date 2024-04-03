@@ -318,6 +318,10 @@ footer {
         justify-content: center;
         align-items: center;
     }
+
+    .left-column {
+        margin-top: 0;
+    }
 }
 
 
@@ -349,6 +353,10 @@ footer {
 
     .pos-li-buttons {
         margin-left: 75px;
+    }
+    
+    .right-column {
+        margin-top: 0;
     }
 }
 
