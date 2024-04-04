@@ -87,7 +87,7 @@ function closeDialog() {
 
 function generateHtmlContent(element, index, f) {
     return /*html*/`
-        <div id="borderBoard-${element['id']}" class="borderBoard" draggable="true" onclick="openTask(${f})" ondragstart="startDragging(${element['id']})">
+        <div id="borderBoard-${element['id']}" class="borderBoard" draggable="true" onclick="openTask(${f})" touchstart="startDragging(${element['id']})" ondragstart="startDragging(${element['id']})">
             <span class="taskCategory">${element.Category}</span>
             <h3 class="taskTitle">${element.title}</h3>
             <span class="taskDescription">${element.Description}</span>
@@ -102,6 +102,7 @@ function generateHtmlContent(element, index, f) {
         </div>
     `;
 }
+
 
 // Kontakte laden
 async function init() {
