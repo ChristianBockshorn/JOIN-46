@@ -200,10 +200,6 @@ input {
   overflow-x: hidden;
 }
 
-.d-none {
-  display: none;
-}
-
 .addTask-Board {
   display: flex;
   flex-wrap: wrap;
@@ -239,10 +235,6 @@ input {
 .borderBoard:hover {
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
   transform: scale(1.02);
-}
-
-.d-none {
-  display: none;
 }
 
 .taskDetail {
