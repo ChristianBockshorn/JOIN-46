@@ -7,7 +7,7 @@ header {
     background-color: white;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     height: 96px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
 }
