@@ -317,6 +317,7 @@ async function moveTo(category) {
 function openTask(index) {
     document.getElementById('taskDetail').classList.remove('d-none');
     document.getElementById('searchContent').classList.add('d-none');
+    document.getElementById('BoardSection').style.overflowY = 'hidden'
     document.getElementById('searchInput').value = '';
     openDetailTask(index);
 }
@@ -324,6 +325,7 @@ function openTask(index) {
 
 function closeTask() {
     document.getElementById('taskDetail').classList.add('d-none');
+    document.getElementById('BoardSection').style.overflowY = 'auto'
 }
 
 
