@@ -26,6 +26,7 @@ function openDialogEdit(index) {
 
 
 async function saveEditedTask() {
+    document.getElementById('BoardSection').style.overflowY = 'auto';
     let editNr = document.getElementById('saveEditedTaskBtn').value;
     let editTitle = document.getElementById('edittitle').value;
     let editDescription = document.getElementById('editdescription').value;
@@ -326,13 +327,14 @@ function openTask(index) {
 
 function closeTask() {
     document.getElementById('taskDetail').classList.add('d-none');
-    document.getElementById('BoardSection').style.overflowY = 'auto'
+    document.getElementById('BoardSection').style.overflowY = 'auto';
 }
 
 
 function openDetailTask(index) {
     let task = AllTask[index];
     taskContentHtML(index, task);
+    getCurrentState(task);
     getSubtasks(task, index);
     getAssignedUser(task, index);
 }
@@ -356,6 +358,13 @@ function taskContentHtML(index, task) {
             <span class="d-flex ai-start fd-column gap-8" id="subtasks-view${index}"></span>
         </div>
         <div class="btn-deleteEdit">
+            <select name="stateChoice" id="stateChoice" placeholder="change State" onchange="changeState(${index})">
+                <option value="stateToDo">To do</option>
+                <option value="stateInProgress">in Progress</option>
+                <option value="stateAwaitFeedback">await feedback</option>
+                <option value="stateDone">Done</option>
+            </select>
+            <div class="edit-options-seperator"></div>
             <button onclick="deleteTask(${index})"><img src="assets/images/delete.svg" alt="delete">Delete</button>
             <div class="edit-options-seperator"></div>
             <button onclick="openDialogEdit(${index})"><img src="assets/images/edit_white.svg" alt="edit">Edit</button>
@@ -463,3 +472,24 @@ function generateProgressBar(index) {
         document.getElementById(`progress-bar${index}`).innerHTML = `<progress id="file" value="${subTasksDoneLength}" max="${subTasksLength}"></progress>Subtasks${subTasksDoneLength}/${subTasksLength}`;
     }
 }
+
+// drag drop mobile widget
+// ############################################################
+
+
+async function changeState(index) {
+    let currentState = document.getElementById('stateChoice').value;
+    AllTask[index]['state'] = currentState;
+    await save();
+    updateHTML();
+}
+
+
+function getCurrentState(task) {
+    let currentState = task['state'];
+    document.getElementById('stateChoice').value = currentState;
+}
+
+
+// End drag drop mobile widget
+// ############################################################
