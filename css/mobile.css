@@ -49,6 +49,10 @@
         width: 364px;
     }
 
+    .contacticonnew {
+        margin: -60px 0 0 0;
+    }
+
     .contacticon {
         margin: -60px 0 0 0;
     }
@@ -507,6 +511,11 @@
 
     .show-on-mobile {
         display: flex !important;
+    }
+
+    .contacticonnew {
+        margin-left: 0;
+        margin-bottom: 35px;
     }
 
     .contacticon {
