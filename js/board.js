@@ -8,6 +8,11 @@ function openDialog() {
 }
 
 
+/**
+ * This function is used to show the Task edit window
+ * 
+ * @param {Number} index - the current Array Position Number
+ */
 function openDialogEdit(index) {
     document.getElementById('editselected-persons').innerHTML = '';
     document.getElementById('dialogEdit').classList.remove('d-none');
@@ -25,6 +30,10 @@ function openDialogEdit(index) {
 }
 
 
+/**
+ * This function is used to get user changes from form and save them to the current array position
+ * 
+ */
 async function saveEditedTask() {
     document.getElementById('BoardSection').style.overflowY = 'auto';
     let editNr = document.getElementById('saveEditedTaskBtn').value;
@@ -45,6 +54,11 @@ async function saveEditedTask() {
 }
 
 
+/**
+ * This function is used to change the style on assigned users if it is not a deletet user
+ * 
+ * @param {Number} index - the current Array Position Number
+ */
 function fillAssignedPersonsArray(index) {
     let selectedUsers = AllTask[index]['Assigned'];
     for (let i = 0; i < selectedUsers.length; i++) {
@@ -58,6 +72,11 @@ function fillAssignedPersonsArray(index) {
 }
 
 
+/**
+ * This function is used to render the current Task
+ * 
+ * @param {Number} index - the current Array Position Number
+ */
 function renderEditSubtasks(index) {
     for (let i = 0; i < AllTask[index]['Subtasks'].length; i++) {
         const element = AllTask[index]['Subtasks'][i]['task'];
@@ -66,6 +85,10 @@ function renderEditSubtasks(index) {
 }
 
 
+/**
+ * is used to close the Task edit window
+ * 
+ */
 function closeDialogEdit() {
     document.getElementById('dialogEdit').classList.add('d-none');
     document.getElementById('editsubtask-input').value = '';
@@ -74,11 +97,20 @@ function closeDialogEdit() {
 }
 
 
+/**
+ * This function is used to stop close the parent element on click the child element
+ * 
+ * @param {Event} event - The current click event
+ */
 function doNotClose(event) {
     event.stopPropagation();
 }
 
 
+/**
+ * used to hide the dialog window and clear the variables
+ * 
+ */
 function closeDialog() {
     document.getElementById('dialog').classList.add('d-none');
     assignedPersons = [];
@@ -86,7 +118,14 @@ function closeDialog() {
 }
 
 
-function generateHtmlContent(element, index, f) {
+/**
+ * This function is used to generate dynamic html content.
+ * 
+ * @param {Array} element - current task
+ * @param {Number} f - the index position of the current task
+ * @returns {String} - A string representing the HTML content for the task element.
+ */
+function generateHtmlContent(element, f) {
     return /*html*/`
         <div id="borderBoard-${element['id']}" class="borderBoard" draggable="true" onclick="openTask(${f})" touchstart="startDragging(${element['id']})" ondragstart="startDragging(${element['id']})">
             <span class="taskCategory">${element.Category}</span>
@@ -105,13 +144,22 @@ function generateHtmlContent(element, index, f) {
 }
 
 
-// Kontakte laden
+/**
+ * This function load all tasks and Contacts
+ * 
+ */
 async function init() {
     await loadAllTasks();
     await getData();
 }
 
 
+/**
+ * This function is used to load informations about the assigned user from contact Array.
+ * 
+ * @param {Object} element - current task
+ * @param {Number} indexPosition - the index position of the current task
+ */
 function getAssignedUserSmall(element, indexPosition) {
     let assignedUsers = element['Assigned'];
     let assignedUsersField = document.getElementById(`selected-assigned-user-small${indexPosition}`);
@@ -133,6 +181,13 @@ function getAssignedUserSmall(element, indexPosition) {
 }
 
 
+/**
+ * a function to generate the HTML code to show a small view of assigned users
+ * 
+ * @param {string} assignedUserColor - content is the hex color value
+ * @param {string} assignedUserInitials - content is the initials of user
+ * @returns {String} - A string representing the HTML content for the task element.
+ */
 function template_AssignedUsersSmall(assignedUserColor, assignedUserInitials) {
     return `
         <div class="stapled-icons">
@@ -141,7 +196,13 @@ function template_AssignedUsersSmall(assignedUserColor, assignedUserInitials) {
 }
 
 
-//Funktion zum Wandeln der Übergebenen Personen ID in den Entsprechenden Namen
+
+/**
+ * This function is used to load informations about the assigned user from contact Array.
+ * 
+ * @param {Object} element - current task
+ * @param {Number} indexPosition - the index position of the current task
+ */
 function getAssignedUser(element, indexPosition) {
     let assignedUsers = element['Assigned'];
     let assignedUsersField = document.getElementById(`selected-assigned-user${indexPosition}`);
@@ -165,7 +226,12 @@ function getAssignedUser(element, indexPosition) {
 }
 
 
-// Funktion zum laden und anzeigen der Untertasks, falls diese Vorhanden sind.
+/**
+ * This function check for subtasks and change the state from true -> checked and false -> unchecked
+ * 
+ * @param {Object} element - the current Task
+ * @param {Number} index - index Position of the Current Task in AllTask
+ */
 function getSubtasks(element, index) {
     let subtasks = document.getElementById(`subtasks-view${index}`);
     subtasks.innerHTML = 'Subtasks';
@@ -184,6 +250,12 @@ function getSubtasks(element, index) {
 }
 
 
+/**
+ * this function is used to change the state of a subtask
+ * 
+ * @param {Number} index - Array position of curent Task
+ * @param {Number} i - Array position of the current subtask
+ */
 async function checkIfSubtaskIsDone(index, i) {
     let selectetTask = AllTask[index]['Subtasks'][i]['stateDone'];
     selectetTask = !selectetTask;
@@ -193,44 +265,64 @@ async function checkIfSubtaskIsDone(index, i) {
 }
 
 
+/**
+ * this function is used to get the index position of each Array element
+ * 
+ * @param {Array} stateToDo - all Tasks with a state with ToDo
+ */
 function renderStateToDo(stateToDo) {
     for (let index = 0; index < stateToDo.length; index++) {
         const element = stateToDo[index];
         let indexPosition = getIndexPosition(element);
-        document.getElementById('stateToDo').innerHTML += generateHtmlContent(element, index, indexPosition);
+        document.getElementById('stateToDo').innerHTML += generateHtmlContent(element, indexPosition);
         getAssignedUserSmall(element, indexPosition);
         generateProgressBar(indexPosition);
     }
 }
 
 
+/**
+ * this function is used to get the index position of each Array element
+ * 
+ * @param {Array} stateToDo - all Tasks with a state with inProgress
+ */
 function renderStateInProgress(stateInProgress) {
     for (let index = 0; index < stateInProgress.length; index++) {
         const element = stateInProgress[index];
         let indexPosition = getIndexPosition(element);
-        document.getElementById('stateInProgress').innerHTML += generateHtmlContent(element, index, indexPosition);
+        document.getElementById('stateInProgress').innerHTML += generateHtmlContent(element, indexPosition);
         getAssignedUserSmall(element, indexPosition);
         generateProgressBar(indexPosition);
     }
 }
 
 
+/**
+ * this function is used to get the index position of each Array element
+ * 
+ * @param {Array} stateToDo - all Tasks with a state with AwaitFeedback
+ */
 function renderStateAwaitFeedback(stateAwaitFeedback) {
     for (let index = 0; index < stateAwaitFeedback.length; index++) {
         const element = stateAwaitFeedback[index];
         let indexPosition = getIndexPosition(element);
-        document.getElementById('stateAwaitFeedback').innerHTML += generateHtmlContent(element, index, indexPosition);
+        document.getElementById('stateAwaitFeedback').innerHTML += generateHtmlContent(element, indexPosition);
         getAssignedUserSmall(element, indexPosition);
         generateProgressBar(indexPosition);
     }
 }
 
 
+/**
+ * this function is used to get the index position of each Array element
+ * 
+ * @param {Array} stateToDo - all Tasks with a state with done
+ */
 function renderStateDone(stateDone) {
     for (let index = 0; index < stateDone.length; index++) {
         const element = stateDone[index];
         let indexPosition = getIndexPosition(element);
-        document.getElementById('stateDone').innerHTML += generateHtmlContent(element, index, indexPosition);
+        document.getElementById('stateDone').innerHTML += generateHtmlContent(element, indexPosition);
         getAssignedUserSmall(element, indexPosition);
         generateProgressBar(indexPosition);
     }
@@ -316,6 +408,11 @@ async function moveTo(category) {
 }
 
 
+/**
+ * This function is used to hide scrollbar on main content and open Window for Task detail information
+ * 
+ * @param {Number} index - Index Position of current Task
+ */
 function openTask(index) {
     document.getElementById('taskDetail').classList.remove('d-none');
     document.getElementById('searchContent').classList.add('d-none');
@@ -325,12 +422,21 @@ function openTask(index) {
 }
 
 
+/**
+ * This function close the Task Detail Site and activate the scrollbar
+ * 
+ */
 function closeTask() {
     document.getElementById('taskDetail').classList.add('d-none');
     document.getElementById('BoardSection').style.overflowY = 'auto';
 }
 
 
+/**
+ * This Function load all informations of the current Task
+ * 
+ * @param {Number} index - Index Position of current Task
+ */
 function openDetailTask(index) {
     let task = AllTask[index];
     taskContentHtML(index, task);
@@ -373,6 +479,11 @@ function taskContentHtML(index, task) {
     `;
 }
 
+/**
+ * This function is used to remove the current Task
+ * 
+ * @param {Number} index - Index Position of current Task
+ */
 async function deleteTask(index) {
     AllTask.splice(index, 1);
     await saveAllTaskRemote();
@@ -381,13 +492,22 @@ async function deleteTask(index) {
 }
 
 
+/**
+ * This function ist used to save the curent allTask Array
+ * 
+ */
 async function saveAllTaskRemote() {
     var jsonString = JSON.stringify(AllTask);
     await setItem('AllTask', jsonString);
 }
 
 
-
+/**
+ * This function is used to generate a List of all Subtasks as HTML Content
+ * 
+ * @param {object} task - the current Task
+ * @returns {String} - returns List as a HTML code
+ */
 function currentSubtasks(task) {
     let subtasksHTML = '';
     for (let i = 0; i < task.Subtasks.length; i++) {
@@ -401,6 +521,11 @@ function currentSubtasks(task) {
 }
 
 
+/**
+ * This function generate a Name List of all Contacts
+ * 
+ * @returns {String} - returns List as a HTML Code
+ */
 function currentContacts() {
     let subtasksHTML = '';
     for (let c = 0; c < contacts.length; c++) {
@@ -410,6 +535,14 @@ function currentContacts() {
 }
 
 
+/**
+ * This function is used to generate a dynamic HTML Code
+ * 
+ * @param {String} assignedUserColor - is the Color as hex value
+ * @param {String} assignedUserInitials - is the initials of user
+ * @param {String} assignedUserName - is the Name of User
+ * @returns {String} - returns a List as HTML Code
+ */
 function template_AssignedUsers(assignedUserColor, assignedUserInitials, assignedUserName) {
     return `
         <div class="d-flex gap-8 ai-center">
@@ -419,6 +552,15 @@ function template_AssignedUsers(assignedUserColor, assignedUserInitials, assigne
 }
 
 
+/**
+ * This Function is used to generate a dynamic HTML Code
+ * 
+ * @param {String} subtask - Current Subtask
+ * @param {Number} i - index Position of current Subtask in Subtask Array
+ * @param {Number} index - index Position of the Current Task in AllTask
+ * @param {Boolean} state - State of current Subtask
+ * @returns {String} - Returns a List as HTML Code
+ */
 function template_SubtasksShow(subtask, i, index, state) {
     return `
     <div class="d-flex gap-8 ai-center">
@@ -434,24 +576,39 @@ function template_SubtasksShow(subtask, i, index, state) {
 // Search Filed function
 
 
+/**
+ * This functions show the Search content
+ */
 function searchFieldToggle() {
     document.getElementById('searchContent').classList.toggle('d-none');
 }
 
 
+/**
+ * This function get user input and filter the AllTask array on Name
+ * 
+ */
 function searchTask() {
     let pressedKey = document.getElementById('searchInput').value;
-    if (document.getElementById('searchContent').classList.contains('d-none')) {
-        document.getElementById('searchContent').classList.remove('d-none');
+    let setSearchContent = document.getElementById('searchContent');
+    if (setSearchContent.classList.contains('d-none')) {
+        setSearchContent.classList.remove('d-none');
     }
     let AllTask_Temp = AllTask;
     if (pressedKey !== '') {
         AllTask_Temp = AllTask.filter(c => c.title.toLowerCase().startsWith(pressedKey.toLowerCase()));
-        console.log('Da steht was drin');
     }
+    generateHtmlSearchContent(AllTask_Temp);
+}
 
+
+/**
+ * This Function is used to generate a list of search result as dynamic HTML Code
+ * 
+ * @param {Array} AllTask_Temp - A Array of filtered Tasks
+ */
+function generateHtmlSearchContent(AllTask_Temp) {
     let setSearchContent = document.getElementById('searchContent');
-
     setSearchContent.innerHTML = '';
     for (let i = 0; i < AllTask_Temp.length; i++) {
         const element = AllTask_Temp[i];
@@ -465,6 +622,11 @@ function searchTask() {
 // ############################################################
 
 
+/**
+ * This function is used to get all Subtasks of a Tasks an render a Progress Bar
+ * 
+ * @param {Number} index - index Position of current Task
+ */
 function generateProgressBar(index) {
     let subTasksLength = AllTask[index]['Subtasks'].length;
     if (subTasksLength >= 1) {
@@ -477,6 +639,11 @@ function generateProgressBar(index) {
 // ############################################################
 
 
+/**
+ * This function ist used to change the state of the current task in AllTaskk Array
+ * 
+ * @param {Number} index - index Position of current Task
+ */
 async function changeState(index) {
     let currentState = document.getElementById('stateChoice').value;
     AllTask[index]['state'] = currentState;
@@ -485,6 +652,11 @@ async function changeState(index) {
 }
 
 
+/**
+ * This function is used to get the current state of a Task From Storage
+ * 
+ * @param {Object} task - current Task
+ */
 function getCurrentState(task) {
     let currentState = task['state'];
     document.getElementById('stateChoice').value = currentState;

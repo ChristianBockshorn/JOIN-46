@@ -3,13 +3,12 @@ let assignedPersons = [];
 let assignedPersonsNames = [];
 let k = 0;
 
+
 function activeBtn(radioname, btnId) {
-    // Alle Buttons zurücksetzen (Klasse entfernen)
     let buttons = document.querySelectorAll('.prioCategory');
     buttons.forEach(function (button) {
         button.classList.remove('active-urgent');
     });
-    // Gewählten Button als aktiv markieren
     document.querySelector('input[name="' + radioname +'"][value="' + btnId + '"]').checked = true;
     document.getElementById(btnId).classList.add('active-urgent');
 }
@@ -61,12 +60,21 @@ function generateUniqueId() {
 // generate dropdown content
 
 
+/**
+ * Function to get Date on initiating the Site
+ */
 async function init() {
     await getData();
     loadAllTasks();
 }
 
 
+/**
+ * Function is used to change the current user Id Name in diffenrent of edit or add
+ * 
+ * @param {String} idElement - Id of used HTML Element
+ * @returns {String} - return a Id Name for HTML element
+ */
 function getRightIdName(idElement) {
     let newIdElement = 'selected-persons';
     if (idElement == 'dd-list-editcontent') {
@@ -76,6 +84,11 @@ function getRightIdName(idElement) {
 }
 
 
+/**
+ * Function is used to render dropdownlist with highlighted users if there are selected
+ * 
+ * @param {String} idElement - Id of used HTML Element
+ */
 // erstellen der Dropdownlist mit den aktuell gespeicherten Benutzern
 async function renderDropDownList(idElement) {
     let ddfield = document.getElementById(idElement);
@@ -100,7 +113,11 @@ function reload() {
 }
 
 
-// Filterfunktion die Just in Time prüft ob es einträge mit den entsprechenden Buchstaben bzw. suchmuster gibt
+/**
+ * Function is used to find contacts with entered Letters
+ * 
+ * @param {String} idElement - Id of used HTML Element
+ */
 function searchPattern(idElement) {
     let ddfield = document.getElementById('dd-list-content');
     ddfield.classList.remove('d-none')
@@ -124,7 +141,11 @@ function searchPattern(idElement) {
 }
 
 
-// rendern der ausgewählten Personen um sie unter dem assigned inputfeld anzuzeigen
+/**
+ * Function is used to generate HTML content to show assigned users with little initials circles
+ * 
+ * @param {String} idElement - Id of used HTML Element
+ */
 function renderAssignedPersons(idElement) {
     let selected = document.getElementById(idElement);
     selected.innerHTML = '';
@@ -134,7 +155,10 @@ function renderAssignedPersons(idElement) {
 }
 
 
-// Prüfen ob ein klick auserhalb des ddMenüs ist, wenn ja und geöffnet wird es geschlossen
+/**
+ *  Event listener that determines which element of the page was clicked on and close the Dropdownlist when it is on view
+ *
+ */
 document.addEventListener('click', function myFunction(event) {
     let parentClass = event.target.parentNode.className;
     let targetId = event.target.id;
@@ -145,7 +169,11 @@ document.addEventListener('click', function myFunction(event) {
 })
 
 
-// Umschalten zwischen einblenden und ausblenden wenn man in das assigned input feld geklickt hat
+/**
+ * Function is used to toogle between show and hide for the dropdownlist
+ * 
+ * @param {String} idElement - Id of used HTML Element
+ */
 function ddListToggle(idElement) {
     document.getElementById(idElement).classList.toggle('d-flex');
     document.getElementById(idElement).classList.toggle('d-none');
@@ -158,21 +186,34 @@ function doNotClose(event) {
     event.stopPropagation();
 }
 
-// funktions zum ausblenden des ddmenüs
+
+/**
+ * Function is used to hide the Dropdownlist
+ * 
+ * @param {String} idElement - Id of used HTML Element
+ */
 function closeDDListWithOutsideClick(idElement) {
     document.getElementById(idElement).classList.remove('d-flex');
     document.getElementById(idElement).classList.add('d-none');
 }
 
 
-// ausgewählte Person dem Speicher hinzufügen
+/**
+ * Function is used to add a selected Contact to 2 different Arrays
+ * 
+ * @param {Number} i - Index Position of Contacts Array
+ */
 function addAssignedPerson(i) {
     assignedPersons.push(i);
     assignedPersonsNames.push(contacts[i]['name']);
 }
 
 
-// entfernen einer bereits ausgewählten Person
+/**
+ * Function is used to remove a already selected Contact from2 different Arrays
+ * 
+ * @param {Number} i - Index Position of Contacts Array
+ */
 function deleteAssignedPerson(i) {
     let toPurge = assignedPersons.indexOf(i);
     assignedPersons.splice(toPurge, 1);
@@ -180,7 +221,13 @@ function deleteAssignedPerson(i) {
 }
 
 
-// Prüfen ob die ausgewählte Person bereits hinzugefügt ist oder nicht. Wenn ja wird sie entfernt und wenn nicht wird sie hinzugefügt
+/**
+ * Function is used to add or remove a css class to highlight already selectet contacts
+ * 
+ * @param {Number} i - Index Position of Contacts Array
+ * @param {String} idElement - Id of used HTML Element
+ * @param {String} newIdElement - Id of used HTML Element
+ */
 function addToSelectedPersons(i, idElement, newIdElement) {
     let parentElement = document.getElementById(idElement);
     if (assignedPersons.indexOf(i) == -1) {
@@ -199,7 +246,17 @@ function addToSelectedPersons(i, idElement, newIdElement) {
 }
 
 
-// Template welches für Personen erzeugt wird die bereits ausgewählt sind
+/**
+ * Function is used to generate HTML Content to show Assigned users users who are already selected
+ * 
+ * @param {String} initials - User Initials
+ * @param {Number} i - Index Position of Contacts Array
+ * @param {String} name - User Name
+ * @param {String} color - User Color for Initials circle
+ * @param {String} idElement - Id of used HTML Element
+ * @param {String} newIdElement - Id of used HTML Element
+ * @returns {String} - HTML content as String
+ */
 function template_InlineFieldChecked(name, initials, i, color, idElement, newIdElement) {
     return `
         <div id="dd-line${i}" class="dd-line-dark" onclick="addToSelectedPersons(${i},'${idElement}', '${newIdElement}')">
@@ -212,7 +269,17 @@ function template_InlineFieldChecked(name, initials, i, color, idElement, newIdE
     `;
 }
 
-// Template welches erzeugt wird für Personen die aktuell nicht ausgewählt sind
+/**
+ * Function is used to generate HTML Content to show Assigned users users who are not selected
+ * 
+ * @param {String} initials - User Initials
+ * @param {Number} i - Index Position of Contacts Array
+ * @param {String} name - User Name
+ * @param {String} color - User Color for Initials circle
+ * @param {String} idElement - Id of used HTML Element
+ * @param {String} newIdElement - Id of used HTML Element
+ * @returns {String} - HTML content as String
+ */
 function template_InlineFieldUnChecked(name, initials, i, color, idElement, newIdElement) {
     return `
         <div id="dd-line${i}" class="dd-line" onclick="addToSelectedPersons(${i},'${idElement}', '${newIdElement}')">
@@ -236,6 +303,11 @@ function template_InlineFieldUnChecked(name, initials, i, color, idElement, newI
 // generate subtask section
 
 
+/**
+ * Function to add Subtask element on HTML Structure if Enter Key is pressed
+ * 
+ * @param {Object} event - the Object to check which key are pressed
+ */
 function saveOnEnter(event) {
     if (event.key === 'Enter') {
         event.preventDefault();
@@ -249,6 +321,12 @@ function saveOnEnter(event) {
 };
 
 
+/**
+ * This Function add a state value next to the current SubTask
+ * 
+ * @param {String} taskInput - the current handelt Subtask
+ * @returns {Object} - returns a Object with Subtaskname and state false
+ */
 function buildArray(taskInput) {
     let obj = {
         task: taskInput,
@@ -258,6 +336,13 @@ function buildArray(taskInput) {
 }
 
 
+/**
+ * Function is used to take all li elements and push them to Subtask Array
+ * and if it is just contents in input field save this or save this too
+ * 
+ * @param {String} idElement - Id of HTML Element
+ * @returns {Array} - returts all subtasks that the user has entered
+ */
 function generateSubtasks(idElement) {
     let allLiElements = document.querySelectorAll('li');
     let oneSubTask = document.getElementById(idElement).value;
@@ -275,7 +360,10 @@ function generateSubtasks(idElement) {
 }
 
 
-// onfocus input Feld -> umschalten zu Icon X und Hacken
+/**
+ * Function is used to change icons in a input field
+ * 
+ */
 function changeSubtaskIconToggle() {
     document.getElementById('show-add').classList.toggle('d-none');
     document.getElementById('show-write').classList.toggle('d-none');
@@ -283,12 +371,23 @@ function changeSubtaskIconToggle() {
 }
 
 
+/**
+ * Function is used to clear the input field for Subtasks
+ * 
+ * @param {String} idElement - Id of HTML Element
+ */
 function cleanSubtaskInputFiled(idElement) {
     document.getElementById(idElement).value = '';
     changeSubtaskIconToggle();
 }
 
 
+/**
+ * Function is used to create a Subtask
+ * 
+ * @param {String} idElement - Id of HTML Element
+ * @param {String} contentIdElement - Id of HTML Element
+ */
 function renderSubtaskList(idElement, contentIdElement) {
     let inputValue = document.getElementById(idElement).value;
     if (inputValue == '') {
@@ -302,6 +401,13 @@ function renderSubtaskList(idElement, contentIdElement) {
 }
 
 
+/**
+ * Function is used to generate Subtask HTML content
+ * 
+ * @param {Number} k - ID of current SubTask
+ * @param {String} inputValue - user input
+ * @returns {String} - HTML content as String
+ */
 function template_Subtask(k, inputValue) {
     return `<div class="pad-add pos-rel" id="delete-line${k}">
     <li class="subtask-line" ondblclick="editSubtaskLine(${k})" id="subtask-line${k}" onkeydown="saveOnEnter(event)">${inputValue}</li>
@@ -319,6 +425,11 @@ function template_Subtask(k, inputValue) {
 }
 
 
+/**
+ * Function is used to change li Element to input element to edit as text
+ * 
+ * @param {Number} k - ID of current Subtask
+ */
 function editSubtaskLine(k) {
     document.getElementById(`show-edit${k}`).style.display = 'none';
     document.getElementById(`show-save${k}`).style.display = 'flex';
@@ -334,6 +445,11 @@ function editSubtaskLine(k) {
 }
 
 
+/**
+ * Funktion to change HTML Element from Input to li Element
+ * 
+ * @param {Number} k - Id of current SubTask
+ */
 function saveSubtaskChanges(k) {
     document.getElementById(`show-edit${k}`).style.display = 'flex';
     document.getElementById(`show-save${k}`).style.display = 'none';
@@ -348,6 +464,11 @@ function saveSubtaskChanges(k) {
 }
 
 
+/**
+ * Funktion to delete one HTML Line li Element
+ * 
+ * @param {Number} k - ID if current Subtask
+ */
 function deleteSubtask(k) {
     document.getElementById(`delete-line${k}`).remove();
 }
@@ -357,6 +478,10 @@ function deleteSubtask(k) {
 // End generate subtask section
 
 
+/**
+ * This Funktion ist used to set the min Property on date Element
+ * 
+ */
 function getPastDate() {
     let today = new Date();
     let day = today.getDate();
@@ -371,6 +496,12 @@ function getPastDate() {
 }
 
 
+/**
+ * Function is used to clear HTML Elements and Variables
+ * 
+ * @param {String} subtasks - Id Name of HTML Element
+ * @param {String} selectetPersons - Id Name of HTML Element
+ */
 function cleanAllTaskFieldInputs(subtasks, selectetPersons) {
     document.getElementById(subtasks).innerHTML = '';
     document.getElementById(selectetPersons).innerHTML = '';

@@ -1,6 +1,13 @@
+/**
+ * Listener to start a function if app Button is clicked
+ */
 document.getElementById('app').addEventListener("click", enableButton);
 
 
+/**
+ * 
+ * @param {Object} event - Object is needed to check whether checkbox is checked
+ */
 function enableButton(event) {
     if (event.target.checked) {
         document.getElementById('signUpButton').disabled = false;
@@ -13,6 +20,9 @@ function enableButton(event) {
 }
 
 
+/**
+ * Function to compare whether both Password inputs match and highlight if its not match
+ */
 function check() {
     if (document.getElementById('new-password').value !== document.getElementById('new-password-confirm').value) {
         document.getElementById('textbox').style.color = 'red';
@@ -25,6 +35,11 @@ function check() {
 }
 
 
+/**
+ * This Function is used to change icons on focus
+ * 
+ * @param {String} selected - id to check which field are selected
+ */
 function iconChangerOnFocus(selected) {
     if (selected == 'passwd') {
         document.getElementById('new-password-img').src = '/assets/images/visibility_off.svg';
@@ -35,6 +50,11 @@ function iconChangerOnFocus(selected) {
 }
 
 
+/**
+ * Function is used to view the input in password field and toggle the Eye Icon
+ * 
+ * @param {String} id - Id to check which field are selected
+ */
 function showPasswd(id) {
     let selectedField = document.getElementById(id);
     if (selectedField.type == 'password') {
@@ -48,6 +68,10 @@ function showPasswd(id) {
 }
 
 
+/**
+ * Function is used to clear input Fields
+ * 
+ */
 function clearFields() {
     document.getElementById('first-name').value = "";
     document.getElementById('mail').value = "";
@@ -56,6 +80,10 @@ function clearFields() {
 }
 
 
+/**
+ * 
+ * Function is used to save new sign up user information in remote storage and view a success message
+ */
 async function goSignUp() {
     document.getElementById('slideMsg').classList.remove('d-none');
     document.getElementById('infoBoxPosition').classList.remove('d-none');

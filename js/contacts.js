@@ -1,10 +1,16 @@
-
-
+/**
+ * This Listener ist used to wait for complete DOM load adn execute the render Function
+ * 
+ */
 document.addEventListener('DOMContentLoaded', function () {
   renderContacts();
 });
 
 
+/**
+ * This function is used to render Complete Contacts in a list and sort bei Alphabet
+ * 
+ */
 async function renderContacts() {
   await getData();
   closeMsgDialog();
@@ -30,22 +36,36 @@ async function renderContacts() {
 }
 
 
+/**
+ * This function is used to close the success message
+ */
 function closeMsgDialog() {
   document.getElementById('slideMsg').classList.add('d-none');
   document.getElementById('infoBoxPosition').classList.add('d-none');
 }
 
 
+/**
+ * Function is used to generate a Line with one Letter as HTML Code
+ * 
+ * @param {String} letter - The current Letter for alphabetical List
+ * @returns {String} - Returns 1 Line with as HTML Code
+ */
 function template_letterFrame(letter) {
   return `
-          <div class="letter-container">
-              <div class="letter">${letter}</div>
-          </div>
-          <div class="grayline"></div>
-          `;
+    <div class="letter-container">
+      <div class="letter">${letter}</div>
+    </div>
+    <div class="grayline"></div>
+  `;
 }
 
 
+/**
+ * This Function is used to collect Informations of the current User
+ * 
+ * @param {Number} i - Index Position of the current Contact
+ */
 function generateDetails(i) {
   document.getElementById('contacts-detail').style.display = 'block';
   changeColorSelectedContact(i);
@@ -59,6 +79,11 @@ function generateDetails(i) {
 }
 
 
+/**
+ * This Function ist used to change the style if a contect is selected or not on a  special screen width
+ * 
+ * @param {Number} i - Index Position of the current Contact
+ */
 function changeColorSelectedContact(i) {
   const screenWidth = window.innerWidth;
   if (currentContact == i) {
@@ -85,6 +110,16 @@ function changeColorSelectedContact(i) {
 }
 
 
+/**
+ * This function is used to generate dynamic HTML code to show Initials and Name of a Contact
+ * 
+ * @param {Number} i - current contact index Position
+ * @param {Sting} name - current contact Name
+ * @param {Sting} mail  - current contact Mail Adress
+ * @param {Sting} initials  - current contact initial
+ * @param {Sting} color  - current contact color
+ * @returns {String} - One Line with Initials and Name as dynamic HTML Code
+ */
 function template_NameFrame(i, name, mail, initials, color) {
   return `
           <div class="content-container d-flex ai-center gap-35" id="${i}" onclick="generateDetails(${i})">
@@ -98,6 +133,17 @@ function template_NameFrame(i, name, mail, initials, color) {
 };
 
 
+/**
+ * This function is used to generate dynamic HTML code to show Details of selectet contact
+ * 
+ * @param {Number} i - current contact index Position
+ * @param {Sting} name - current contact Name
+ * @param {Sting} mail  - current contact Mail Adress
+ * @param {String} phone - current contact phone Number
+ * @param {Sting} initials  - current contact initial
+ * @param {Sting} color  - current contact color
+ * @returns - Details Contact Informations as dynamic HTML Code
+ */
 function template_ContactDetails(i, name, mail, phone, initials, color) {
   return `<div class="d-flex ai-center gap-54 mobile-gap-20">
         <div style="background-color: ${color}" class="initialscircle d-flex center">${initials}</div>

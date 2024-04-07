@@ -6,7 +6,6 @@ let currentTime = new Date().getHours();
 async function init() {
   await loadAllTasks();
   await includeHTML();
-  // await loadData();
   await renderSummaryConten();
 }
 
@@ -122,7 +121,10 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-// Erkennung des angemeldeten Users um mit Namen zu grüßen. Sont Gast.
+/**
+ * This Function is used to greet a guest or a user if it logged in
+ * 
+ */
 function greetUser() {
   let isUserLoggedIn = false;
   let user = getLoggedInUser();

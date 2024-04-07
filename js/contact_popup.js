@@ -1,20 +1,36 @@
+/**
+ * Function to add add User form
+ */
+
 function showUserDialog() {
     document.getElementById('add_user_window').classList.remove('d-none');
 }
 
 
+/**
+ * Function to show the edit form and load the details from this contact
+ * 
+ * @param {Number} i - current Contact index Position
+ */
 function showUpdateUserDialog(i) {
     document.getElementById('options').classList.remove('options-slidein');
     document.getElementById('options').classList.remove('show-on-mobile');
     document.getElementById('update_user_window').classList.remove('d-none');
     document.getElementById('name').value = contacts[i]['name'];
     document.getElementById('mail').value = contacts[i]['email'];
+    document.getElementById('contacticon').innerHTML = contacts[i]['initials'];
+    document.getElementById('contacticon').style.backgroundColor = contacts[i]['usercolor'];
     document.getElementById('phone').value = contacts[i]['telephone'];
     document.getElementById('del-btn').value = i;
     document.getElementById('submit-btn').value = i;
 }
 
 
+/**
+ * Function do delete the selectet User
+ * 
+ * @param {Number} i - current Contact index Position
+ */
 async function deleteUser(i) {
     let nr = parseInt(document.getElementById('del-btn').value);
     if (!i) {
@@ -31,6 +47,10 @@ async function deleteUser(i) {
 }
 
 
+/**
+ * Function to save the edited information on a existing contact
+ * 
+ */
 async function editUser() {
     let editname = document.getElementById('name').value;
     let editemail = document.getElementById('mail').value;
@@ -51,6 +71,10 @@ async function editUser() {
 }
 
 
+/**
+ * Function to clean the input Fields
+ * 
+ */
 function clearForm() {
     document.getElementById('newname').value = '';
     document.getElementById('newmail').value = '';
@@ -58,6 +82,12 @@ function clearForm() {
 }
 
 
+/**
+ * Function to get the Array index position of the last added user
+ * 
+ * @param {String} newname - The Name of the added Contact
+ * @returns {Number} - Returns the Index Positon of the last added User
+ */
 function getNewContactPos(newname) {
     if (usern = contacts.find(c => c.name == newname)) {
         let arrayPos = contacts.indexOf(usern);
@@ -66,6 +96,10 @@ function getNewContactPos(newname) {
 }
 
 
+/**
+ * Function to get inputs from form and save them to the array
+ * 
+ */
 async function addNewUser() {
     let newname = document.getElementById('newname').value;
     let newemail = document.getElementById('newmail').value;
@@ -88,6 +122,10 @@ async function addNewUser() {
 }
 
 
+/**
+ * Function to close the popup Windows for edit and add users
+ * 
+ */
 function closeDialog() {
     document.getElementById('add_user_window').classList.add('d-none');
     document.getElementById('update_user_window').classList.add('d-none');
@@ -99,17 +137,30 @@ function doNotClose(event) {
 }
 
 
+/**
+ * to close Details Contact informations
+ * 
+ */
 function closeDetails() {
     document.getElementById('contacts-detail').style.display = 'none';
 }
 
 
+/**
+ * function to show Contact options on Mobile screens
+ * 
+ */
 function showOptions() {
     document.getElementById('options').classList.add('options-slidein');
     document.getElementById('options').classList.add('show-on-mobile');
 }
 
 
+/**
+ * Function to delete a selectet Contact from Assigned user of a Task
+ * 
+ * @param {String} userNameToDelete - The Name of Contact to be Delete from current Task
+ */
 async function cleanUserFromAvailableTask(userNameToDelete) {
     let taskTemp = AllTask.filter(task => task.Assigned.includes(userNameToDelete));
     for (i = 0; taskTemp.length > i; i++) {

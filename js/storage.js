@@ -30,7 +30,16 @@ const randomColor = [
     "#7FFF00"  // Chartreuse
 ];
 
+let currentContact;
+let loggedinuser = [];
 
+
+
+/**
+ * This function is used to choice a random color out of the randomColor const
+ * 
+ * @returns {string} - output is a random color
+ */
 function getRandomColor() {
     return randomColor[Math.floor(Math.random() * randomColor.length)];
 }
@@ -47,7 +56,10 @@ function generateInitials(name) {
     return initials.toUpperCase();
 }
 
-
+/**
+ * This function is used to include other html files as template
+ * 
+ */
 async function includeHTML() {
     let includeElements = document.querySelectorAll('[w3-include-html]');
     for (let i = 0; i < includeElements.length; i++) {
@@ -63,15 +75,23 @@ async function includeHTML() {
 }
 
 
+/**
+ * This function is used to show the logout option
+ * 
+ */
 function myFunction() {
-    var popup = document.getElementById("myPopup");
+    let popup = document.getElementById("myPopup");
     popup.classList.toggle("show");
 }
 
 
-let currentContact;
-let loggedinuser = [];
-
+/**
+ * This function is used to save information in a remote storage
+ * 
+ * @param {string} key - it is the keyword for saving the array
+ * @param {string} value - is is the array it is to save
+ * @returns {Array} - returns the data from remotestorage 
+ */
 async function setItem(key, value) {
     const payload = { key, value, token: STORAGE_TOKEN };
     return fetch(STORAGE_URL, { method: 'POST', body: JSON.stringify(payload) })
@@ -79,12 +99,23 @@ async function setItem(key, value) {
 }
 
 
+/**
+ * This function is used to load information from remote storage
+ * 
+ * @param {string} key - This is the keyword from which we want to retrieve the information
+ * @returns {Array} - return the data from remote storage
+ */
 async function getItem(key) {
     const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
     return fetch(url).then(res => res.json());
 }
 
 
+/**
+ * This function is used to sort array Contacts like ASC
+ * 
+ * @returns {Array} - sortet Contacts
+ */
 async function getData() {
     contacts = [];
     let all = await getItem('Contacts');
@@ -105,17 +136,31 @@ async function getData() {
 }
 
 
+/**
+ * This function is used to save the contacts on remote Storage
+ * 
+ * @param {Array} contacts ->all Contacts
+ */
 async function saveData(contacts) {
     await setItem('Contacts', contacts);
 }
 
 
+/**
+ * This function is used to save all Tasks on remote Storage
+ * 
+ */
 async function save() {
     let AllTaskAsString = JSON.stringify(AllTask);
     await setItem('AllTask', AllTaskAsString);
 }
 
 
+/**
+ * This function is used to check which user is logged in
+ * 
+ * @returns {(string|Boolean)} - Name of logged in User | false if no user is logged in
+ */
 // den eingeloggten Benutzer aus dem localStorage holen und via Return übergeben
 function getLoggedInUser() {
     let loggedin = JSON.parse(localStorage.getItem('logged'));
@@ -129,11 +174,19 @@ function getLoggedInUser() {
 }
 
 
+/**
+ * This function is used to loggout a user.
+ * 
+ */
 function logout() {
     localStorage.removeItem("logged");
 }
 
 
+/**
+ * This function is used to load all Tasks from remote storage
+ * 
+ */
 async function loadAllTasks() {
     let AllTaskAsString = await getItem('AllTask');
     let respons = AllTaskAsString['data']['value'];
@@ -141,6 +194,12 @@ async function loadAllTasks() {
 }
 
 
+/**
+ * This function is used to find the position in allTask Array 
+ * 
+ * @param {string} element - is the current Task
+ * @returns {Number} - the Position of the current task in all Task Array
+ */
 function getIndexPosition(element) {
     let searchWord = element.title;
     let indexPosition = AllTask.findIndex(task => task.title == searchWord)
@@ -148,6 +207,11 @@ function getIndexPosition(element) {
 }
 
 
+/**
+ * This function is used to show a success message
+ * 
+ * @param {string} message - is the message that should be displayed
+ */
 function showSuccessMsg(message) {
     document.getElementById('slideMsg').classList.remove('d-none');
     document.getElementById('infoBoxPosition').classList.remove('d-none');
