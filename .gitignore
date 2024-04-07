@@ -3,3 +3,6 @@ notes.txt
 .vscode/
 testdatei.html
 contacts_old.js
+out
+package-lock.json
+package.json
